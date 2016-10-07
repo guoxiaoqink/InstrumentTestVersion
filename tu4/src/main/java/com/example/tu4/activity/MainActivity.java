@@ -50,7 +50,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         linearLayoutSubject.setOnClickListener(this);
         linearLayoutPersonMessage.setOnClickListener(this);
         linearLayoutInstrument.setOnClickListener(this);
-        Toast.makeText(MainActivity.this, "为什么只能conmit不能pull", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "测试成功yeah" +
+                "", Toast.LENGTH_SHORT).show();
     }
 
     @Override
