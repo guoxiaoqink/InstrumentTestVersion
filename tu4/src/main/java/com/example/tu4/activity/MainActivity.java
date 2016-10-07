@@ -52,6 +52,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         linearLayoutInstrument.setOnClickListener(this);
         Toast.makeText(MainActivity.this, "测试成功yeah" +
                 "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "测试成功yeah" +
+                "", Toast.LENGTH_SHORT).show();
     }
 
     @Override
