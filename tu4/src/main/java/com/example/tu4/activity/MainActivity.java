@@ -54,7 +54,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 "", Toast.LENGTH_SHORT).show();
         Toast.makeText(MainActivity.this, "ves图标为什" +
                 "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(MainActivity.this, "教程制作" +
+        Toast.makeText(MainActivity.this, "秦添加" +
                 "", Toast.LENGTH_SHORT).show();
     }
 
