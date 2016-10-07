@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.example.tu4.view.CircleImageView
+            android:id="@+id/person_image"
+            android:layout_width="@dimen/dp43"
+            android:layout_height="@dimen/dp43"
+            android:src="@mipmap/headportrait"
+            android:layout_marginRight="@dimen/dp3"
+            app:border_width="@dimen/px1"
+            app:border_color="@color/color_dddddd"
+    />
+</RelativeLayout>

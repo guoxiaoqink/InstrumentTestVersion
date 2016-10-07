@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="all">全部</string>
+    <string name="classify">分类</string>
+    <string name="Refresh">没有更多的数据</string>
+    <string name="registerSuccess">注册成功</string>
+    <string name="telWrong">电话号码不符合规定</string>
+    <string name="passwordWrong">密码输入6-12位</string>
+    <string name="verificationWrong">验证码输入不正确</string>
+    <string name="verificationNull">验证码不能是空的</string>
+    String[] stringArray = {"预约订单", "交易记录", "我的留言", "我的作品", "投诉建议", "联系我们", "帮助中心"};
+
+    <array name="personmessage_listview_textarray">
+        <item>预约订单</item>
+        <item>交易记录</item>
+        <item>我的留言</item>
+        <item>我的作品</item>
+        <item>投诉建议</item>
+        <item>联系我们</item>
+        <item>帮助中心</item>
+    </array>
+    <array name="person_listview_img">
+        <item>R.mipmap.date_person_message</item>
+        <item>R.mipmap.notebook_person_message</item>
+        <item>R.mipmap.remind_person_message</item>
+        <item>R.mipmap.photo_person_message</item>
+        <item>R.mipmap.pen_person_message</item>
+        <item>R.mipmap.message_personmessage</item>
+        <item>R.mipmap.help</item>
+    </array>
+</resources>

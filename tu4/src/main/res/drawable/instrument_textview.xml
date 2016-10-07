@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这个是用于控制按钮组背景的文件 -->
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_selected="true" android:color="@color/color_97c8cd" />
+        <item android:state_focused="true" android:color="@color/color_97c8cd" />
+        <item android:state_pressed="true" android:color="@color/color_97c8cd" />
+        <item android:color="@color/color_666666" />
+    </selector>
+
+

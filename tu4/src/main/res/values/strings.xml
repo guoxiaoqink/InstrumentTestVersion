@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Tu4</string>
+    <string name="subject">课程</string>
+    <string name="wo">我</string>
+    <string name="instrument">乐器</string>
+    <string name="ReservationOrder">预约订单</string>
+    <string name="personCenter">个人中心</string>
+    <string name="subject_listviewItem_text2">难度等级：A</string>
+    <string name="subject_listViewItem_text3">老师：XXX</string>
+    <string name="subject_listviewitem_button">已开通</string>
+    <string name="login">登陆</string>
+    <string name="register">注册</string>
+    <string name="password">密码</string>
+    <string name="验证码">验证码</string>
+    <string name="getyanzhengma">获取验证码</string>
+    <string name="title_activity_inatrument_classify_activity">Inatrument_classify_activity</string>
+    <string name="subjectdetail">课程详情</string>
+    <string name="money">¥</string>
+    <string name="teacher">老师</string>
+    <string name="choosesubject">选课</string>
+    <string name="logististrackinglistviewitem">内容XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="logisticstrack">物流跟踪</string>
+    <string name="order">预约订单</string>
+    <string name="transactionrecord">交易记录</string>
+    <string name="serach">搜索</string>
+    <string name="importdouble">关键词</string>
+    <string name="afternoon2">14 : 00</string>
+    <string name="subjectname">课程XXXXXXXXX（课时3）</string>
+    <string name="address">地址 ： XX区XX大厦XX楼</string>
+
+    <array name="hehe">
+        <item>niu</item>
+        <item>ma</item>
+    </array>
+</resources>

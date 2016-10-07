@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_d1d1d1"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context=".activity.InstrumentClassifyActivity">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/s97c8cd"
+            android:layout_height="@dimen/dp44">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:src="@mipmap/left_arrow_white"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_height="match_parent"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/instrument"
+                android:gravity="center"
+                android:textColor="@color/sffffff"
+                android:textSize="@dimen/px34"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+        <ImageView
+                android:id="@+id/imageview_instrument_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/lookup"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/dp10"
+        />
+    </RelativeLayout>
+
+    <!-- <android.support.v7.widget.RecyclerView
+             android:id="@+id/recycleView_instrument_classify"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/instrument_instrument_recycleviewHeight"
+             android:layout_centerVertical="true"
+             android:background="@color/color_ffffff"
+             android:scrollbars="none"
+     />-->
+    <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout_instrument_classify"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/instrument_instrument_recycleviewHeight"
+            android:layout_centerVertical="true"
+            android:background="@color/color_ffffff"
+            app:tabIndicatorColor="@null"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/color_97c8cd"
+            app:tabTextColor="@color/color_666666"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabPaddingStart="12dp"
+            app:tabMinWidth="50dp"
+            app:tabPaddingEnd="12dp"
+    />
+
+
+    <TextView
+            android:layout_width="match_parent"
+            android:background="@color/color_d1d1d1"
+            android:layout_height="@dimen/px1"/>
+
+    <RelativeLayout
+            android:background="@color/color_ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+                <com.cjj.MaterialRefreshLayout
+                        android:id="@+id/materialrefresh_classfific"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                >
+                <GridView
+                        android:background="@color/color_ffffff"
+                        android:id="@+id/gridview_instrument_classifyActivity"
+                        android:layout_marginTop="@dimen/instrument_instrument_gridviewTotop"
+                        android:layout_marginLeft="@dimen/instrument_instrument_gridviewToleft"
+                        android:layout_marginRight="@dimen/instrument_instrument_gridviewToright"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="2"
+                        android:verticalSpacing="@dimen/instrument_instrument_gridview_verticalSpacing"
+                        android:horizontalSpacing="@dimen/instrument_instrument_griview_horizontal"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                />
+
+                </com.cjj.MaterialRefreshLayout>
+            </RelativeLayout>
+
+
+
+</LinearLayout>

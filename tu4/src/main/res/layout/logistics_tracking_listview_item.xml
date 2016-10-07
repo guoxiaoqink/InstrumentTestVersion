@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="@dimen/dp113">
+        <LinearLayout android:layout_width="@dimen/dp_18"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.example.tu4.view.CircleImageView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/circleimage"
+                        android:layout_width="@dimen/dp_14"
+                        android:layout_height="@dimen/dp_14"
+                        android:src="@mipmap/colorcccccc"
+                        app:border_width="@dimen/px0"
+                        app:border_color="@android:color/transparent"
+                />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/textview_verticalline"
+                        android:layout_width="@dimen/dp1"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_cccccc"
+                />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/textview_content"
+                android:layout_marginLeft="@dimen/dp_33"
+                android:text="@string/logististrackinglistviewitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/color_999999"
+        />
+        <TextView
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_below="@+id/textview_content"
+                android:id="@+id/textview_time"
+                android:textSize="@dimen/sp_12"
+                android:textColor="@color/color_cccccc"
+                android:layout_marginLeft="@dimen/dp_33"
+                android:text="2016.06.12 10:15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+        />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

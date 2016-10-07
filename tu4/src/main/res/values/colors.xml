@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="listiten_textview_color">#666666</color>
+    <color name="listview_diver">#e6e6e6</color>
+    <color name="sffffff">#ffffff</color>
+    <color name="gray">#dddddd</color>
+    <color name="g333">#333333</color>
+    <color name="s999999">#999999</color>
+    <color name="sdddddd">#dddddd</color>
+    <color name="s000000">#000000</color>
+    <color name="s40s000000">#67000000</color>
+    <color name="s40sffffff">#67ffffff</color>
+    <color name="scccccc">#cccccc</color>
+    <color name="s97c8cd">#97c8cd</color>
+
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_d1d1d1">#d1d1d1</color>
+    <color name="color_97c8cd">#97c8cd</color>
+    <color name="color_f0f0f0">#f0f0f0</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_dddddd">#dddddd</color>
+    <color name="color_f49c41">#f49c41</color>
+
+</resources>

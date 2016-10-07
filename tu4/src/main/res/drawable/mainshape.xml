@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这个是用于控制按钮组背景的文件 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- **点击时效果**********背景引用的资源*************************是否获得焦点*********************是否按下******* -->
+    <item android:background="@drawable/shape" android:state_focused="true" android:state_pressed="false"/>
+    <item android:background="@drawable/shape" android:state_focused="true" android:state_pressed="true"/>
+    <item android:background="@drawable/shape" android:state_focused="false" android:state_pressed="true"/>
+
+    <!-- **************没有任何操作时显示的背景************** -->
+    <item android:background="@android:color/transparent"></item>
+</selector>
