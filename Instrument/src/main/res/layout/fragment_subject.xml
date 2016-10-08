@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <RelativeLayout android:layout_width="match_parent"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="@dimen/dp44"
         android:background="@color/s97c8cd">
-        <ImageView android:layout_width="wrap_content"
+
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-                   android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/date_subject" />
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="match_parent"
-                  android:layout_alignParentTop="true"
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/subject"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
+
         <ImageView
-                android:id="@+id/subject_titlt_wait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+            android:id="@+id/subject_titlt_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dp10"
-            android:src="@mipmap/wait_subject"
-        />
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/wait_subject" />
+
         <ImageView
-                android:id="@+id/subject_titlt_find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/subject_titlt_wait"
+            android:id="@+id/subject_titlt_find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/subject_titlt_wait"
             android:layout_marginRight="@dimen/dp15"
             android:layout_toStartOf="@+id/subject_titlt_wait"
             android:src="@mipmap/lookup" />
 
     </RelativeLayout>
+
     <com.example.tu4.view.ImageCyclePlayView
-            android:id="@+id/icpv_subject"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/instrument_instrument_viewpagerHeight">
-    </com.example.tu4.view.ImageCyclePlayView>
+        android:id="@+id/icpv_subject"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/instrument_instrument_viewpagerHeight"></com.example.tu4.view.ImageCyclePlayView>
     <!-- <FrameLayout android:layout_width="match_parent"
                      android:orientation="horizontal"
                      android:layout_height="@dimen/subject_tu"
@@ -104,11 +111,10 @@
      </FrameLayout>-->
 
     <ListView
-            android:id="@+id/listview_subject"
-            android:layout_width="match_parent"
+        android:id="@+id/listview_subject"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/sdddddd"
-        android:dividerHeight="@dimen/px1">
-    </ListView>
+        android:dividerHeight="@dimen/px1"></ListView>
 
 </LinearLayout>

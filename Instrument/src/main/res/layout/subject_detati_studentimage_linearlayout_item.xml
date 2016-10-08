@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <com.example.tu4.view.CircleImageView
-            android:id="@+id/person_image"
-            android:layout_width="@dimen/dp27"
-            android:layout_height="@dimen/dp27"
-            android:layout_marginLeft="@dimen/dp2"
+        android:id="@+id/person_image"
+        android:layout_width="@dimen/dp27"
+        android:layout_height="@dimen/dp27"
+        android:layout_marginLeft="@dimen/dp2"
         android:src="@mipmap/headportrait"
-            app:border_color="@color/color_dddddd"
-        app:border_width="@dimen/px1"
-    />
+        app:border_color="@color/color_dddddd"
+        app:border_width="@dimen/px1" />
 </RelativeLayout>

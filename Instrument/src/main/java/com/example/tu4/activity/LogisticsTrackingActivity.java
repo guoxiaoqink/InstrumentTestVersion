@@ -22,8 +22,10 @@ public class LogisticsTrackingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initListView();
     }
-    public void initListView(){
-        LogisticsTrackingListViewAdapter logisticsTrackingListViewAdapter = new LogisticsTrackingListViewAdapter(getBaseContext());
+
+    public void initListView() {
+        LogisticsTrackingListViewAdapter logisticsTrackingListViewAdapter =
+                new LogisticsTrackingListViewAdapter(getBaseContext());
         listviewLogisticsTracking.setAdapter(logisticsTrackingListViewAdapter);
     }
 }

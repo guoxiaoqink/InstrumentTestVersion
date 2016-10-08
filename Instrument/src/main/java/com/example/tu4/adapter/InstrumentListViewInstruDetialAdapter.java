@@ -24,7 +24,8 @@ import java.util.List;
 /**
  * Created by Adelais on 2016/9/22.
  */
-public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implements AdapterView.OnItemClickListener {
+public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implements
+        AdapterView.OnItemClickListener {
     Dialog dialogImage;
     Context mContext;
     InstrumentClassifyActivityGridviewAdapter mAdapter;
@@ -45,7 +46,8 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
     public void inintDialog() {
         dialogImage = new Dialog(mContext);
         dialogImage.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogImage.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        dialogImage.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         dialogImage.setContentView(R.layout.instrument_listviewinstrudetial_gridviewbigdrable);
     }
 
@@ -69,10 +71,12 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.instrument_instrudetail_listview_item, null);
-            GridView gridView = (GridView) convertView.findViewById(R.id.gridview_listview_instrDetail);
+            GridView gridView = (GridView) convertView.findViewById(
+                    R.id.gridview_listview_instrDetail);
             SimpleAdapter simpleAdapter = new SimpleAdapter(mContext, InstrumenImg,
-                    R.layout.instrument_listviewinstrudetial_gridview_item, new String[]{"image"}, new int[]{
-                    R.id.imageview});
+                    R.layout.instrument_listviewinstrudetial_gridview_item, new String[]{"image"},
+                    new int[]{
+                            R.id.imageview});
             viewHolder = new viewHolder();
             viewHolder.gridView = gridView;
             viewHolder.adapter = simpleAdapter;

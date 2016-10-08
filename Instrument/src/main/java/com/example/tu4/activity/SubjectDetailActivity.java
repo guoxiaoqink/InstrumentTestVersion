@@ -25,7 +25,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_subject_detail);
         mInflater = LayoutInflater.from(this);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
-        mLinearLayoutFeedback = (LinearLayout) findViewById(R.id.linearlayout_studentback_subjectdetail);
+        mLinearLayoutFeedback = (LinearLayout) findViewById(
+                R.id.linearlayout_studentback_subjectdetail);
         initLinearlayoutImage();
         initLinearlayouFeedback();
     }
@@ -40,7 +41,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 R.layout.subject_detati_studentimage_linearlayout_item, mLinearLayout);
     }
 
-    public void addHeadImgToLinearlayout(int studentNumber, int MaxNumber, int itemlayout, LinearLayout linearLayout) {
+    public void addHeadImgToLinearlayout(int studentNumber, int MaxNumber, int itemlayout,
+            LinearLayout linearLayout) {
         if (studentNumber <= MaxNumber) {
             for (int i = 0; i < studentNumber; i++) {
                 View v = mInflater.inflate(itemlayout, null);

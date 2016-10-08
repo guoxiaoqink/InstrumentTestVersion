@@ -87,10 +87,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         for (int i = 0; i < bottomBarImgList.size(); i++) {
             if (i == bottomMenuNumber) {
                 bottomBarImgList.get(i).setImageResource(R.mipmap.bg_mainactivity_bottommenu);
-                bottomBarTextList.get(i).setTextColor(this.getResources().getColor(R.color.s97c8cd));
+                bottomBarTextList.get(i).setTextColor(
+                        this.getResources().getColor(R.color.s97c8cd));
             } else {
-                bottomBarImgList.get(i).setImageResource(R.mipmap.bg_mainactivity_bottommenu_unclick);
-                bottomBarTextList.get(i).setTextColor(this.getResources().getColor(R.color.s999999));
+                bottomBarImgList.get(i).setImageResource(
+                        R.mipmap.bg_mainactivity_bottommenu_unclick);
+                bottomBarTextList.get(i).setTextColor(
+                        this.getResources().getColor(R.color.s999999));
             }
         }
     }
@@ -179,9 +182,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         break;
                 }
             }
+
             @Override
             public void onPageScrolled(int arg0, float arg1, int arg2) {
             }
+
             @Override
             public void onPageScrollStateChanged(int arg0) {
                 // TODO Auto-generated method stub

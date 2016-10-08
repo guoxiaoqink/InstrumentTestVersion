@@ -18,7 +18,8 @@ import java.util.List;
 /**
  * Created by Adelais on 2016/9/22.
  */
-public class InstrumentRecyclerAdapter extends RecyclerView.Adapter<InstrumentRecyclerAdapter.ViewHolder> {
+public class InstrumentRecyclerAdapter extends
+        RecyclerView.Adapter<InstrumentRecyclerAdapter.ViewHolder> {
 
     private LayoutInflater mInflater;
     private List<String> mInstrumentName;
@@ -59,7 +60,8 @@ public class InstrumentRecyclerAdapter extends RecyclerView.Adapter<InstrumentRe
             @Override
             public void onClick(View v) {
                 AplicationStatic.chooseRecycleView = i;
-                v.getContext().startActivity(new Intent(v.getContext(), InstrumentClassifyActivity.class));
+                v.getContext().startActivity(
+                        new Intent(v.getContext(), InstrumentClassifyActivity.class));
 
             }
         });

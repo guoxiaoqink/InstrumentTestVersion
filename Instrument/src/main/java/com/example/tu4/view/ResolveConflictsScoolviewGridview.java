@@ -20,11 +20,13 @@ public class ResolveConflictsScoolviewGridview extends GridView {
         super(context, attrs);
     }
 
-    public ResolveConflictsScoolviewGridview(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ResolveConflictsScoolviewGridview(Context context, AttributeSet attrs,
+            int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public ResolveConflictsScoolviewGridview(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public ResolveConflictsScoolviewGridview(Context context, AttributeSet attrs, int defStyleAttr,
+            int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

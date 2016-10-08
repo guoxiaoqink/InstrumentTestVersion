@@ -61,7 +61,7 @@ public class LogisticsTrackingListViewAdapter extends BaseAdapter {
             viewHolder12.textviewVerticalline.setVisibility(View.VISIBLE);
         }
 
-        if (position == LISTVIEW_COUNT-1){
+        if (position == LISTVIEW_COUNT - 1) {
             viewHolder12.textviewVerticalline.setVisibility(View.INVISIBLE);
         }
         return convertView;

@@ -77,18 +77,21 @@ public class SearchActivity extends AppCompatActivity {
         SubjectListviewAdapter adapter = new SubjectListviewAdapter(getBaseContext());
         listviewSubjectSerach.setAdapter(adapter);
     }
+
     /*
     * 初始化订单信息
     * */
-    public void initListviewOrder(){
+    public void initListviewOrder() {
         SerachOrderListviewAdapter adapter = new SerachOrderListviewAdapter(getBaseContext());
         listviewOrderSerach.setAdapter(adapter);
     }
+
     /*
     *
     * */
     public void initGridview() {
-        InstrumentGridviewAdapter mGridviewAdapter = new InstrumentGridviewAdapter(datalistInstrumentDetail(), this);
+        InstrumentGridviewAdapter mGridviewAdapter = new InstrumentGridviewAdapter(
+                datalistInstrumentDetail(), this);
         gridviewSerach.setAdapter(mGridviewAdapter);
         gridviewSerach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

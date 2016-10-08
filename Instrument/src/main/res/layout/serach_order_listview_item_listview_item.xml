@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-                android:background="@color/sffffff"
+    android:background="@color/sffffff"
     android:descendantFocusability="blocksDescendants">
+
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <TextView
-                android:id="@+id/textview_time_order_listviewitem_item"
-                android:layout_width="wrap_content"
+            android:id="@+id/textview_time_order_listviewitem_item"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+            android:layout_centerVertical="true"
             android:text="@string/afternoon2"
-                android:textColor="@color/color_97c8cd"
+            android:textColor="@color/color_97c8cd"
             android:textSize="@dimen/sp_18" />
+
         <TextView
             android:id="@+id/textview_subject_order_listviewitem_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp15"
-                android:layout_marginTop="@dimen/dp10"
-                android:layout_toRightOf="@+id/textview_time_order_listviewitem_item"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_toRightOf="@+id/textview_time_order_listviewitem_item"
             android:text="@string/subjectname"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp_16" />
+
         <TextView
             android:id="@+id/textview_address_order_listviewitem_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textview_subject_order_listviewitem_item"
-                android:layout_marginLeft="@dimen/dp15"
-                android:layout_marginTop="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginTop="@dimen/dp10"
             android:layout_toRightOf="@+id/textview_time_order_listviewitem_item"
-                android:text="@string/address"
-                android:textColor="@color/color_cccccc"
+            android:text="@string/address"
+            android:textColor="@color/color_cccccc"
             android:textSize="@dimen/sp_13" />
+
         <TextView
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:layout_below="@+id/textview_address_order_listviewitem_item"
-                android:layout_marginLeft="@dimen/dp15"
+            android:layout_marginLeft="@dimen/dp15"
             android:layout_marginTop="@dimen/dp10"
             android:layout_toRightOf="@+id/textview_time_order_listviewitem_item"
             android:background="@color/color_d1d1d1" />

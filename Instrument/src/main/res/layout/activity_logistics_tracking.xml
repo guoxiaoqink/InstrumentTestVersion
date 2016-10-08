@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-        tools:context="com.example.tu4.activity.LogisticsTrackingActivity">
+    tools:context="com.example.tu4.activity.LogisticsTrackingActivity">
+
     <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/dp44"
         android:background="@color/s97c8cd">
+
         <ImageView
-                android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/left_arrow_white" />
+
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/logisticstrack"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
     </RelativeLayout>
+
     <RelativeLayout
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginRight="@dimen/dp20"
 
         android:layout_marginTop="@dimen/dp20">
+
         <ListView
-                android:id="@+id/listview_logistics_tracking"
-                android:layout_width="match_parent"
+            android:id="@+id/listview_logistics_tracking"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                android:divider="@android:color/transparent"
-            android:dividerHeight="@dimen/dp0">
-        </ListView>
+            android:divider="@android:color/transparent"
+            android:dividerHeight="@dimen/dp0"></ListView>
     </RelativeLayout>
 </LinearLayout>

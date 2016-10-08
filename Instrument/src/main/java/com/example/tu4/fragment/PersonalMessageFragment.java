@@ -19,27 +19,29 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PersonalMessageFragment extends Fragment {
- //   ListView listView;
+    //   ListView listView;
     @BindView(R.id.listview)
     ListView listview;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_personmessage, container, false);
         ButterKnife.bind(this, view);
         initListviewPersonalMenu();
         return view;
     }
-    public void initListviewPersonalMenu(){
+
+    public void initListviewPersonalMenu() {
         PersonMessageListViewAdapter adapter = new PersonMessageListViewAdapter(getContext());
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
- //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
-                Intent intentToLogistics = new Intent(getContext(), LogisticsTrackingActivity.class);
+                //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
+                Intent intentToLogistics = new Intent(getContext(),
+                        LogisticsTrackingActivity.class);
                 startActivity(intentToLogistics);
             }
         });

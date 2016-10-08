@@ -36,8 +36,10 @@ public class AplicationStatic {
         List<InstrumentDetails> clist = null;
         if (clist == null) {
             try {
-                clist = new Gson().fromJson(String.valueOf(new JsonReader(new FileReader("simulationJsonData/InstrumentDetails.json"))), new TypeToken<List<InstrumentDetails>>() {
-                }.getType());
+                clist = new Gson().fromJson(String.valueOf(new JsonReader(
+                                new FileReader("simulationJsonData/InstrumentDetails.json"))),
+                        new TypeToken<List<InstrumentDetails>>() {
+                        }.getType());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -51,7 +53,8 @@ public class AplicationStatic {
     public final static List<InstrumentDetails> datalistInstrumentDetail() {
         ArrayList<InstrumentDetails> dataList = new ArrayList<InstrumentDetails>();
         for (int a = 0; a < 10; a++) {
-            InstrumentDetails commod = new InstrumentDetails(R.mipmap.instrument_instrument, "钢琴好便宜", "￥ 15.00", "30.00");
+            InstrumentDetails commod = new InstrumentDetails(R.mipmap.instrument_instrument,
+                    "钢琴好便宜", "￥ 15.00", "30.00");
             dataList.add(commod);
         }
         return dataList;

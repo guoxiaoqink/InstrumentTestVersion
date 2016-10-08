@@ -44,7 +44,8 @@ public class SerachOrderListviewListviewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.serach_order_listview_item_listview_item, null);
+            convertView = mInflater.inflate(R.layout.serach_order_listview_item_listview_item,
+                    null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         }

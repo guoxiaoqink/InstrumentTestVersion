@@ -26,7 +26,8 @@ public class InstrumentClassifyActivityGridviewAdapter extends BaseAdapter {
     private LayoutInflater minflater;
     private List<InstrumentDetails> mdatalistInstrumentDetail;
 
-    public InstrumentClassifyActivityGridviewAdapter(List<InstrumentDetails> list, Context context) {
+    public InstrumentClassifyActivityGridviewAdapter(List<InstrumentDetails> list,
+            Context context) {
         super();
         mdatalistInstrumentDetail = new ArrayList<InstrumentDetails>();
         minflater = LayoutInflater.from(context);
@@ -62,13 +63,18 @@ public class InstrumentClassifyActivityGridviewAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.textviewInstrumentname.setText(mdatalistInstrumentDetail.get(position).getTextTitle());
-        viewHolder.textviewInstrumentMoney.setText(mdatalistInstrumentDetail.get(position).getTextMoney());
-        viewHolder.textviewInstrumentOldmoney.setText(mdatalistInstrumentDetail.get(position).getTextOleMoney());
+        viewHolder.textviewInstrumentname.setText(
+                mdatalistInstrumentDetail.get(position).getTextTitle());
+        viewHolder.textviewInstrumentMoney.setText(
+                mdatalistInstrumentDetail.get(position).getTextMoney());
+        viewHolder.textviewInstrumentOldmoney.setText(
+                mdatalistInstrumentDetail.get(position).getTextOleMoney());
         viewHolder.textviewInstrumentOldmoney.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        viewHolder.imageviewInstrument.setImageResource(mdatalistInstrumentDetail.get(position).getImageId());
+        viewHolder.imageviewInstrument.setImageResource(
+                mdatalistInstrumentDetail.get(position).getImageId());
         return convertView;
     }
+
     static class ViewHolder {
         @BindView(R.id.imageview_instrument)
         ImageView imageviewInstrument;

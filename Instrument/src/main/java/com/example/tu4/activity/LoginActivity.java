@@ -65,14 +65,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         edtVerification.setOnFocusChangeListener(this);
     }
 
-    @OnClick({R.id.btnLogin, R.id.btnRegister, R.id.imgShowPassword, R.id.btnGetVertification, R.id.btnLoginOrRegister})
+    @OnClick({R.id.btnLogin, R.id.btnRegister, R.id.imgShowPassword, R.id.btnGetVertification,
+            R.id.btnLoginOrRegister})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnLogin:
-                switchLoginOrRegister(R.drawable.shape, R.drawable.shape2, View.INVISIBLE, R.string.login, false);
+                switchLoginOrRegister(R.drawable.shape, R.drawable.shape2, View.INVISIBLE,
+                        R.string.login, false);
                 break;
             case R.id.btnRegister:
-                switchLoginOrRegister(R.drawable.shape2, R.drawable.shape, View.VISIBLE, R.string.register, true);
+                switchLoginOrRegister(R.drawable.shape2, R.drawable.shape, View.VISIBLE,
+                        R.string.register, true);
                 break;
             case R.id.imgShowPassword:
                 switchPasswordShowOrHide();
@@ -125,7 +128,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         Boolean judge = true;
         String vertificationLenth = edtVerification.getText().toString();
         if (vertificationLenth.length() == 0) {
-            Toast.makeText(LoginActivity.this, R.string.verificationNull, Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, R.string.verificationNull,
+                    Toast.LENGTH_SHORT).show();
             judge = false;
         }
         return judge;
@@ -141,7 +145,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         judgePasswordShow = !judgePasswordShow;
     }
 
-    public void switchLoginOrRegister(int loginbg, int registerbg, int visible, int text, Boolean bool) {
+    public void switchLoginOrRegister(int loginbg, int registerbg, int visible, int text,
+            Boolean bool) {
         btnLogin.setBackgroundResource(loginbg);
         btnRegister.setBackgroundResource(registerbg);
         RalativelayoutVertifycation.setVisibility(visible);
@@ -153,8 +158,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     public void judgeLoginOrRegister() {
         if (judgeLoginOrRegister) {//代表当前的是注册页面
             if (judgeTelPassword() && judgeVertification()) {
-                Toast.makeText(LoginActivity.this, getResources().getString(R.string.registerSuccess), Toast.LENGTH_SHORT).show();
-                Intent intentToSearchactivity = new Intent(LoginActivity.this,SearchActivity.class);
+                Toast.makeText(LoginActivity.this,
+                        getResources().getString(R.string.registerSuccess),
+                        Toast.LENGTH_SHORT).show();
+                Intent intentToSearchactivity = new Intent(LoginActivity.this,
+                        SearchActivity.class);
                 startActivity(intentToSearchactivity);
             }
         } else {

@@ -32,7 +32,7 @@ public class SubjectFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
@@ -53,6 +53,7 @@ public class SubjectFragment extends Fragment {
             }
         });
     }
+
     public void initImageCyclePlayView() {
         icpvSubject.loadData(cycleImageData(), new ImageCyclePlayView.LoadImageCallBack() {
             @Override

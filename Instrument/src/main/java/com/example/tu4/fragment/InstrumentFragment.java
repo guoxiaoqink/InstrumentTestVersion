@@ -47,7 +47,7 @@ public class InstrumentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_instruments, container, false);
         ButterKnife.bind(this, view);
 
@@ -66,19 +66,21 @@ public class InstrumentFragment extends Fragment {
     * 初始化轮播图
     * */
     public void initImageCyclePlayView() {
-        icpvInstrumentFragment.loadData(cycleImageData(), new ImageCyclePlayView.LoadImageCallBack() {
-            @Override
-            public ImageView loadAndDisplay(ImageCyclePlayView.ImageInfo imageInfo) {
-                //本地图片
-                ImageView imageView = new ImageView(getContext());
-                imageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
-                return imageView;
-            }
-        });
+        icpvInstrumentFragment.loadData(cycleImageData(),
+                new ImageCyclePlayView.LoadImageCallBack() {
+                    @Override
+                    public ImageView loadAndDisplay(ImageCyclePlayView.ImageInfo imageInfo) {
+                        //本地图片
+                        ImageView imageView = new ImageView(getContext());
+                        imageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
+                        return imageView;
+                    }
+                });
     }
 
     private void initlistviewInstumentMoney() {
-        InstrumentListViewInstruDetialAdapter list2 = new InstrumentListViewInstruDetialAdapter(getContext());
+        InstrumentListViewInstruDetialAdapter list2 = new InstrumentListViewInstruDetialAdapter(
+                getContext());
         listviewInstumentMoney.setAdapter(list2);
     }
 
@@ -88,13 +90,15 @@ public class InstrumentFragment extends Fragment {
     }
 
     private void initGridview() {
-        InstrumentGridviewAdapter adapter = new InstrumentGridviewAdapter(datalistInstrumentDetail(), getContext());
+        InstrumentGridviewAdapter adapter = new InstrumentGridviewAdapter(
+                datalistInstrumentDetail(), getContext());
         gridviewInstrumentInstrument.setAdapter(adapter);
         gridviewInstrumentInstrument.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
             }
         });
     }
+
     /*
     * RecyclerView的一系列操作
     * */
@@ -104,7 +108,8 @@ public class InstrumentFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recycleViewInstrumentInstrument.setLayoutManager(linearLayoutManager);
         //设置适配器
-        InstrumentRecyclerAdapter RecyclerAdapter = new InstrumentRecyclerAdapter(getContext(), instrumentClassify());
+        InstrumentRecyclerAdapter RecyclerAdapter = new InstrumentRecyclerAdapter(getContext(),
+                instrumentClassify());
         recycleViewInstrumentInstrument.setAdapter(RecyclerAdapter);
     }
 

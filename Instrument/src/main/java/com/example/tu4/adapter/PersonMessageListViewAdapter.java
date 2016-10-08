@@ -23,7 +23,8 @@ public class PersonMessageListViewAdapter extends BaseAdapter {
 
     public PersonMessageListViewAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
-        stringArray = context.getResources().getStringArray(R.array.personmessage_listview_textarray);
+        stringArray = context.getResources().getStringArray(
+                R.array.personmessage_listview_textarray);
         ImgArray = context.getResources().getIntArray(R.array.person_listview_img);
     }
 

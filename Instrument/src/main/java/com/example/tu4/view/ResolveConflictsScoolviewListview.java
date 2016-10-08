@@ -18,7 +18,8 @@ public class ResolveConflictsScoolviewListview extends ListView {
         super(context, attrs);
     }
 
-    public ResolveConflictsScoolviewListview(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ResolveConflictsScoolviewListview(Context context, AttributeSet attrs,
+            int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
    /* private float mCurX,mCurY,mDownX,mDownY;

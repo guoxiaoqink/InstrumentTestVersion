@@ -51,6 +51,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "测试2", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "测试3", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "华珊测试4", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
         // initRecycle();
         // initRecycle();
@@ -73,7 +74,9 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(InstrumentClassifyActivity.this, getResources().getString(R.string.Refresh), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InstrumentClassifyActivity.this,
+                                getResources().getString(R.string.Refresh),
+                                Toast.LENGTH_SHORT).show();
                         /**
                          * 刷新完成后调用此方法，要不然刷新效果不消失
                          */
@@ -97,7 +100,8 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
                     public void run() {
                         isLoadMore = false;
                        /* for (int a = 0; a < 3; a++) {
-                            InstrumentDetails commod = new InstrumentDetails(R.mipmap.instrument_instrument, "刷新新加的数据", "￥ 15.00", "30.00");
+                            InstrumentDetails commod = new InstrumentDetails(R.mipmap
+                            .instrument_instrument, "刷新新加的数据", "￥ 15.00", "30.00");
                             mInstrumentDetail.add(commod);
                         }*/
                         //通知刷新
@@ -129,7 +133,8 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Toast.makeText(InstrumentClassifyActivity.this, tab.getPosition() + ":" + tab.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(InstrumentClassifyActivity.this,
+                        tab.getPosition() + ":" + tab.getText(), Toast.LENGTH_SHORT).show();
                 changeGridviewDate(tab.getPosition());
             }
 
@@ -143,7 +148,6 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
     /*
@@ -178,7 +182,8 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         for (int i = 0; i < mTablayoutClassify.size(); i++) {
             ArrayList<InstrumentDetails> arrayList = new ArrayList<InstrumentDetails>();
             for (int j = 0; j < new Random().nextInt(10); j++) {
-                InstrumentDetails commod = new InstrumentDetails(R.mipmap.instrument_instrument, "第" + i + "个页面", "", "");
+                InstrumentDetails commod = new InstrumentDetails(R.mipmap.instrument_instrument,
+                        "第" + i + "个页面", "", "");
                 arrayList.add(commod);
             }
             listInstrument.add(arrayList);
