@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/tu4" />
+            <option value="$PROJECT_DIR$/Instrument" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
