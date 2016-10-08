@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+    android:layout_height="match_parent"
+                android:background="@color/sffffff"
+    android:descendantFocusability="blocksDescendants">
+    <LinearLayout
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:orientation="vertical">
+        <TextView
+                android:id="@+id/textview_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="2016-05-06"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp_14" />
+        <TextView
+                android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:background="@color/color_d1d1d1" />
+        <com.example.tu4.view.ResolveConflictsScoolviewListview
+                android:id="@id/listview_subject_serach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp10"
+        >
+        </com.example.tu4.view.ResolveConflictsScoolviewListview>
+    </LinearLayout>
+</RelativeLayout>

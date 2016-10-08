@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/personCenter"
+            android:textColor="#fff"
+            android:textSize="@dimen/px30" />
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+                   android:layout_centerVertical="true"
+            android:paddingRight="@dimen/dp10"
+            android:src="@mipmap/lookup" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp92"
+        android:background="@color/s97c8cd"
+        android:orientation="horizontal">
+        <com.example.tu4.view.CircleImageView
+                android:id="@+id/person_image"
+                android:layout_width="57dp"
+                android:layout_height="57dp"
+                android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp20"
+                android:src="@mipmap/headportrait"
+                app:border_color="@color/sffffff"
+            app:border_width="@dimen/px1"
+        />
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+                      android:layout_toRightOf="@+id/person_image"
+                      android:gravity="center"
+                      android:orientation="vertical"
+            android:paddingLeft="@dimen/dp15"
+            android:paddingTop="@dimen/dp5">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                      android:layout_gravity="left"
+                      android:layout_marginTop="@dimen/dp5"
+                android:text="昵称Cdohng"
+                android:textColor="@color/sffffff"
+                android:textSize="@dimen/px30" />
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                      android:paddingTop="@dimen/dp10"
+                      android:text="手机：18724615164"
+                      android:textColor="@color/sffffff"
+                android:textSize="@dimen/px24" />
+        </LinearLayout>
+        <ImageView
+                android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp20"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:paddingRight="@dimen/dp10"
+            android:src="@mipmap/right_arrow_white" />
+    </RelativeLayout>
+
+    <ListView
+
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/listview_diver"
+        android:dividerHeight="@dimen/px1">
+    </ListView>
+
+</LinearLayout>

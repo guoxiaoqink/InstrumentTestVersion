@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+                   android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/date_subject" />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/subject"
+            android:textColor="@color/sffffff"
+            android:textSize="@dimen/px34" />
+        <ImageView
+                android:id="@+id/subject_titlt_wait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/wait_subject"
+        />
+        <ImageView
+                android:id="@+id/subject_titlt_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/subject_titlt_wait"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_toStartOf="@+id/subject_titlt_wait"
+            android:src="@mipmap/lookup" />
+
+    </RelativeLayout>
+    <com.example.tu4.view.ImageCyclePlayView
+            android:id="@+id/icpv_subject"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/instrument_instrument_viewpagerHeight">
+    </com.example.tu4.view.ImageCyclePlayView>
+    <!-- <FrameLayout android:layout_width="match_parent"
+                     android:orientation="horizontal"
+                     android:layout_height="@dimen/subject_tu"
+                     android:background="#b0c4e6">
+         <android.support.v4.view.ViewPager
+                 android:id="@+id/subject_viewpager"
+                 android:layout_width="match_parent"
+                 android:background="@color/s999999"
+                 android:layout_height="match_parent">
+         </android.support.v4.view.ViewPager>
+         <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:background="@color/s40s000000"
+                 android:layout_height="@dimen/subject_black"
+                 android:layout_gravity="bottom">
+             <TextView android:layout_width="wrap_content"
+                       android:textSize="@dimen/px26"
+                       android:text="课程XXXXXXXX"
+                       android:alpha="1"
+                       android:layout_marginLeft="@dimen/dp10"
+                       android:textColor="@color/sffffff"
+                       android:layout_centerVertical="true"
+                       android:layout_height="wrap_content"/>
+             <LinearLayout android:layout_width="wrap_content"
+                           android:layout_marginBottom="@dimen/dp5"
+                           android:orientation="horizontal"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentBottom="true"
+                           android:layout_centerHorizontal="true">
+                 <ImageView
+                         android:id="@+id/subject_image_center1"
+                         android:layout_width="13dp"
+                         android:src="@mipmap/carouselbottomtextviewwhite"
+                         android:layout_gravity="center"
+                         android:layout_height="@dimen/dp2"/>
+                 <ImageView
+                         android:id="@+id/subject_image_center2"
+                         android:layout_width="13dp"
+                         android:layout_marginLeft="@dimen/dp3"
+                         android:src="@mipmap/carouselbottomtextviewwhite"
+                         android:layout_gravity="center"
+                         android:layout_height="@dimen/dp2"/>
+                 <ImageView
+                         android:id="@+id/subject_image_center3"
+                         android:layout_width="13dp"
+                         android:layout_marginLeft="@dimen/dp3"
+                         android:src="@mipmap/carouselbottomtextviewwhite"
+                         android:layout_gravity="center"
+                         android:layout_height="@dimen/dp2"/>
+                 <ImageView
+                         android:id="@+id/subject_image_center4"
+                         android:layout_width="13dp"
+                         android:layout_marginLeft="@dimen/dp3"
+                         android:src="@mipmap/carouselbottomtextviewwhite"
+                         android:layout_gravity="center"
+                         android:layout_height="@dimen/dp2"/>
+             </LinearLayout>
+
+         </RelativeLayout>
+     </FrameLayout>-->
+
+    <ListView
+            android:id="@+id/listview_subject"
+            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/sdddddd"
+        android:dividerHeight="@dimen/px1">
+    </ListView>
+
+</LinearLayout>
