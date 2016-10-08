@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
-
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.example.tu4.R;
@@ -48,6 +47,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         initTabLayout();
         initMaterialRefreshLayout();
         Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
         // initRecycle();
     }
