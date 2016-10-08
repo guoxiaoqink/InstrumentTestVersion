@@ -48,8 +48,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         initTabLayout();
         initMaterialRefreshLayout();
         Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
         // initRecycle();
         // initRecycle();
