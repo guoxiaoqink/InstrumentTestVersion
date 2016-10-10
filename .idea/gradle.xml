@@ -10,9 +10,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Instrument" />
+            <option value="$PROJECT_DIR$/okhttputils" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Instrument" />
+            <option value="$PROJECT_DIR$/okhttputils" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

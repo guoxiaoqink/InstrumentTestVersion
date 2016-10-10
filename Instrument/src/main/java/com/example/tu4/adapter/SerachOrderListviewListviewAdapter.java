@@ -1,7 +1,5 @@
 package com.example.tu4.adapter;
 
-import static com.example.tu4.temporarydata.AplicationStatic.LISTVIEW_COUNT_THREE;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,8 @@ import com.example.tu4.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.tu4.model.AplicationStatic.LISTVIEW_COUNT_THREE;
 
 /**
  * Created by Adelais on 2016/10/3.

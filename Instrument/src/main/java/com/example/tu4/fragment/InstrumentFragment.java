@@ -1,10 +1,6 @@
 package com.example.tu4.fragment;
 
 
-import static com.example.tu4.temporarydata.AplicationStatic.cycleImageData;
-import static com.example.tu4.temporarydata.AplicationStatic.datalistInstrumentDetail;
-import static com.example.tu4.temporarydata.AplicationStatic.instrumentClassify;
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,6 +23,10 @@ import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.tu4.model.AplicationStatic.cycleImageData;
+import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
+import static com.example.tu4.model.AplicationStatic.instrumentClassify;
 
 public class InstrumentFragment extends Fragment {
 

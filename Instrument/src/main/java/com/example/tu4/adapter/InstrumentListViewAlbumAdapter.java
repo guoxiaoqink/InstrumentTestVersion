@@ -1,7 +1,5 @@
 package com.example.tu4.adapter;
 
-import static com.example.tu4.temporarydata.AplicationStatic.LISTVIEW_COUNT;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.example.tu4.R;
+
+import static com.example.tu4.model.AplicationStatic.LISTVIEW_COUNT;
 
 /**
  * Created by Adelais on 2016/9/22.

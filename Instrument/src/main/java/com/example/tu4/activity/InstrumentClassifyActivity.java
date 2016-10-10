@@ -15,7 +15,7 @@ import com.cjj.MaterialRefreshListener;
 import com.example.tu4.R;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.bean.InstrumentDetails;
-import com.example.tu4.temporarydata.AplicationStatic;
+import com.example.tu4.model.AplicationStatic;
 
 import java.util.ArrayList;
 import java.util.List;

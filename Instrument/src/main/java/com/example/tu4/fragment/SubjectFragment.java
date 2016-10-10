@@ -1,8 +1,6 @@
 package com.example.tu4.fragment;
 
 
-import static com.example.tu4.temporarydata.AplicationStatic.cycleImageData;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,6 +19,8 @@ import com.example.tu4.view.ImageCyclePlayView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.tu4.model.AplicationStatic.cycleImageData;
 
 
 public class SubjectFragment extends Fragment {

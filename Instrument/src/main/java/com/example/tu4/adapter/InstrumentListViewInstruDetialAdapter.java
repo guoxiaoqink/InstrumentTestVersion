@@ -1,7 +1,5 @@
 package com.example.tu4.adapter;
 
-import static com.example.tu4.temporarydata.AplicationStatic.instrumentImg;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,6 +18,8 @@ import com.example.tu4.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static com.example.tu4.model.AplicationStatic.instrumentImg;
 
 /**
  * Created by Adelais on 2016/9/22.

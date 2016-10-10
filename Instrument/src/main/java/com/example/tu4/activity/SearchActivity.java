@@ -1,7 +1,5 @@
 package com.example.tu4.activity;
 
-import static com.example.tu4.temporarydata.AplicationStatic.datalistInstrumentDetail;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +17,8 @@ import com.example.tu4.view.ResolveConflictsScoolviewGridview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
 
 public class SearchActivity extends AppCompatActivity {
 

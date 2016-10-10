@@ -1,7 +1,5 @@
 package com.example.tu4.adapter;
 
-import static com.example.tu4.temporarydata.AplicationStatic.LISTVIEW_COUNT;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +12,8 @@ import com.example.tu4.view.CircleImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.tu4.model.AplicationStatic.LISTVIEW_COUNT;
 
 /**
  * Created by Adelais on 2016/9/27.

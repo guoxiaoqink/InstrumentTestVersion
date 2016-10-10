@@ -1,4 +1,4 @@
-package com.example.tu4.temporarydata;
+package com.example.tu4.model;
 
 import android.util.JsonReader;
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.InstrumentClassifyActivity;
-import com.example.tu4.temporarydata.AplicationStatic;
+import com.example.tu4.model.AplicationStatic;
 
 import java.util.List;
 

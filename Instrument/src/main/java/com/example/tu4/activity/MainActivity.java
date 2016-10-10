@@ -1,10 +1,5 @@
 package com.example.tu4.activity;
 
-import static com.example.tu4.temporarydata.AplicationStatic.ONE;
-import static com.example.tu4.temporarydata.AplicationStatic.THREE;
-import static com.example.tu4.temporarydata.AplicationStatic.TWO;
-import static com.example.tu4.temporarydata.AplicationStatic.ZERO;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -23,6 +18,11 @@ import com.example.tu4.fragment.SubjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.tu4.model.AplicationStatic.ONE;
+import static com.example.tu4.model.AplicationStatic.THREE;
+import static com.example.tu4.model.AplicationStatic.TWO;
+import static com.example.tu4.model.AplicationStatic.ZERO;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     ViewPager viewPager;

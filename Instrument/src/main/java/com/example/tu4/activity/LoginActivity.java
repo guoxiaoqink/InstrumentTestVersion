@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
     /*
     * 判断是登录还是注册，默认的是注册，就是注册时true，登录时false
@@ -63,6 +64,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         edtTel.setOnFocusChangeListener(this);
         edtPassword.setOnFocusChangeListener(this);
         edtVerification.setOnFocusChangeListener(this);
+     /*   String url = "http://112.124.38.1:12345/login";
+        OkHttpUtils
+                .post()//
+                .url(url)//
+               *//* .addParams("username", "hyman")//
+                .addParams("password", "123")/*//*//**//**//*
+                .build()//
+                .execute(new GenericsCallback<testwebmao>(new JsonGenericsSerializator()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+//                        textview.setText("onError:" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(testwebmao response, int id) {
+//                        textview.setText(String.valueOf(response.getStatus_code()));
+                        Toast.makeText(LoginActivity.this, ""+response.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                });*/
     }
 
     @OnClick({R.id.btnLogin, R.id.btnRegister, R.id.imgShowPassword, R.id.btnGetVertification,
