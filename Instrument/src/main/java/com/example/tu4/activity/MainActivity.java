@@ -1,5 +1,10 @@
 package com.example.tu4.activity;
 
+import static com.example.tu4.model.AplicationStatic.ONE;
+import static com.example.tu4.model.AplicationStatic.THREE;
+import static com.example.tu4.model.AplicationStatic.TWO;
+import static com.example.tu4.model.AplicationStatic.ZERO;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,7 +14,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.fragment.InstrumentFragment;
@@ -18,11 +22,6 @@ import com.example.tu4.fragment.SubjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.tu4.model.AplicationStatic.ONE;
-import static com.example.tu4.model.AplicationStatic.THREE;
-import static com.example.tu4.model.AplicationStatic.TWO;
-import static com.example.tu4.model.AplicationStatic.ZERO;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     ViewPager viewPager;
@@ -43,6 +42,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     List<TextView> bottomBarTextList = new ArrayList<TextView>();
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -54,12 +54,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         linearLayoutSubject.setOnClickListener(this);
         linearLayoutPersonMessage.setOnClickListener(this);
         linearLayoutInstrument.setOnClickListener(this);
-        Toast.makeText(MainActivity.this, "测试成功yeah" +
-                "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(MainActivity.this, "ves图标为什" +
-                "", Toast.LENGTH_SHORT).show();
-        Toast.makeText(MainActivity.this, "秦添加" +
-                "", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

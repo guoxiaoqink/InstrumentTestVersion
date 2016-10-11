@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_inatrument_classify);
 
         mGridview = (GridView) findViewById(R.id.gridview_instrument_classifyActivity);
@@ -47,12 +49,6 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         initGridview();
         initTabLayout();
         initMaterialRefreshLayout();
-        Toast.makeText(this, "测试3", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "测试2", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "测试3", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "华珊测试4", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "guoxiaoqin", Toast.LENGTH_SHORT).show();
         // initRecycle();
         // initRecycle();
     }
