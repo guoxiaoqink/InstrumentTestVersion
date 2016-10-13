@@ -44,6 +44,7 @@
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/details_imv"
             android:layout_width="match_parent"
             android:layout_height="211dp"
             android:src="@mipmap/instrument_instrument" />
@@ -72,6 +73,7 @@
                 android:layout_marginBottom="@dimen/dp15"
                 android:layout_marginTop="@dimen/dp8"
                 android:text="等级 ：XXXXXX"
+                android:textColor="@color/color_999999"
                 android:textSize="@dimen/sp12" />
             <!--5000.00-->
             <TextView

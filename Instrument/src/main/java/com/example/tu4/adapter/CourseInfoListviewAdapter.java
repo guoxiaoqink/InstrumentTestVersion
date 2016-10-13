@@ -1,7 +1,5 @@
 package com.example.tu4.adapter;
 
-import static com.example.tu4.model.AplicationStatic.LISTVIEW_COUNT;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,16 +12,16 @@ import com.example.tu4.R;
  * Created by Adelais on 2016/10/3.
  */
 
-public class SubjectListviewAdapter extends BaseAdapter {
+public class CourseInfoListviewAdapter extends BaseAdapter {
     private LayoutInflater mInflater = null;
 
-    public SubjectListviewAdapter(Context context) {
+    public CourseInfoListviewAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return LISTVIEW_COUNT;
+        return 1;
     }
 
     @Override
@@ -39,7 +37,7 @@ public class SubjectListviewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.subject_listview_item, null);
+            convertView = mInflater.inflate(R.layout.course_order_listview_item, null);
         }
 
         return convertView;
