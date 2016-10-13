@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.DateActivity;
 import com.example.tu4.activity.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.view.ImageCyclePlayView;
@@ -29,20 +30,26 @@ public class SubjectFragment extends Fragment {
     ImageCyclePlayView icpvSubject;
     @BindView(R.id.listview_subject)
     ListView listviewSubject;
-    @BindView(R.id.img_subject_date)
-    ImageView imgSubjectDate;
-
+    @BindView(R.id.subject_titlt_wait)
+    ImageView mImageView_date;
     @Override
     public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
 
         initImageCyclePlayView();
         initListviewSubjectDetail();
+        mImageView_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), DateActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
-
     }
 
     public void initListviewSubjectDetail() {
@@ -68,6 +75,7 @@ public class SubjectFragment extends Fragment {
             }
         });
     }
+
 
 }
 

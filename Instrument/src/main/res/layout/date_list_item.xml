@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp55"
+        android:paddingLeft="@dimen/dp16">
+
+        <TextView
+            android:id="@+id/tv_date_li_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="14:00"
+            android:textColor="@color/color_97c8cd"
+            android:textSize="@dimen/sp18" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp16"
+            android:layout_toRightOf="@id/tv_date_li_time">
+
+            <TextView
+                android:id="@+id/tv_date_li_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课程XXXX（3课时）"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp16" />
+
+            <TextView
+                android:id="@+id/tv_date_li_dress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_date_li_course"
+                android:text="地址XXXXXXXX"
+                android:textColor="@color/color_cccccc"
+                android:textSize="@dimen/sp13" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
