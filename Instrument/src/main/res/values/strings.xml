@@ -27,6 +27,17 @@
     <string name="afternoon2">14 : 00</string>
     <string name="subjectname">课程XXXXXXXXX（课时3）</string>
     <string name="address">地址 ： XX区XX大厦XX楼</string>
+    <string name="course_order">课程订购</string>
+    <string name="account">账户</string>
+    <string name="account_hint">学员XXX</string>
+    <string name="course_info">课程信息</string>
+    <string name="returnback">return</string>
+    <string name="true_name">真实姓名</string>
+    <string name="name_user">姓名</string>
+    <string name="must_input_sign">*</string>
+    <string name="recever_phone_number">手机号码</string>
+    <string name="course_order_money">金额</string>
+    <string name="ensure_pay">确认订购</string>
 
     <array name="hehe">
         <item>niu</item>

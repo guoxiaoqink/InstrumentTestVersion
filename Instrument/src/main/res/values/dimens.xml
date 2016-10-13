@@ -1171,4 +1171,7 @@
     <dimen name="sp_34">34sp</dimen>
 
     <dimen name="sp_35">35sp</dimen>
+    <dimen name="dp11">11dp</dimen>
+    <dimen name="dp37">37dp</dimen>
+    <dimen name="dp230">230dp</dimen>
 </resources>

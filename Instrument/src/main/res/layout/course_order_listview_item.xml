@@ -78,20 +78,24 @@
                 android:textColor="@color/s999999"
                 android:textSize="@dimen/px26" />
 
-            <Button
-                android:id="@+id/subject_listviewitem_button"
-                android:layout_width="@dimen/dp56"
-                android:layout_height="@dimen/dp23"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="80dp"
+                android:text="@string/money"
+                android:textColor="@color/color_f49c41" />
 
-                android:layout_alignParentRight="true"
-                android:layout_gravity="right"
-                android:layout_marginRight="@dimen/dp20"
-                android:background="@drawable/subject_listviewitem_button"
-                android:gravity="center"
-                android:text="@string/subject_listviewitem_button"
-                android:textColor="@color/s999999"
-                android:textSize="@dimen/px24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp11"
+                android:text="5000.00"
+                android:textColor="@color/color_f49c41"
+                android:textSize="@dimen/sp19" />
 
         </RelativeLayout>
     </RelativeLayout>
