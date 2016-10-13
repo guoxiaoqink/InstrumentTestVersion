@@ -29,10 +29,12 @@ public class SubjectFragment extends Fragment {
     ImageCyclePlayView icpvSubject;
     @BindView(R.id.listview_subject)
     ListView listviewSubject;
+    @BindView(R.id.img_subject_date)
+    ImageView imgSubjectDate;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
@@ -40,6 +42,7 @@ public class SubjectFragment extends Fragment {
         initImageCyclePlayView();
         initListviewSubjectDetail();
         return view;
+
     }
 
     public void initListviewSubjectDetail() {

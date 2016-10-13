@@ -10,6 +10,7 @@
         android:background="@color/s97c8cd">
 
         <ImageView
+            android:id="@+id/img_subject_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp10"
