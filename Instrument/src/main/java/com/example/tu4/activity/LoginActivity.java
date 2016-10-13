@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                 switchPasswordShowOrHide();
                 break;
             case R.id.btnGetVertification:
+                // Toast.makeText(LoginActivity.this, "获取验证码", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnLoginOrRegister:
                 judgeLoginOrRegister();
@@ -167,7 +168,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     }
 
     public void switchLoginOrRegister(int loginbg, int registerbg, int visible, int text,
-            Boolean bool) {
+                                      Boolean bool) {
         btnLogin.setBackgroundResource(loginbg);
         btnRegister.setBackgroundResource(registerbg);
         RalativelayoutVertifycation.setVisibility(visible);
