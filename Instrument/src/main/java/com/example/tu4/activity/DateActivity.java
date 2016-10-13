@@ -1,5 +1,6 @@
 package com.example.tu4.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -18,7 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class DateActivity extends AppCompatActivity {
+    @BindView(R.id.imgbtn_date_left)
+    ImageView imgbtnDateLeft;
     private ImageView iv_left;
     private ImageView iv_right;
     private TextView tv_date;
@@ -39,6 +46,7 @@ public class DateActivity extends AppCompatActivity {
         list.add(15);
         list.add(16);
         setContentView(R.layout.activity_date);
+        ButterKnife.bind(this);
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         monthDateView = (MonthDateView) findViewById(R.id.monthDateView);
@@ -104,4 +112,10 @@ public class DateActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
+    @OnClick(R.id.imgbtn_date_left)
+    public void onClick() {
+        Intent intent = new Intent();
+        intent.setClass(DateActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

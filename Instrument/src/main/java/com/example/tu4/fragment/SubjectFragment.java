@@ -20,6 +20,7 @@ import com.example.tu4.view.ImageCyclePlayView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.cycleImageData;
 
@@ -32,23 +33,18 @@ public class SubjectFragment extends Fragment {
     ListView listviewSubject;
     @BindView(R.id.subject_titlt_wait)
     ImageView mImageView_date;
+    @BindView(R.id.img_subject_date)
+    ImageView imgSubjectDate;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
-            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
 
         initImageCyclePlayView();
         initListviewSubjectDetail();
-        mImageView_date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), DateActivity.class);
-                startActivity(intent);
-            }
-        });
         return view;
     }
 
@@ -77,5 +73,11 @@ public class SubjectFragment extends Fragment {
     }
 
 
+    @OnClick(R.id.img_subject_date)
+    public void onClick() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), DateActivity.class);
+        startActivity(intent);
+    }
 }
 

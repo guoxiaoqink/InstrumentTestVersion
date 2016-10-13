@@ -24,7 +24,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="课程日历"
+            android:text="@string/subjectdate"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
 
@@ -60,11 +60,11 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="#ffffff"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:background="@color/color_ffffff"
                 android:gravity="center_vertical"
-                android:paddingTop="3dp">
+                android:paddingTop="@dimen/dp3">
 
                 <ImageView
                     android:id="@+id/iv_left"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:background="@mipmap/left_arrow_blue"
+                    android:background="@mipmap/left_arrow_blue2px"
                     android:contentDescription="@null" />
 
                 <ImageView
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:background="@mipmap/right_arrow_gray"
+                    android:background="@mipmap/right_arrow_2px"
                     android:contentDescription="@null" />
 
                 <LinearLayout
@@ -99,8 +99,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:textColor="#999"
-                        android:textSize="15sp">
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/sp15">
 
                     </TextView>
 
@@ -111,19 +111,19 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_marginRight="@dimen/dp15"
                 android:background="#ffffff"
                 android:orientation="vertical">
 
                 <com.example.tu4.view.WeekDayView
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="@dimen/dp30" />
 
                 <com.example.tu4.view.MonthDateView
                     android:id="@+id/monthDateView"
                     android:layout_width="fill_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="@dimen/dp_200" />
             </LinearLayout>
 
             <View
@@ -137,7 +137,7 @@
             <ListView
                 android:id="@+id/lv_date"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/dp_300"
                 android:divider="@color/color_d1d1d1"
                 android:dividerHeight="@dimen/px1"></ListView>
 
