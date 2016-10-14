@@ -9,6 +9,7 @@ import android.widget.RadioButton;
 import com.example.tu4.R;
 
 /**
+ * Create by MR.WEN
  * 订单支付界面
  */
 public class OrderPaymentActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_payment);
         payment_zfb = (RadioButton) findViewById(R.id.zfb_radiobutton);
         payment_wx = (RadioButton) findViewById(R.id.wx_radiobutton);
+        //支付宝
         payment_zfb.setOnClickListener(new View.OnClickListener() {//radiobutton添加点击事件为了互斥
             @Override
             public void onClick(View v) {
@@ -28,6 +30,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
                 payment_wx.setChecked(false);
             }
         });
+        //微信
         payment_wx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
