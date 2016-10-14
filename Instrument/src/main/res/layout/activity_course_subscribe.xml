@@ -21,12 +21,14 @@
         android:background="#97C8CD">
         <!--返回按钮-->
         <ImageButton
+            android:id="@+id/course_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp11"
             android:background="#97C8CD"
             android:contentDescription="@string/returnback"
+            android:onClick="course_order_return"
             android:src="@mipmap/left_arrow_white" />
         <!--标题-->
         <TextView
@@ -220,6 +222,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/dp11"
                 android:background="@drawable/ensure_pay_button_shape"
+                android:onClick="ensure_order"
                 android:text="@string/ensure_pay"
                 android:textSize="@dimen/sp17" />
         </RelativeLayout>

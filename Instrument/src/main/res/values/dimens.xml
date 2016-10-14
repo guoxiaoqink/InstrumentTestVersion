@@ -1177,4 +1177,7 @@
     <dimen name="dp11">11dp</dimen>
     <dimen name="dp37">37dp</dimen>
     <dimen name="dp230">230dp</dimen>
+    <dimen name="dp13">13dp</dimen>
+    <dimen name="dp26">26dp</dimen>
+    <dimen name="dp41">41dp</dimen>
 </resources>
