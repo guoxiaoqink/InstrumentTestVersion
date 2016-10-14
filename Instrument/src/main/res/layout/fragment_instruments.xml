@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:gravity="center"
                 android:text="@string/instrument"
                 android:textColor="@color/sffffff"
-                android:textSize="@dimen/px34" />
+                android:textSize="@dimen/px34"/>
 
             <ImageView
                 android:id="@+id/imageview_instrument_show"
@@ -31,7 +31,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dp10"
-                android:src="@mipmap/lookup" />
+                android:src="@mipmap/lookup"/>
 
         </RelativeLayout>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:layout_marginTop="@dimen/instrument_instrument_recyclejutoTop"
-            android:background="@color/color_d1d1d1" />
+            android:background="@color/color_d1d1d1"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycleView_instrument_instrument"
@@ -99,13 +99,13 @@
             android:layout_height="@dimen/instrument_instrument_recycleviewHeight"
             android:layout_centerVertical="true"
             android:background="@color/color_ffffff"
-            android:scrollbars="none" />
+            android:scrollbars="none"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:layout_marginTop="@dimen/instrument_instrument_recyclejutoTop"
-            android:background="@color/color_d1d1d1" />
+            android:background="@color/color_d1d1d1"/>
 
         <com.example.tu4.view.ResolveConflictsScoolviewListview
             android:id="@+id/listview_instument_Album"
@@ -130,14 +130,15 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:layout_marginTop="@dimen/instrument_instrument_recyclejutoTop"
-            android:background="@color/color_d1d1d1" />
+            android:background="@color/color_d1d1d1"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_ffffff">
 
-            <com.example.tu4.view.ResolveConflictsScoolviewGridview xmlns:android="http://schemas.android.com/apk/res/android"
+            <com.example.tu4.view.ResolveConflictsScoolviewGridview
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/gridview_instrument_instrument"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -148,7 +149,7 @@
                 android:horizontalSpacing="@dimen/instrument_instrument_griview_horizontal"
                 android:numColumns="2"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="@dimen/instrument_instrument_gridview_verticalSpacing" />
+                android:verticalSpacing="@dimen/instrument_instrument_gridview_verticalSpacing"/>
         </RelativeLayout>
 
 
