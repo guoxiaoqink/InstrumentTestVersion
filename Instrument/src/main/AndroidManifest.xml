@@ -61,6 +61,11 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".activity.HelpCenterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
