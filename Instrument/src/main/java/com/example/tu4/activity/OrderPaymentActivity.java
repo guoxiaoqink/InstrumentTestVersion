@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.RadioButton;
 
 import com.example.tu4.R;
@@ -19,6 +20,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_order_payment);
         payment_zfb = (RadioButton) findViewById(R.id.zfb_radiobutton);
         payment_wx = (RadioButton) findViewById(R.id.wx_radiobutton);

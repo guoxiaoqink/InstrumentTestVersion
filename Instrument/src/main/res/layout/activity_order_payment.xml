@@ -245,6 +245,7 @@
         android:layout_alignStart="@+id/payment_style"
         android:layout_below="@+id/payment_style"
         android:layout_marginEnd="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp13"
         android:background="@drawable/payment_style_li_shape">
 
         <ImageView

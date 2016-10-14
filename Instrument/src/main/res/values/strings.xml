@@ -47,6 +47,10 @@
     <string name="zhifubao_style">支付宝支付</string>
     <string name="weixin_style">微信钱包支付</string>
     <string name="goto_pay">去支付</string>
+    <string name="paysuccess">支付成功</string>
+    <string name="pay_attention">请关注上课时间按时上课</string>
+    <string name="show_course_details">查看课程详情</string>
+    <string name="return_course">返回课程中心</string>
 
     <array name="hehe">
         <item>niu</item>

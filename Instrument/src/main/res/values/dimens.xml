@@ -1180,4 +1180,7 @@
     <dimen name="dp13">13dp</dimen>
     <dimen name="dp26">26dp</dimen>
     <dimen name="dp41">41dp</dimen>
+    <dimen name="dp71">71dp</dimen>
+    <dimen name="dp78">78dp</dimen>
+    <dimen name="dp121">121dp</dimen>
 </resources>

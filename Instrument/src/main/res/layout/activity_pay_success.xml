@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pay_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context="com.example.tu4.activity.PaySuccessActivity">
+    <!--设置状态栏颜色-->
+    <TextView
+        android:id="@+id/top_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp20"
+        android:background="#97C8CD" />
+    <!--设置标题-->
+    <RelativeLayout
+        android:id="@+id/course_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp30"
+        android:layout_below="@id/top_tv"
+        android:background="#97C8CD">
+        <!--返回按钮-->
+        <ImageButton
+            android:id="@+id/course_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp11"
+            android:background="#97C8CD"
+            android:contentDescription="@string/returnback"
+            android:onClick="order_return"
+            android:src="@mipmap/left_arrow_white" />
+        <!--标题-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/paysuccess"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/pay_success_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/course_order_title"
+        android:layout_marginTop="@dimen/dp71"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/pay_success" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp11"
+            android:text="@string/paysuccess"
+            android:textColor="@color/ff8000"
+            android:textSize="@dimen/sp_29"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pay_attention"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_success_li"
+        android:layout_marginTop="@dimen/dp_19"
+        android:gravity="center"
+        android:text="@string/pay_attention"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/sp_13" />
+    <!--按钮布局-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_attention"
+        android:layout_marginTop="@dimen/dp78">
+        <!--查看课程详情-->
+        <Button
+            android:layout_width="@dimen/dp121"
+            android:layout_height="@dimen/dp37"
+            android:layout_marginStart="@dimen/dp40"
+            android:background="@drawable/payment_success_button_shape"
+            android:text="@string/show_course_details"
+            android:textColor="@color/color_97c8cd"
+            android:textSize="@dimen/sp16" />
+        <!--返回课程中心-->
+        <Button
+            android:layout_width="@dimen/dp121"
+            android:layout_height="@dimen/dp37"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp41"
+            android:layout_marginStart="@dimen/dp40"
+            android:background="@drawable/payment_success_button_shape"
+            android:text="@string/return_course"
+            android:textColor="@color/color_97c8cd"
+            android:textSize="@dimen/sp16" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

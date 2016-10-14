@@ -46,9 +46,13 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
-
         <activity
-            android:name=".activity.DateActivity"
+            android:name=".activity.OrderPaymentActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".activity.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
