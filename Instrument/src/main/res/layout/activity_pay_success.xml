@@ -28,7 +28,7 @@
             android:layout_marginStart="@dimen/dp11"
             android:background="#97C8CD"
             android:contentDescription="@string/returnback"
-            android:onClick="order_return"
+            android:onClick="success_return"
             android:src="@mipmap/left_arrow_white" />
         <!--标题-->
         <TextView
@@ -89,6 +89,7 @@
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp40"
             android:background="@drawable/payment_success_button_shape"
+            android:onClick="show_course_details"
             android:text="@string/show_course_details"
             android:textColor="@color/color_97c8cd"
             android:textSize="@dimen/sp16" />
@@ -100,6 +101,7 @@
             android:layout_marginEnd="@dimen/dp41"
             android:layout_marginStart="@dimen/dp40"
             android:background="@drawable/payment_success_button_shape"
+            android:onClick="return_course"
             android:text="@string/return_course"
             android:textColor="@color/color_97c8cd"
             android:textSize="@dimen/sp16" />

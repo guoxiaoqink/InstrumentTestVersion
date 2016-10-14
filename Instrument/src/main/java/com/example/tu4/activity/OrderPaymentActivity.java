@@ -52,7 +52,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
     //去支付文字点击事件
     public void gotopay(View v) {
         Intent intent = new Intent();
-        intent.setClass(OrderPaymentActivity.this, CourseSubscribeActivity.class);
+        intent.setClass(OrderPaymentActivity.this, PaySuccessActivity.class);
         startActivity(intent);
     }
 }
