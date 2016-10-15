@@ -52,6 +52,7 @@
     <string name="show_course_details">查看课程详情</string>
     <string name="return_course">返回课程中心</string>
     <string name="help_center">帮助中心</string>
+    <string name="student_feedback">学员反馈</string>
 
     <array name="hehe">
         <item>niu</item>

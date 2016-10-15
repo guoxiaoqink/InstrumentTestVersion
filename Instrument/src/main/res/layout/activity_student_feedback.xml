@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_student_feedback"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
+    tools:context="com.example.tu4.activity.Student_feedbackActivity">
+    <!--设置状态栏颜色-->
+    <TextView
+        android:id="@+id/top_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp20"
+        android:background="#97C8CD" />
+    <!--设置标题-->
+    <RelativeLayout
+        android:id="@+id/course_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp30"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/top_tv"
+        android:background="#97C8CD">
+        <!--返回按钮-->
+        <ImageButton
+            android:id="@+id/course_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp11"
+            android:background="#97C8CD"
+            android:contentDescription="@string/returnback"
+            android:onClick="success_return"
+            android:src="@mipmap/left_arrow_white" />
+        <!--标题-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/student_feedback"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp37"
+        android:layout_below="@id/course_order_title"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp11"
+            android:background="@android:color/white"
+            android:src="@mipmap/ic_feedback_left" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp20"
+            android:gravity="center_horizontal"
+            android:text="课时x"
+            android:textSize="@dimen/sp18" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp11"
+            android:layout_marginStart="@dimen/dp11"
+            android:background="@android:color/white"
+            android:src="@mipmap/ic_feedback_right" />
+
+    </RelativeLayout>
+</RelativeLayout>
