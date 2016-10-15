@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_complaints_suggestions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical"
+    tools:context="com.example.tu4.activity.ComplaintsSuggestionsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/color_97c8cd">
+
+        <ImageView
+            android:id="@+id/img_my_works_return"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/left_arrow_white"
+            />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/complaints_titl"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_17"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:layout_margin="@dimen/dp_10"
+        android:background="@drawable/stroke_line">
+
+        <TextView
+            android:id="@+id/tv_complaint_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp_13"/>
+
+        <ImageButton
+            android:id="@+id/imgbt_complaint_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/color_ffffff"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/ed_complaint_context"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:background="@drawable/stroke_line"
+        android:gravity="left|top"
+        android:hint="@string/input_contest"
+        android:padding="@dimen/dp_10"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/sp_13"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="@string/complaint_phone"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_13"/>
+
+        <TextView
+            android:id="@+id/tv_complaint_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text=""
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp_13"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/bt_complaint_push"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_34"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp_50"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:layout_marginRight="@dimen/dp_21"
+            android:background="@drawable/stroke_line_blue"
+            android:text="@string/somplaint_push"
+            android:textColor="@color/color_97c8cd"
+            android:textSize="@dimen/sp_14"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

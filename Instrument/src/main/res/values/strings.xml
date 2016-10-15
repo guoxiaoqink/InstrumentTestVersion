@@ -53,6 +53,15 @@
     <string name="return_course">返回课程中心</string>
     <string name="help_center">帮助中心</string>
     <string name="student_feedback">学员反馈</string>
+    <string name="complaints_titl">投诉建议</string>
+    <string name="select_suggestion_type">请选择意见类型</string>
+    <string name="input_contest">输入内容</string>
+    <string name="complaint_phone">投诉电话</string>
+    <string name="complaint_phone_numble">40000000</string>
+    <string name="somplaint_push">提交</string>
+    <string name="other">其他</string>
+    <string name="complaint">投诉</string>
+    <string name="operate_suggest">操作建议</string>
 
     <array name="hehe">
         <item>niu</item>
