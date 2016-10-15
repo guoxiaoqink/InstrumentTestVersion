@@ -20,6 +20,7 @@
             android:layout_marginLeft="@dimen/dp10"
             android:src="@mipmap/left_arrow_white" />
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_34"
