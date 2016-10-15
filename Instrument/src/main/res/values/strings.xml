@@ -63,6 +63,10 @@
     <string name="complaint">投诉</string>
     <string name="operate_suggest">操作建议</string>
     <string name="system_information">系统消息</string>
+    <string name="recorder">录制</string>
+    <string name="delete_1">删除</string>
+    <string name="delete_2">删   除</string>
+    <string name="my_works">我的作品</string>
 
     <array name="hehe">
         <item>niu</item>
