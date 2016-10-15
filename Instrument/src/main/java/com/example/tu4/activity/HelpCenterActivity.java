@@ -17,12 +17,10 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     @BindView(R.id.img_my_works_return)
     ImageView imgMyWorksReturn;
-    private String[] title = {"标题", "标题", "标题",};
-    private String[] text = {"内容1", "内容2", "内容3",};
-
-
     @BindView(R.id.lv_help_center)
     ListView lvHelpCenter;
+    private String[] title = {"标题", "标题", "标题",};
+    private String[] text = {"内容1", "内容2", "内容3",};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

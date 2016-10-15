@@ -67,7 +67,7 @@ public class MonthDateView extends View {
 
         int nweekNumber = DateUtils.getFirstDayWeek(mSelYear, mSelMonth + 1);
 
-        Log.d("DateView", "DateView:" + mSelMonth + "月1号周" + weekNumber);
+        //  Log.d("DateView", "DateView:" + mSelMonth + "月1号周" + weekNumber);
 
         for (int day = 0; day < weekNumber; day++) {
 
@@ -86,8 +86,12 @@ public class MonthDateView extends View {
                 float startRecY = mRowSize * row;
                 float endRecX = startRecX + mColumnSize;
                 float endRecY = startRecY + mRowSize;
+                float x = endRecX - startRecX;
+                float y = endRecY - startRecY;
+                float xy = (x - y) / 2;
+                Log.d("DateView", "DateView:" + mSelMonth + "月1号周" + xy);
                 mPaint.setColor(mSelectBGColor);
-                canvas.drawRect(startRecX + 35, startRecY, endRecX - 30, endRecY, mPaint);
+                canvas.drawRect(startRecX + xy, startRecY, endRecX - xy, endRecY, mPaint);
                 //记录第几行，即第几周
                 weekRow = row + 1;
             }
@@ -102,7 +106,10 @@ public class MonthDateView extends View {
                 float startRecY = mRowSize * row;
                 float endRecX = startRecX + mColumnSize;
                 float endRecY = startRecY + mRowSize;
-                canvas.drawRect(startRecX + 35, startRecY, endRecX - 30, endRecY, mPaint);
+                float x = endRecX - startRecX;
+                float y = endRecY - startRecY;
+                float xy = (x - y) / 2;
+                canvas.drawRect(startRecX + xy, startRecY, endRecX - xy, endRecY, mPaint);
             } else {
                 mPaint.setColor(mDayColor);
             }
