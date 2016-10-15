@@ -62,6 +62,7 @@
     <string name="other">其他</string>
     <string name="complaint">投诉</string>
     <string name="operate_suggest">操作建议</string>
+    <string name="system_information">系统消息</string>
 
     <array name="hehe">
         <item>niu</item>
