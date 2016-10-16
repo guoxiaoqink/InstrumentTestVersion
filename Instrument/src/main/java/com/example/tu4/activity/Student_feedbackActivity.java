@@ -48,6 +48,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
             FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
             stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
             Toast.makeText(this, "为什么无法上传啊", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "为什么无法上传啊", Toast.LENGTH_SHORT).show();
         }
 
     }
