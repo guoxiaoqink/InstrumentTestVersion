@@ -43,12 +43,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/course_time"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp37"
         android:layout_below="@id/course_order_title"
         android:background="@android:color/white">
 
         <ImageButton
+            android:id="@+id/pre_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -57,17 +59,17 @@
             android:src="@mipmap/ic_feedback_left" />
 
         <TextView
+            android:id="@+id/course_time_x"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/dp20"
             android:layout_marginStart="@dimen/dp20"
             android:gravity="center_horizontal"
-            android:text="课时x"
             android:textSize="@dimen/sp18" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/next_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -76,6 +78,17 @@
             android:layout_marginStart="@dimen/dp11"
             android:background="@android:color/white"
             android:src="@mipmap/ic_feedback_right" />
-
     </RelativeLayout>
+
+    <ListView
+        android:id="@+id/stu_feedback_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/course_time"
+        android:layout_marginTop="@dimen/dp5"
+        android:background="@android:color/white"
+        android:divider="@color/color_f0f0f0"
+        android:dividerHeight="@dimen/dp5">
+
+    </ListView>
 </RelativeLayout>

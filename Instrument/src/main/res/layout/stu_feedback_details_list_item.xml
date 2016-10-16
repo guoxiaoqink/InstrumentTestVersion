@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/details_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <com.example.tu4.view.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="@dimen/dp_28"
+            android:layout_height="@dimen/dp_28"
+            android:layout_marginBottom="@dimen/dp11"
+            android:layout_marginStart="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp50"
+            android:text="学员XXXX"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/dp11"
+            android:text="6分钟前"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp12" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/stu_feedback_details_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details_top"
+        android:layout_marginEnd="@dimen/dp11"
+        android:layout_marginStart="@dimen/dp11"
+        android:hint="内容XXXXX"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/sp14" />
+
+    <VideoView
+        android:id="@+id/feedback_video"
+        android:layout_width="@dimen/dp121"
+        android:layout_height="@dimen/dp_101"
+        android:layout_below="@id/stu_feedback_details_content"
+        android:layout_marginBottom="@dimen/dp11"
+        android:layout_marginStart="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp11"
+        android:background="@mipmap/videoviewbg" />
+
+</RelativeLayout>

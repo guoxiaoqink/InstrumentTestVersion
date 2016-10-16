@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import com.example.tu4.R;
 
 /**
- * Created by Adelais on 2016/10/3.
+ * Created by WQJ on 2016/10/12.
  */
 
 public class CourseInfoListviewAdapter extends BaseAdapter {
