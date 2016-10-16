@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.FeedbackListviewAdapter;
@@ -46,6 +47,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
             preCourse.setClickable(false);
             FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
             stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
+            Toast.makeText(this, "为什么无法上传啊", Toast.LENGTH_SHORT).show();
         }
 
     }
