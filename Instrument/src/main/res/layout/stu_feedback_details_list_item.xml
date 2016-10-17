@@ -57,6 +57,6 @@
         android:layout_marginBottom="@dimen/dp11"
         android:layout_marginStart="@dimen/dp11"
         android:layout_marginTop="@dimen/dp11"
-        android:background="@mipmap/videoviewbg" />
+        android:background="@mipmap/video_view_bg" />
 
 </RelativeLayout>
