@@ -30,6 +30,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rela_person_data"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp92"
         android:background="@color/s97c8cd"

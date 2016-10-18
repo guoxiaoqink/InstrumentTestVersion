@@ -10,22 +10,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.LogisticsTrackingActivity;
+import com.example.tu4.activity.PersonalDataActivity;
 import com.example.tu4.adapter.PersonMessageListViewAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PersonalMessageFragment extends Fragment {
     //   ListView listView;
     @BindView(R.id.listview)
     ListView listview;
+    @BindView(R.id.rela_person_data)
+    RelativeLayout relaPersonData;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_personmessage, container, false);
         ButterKnife.bind(this, view);
         initListviewPersonalMenu();
@@ -48,4 +53,9 @@ public class PersonalMessageFragment extends Fragment {
 
     }
 
+    @OnClick(R.id.rela_person_data)
+    public void onClick() {
+        Intent intentToPersonData = new Intent(getActivity(), PersonalDataActivity.class);
+        startActivity(intentToPersonData);
+    }
 }

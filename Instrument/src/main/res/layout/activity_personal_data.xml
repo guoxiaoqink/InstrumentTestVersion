@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_personal_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tu4.activity.PersonalDataActivity">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/left_arrow_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/personData"
+            android:textColor="@color/sffffff"
+            android:textSize="@dimen/px34" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela_headpro"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+        <TextView
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp10"
+            android:text="@string/headPro" />
+
+        <com.example.tu4.view.CircleImageView
+            android:id="@+id/civ_personPortrail"
+            android:layout_width="@dimen/dp_37"
+            android:layout_height="@dimen/dp_37"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/headportrait"
+            app:border_color="@color/color_dddddd"
+            app:border_width="@dimen/px1" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <!-- <TextView
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/px1"
+         android:layout_marginTop="@dimen/instrument_instrument_recyclejutoTop"
+         android:background="@color/color_d1d1d1"/>-->
+    <RelativeLayout
+        android:id="@+id/rela_tel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+        <TextView
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp10"
+            android:text="@string/tel" />
+
+        <TextView
+            android:id="@+id/tv_telnumber"
+            style="@style/text_14_999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/headportrait"
+            android:text="17234565342" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/rela_address"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+        <TextView
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp10"
+            android:text="@string/locate" />
+
+        <TextView
+            android:id="@+id/tv_personlocate_locate"
+            style="@style/text_14_999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/headportrait"
+            android:text="浙江省宁波市XXXX" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/rela_other"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44">
+
+        <TextView
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp10"
+            android:text="@string/other" />
+
+        <TextView
+            android:id="@+id/tv_other"
+            style="@style/text_14_999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/headportrait"
+            android:text="@string/other" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/person_self"
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="@string/selfcriticism" />
+
+        <TextView
+            android:id="@+id/tv_selfcriticism"
+            style="@style/text_14_333333"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/person_self"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp15"
+            android:src="@mipmap/headportrait"
+            android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+    </RelativeLayout>
+
+    <include
+        layout="@layout/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

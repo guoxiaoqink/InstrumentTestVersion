@@ -32,6 +32,16 @@
         <item name="android:textColor">@color/color_666666</item>
     </style>
 
+    <style name="text_14_333333">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_333333</item>
+    </style>
+
+    <style name="text_14_999999">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_999999</item>
+    </style>
+
     <style name="text_15_gray">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/color_d1d1d1</item>

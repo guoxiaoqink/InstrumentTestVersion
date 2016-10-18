@@ -71,6 +71,10 @@
     <string name="changeHead">更改头像</string>
     <string name="allimg">所有图片</string>
     <string name="selectHead">选择头像</string>
+    <string name="personData">个人资料</string>
+    <string name="tel">账户（手机号）</string>
+    <string name="locate">地区</string>
+    <string name="selfcriticism">自我介绍</string>
     <string name="my_leave_words">我的留言</string>
 
     <array name="hehe">

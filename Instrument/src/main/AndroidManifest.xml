@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -23,6 +22,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -61,8 +61,8 @@
         <activity android:name=".activity.MyWorksDeleteActivity" />
         <activity android:name=".activity.VideoRecordActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
-        <activity android:name=".activity.HeadPortraitActivity">
-        </activity>
+        <activity android:name=".activity.HeadPortraitActivity"></activity>
+        <activity android:name=".activity.PersonalDataActivity"></activity>
     </application>
 
 </manifest>
