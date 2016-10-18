@@ -1,9 +1,5 @@
 package com.example.tu4.activity;
 
-import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER;
-import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER_BACK;
-import static com.example.tu4.model.AplicationStatic.STUDENT_NUMBER;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +10,10 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.view.CircleImageView;
+
+import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER;
+import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER_BACK;
+import static com.example.tu4.model.AplicationStatic.STUDENT_NUMBER;
 
 public class SubjectDetailActivity extends AppCompatActivity {
 

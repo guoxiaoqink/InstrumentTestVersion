@@ -19,6 +19,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.example.tu4.model.AplicationStatic.account;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
     /*
@@ -189,6 +191,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
             }
         } else {
             if (judgeTelPassword()) {
+                account = edtTel.getText().toString().trim();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             }

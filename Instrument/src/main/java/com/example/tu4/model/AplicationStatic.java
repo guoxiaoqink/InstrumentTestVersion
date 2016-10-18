@@ -31,6 +31,7 @@ public class AplicationStatic {
     public final static int TWO = 2;
     public final static int THREE = 3;
     public static int chooseRecycleView = 0;
+    public static String account = "";
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
         List<InstrumentDetails> clist = null;
