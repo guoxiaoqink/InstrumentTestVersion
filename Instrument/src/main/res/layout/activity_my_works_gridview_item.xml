@@ -10,6 +10,7 @@
         android:orientation="vertical">
 
         <FrameLayout
+            android:id="@+id/fl_my_works_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
@@ -20,9 +21,38 @@
                 android:scaleType="fitXY"/>
             <ImageView
                 android:background="@mipmap/ic_my_leave_words_video_bg"
+                android:id="@+id/img_my_works_video_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"/>
+            <RelativeLayout
+                android:layout_width="@dimen/dp_187"
+                android:layout_height="@dimen/dp_20"
+                android:id="@+id/rl_my_works_video_time"
+                android:layout_gravity="bottom"
+                android:background="@color/s40s000000">
+                <TextView
+                    android:id="@+id/tv_my_works_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20s"
+                    android:textSize="@dimen/sp_11"
+                    android:textColor="@color/color_ffffff"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"/>
+                <TextView
+                    android:id="@+id/tv_my_works_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2016-05-06 15:00"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="@dimen/dp11"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_10"/>
+
+
+            </RelativeLayout>
 
         </FrameLayout>
 

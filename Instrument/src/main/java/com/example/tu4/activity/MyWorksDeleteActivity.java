@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 
 public class MyWorksDeleteActivity extends AppCompatActivity {
 
+    private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
     MyWorksSelectGridviewAdapter myWorksSelectGridviewAdapter;
 
@@ -70,6 +71,10 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         myWorksPisture.add(R.mipmap.a);
         myWorksPisture.add(R.mipmap.a);
         myWorksPisture.add(R.mipmap.a);
+        myWorksTime = new String[]{"20s", "20s", "20s", "20s", "20s", "20s", "20s",};
+        myWorksDate = new String[]{"2016-05-06 15:00", "2016-05-06 15:00",
+                "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
+                "2016-05-06 15:00",};
     }
 
     class MyOpenWork extends AsyncTask<String, String, Boolean> {
@@ -78,7 +83,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... arg0) {
             myWorksSelectGridviewAdapter = new MyWorksSelectGridviewAdapter(MyWorksDeleteActivity
-                    .this, myWorksPisture);
+                    .this, myWorksPisture,myWorksTime,myWorksDate);
             return true;
         }
 

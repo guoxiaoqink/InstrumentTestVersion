@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tu4.R;
 
@@ -17,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyWorksSelectGridviewAdapter extends BaseAdapter {
+    private String[] myWorksTime, myWorksDate;
     private Context context;
     private LayoutInflater layoutInflater;
     private ArrayList<Integer> myWorksPisture;
@@ -25,9 +27,12 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
     // 定义一个向量作为选中与否容器
     private Vector<Boolean> mImage_bs = new Vector<Boolean>();
 
-    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture) {
+    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture,String[]
+                                        myWorksTime, String[] myWorksDate) {
         this.context = context;
         this.myWorksPisture = myWorksPisture;
+        this.myWorksTime = myWorksTime;
+        this.myWorksDate = myWorksDate;
         this.layoutInflater = LayoutInflater.from(context);
         for (int i = 0; i < myWorksPisture.size(); i++) {
             mImage_bs.add(false);
@@ -63,6 +68,8 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
         viewHolder.imgMyWorksItem.setImageResource(myWorksPisture.get(position));
+        viewHolder.tvMyWorksTime.setText(myWorksTime[position]);
+        viewHolder.tvMyWorksDate.setText(myWorksDate[position]);
 
         if (mImage_bs.elementAt(position))
             viewHolder.imgMyWorksSelectItem.setImageResource(R.mipmap.ic_mywork_check);
@@ -104,6 +111,11 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
 
         @BindView(R.id.imgMyWorksSelectItem)
         ImageView imgMyWorksSelectItem;
+
+        @BindView(R.id.tv_my_works_time)
+        TextView tvMyWorksTime;
+        @BindView(R.id.tv_my_works_date)
+        TextView tvMyWorksDate;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

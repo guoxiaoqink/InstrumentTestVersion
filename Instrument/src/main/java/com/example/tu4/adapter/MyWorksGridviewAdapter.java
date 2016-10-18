@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.tu4.R;
 
@@ -20,11 +22,15 @@ import butterknife.ButterKnife;
 
 public class MyWorksGridviewAdapter extends BaseAdapter {
     private ArrayList<Integer> myWorksPisture;
+    private String[] myWorksTime, myWorksDate;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public MyWorksGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture) {
+    public MyWorksGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture, String[]
+            myWorksTime, String[] myWorksDate) {
         this.context = context;
+        this.myWorksTime = myWorksTime;
+        this.myWorksDate = myWorksDate;
         this.myWorksPisture = myWorksPisture;
         this.layoutInflater = LayoutInflater.from(context);
 
@@ -55,7 +61,14 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
+        if (position == 0) {
+            viewHolder.imgMyWorksVideoBg.setVisibility(View.GONE);
+            viewHolder.rlMyWorksVideoTime.setVisibility(View.GONE);
+
+        }
         viewHolder.imgMyWorksItem.setImageResource(myWorksPisture.get(position));
+        viewHolder.tvMyWorksTime.setText(myWorksTime[position]);
+        viewHolder.tvMyWorksDate.setText(myWorksDate[position]);
 
         return convertView;
     }
@@ -65,8 +78,21 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
         @BindView(R.id.imgMyWorksItem)
         ImageView imgMyWorksItem;
 
+        @BindView(R.id.tv_my_works_time)
+        TextView tvMyWorksTime;
+        @BindView(R.id.tv_my_works_date)
+        TextView tvMyWorksDate;
+
+        @BindView(R.id.img_my_works_video_bg)
+        ImageView imgMyWorksVideoBg;
+        @BindView(R.id.rl_my_works_video_time)
+        RelativeLayout rlMyWorksVideoTime;
+
+
+
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
+
 }

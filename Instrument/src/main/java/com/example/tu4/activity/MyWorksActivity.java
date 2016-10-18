@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
     @BindView(R.id.imgMyWorksDelete)
     ImageView imgMyWorksDelete;
@@ -32,17 +32,17 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_my_works);
         ButterKnife.bind(this);
         initDate();
-        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture);
+        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture,myWorksTime,myWorksDate);
         gvMyWorks.setAdapter(workAdapter);
         imgMyWorksDelete.setOnClickListener(this);
         gvMyWorks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0 ){
-                    Intent intent = new Intent(MyWorksActivity.this,VideoRecordActivity.class);
+                if (position == 0) {
+                    Intent intent = new Intent(MyWorksActivity.this, VideoRecordActivity.class);
                     startActivity(intent);
-                }else{
-                    Intent intent = new Intent(MyWorksActivity.this,VideoPlayActivity.class);
+                } else {
+                    Intent intent = new Intent(MyWorksActivity.this, VideoPlayActivity.class);
                     startActivity(intent);
                 }
             }
@@ -59,6 +59,10 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         myWorksPisture.add(R.mipmap.a);
         myWorksPisture.add(R.mipmap.a);
         myWorksPisture.add(R.mipmap.a);
+        myWorksTime = new String[]{"20s", "20s", "20s", "20s", "20s", "20s", "20s", "20s",};
+        myWorksDate = new String[]{"2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
+                "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
+                "2016-05-06 15:00",};
     }
 
     @Override
