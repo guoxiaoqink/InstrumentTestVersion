@@ -67,6 +67,10 @@
     <string name="delete_1">删除</string>
     <string name="delete_2">删   除</string>
     <string name="my_works">我的作品</string>
+    <string name="headPro">头像</string>
+    <string name="changeHead">更改头像</string>
+    <string name="allimg">所有图片</string>
+    <string name="selectHead">选择头像</string>
 
     <array name="hehe">
         <item>niu</item>

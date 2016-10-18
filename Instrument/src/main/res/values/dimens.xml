@@ -1184,4 +1184,5 @@
     <dimen name="dp78">78dp</dimen>
     <dimen name="px_2">2px</dimen>
     <dimen name="dp121">121dp</dimen>
+    <dimen name="px_3">3px</dimen>
 </resources>

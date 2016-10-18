@@ -22,4 +22,21 @@
         <item name="android:textSize">30sp</item>
     </style>
 
+    <style name="text_14_black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/color_000000</item>
+    </style>
+
+    <style name="text_15_666666">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/color_666666</item>
+    </style>
+
+    <style name="text_15_gray">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/color_d1d1d1</item>
+    </style>
+    <!--popuwindow从底部弹出动画-->
+
+
 </resources>

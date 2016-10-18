@@ -46,7 +46,7 @@
         android:id="@+id/line1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
-        android:layout_below="@id/order_account_li"
+        android:layout_below="@+id/order_account_li"
         android:background="@color/color_d1d1d1" />
     <!--课程信息-->
     <LinearLayout

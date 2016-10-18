@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Instrument" />
             <option value="$PROJECT_DIR$/okhttputils" />
+            <option value="$PROJECT_DIR$/photopicker" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

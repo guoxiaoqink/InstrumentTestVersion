@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_head_portrait"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_000000"
+    android:orientation="vertical"
+    tools:context="com.example.tu4.activity.HeadPortraitActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/color_97c8cd">
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/left_arrow_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/headPro"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp13"
+            android:layout_marginRight="@dimen/dp_15"
+            android:text="确认"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_18" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_head_portrait"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_350"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dp_70"
+        android:background="@color/color_000000"
+        android:src="@mipmap/a" />
+
+    <Button
+        android:id="@+id/btn_change_head_protrait"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_34"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"
+        android:layout_marginTop="@dimen/dp_68"
+        android:background="@color/color_97c8cd"
+        android:text="@string/changeHead"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/sp15" />
+</LinearLayout>
