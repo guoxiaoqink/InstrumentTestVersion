@@ -21,6 +21,8 @@ import java.util.List;
 * 这个类里边放的都是 static的数据  在整个app中使用
 * */
 public class AplicationStatic {
+
+    public static int JUMP_MAINACTIVITY = 1;
     public final static int STUDENT_NUMBER = 10;
     public final static int MAX_STUDENT_NUMBER = 8;
     public final static int MAX_STUDENT_NUMBER_BACK = 7;

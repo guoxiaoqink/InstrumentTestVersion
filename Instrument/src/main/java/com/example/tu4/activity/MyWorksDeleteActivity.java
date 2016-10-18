@@ -1,13 +1,16 @@
 package com.example.tu4.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
@@ -19,9 +22,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MyWorksDeleteActivity extends AppCompatActivity {
 
+    @BindView(R.id.img_my_works_delete_return)
+    ImageView imgMyWorksDeleteReturn;
     private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
     MyWorksSelectGridviewAdapter myWorksSelectGridviewAdapter;
@@ -39,6 +45,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_works_delete);
         ButterKnife.bind(this);
         initDate();
+
 
         new MyOpenWork().execute();
 
@@ -77,13 +84,19 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
                 "2016-05-06 15:00",};
     }
 
+    @OnClick(R.id.img_my_works_delete_return)
+    public void onClick() {
+        Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
+        startActivity(intent);
+    }
+
     class MyOpenWork extends AsyncTask<String, String, Boolean> {
         ProgressDialog dialog;
 
         @Override
         protected Boolean doInBackground(String... arg0) {
             myWorksSelectGridviewAdapter = new MyWorksSelectGridviewAdapter(MyWorksDeleteActivity
-                    .this, myWorksPisture,myWorksTime,myWorksDate);
+                    .this, myWorksPisture, myWorksTime, myWorksDate);
             return true;
         }
 
@@ -107,7 +120,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
     }
 
     Handler myHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             gvMyWorksSelect.setAdapter(myWorksSelectGridviewAdapter);
             // 设置点击监听
             gvMyWorksSelect.setOnItemClickListener(new AdapterView.OnItemClickListener() {

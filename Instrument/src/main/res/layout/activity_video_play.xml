@@ -9,6 +9,7 @@
     tools:context="com.example.tu4.activity.VideoRecordActivity">
 
     <ImageView
+        android:id="@+id/img_video_play_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_20"

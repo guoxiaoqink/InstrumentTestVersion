@@ -1,5 +1,6 @@
 package com.example.tu4.activity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -8,13 +9,20 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
 
 import java.io.IOException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class VideoRecordActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+    @BindView(R.id.img_video_recorde_return)
+    ImageView imgVideoRecordeReturn;
     private ImageButton videoButton;
     private TextView videoTime;
     private SurfaceHolder surfaceHolder;
@@ -29,13 +37,15 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_record);
+        ButterKnife.bind(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
 
 
     }
+
     private void init() {
-        videoButton = (ImageButton)findViewById(R.id.video_button);
+        videoButton = (ImageButton) findViewById(R.id.video_button);
         videoButton.setOnClickListener(new TestVideoListener());
         surfaceView = (SurfaceView) this.findViewById(R.id.surfaceView);
         SurfaceHolder holder = surfaceView.getHolder();// 取得holder
@@ -43,15 +53,22 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
         // setType必须设置，要不出错.
         holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
-    class TestVideoListener implements View.OnClickListener{
+
+    @OnClick(R.id.img_video_recorde_return)
+    public void onClick() {
+        Intent intent = new Intent(VideoRecordActivity.this, MyWorksActivity.class);
+        startActivity(intent);
+    }
+
+    class TestVideoListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-            if (isRecorder == false){
+            if (isRecorder == false) {
                 StarRecorder();
 //                new UpdateThread().run();
                 isRecorder = true;
-            }else {
+            } else {
                 StopRecorder();
                 isRecorder = false;
             }
@@ -59,7 +76,7 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
         }
     }
 
-    void StarRecorder(){
+    void StarRecorder() {
 
         mediarecorder = new MediaRecorder();// 创建mediarecorder对象
         // 设置录制视频源为Camera(相机)
@@ -90,7 +107,7 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
         }
     }
 
-    void StopRecorder(){
+    void StopRecorder() {
         if (mediarecorder != null) {
             // 停止录制
             mediarecorder.stop();
@@ -103,6 +120,7 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
 
     /**
      * 动态显示录制时间
+     *
      * @param holder
      */
 //    private class MHandler extends Handler {
@@ -152,7 +170,6 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
 //            }
 //        }
 //    }
-
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         surfaceHolder = holder;

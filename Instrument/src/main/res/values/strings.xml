@@ -71,6 +71,7 @@
     <string name="changeHead">更改头像</string>
     <string name="allimg">所有图片</string>
     <string name="selectHead">选择头像</string>
+    <string name="my_leave_words">我的留言</string>
 
     <array name="hehe">
         <item>niu</item>

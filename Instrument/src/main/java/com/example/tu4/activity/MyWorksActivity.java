@@ -16,8 +16,12 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+
 public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
 
+    @BindView(R.id.img_my_works_return)
+    ImageView imgMyWorksReturn;
     private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
     @BindView(R.id.imgMyWorksDelete)
@@ -31,10 +35,16 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_works);
         ButterKnife.bind(this);
+
         initDate();
-        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture,myWorksTime,myWorksDate);
+
+        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture,
+                myWorksTime, myWorksDate);
         gvMyWorks.setAdapter(workAdapter);
+
         imgMyWorksDelete.setOnClickListener(this);
+        imgMyWorksReturn.setOnClickListener(this);
+
         gvMyWorks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -71,6 +81,12 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.imgMyWorksDelete:
                 Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.img_my_works_return:
+                Intent intent1 = new Intent(MyWorksActivity.this, MainActivity.class);
+                startActivity(intent1);
+                JUMP_MAINACTIVITY = 2;
+                break;
         }
 
     }

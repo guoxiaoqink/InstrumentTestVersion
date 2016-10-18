@@ -13,12 +13,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+
 public class HelpCenterActivity extends AppCompatActivity {
 
-    @BindView(R.id.img_my_works_return)
-    ImageView imgMyWorksReturn;
+
     @BindView(R.id.lv_help_center)
     ListView lvHelpCenter;
+    @BindView(R.id.img_help_center_return)
+    ImageView imgHelpCenterReturn;
     private String[] title = {"标题", "标题", "标题",};
     private String[] text = {"内容1", "内容2", "内容3",};
 
@@ -33,9 +36,11 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.img_my_works_return)
+    @OnClick(R.id.img_help_center_return)
     public void onClick() {
         Intent intent = new Intent(HelpCenterActivity.this, MainActivity.class);
         startActivity(intent);
+        JUMP_MAINACTIVITY = 2;
+
     }
 }

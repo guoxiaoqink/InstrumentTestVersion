@@ -15,7 +15,7 @@
     android:background="@color/color_97c8cd">
 
     <ImageView
-        android:id="@+id/img_my_works_return"
+        android:id="@+id/img_my_works_delete_return"
         android:layout_width="@dimen/dp_20"
         android:layout_height="@dimen/dp_20"
         android:layout_centerVertical="true"

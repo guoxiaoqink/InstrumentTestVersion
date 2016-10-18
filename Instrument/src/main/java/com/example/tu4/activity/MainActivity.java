@@ -1,10 +1,5 @@
 package com.example.tu4.activity;
 
-import static com.example.tu4.model.AplicationStatic.ONE;
-import static com.example.tu4.model.AplicationStatic.THREE;
-import static com.example.tu4.model.AplicationStatic.TWO;
-import static com.example.tu4.model.AplicationStatic.ZERO;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -22,6 +17,12 @@ import com.example.tu4.fragment.SubjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+import static com.example.tu4.model.AplicationStatic.ONE;
+import static com.example.tu4.model.AplicationStatic.THREE;
+import static com.example.tu4.model.AplicationStatic.TWO;
+import static com.example.tu4.model.AplicationStatic.ZERO;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     ViewPager viewPager;
@@ -54,6 +55,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         linearLayoutSubject.setOnClickListener(this);
         linearLayoutPersonMessage.setOnClickListener(this);
         linearLayoutInstrument.setOnClickListener(this);
+
+        if(JUMP_MAINACTIVITY != 1){
+            viewPager.setCurrentItem(ONE, false);
+            bottomMenuBarChange(ONE);
+        }
 
     }
 

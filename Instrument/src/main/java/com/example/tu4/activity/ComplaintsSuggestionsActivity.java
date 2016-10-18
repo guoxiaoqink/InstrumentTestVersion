@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -18,9 +19,11 @@ import com.example.tu4.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class ComplaintsSuggestionsActivity extends AppCompatActivity {
+import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+
+public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
+        .OnClickListener {
 
     @BindView(R.id.imgbt_complaint_type)
     ImageButton imgbtComplaintType;
@@ -30,6 +33,8 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity {
     TextView tvComplaintType;
     @BindView(R.id.bt_complaint_push)
     Button btComplaintPush;
+    @BindView(R.id.img_somplaints_suggestion_return)
+    ImageView imgSomplaintsSuggestionReturn;
 
     private View popupView;
     private PopupWindow mPopupWindow;
@@ -40,6 +45,9 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaints_suggestions);
         ButterKnife.bind(this);
+
+        btComplaintPush.setOnClickListener(this);
+        imgSomplaintsSuggestionReturn.setOnClickListener(this);
 
         tvComplaintType.setText("请选择意见类型");
         imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
@@ -85,9 +93,19 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity {
         mPopupWindow.showAsDropDown(v, 10, 60);
     }
 
-    @OnClick(R.id.bt_complaint_push)
-    public void onClick() {
-        Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
-        startActivity(intent);
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_complaint_push:
+                Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+                startActivity(intent);
+                JUMP_MAINACTIVITY = 2;
+                break;
+            case R.id.img_somplaints_suggestion_return:
+                Intent intent1 = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+                startActivity(intent1);
+                JUMP_MAINACTIVITY = 2;
+                break;
+        }
     }
 }

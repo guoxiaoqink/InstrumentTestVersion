@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_leave_words"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    tools:context="com.example.tu4.activity.MyLeaveWordsActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_titl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/color_97c8cd">
+
+        <ImageView
+            android:id="@+id/img_my_leave_words_return"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/left_arrow_white"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/my_leave_words"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_17"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_titl">
+
+        <include layout="@layout/include_system_information_line"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_system_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_infor"
+                android:layout_width="@dimen/dp_39"
+                android:layout_height="@dimen/dp_39"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@mipmap/ic_my_message"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_40"
+                android:layout_marginTop="@dimen/dp_6">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_my_message_yellow"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_sys_infor_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="12"
+                    android:textColor="@color/color_f0f0f0"
+                    android:textSize="@dimen/sp_10"/>
+            </FrameLayout>
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_infor_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_59"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/system_information"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp_14"/>
+
+        <TextView
+            android:id="@+id/tv_sys_infor_context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_infor_title"
+            android:layout_below="@id/tv_infor_title"
+            android:text="dddddddddd"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_13"/>
+
+        <TextView
+            android:id="@+id/tv_sys_infor_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_infor_title"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:text="6分钟前"
+            android:textColor="@color/color_cccccc"
+            android:textSize="@dimen/sp_11"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/divider2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_system_information">
+
+        <include layout="@layout/include_system_information_line"/>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_my_leave_words"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_edittext"
+        android:dividerHeight="@dimen/dp_5"
+        android:divider="@drawable/dividebg"
+        android:layout_below="@id/divider2">
+
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/rl_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/stroke_line_up"
+        android:padding="@dimen/dp_10">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_toLeftOf="@+id/img_leave_words_emoticon"
+            android:background="@drawable/dividebg"/>
+
+        <ImageView
+            android:id="@+id/img_leave_words_emoticon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_toLeftOf="@+id/img_leave_words_add"
+            android:src="@mipmap/ic_my_leave_words_emoticon"/>
+
+        <ImageView
+            android:id="@+id/img_leave_words_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_leave_words_add"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.tu4.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -13,8 +14,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SystemInformationActivity extends AppCompatActivity {
-    @BindView(R.id.img_my_works_return)
-    ImageView imgMyWorksReturn;
+
+    @BindView(R.id.img_system_information_return)
+    ImageView imgSystemInformationReturn;
     private String[] name = {"通知标题", "通知标题", "通知标题", "通知标题",};
     private String[] text = {"内容1111111111111", "内容1111111111111", "内容1111111111111",
             "内容1111111111111",};
@@ -33,8 +35,9 @@ public class SystemInformationActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.img_my_works_return)
+    @OnClick(R.id.img_system_information_return)
     public void onClick() {
-        //转跳到我的留言界面
+        Intent intent = new Intent(SystemInformationActivity.this,MyLeaveWordsActivity.class);
+        startActivity(intent);
     }
 }
