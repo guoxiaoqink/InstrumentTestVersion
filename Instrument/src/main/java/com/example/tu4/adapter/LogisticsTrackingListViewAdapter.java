@@ -53,12 +53,15 @@ public class LogisticsTrackingListViewAdapter extends BaseAdapter {
         }
         viewHolder12 = (ViewHolder1) convertView.getTag();
         if (position == 0) {
-            ViewGroup.LayoutParams linearParams = viewHolder12.circleimage.getLayoutParams();
+        /*    ViewGroup.LayoutParams linearParams = viewHolder12.circleimage.getLayoutParams();
             linearParams.height = 25;
             linearParams.width = 25;
             viewHolder12.circleimage.setLayoutParams(linearParams); // 使设置好的布局参数应用到控件aaa
-            viewHolder12.circleimage.setImageResource(R.mipmap.color97c8cd);
+            viewHolder12.circleimage.setImageResource(R.mipmap.color97c8cd);*/
+            viewHolder12.circleimage.setImageResource(R.mipmap.ic_log_selected);
             viewHolder12.textviewVerticalline.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder12.circleimage.setImageResource(R.mipmap.ic_log_normal);
         }
 
         if (position == LISTVIEW_COUNT - 1) {
