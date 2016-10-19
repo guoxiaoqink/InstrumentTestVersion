@@ -34,6 +34,7 @@ public class AplicationStatic {
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";
+    public static String headPortrait = "";
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
         List<InstrumentDetails> clist = null;

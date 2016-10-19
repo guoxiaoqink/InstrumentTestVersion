@@ -16,7 +16,9 @@ import com.example.tu4.R;
 
 public class PersonMessageListViewAdapter extends BaseAdapter {
 
-    int[] ImgArray;
+    int[] ImgArray = {R.mipmap.date_person_message, R.mipmap.notebook_person_message, R.mipmap.remind_person_message, R.mipmap.photo_person_message,
+            R.mipmap.pen_person_message, R.mipmap.message_personmessage, R.mipmap.help};
+
     String[] stringArray;
     viewHolder viewHolder;
     private LayoutInflater mInflater = null;
@@ -25,7 +27,7 @@ public class PersonMessageListViewAdapter extends BaseAdapter {
         this.mInflater = LayoutInflater.from(context);
         stringArray = context.getResources().getStringArray(
                 R.array.personmessage_listview_textarray);
-        ImgArray = context.getResources().getIntArray(R.array.person_listview_img);
+        //       ImgArray = context.getResources().getIntArray(R.array.person_listview_img);
     }
 
     @Override
@@ -63,7 +65,7 @@ public class PersonMessageListViewAdapter extends BaseAdapter {
         if (position == 0) {
             viewHolder.redPoint.setVisibility(View.INVISIBLE);
         }
-        viewHolder.ImageView.setImageResource((Integer) ImgArray[position]);
+        viewHolder.ImageView.setImageResource(ImgArray[position]);
         viewHolder.textView.setText(stringArray[position]);
         return convertView;
     }
