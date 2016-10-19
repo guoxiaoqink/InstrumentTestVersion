@@ -3,7 +3,6 @@ package com.example.tu4.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -23,15 +22,15 @@ public class OrderDetailsMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.order_details_activity_main);
         listView = (ListView) findViewById(R.id.listview);
         initdata();
-        adapter = new OrderDetailsListviewAdapter(this, users);
-        listView.setAdapter((ListAdapter) adapter);
+        /*adapter = new OrderDetailsListviewAdapter(this, users);
+        listView.setAdapter(adapter);*/
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             /*   Intent intent = new Intent(OrderDetailsMainActivity.this,SelectDress.class);
+              /* Intent intent = new Intent(OrderDetailsMainActivity.this,SelectDress.class);
                 startActivity(intent);*/
             }
         });

@@ -69,6 +69,7 @@
         <activity android:name=".activity.PersonalDataActivity" />
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.ConnectUsActivity"></activity>
+        <activity android:name=".activity.OrderDetailsMainActivity"></activity>
     </application>
 
 </manifest>
