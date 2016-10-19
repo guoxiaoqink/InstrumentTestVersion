@@ -78,6 +78,7 @@
     <string name="my_leave_words">我的留言</string>
     <string name="issiu_feedback">发布反馈</string>
     <string name="issiu">发布</string>
+    <string name="please_input_suggestion">请输入感想。。。</string>
 
     <array name="hehe">
         <item>niu</item>
