@@ -47,6 +47,7 @@ public class HeadPortraitActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_return:
+                this.finish();
                 break;
             case R.id.tv_ok:
                 break;

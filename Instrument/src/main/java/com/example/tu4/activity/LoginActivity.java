@@ -185,15 +185,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                 Toast.makeText(LoginActivity.this,
                         getResources().getString(R.string.registerSuccess),
                         Toast.LENGTH_SHORT).show();
-                Intent intentToSearchactivity = new Intent(LoginActivity.this,
+              /*  Intent intentToSearchactivity = new Intent(LoginActivity.this,
                         SearchActivity.class);
-                startActivity(intentToSearchactivity);
+                startActivity(intentToSearchactivity);*/
             }
         } else {
             if (judgeTelPassword()) {
                 account = edtTel.getText().toString().trim();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         }
     }
