@@ -28,14 +28,10 @@ public class PaySuccessActivity extends AppCompatActivity {
     }
 
     public void return_course(View v) {
-        Intent intent = new Intent();
-        intent.setClass(PaySuccessActivity.this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 
     public void success_return(View v) {
-        Intent intent = new Intent();
-        intent.setClass(PaySuccessActivity.this, OrderPaymentActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 }

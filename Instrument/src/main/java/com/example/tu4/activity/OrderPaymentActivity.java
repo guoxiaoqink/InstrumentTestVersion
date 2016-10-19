@@ -48,9 +48,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
 
     //返回按钮点击事件
     public void order_return(View v) {
-        Intent intent = new Intent();
-        intent.setClass(OrderPaymentActivity.this, CourseSubscribeActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 
     //去支付文字点击事件

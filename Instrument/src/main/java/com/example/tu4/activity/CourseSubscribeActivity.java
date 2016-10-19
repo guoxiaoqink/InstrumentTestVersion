@@ -57,9 +57,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
 
     //返回按钮点击事件
     public void course_order_return(View v) {
-        Intent intent = new Intent();
-        intent.setClass(CourseSubscribeActivity.this, SubjectDetailActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 
     //确认支付按钮点击事件
