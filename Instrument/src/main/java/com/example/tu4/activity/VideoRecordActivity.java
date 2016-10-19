@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -56,8 +55,9 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
 
     @OnClick(R.id.img_video_recorde_return)
     public void onClick() {
-        Intent intent = new Intent(VideoRecordActivity.this, MyWorksActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(VideoRecordActivity.this, MyWorksActivity.class);
+//        startActivity(intent);
+        this.finish();
     }
 
     class TestVideoListener implements View.OnClickListener {

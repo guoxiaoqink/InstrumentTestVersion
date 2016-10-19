@@ -14,7 +14,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.ComplaintsSuggestionsActivity;
 import com.example.tu4.activity.ConnectUsActivity;
+import com.example.tu4.activity.HelpCenterActivity;
+import com.example.tu4.activity.MyLeaveWordsActivity;
+import com.example.tu4.activity.MyWorksActivity;
 import com.example.tu4.activity.PersonalDataActivity;
 import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.adapter.PersonMessageListViewAdapter;
@@ -52,11 +56,32 @@ public class PersonalMessageFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
+                if (position == 2) {
+                    Intent intentMyLeaveWords = new Intent(getContext(),
+                            MyLeaveWordsActivity.class);
+                    startActivity(intentMyLeaveWords);
+                }
+                if (position == 3) {
+                    Intent intentMyWorks = new Intent(getContext(),
+                            MyWorksActivity.class);
+                    startActivity(intentMyWorks);
+                }
+                if (position == 4) {
+                    Intent intentComplaintsSuggestion = new Intent(getContext(),
+                            ComplaintsSuggestionsActivity.class);
+                    startActivity(intentComplaintsSuggestion);
+                }
                 if (position == 5) {
                     Intent intentToconnectUs = new Intent(getContext(),
                             ConnectUsActivity.class);
                     startActivity(intentToconnectUs);
                 }
+                if (position == 6) {
+                    Intent intentHelpCenter = new Intent(getContext(),
+                            HelpCenterActivity.class);
+                    startActivity(intentHelpCenter);
+                }
+
               /*  Intent intentToLogistics = new Intent(getContext(),
                         LogisticsTrackingActivity.class);
                 startActivity(intentToLogistics);*/

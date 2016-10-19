@@ -83,8 +83,9 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent);
                 break;
             case R.id.img_my_works_return:
-                Intent intent1 = new Intent(MyWorksActivity.this, MainActivity.class);
-                startActivity(intent1);
+//                Intent intent1 = new Intent(MyWorksActivity.this, MainActivity.class);
+//                startActivity(intent1);
+                this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
         }

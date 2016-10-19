@@ -63,8 +63,9 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
                 startActivity(intent);
                 break;
             case R.id.img_my_leave_words_return:
-                Intent intent1 = new Intent(MyLeaveWordsActivity.this, MainActivity.class);
-                startActivity(intent1);
+//                Intent intent1 = new Intent(MyLeaveWordsActivity.this, MainActivity.class);
+//                startActivity(intent1);
+                this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
         }

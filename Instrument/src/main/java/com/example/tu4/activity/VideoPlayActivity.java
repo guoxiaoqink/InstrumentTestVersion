@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -25,7 +24,8 @@ public class VideoPlayActivity extends AppCompatActivity {
 
     @OnClick(R.id.img_video_play_return)
     public void onClick() {
-        Intent intent = new Intent(VideoPlayActivity.this, MyWorksActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(VideoPlayActivity.this, MyWorksActivity.class);
+//        startActivity(intent);
+        this.finish();
     }
 }

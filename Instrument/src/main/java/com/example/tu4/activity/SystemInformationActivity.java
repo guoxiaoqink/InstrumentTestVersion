@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -37,7 +36,8 @@ public class SystemInformationActivity extends AppCompatActivity {
 
     @OnClick(R.id.img_system_information_return)
     public void onClick() {
-        Intent intent = new Intent(SystemInformationActivity.this,MyLeaveWordsActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(SystemInformationActivity.this,MyLeaveWordsActivity.class);
+//        startActivity(intent);
+        this.finish();
     }
 }

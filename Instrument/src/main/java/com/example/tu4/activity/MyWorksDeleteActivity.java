@@ -1,7 +1,6 @@
 package com.example.tu4.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -86,8 +85,9 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
 
     @OnClick(R.id.img_my_works_delete_return)
     public void onClick() {
-        Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
+//        startActivity(intent);
+        this.finish();
     }
 
     class MyOpenWork extends AsyncTask<String, String, Boolean> {
