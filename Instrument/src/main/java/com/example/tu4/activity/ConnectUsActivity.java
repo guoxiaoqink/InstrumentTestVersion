@@ -32,13 +32,8 @@ public class ConnectUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connect_us);
         ButterKnife.bind(this);
         initGridview();
-                //////////////////////////////////////
     }
 
-    @OnClick(R.id.tv_telephone_call)
-    public void onClick() {
-
-    }
 
     public void initGridview() {
         ConnectUsGridviewAdapter connectUsGridviewAdapter = new ConnectUsGridviewAdapter(AplicationStatic.getCustomServeName(), getBaseContext());
@@ -46,8 +41,20 @@ public class ConnectUsActivity extends AppCompatActivity {
         gvService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ConnectUsActivity.this, "点击的客服" + position + 1, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ConnectUsActivity.this, "click server" + position + 1, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    @OnClick({R.id.img_return, R.id.tv_telephone_call})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.img_return:
+                this.finish();
+                break;
+            case R.id.tv_telephone_call:
+                break;
+        }
     }
 }

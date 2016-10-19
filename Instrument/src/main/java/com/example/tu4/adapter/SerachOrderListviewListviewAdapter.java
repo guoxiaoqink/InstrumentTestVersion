@@ -60,7 +60,6 @@ public class SerachOrderListviewListviewAdapter extends BaseAdapter {
         TextView textviewSubjectOrderListviewitemItem;
         @BindView(R.id.textview_address_order_listviewitem_item)
         TextView textviewAddressOrderListviewitemItem;
-
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

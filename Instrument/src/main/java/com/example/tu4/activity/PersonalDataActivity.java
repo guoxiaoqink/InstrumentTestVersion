@@ -43,11 +43,16 @@ public class PersonalDataActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_return:
+                this.finish();
                 break;
             case R.id.rela_headpro:
                 Intent intentToHeadProtrait = new Intent(PersonalDataActivity.this, HeadPortraitActivity.class);
                 startActivity(intentToHeadProtrait);
                 break;
         }
+    }
+
+    public void changeHeadPortrait() {
+
     }
 }

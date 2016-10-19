@@ -24,6 +24,7 @@ public class SerachOrderListviewAdapter extends BaseAdapter {
     SerachOrderListviewListviewAdapter adapter;
     private LayoutInflater mInflater = null;
 
+
     public SerachOrderListviewAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
         adapter = new SerachOrderListviewListviewAdapter(context);

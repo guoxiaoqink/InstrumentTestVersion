@@ -1,6 +1,7 @@
 package com.example.tu4.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.OrderPaymentActivity;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
 import com.example.tu4.adapter.InstrumentListViewInstruDetialAdapter;
@@ -23,6 +26,7 @@ import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.cycleImageData;
 import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
@@ -43,11 +47,13 @@ public class InstrumentFragment extends Fragment {
 
     @BindView(R.id.gridview_instrument_instrument)
     ResolveConflictsScoolviewGridview gridviewInstrumentInstrument;
+    @BindView(R.id.imageview_instrument_show)
+    ImageView imageviewInstrumentShow;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater,
-            @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                             @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_instruments, container, false);
         ButterKnife.bind(this, view);
 
@@ -95,6 +101,8 @@ public class InstrumentFragment extends Fragment {
         gridviewInstrumentInstrument.setAdapter(adapter);
         gridviewInstrumentInstrument.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                Intent intentToOrderPay = new Intent(getActivity(), OrderPaymentActivity.class);
+                startActivity(intentToOrderPay);
             }
         });
     }
@@ -113,4 +121,9 @@ public class InstrumentFragment extends Fragment {
         recycleViewInstrumentInstrument.setAdapter(RecyclerAdapter);
     }
 
+    @OnClick(R.id.imageview_instrument_show)
+    public void onClick() {
+        Intent intentToSearch = new Intent(getActivity(), SearchActivity.class);
+        startActivity(intentToSearch);
+    }
 }

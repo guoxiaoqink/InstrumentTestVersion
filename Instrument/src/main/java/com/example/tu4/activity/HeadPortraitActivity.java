@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.model.AplicationStatic;
 import com.lling.photopicker.PhotoPickerActivity;
 import com.lling.photopicker.utils.ImageLoader;
 import com.lling.photopicker.utils.OtherUtils;
@@ -46,6 +47,7 @@ public class HeadPortraitActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.img_return:
+                this.finish();
                 break;
             case R.id.tv_ok:
                 break;
@@ -79,6 +81,7 @@ public class HeadPortraitActivity extends AppCompatActivity {
         }
         mResults.clear();
         mResults.addAll(paths);
+        AplicationStatic.headPortrait = mResults.get(0);
         ImageLoader.getInstance().display(paths.get(0), imgHeadPortrait, mColumnWidth, mColumnWidth);
 
     }
