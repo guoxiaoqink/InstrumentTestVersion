@@ -36,6 +36,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/re_popup"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_37"
         android:layout_margin="@dimen/dp_10"
