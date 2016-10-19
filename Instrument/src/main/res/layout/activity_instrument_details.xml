@@ -241,6 +241,7 @@
                 android:padding="@dimen/dp3"
                 android:layout_height="wrap_content" />
             <Button
+                android:id="@+id/btn_buy"
                 android:layout_width="wrap_content"
                 android:background="@drawable/button_pay"
                 android:layout_marginTop="@dimen/dp12"
