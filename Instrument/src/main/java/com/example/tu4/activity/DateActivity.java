@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -114,8 +113,6 @@ public class DateActivity extends AppCompatActivity {
 
     @OnClick(R.id.imgbtn_date_left)
     public void onClick() {
-        Intent intent = new Intent();
-        intent.setClass(DateActivity.this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 }
