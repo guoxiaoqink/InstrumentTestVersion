@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.LogisticsTrackingActivity;
+import com.example.tu4.activity.ConnectUsActivity;
 import com.example.tu4.activity.PersonalDataActivity;
 import com.example.tu4.adapter.PersonMessageListViewAdapter;
 
@@ -45,9 +45,14 @@ public class PersonalMessageFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
-                Intent intentToLogistics = new Intent(getContext(),
+                if (position == 5) {
+                    Intent intentToconnectUs = new Intent(getContext(),
+                            ConnectUsActivity.class);
+                    startActivity(intentToconnectUs);
+                }
+              /*  Intent intentToLogistics = new Intent(getContext(),
                         LogisticsTrackingActivity.class);
-                startActivity(intentToLogistics);
+                startActivity(intentToLogistics);*/
             }
         });
 

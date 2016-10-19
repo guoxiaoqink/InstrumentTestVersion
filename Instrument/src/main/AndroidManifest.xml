@@ -22,6 +22,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -34,9 +35,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.LogisticsTrackingActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".activity.SearchActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -62,8 +61,9 @@
         <activity android:name=".activity.MyWorksDeleteActivity" />
         <activity android:name=".activity.VideoRecordActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
-        <activity android:name=".activity.HeadPortraitActivity"></activity>
-        <activity android:name=".activity.PersonalDataActivity"></activity>
+        <activity android:name=".activity.HeadPortraitActivity" />
+        <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.ConnectUsActivity"></activity>
     </application>
 
 </manifest>

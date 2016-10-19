@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_connect_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.tu4.activity.ConnectUsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/color_97c8cd">
+
+        <ImageView
+            android:id="@+id/img_return"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/left_arrow_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/connectus"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_18" />
+    </RelativeLayout>
+
+    <TextView
+        style="@style/text_14_333333"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/contact_us_str" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/color_d1d1d1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/telephone_tv"
+            style="@style/text_14_999999"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/teliphone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_toRightOf="@+id/telephone_tv"
+            android:text="40000000000000000"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/tv_telephone_call"
+            android:layout_width="@dimen/dp_74"
+            android:layout_height="@dimen/dp_29"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@drawable/connect_us_callbutton_shape"
+            android:drawableLeft="@mipmap/ic_tel"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center|end"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingStart="@dimen/dp5"
+            android:text="@string/call"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_below="@+id/telephone_tv"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/color_d1d1d1" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:text="@string/serve"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/sp_14" />
+
+    <GridView
+        android:id="@+id/gv_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:horizontalSpacing="@dimen/dp_30"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="4"
+        android:verticalSpacing="@dimen/dp_15"></GridView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_below="@+id/telephone_tv"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/color_d1d1d1" />
+    <!-- <LinearLayout
+         android:id="@+id/linear_serve4"
+         android:layout_weight="1"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <ImageView
+             android:layout_width="wrap_content"
+             android:src="@mipmap/ic_online"
+             android:layout_height="wrap_content" />
+         <TextView
+             android:layout_marginTop="@dimen/dp5"
+             android:layout_width="match_parent"
+             android:textSize="@dimen/sp12"
+             android:gravity="center"
+             android:layout_height="wrap_content"
+             android:text="@string/servePerson"/>-->
+    <!--   </LinearLayout>
+   </LinearLayout>-->
+</LinearLayout>

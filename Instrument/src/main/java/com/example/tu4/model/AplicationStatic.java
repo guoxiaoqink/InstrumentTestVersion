@@ -22,7 +22,6 @@ import java.util.List;
 * */
 public class AplicationStatic {
 
-    public static int JUMP_MAINACTIVITY = 1;
     public final static int STUDENT_NUMBER = 10;
     public final static int MAX_STUDENT_NUMBER = 8;
     public final static int MAX_STUDENT_NUMBER_BACK = 7;
@@ -32,6 +31,7 @@ public class AplicationStatic {
     public final static int ONE = 1;
     public final static int TWO = 2;
     public final static int THREE = 3;
+    public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";
 
@@ -71,6 +71,15 @@ public class AplicationStatic {
         }
         return datalist;
     }
+
+    public final static List<String> getCustomServeName() {
+        List<String> datalist = new ArrayList<String>();
+        for (int i = 0; i < 5; i++) {
+            datalist.add("客服" + i + 1);
+        }
+        return datalist;
+    }
+
 
     /*
     * 轮播图的初始化资源

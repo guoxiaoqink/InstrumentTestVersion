@@ -78,6 +78,12 @@
     <string name="my_leave_words">我的留言</string>
     <string name="issiu_feedback">发布反馈</string>
     <string name="issiu">发布</string>
+    <string name="connectus">联系我们</string>
+    <string name="contact_us_str">联系方式</string>
+    <string name="teliphone">电话</string>
+    <string name="call">拨打</string>
+    <string name="serve">客服</string>
+    <string name="servePerson">客服一</string>
     <string name="please_input_suggestion">请输入感想。。。</string>
 
     <array name="hehe">
