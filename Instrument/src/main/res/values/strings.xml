@@ -86,6 +86,35 @@
     <string name="servePerson">客服一</string>
     <string name="please_input_suggestion">请输入感想。。。</string>
 
+    <string name="unpaidpaid">待付款</string>
+    <string name="pay">付款</string>
+    <string name="express">X X物流 6666666</string>
+    <string name="consignee">收货人：xx</string>
+    <string name="tv_instrument_name">乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX</string>
+    <string name="instrument_property">XXX属性</string>
+    <string name="freight">运费</string>
+    <string name="actual">实付（含运费）</string>
+    <string name="buyer_message">卖家留言：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="number">订单编号:</string>
+    <string name="found_time">创建时间:</string>
+    <string name="delivery_time">发货时间:</string>
+    <string name="payment_time">付款时间:</string>
+    <string name="receiving_time">收货时间:</string>
+    <string name="return_address">退货地址：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="return_it">退货</string>
+    <string name="payment">付款</string>
+    <string name="recrive">确认收货</string>
+    <string name="payment_way">支付方式</string>
+    <string name="go_payment">去支付</string>
+    <string name="cancle">取  消</string>
+    <string name="orders_details">订单详情</string>
+    <string name="instrument_details">乐器详情</string>
+    <string name="product_parameter">产品参数</string>
+    <string name="presonal_data">个人中心</string>
+    <string name="booking_order">预约订单</string>
+    <string name="tv_order_time">订单时间：2016-09-08 14:00</string>
+
     <array name="hehe">
         <item>niu</item>
         <item>ma</item>
