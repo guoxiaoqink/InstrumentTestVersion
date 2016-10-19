@@ -44,25 +44,6 @@ public class OrderPaymentActivity extends AppCompatActivity {
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
         payMoney.setText(pay_money);
-
-//        payment_zfb = (RadioButton) findViewById(R.id.zfb_radiobutton);
-//        payment_wx = (RadioButton) findViewById(R.id.wx_radiobutton);
-        //支付宝
-//        payment_zfb.setOnClickListener(new View.OnClickListener() {//radiobutton添加点击事件为了互斥
-//            @Override
-//            public void onClick(View v) {
-//                payment_zfb.setChecked(true);
-//                payment_wx.setChecked(false);
-//            }
-//        });
-//        //微信
-//        payment_wx.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                payment_wx.setChecked(true);
-//                payment_zfb.setChecked(false);
-//            }
-//        });
     }
 
     //返回按钮点击事件
@@ -79,6 +60,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //不同支付事件的切换
     @OnClick({R.id.zfb_radiobutton, R.id.wx_radiobutton})
     public void onClick(View view) {
         switch (view.getId()) {

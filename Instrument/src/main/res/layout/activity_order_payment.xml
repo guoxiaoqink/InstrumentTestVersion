@@ -41,7 +41,35 @@
             android:textSize="18sp" />
     </RelativeLayout>
     <!--账户-->
-
+    <LinearLayout
+        android:id="@+id/order_account_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/course_order_title"
+        android:orientation="horizontal">
+        <!--账户文字-->
+        <TextView
+            android:id="@+id/order_account"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp13"
+            android:gravity="right"
+            android:text="@string/account"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_13" />
+        <!--账户名字-->
+        <TextView
+            android:id="@+id/pay_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp13"
+            android:layout_marginLeft="@dimen/dp26"
+            android:layout_marginTop="@dimen/dp13"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp_13" />
+    </LinearLayout>
     <TextView
         android:id="@+id/line1"
         android:layout_width="match_parent"
@@ -307,33 +335,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/order_account_li"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/course_order_title"
-        android:orientation="horizontal">
-        <!--账户文字-->
-        <TextView
-            android:id="@+id/order_account"
-            android:layout_width="@dimen/dp60"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp11"
-            android:layout_marginTop="@dimen/dp13"
-            android:gravity="right"
-            android:text="@string/account"
-            android:textColor="@color/color_999999"
-            android:textSize="@dimen/sp_13" />
-        <!--账户名字-->
-        <TextView
-            android:id="@+id/pay_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp13"
-            android:layout_marginLeft="@dimen/dp26"
-            android:layout_marginTop="@dimen/dp13"
-            android:textColor="@color/color_333333"
-            android:textSize="@dimen/sp_13" />
-    </LinearLayout>
+
 </RelativeLayout>

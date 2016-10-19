@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_issiu_feedback"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tu4.activity.IssiuFeedbackActivity">
+    <!--设置状态栏颜色-->
+    <TextView
+        android:id="@+id/top_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp20"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#97C8CD" />
+    <!--设置标题-->
+    <RelativeLayout
+        android:id="@+id/course_order_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp30"
+        android:layout_below="@id/top_tv"
+        android:background="#97C8CD">
+        <!--返回按钮-->
+        <ImageButton
+            android:id="@+id/course_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp11"
+            android:background="#97C8CD"
+            android:contentDescription="@string/returnback"
+            android:onClick="course_order_return"
+            android:src="@mipmap/left_arrow_white" />
+        <!--标题-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/issiu_feedback"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/dp11"
+            android:text="@string/issiu"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp18" />
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/spinnner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:layout_below="@id/course_order_title"
+        android:layout_marginEnd="@dimen/dp11"
+        android:layout_marginStart="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp11">
+
+    </Spinner>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_94"
+        android:layout_below="@id/spinnner"
+        android:layout_marginBottom="@dimen/dp11"
+        android:layout_marginStart="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp23" />
+
+</RelativeLayout>
