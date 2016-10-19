@@ -47,6 +47,8 @@
         <item name="android:textColor">@color/color_d1d1d1</item>
     </style>
     <!--popuwindow从底部弹出动画-->
-
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
 
 </resources>

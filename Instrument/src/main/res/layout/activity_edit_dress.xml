@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_edit_dress"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    tools:context=".activity.EditDressActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_E_D"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+
+        <ImageView
+            android:id="@+id/imgbtn_edit_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/left_arrow_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="编辑地址"
+            android:textColor="@color/sffffff"
+            android:textSize="@dimen/px34" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_E_D"
+        android:layout_marginTop="@dimen/dp16">
+
+        <TextView
+            android:id="@+id/tv_edit1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp11"
+            android:text="收货人姓名"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp13" />
+
+        <EditText
+            android:id="@+id/et_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp16"
+            android:layout_toRightOf="@id/tv_edit1"
+            android:background="@drawable/edit_dress_shape"
+            android:hint="点击即可输入"
+            android:textColorHint="@color/color_999999"
+            android:textSize="@dimen/sp13" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_below="@id/et_edit_name"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp16"
+            android:background="@color/color_d1d1d1">
+
+        </View>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit_name"
+        android:layout_marginTop="@dimen/dp16">
+
+        <TextView
+            android:id="@+id/tv_edit2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:text="手机号码"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp13" />
+
+        <EditText
+            android:id="@+id/et_edit_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp16"
+            android:layout_toRightOf="@id/tv_edit2"
+            android:background="@drawable/edit_dress_shape"
+            android:hint="点击即可输入"
+            android:textColorHint="@color/color_999999"
+            android:textSize="@dimen/sp13" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_below="@id/et_edit_phone"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp16"
+            android:background="@color/color_d1d1d1">
+
+        </View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_dress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit_phone"
+        android:layout_marginTop="@dimen/dp16">
+
+        <TextView
+            android:id="@+id/tv_edit3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_22"
+            android:text="详细地址"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp13" />
+
+        <EditText
+            android:id="@+id/et_edit_dress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp16"
+            android:layout_toRightOf="@id/tv_edit3"
+            android:background="@drawable/edit_dress_shape"
+            android:hint="点击即可输入"
+            android:textColorHint="@color/color_999999"
+            android:textSize="@dimen/sp13" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_below="@id/et_edit_dress"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp16"
+            android:background="@color/color_d1d1d1">
+
+        </View>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/rl_edit_dress"
+        android:layout_marginRight="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp_22">
+
+
+        <TextView
+            android:id="@+id/tv_edit4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="删除当前地址"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp13" />
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp11"
+            android:layout_toLeftOf="@id/tv_edit4"
+            android:src="@mipmap/ic_order_address_delete" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_save_dress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit_del"
+        android:layout_marginLeft="@dimen/dp_22"
+        android:layout_marginRight="@dimen/dp_22"
+        android:layout_marginTop="@dimen/dp110"
+        android:background="@color/color_97c8cd"
+        android:text="保存"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/sp15" />
+
+
+</RelativeLayout>

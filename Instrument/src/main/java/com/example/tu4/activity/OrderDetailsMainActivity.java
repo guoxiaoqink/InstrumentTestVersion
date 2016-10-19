@@ -1,5 +1,6 @@
 package com.example.tu4.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDetailsMainActivity extends AppCompatActivity {
-    RelativeLayout relativeLayout ;
+    RelativeLayout relativeLayout;
     private ListView listView;
     private OrderDetailsListviewAdapter adapter;
     private List<User> users;
@@ -27,11 +28,12 @@ public class OrderDetailsMainActivity extends AppCompatActivity {
         initdata();
         /*adapter = new OrderDetailsListviewAdapter(this, users);
         listView.setAdapter(adapter);*/
+        relativeLayout = (RelativeLayout) findViewById(R.id.rl_address_consignee);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /* Intent intent = new Intent(OrderDetailsMainActivity.this,SelectDress.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(OrderDetailsMainActivity.this, SelectDressActivity.class);
+                startActivity(intent);
             }
         });
     }
