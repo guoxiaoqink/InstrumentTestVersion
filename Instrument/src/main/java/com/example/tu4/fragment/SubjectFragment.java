@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.DateActivity;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.view.ImageCyclePlayView;
@@ -35,6 +36,8 @@ public class SubjectFragment extends Fragment {
     ImageView mImageView_date;
     @BindView(R.id.img_subject_date)
     ImageView imgSubjectDate;
+    @BindView(R.id.img_subject_titlt_find)
+    ImageView imgSubjectTitltFind;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -72,12 +75,31 @@ public class SubjectFragment extends Fragment {
         });
     }
 
+    @OnClick({R.id.img_subject_date, R.id.img_subject_titlt_find})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.img_subject_date:
+                Intent intent = new Intent();
+                intent.setClass(getContext(), DateActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.img_subject_titlt_find:
+                Intent intentToSearch = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intentToSearch);
+                break;
+        }
+    }
 
-    @OnClick(R.id.img_subject_date)
+
+/*    @OnClick(R.id.img_subject_date)
     public void onClick() {
         Intent intent = new Intent();
         intent.setClass(getContext(), DateActivity.class);
         startActivity(intent);
     }
+
+    @OnClick(R.id.img_subject_titlt_find)
+    public void onClick() {
+    }*/
 }
 

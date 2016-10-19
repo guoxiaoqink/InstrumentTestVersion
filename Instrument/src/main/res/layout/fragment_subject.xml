@@ -36,7 +36,7 @@
             android:src="@mipmap/wait_subject" />
 
         <ImageView
-            android:id="@+id/subject_titlt_find"
+            android:id="@+id/img_subject_titlt_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/subject_titlt_wait"
