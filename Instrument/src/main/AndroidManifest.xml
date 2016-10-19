@@ -55,7 +55,11 @@
             android:name=".activity.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.Student_feedbackActivity" />
-        <activity android:name=".activity.ComplaintsSuggestionsActivity" />
+
+        <activity android:name=".activity.ComplaintsSuggestionsActivity">
+
+        </activity>
+
         <activity android:name=".activity.SystemInformationActivity" />
         <activity android:name=".activity.MyWorksActivity" />
         <activity android:name=".activity.MyWorksDeleteActivity" />
@@ -63,6 +67,7 @@
         <activity android:name=".activity.VideoPlayActivity" />
         <activity android:name=".activity.HeadPortraitActivity" />
         <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.ConnectUsActivity"></activity>
     </application>
 

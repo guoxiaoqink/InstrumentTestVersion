@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -38,8 +37,10 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     @OnClick(R.id.img_help_center_return)
     public void onClick() {
-        Intent intent = new Intent(HelpCenterActivity.this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(HelpCenterActivity.this, MainActivity.class);
+//        startActivity(intent);
+        this.finish();
+
         JUMP_MAINACTIVITY = 2;
 
     }

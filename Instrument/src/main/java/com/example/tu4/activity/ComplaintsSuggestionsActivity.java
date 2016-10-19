@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -97,13 +96,15 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_complaint_push:
-                Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+//                startActivity(intent);
+                this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
             case R.id.img_somplaints_suggestion_return:
-                Intent intent1 = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
-                startActivity(intent1);
+//                Intent intent1 = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+//                startActivity(intent1);
+                this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
         }
