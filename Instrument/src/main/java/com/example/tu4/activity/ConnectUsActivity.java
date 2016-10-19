@@ -32,6 +32,7 @@ public class ConnectUsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connect_us);
         ButterKnife.bind(this);
         initGridview();
+                //////////////////////////////////////
     }
 
     @OnClick(R.id.tv_telephone_call)
