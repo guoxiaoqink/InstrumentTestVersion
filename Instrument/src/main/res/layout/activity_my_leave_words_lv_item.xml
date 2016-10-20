@@ -58,7 +58,7 @@
                 android:id="@+id/fl_leave_word_stud_video"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                >
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_leave_word_stud_video"

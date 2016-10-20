@@ -24,11 +24,14 @@ public class HelpCenterActivity extends AppCompatActivity {
     private String[] title = {"标题", "标题", "标题",};
     private String[] text = {"内容1", "内容2", "内容3",};
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_center);
         ButterKnife.bind(this);
+
+
 
         lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(this, title, text));
 

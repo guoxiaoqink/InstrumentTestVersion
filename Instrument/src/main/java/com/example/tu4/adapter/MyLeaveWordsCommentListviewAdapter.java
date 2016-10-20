@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
@@ -54,11 +55,14 @@ public class MyLeaveWordsCommentListviewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout
                     .activity_my_leave_words_comment_lv_item, null);
             viewHolder = new ViewHolder(convertView);
+//            if (position == leaveWordsCommentName.length-1){
+//                viewHolder.llLeaveWordCommentMore.setVisibility(View.VISIBLE);
+//            }
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -68,6 +72,17 @@ public class MyLeaveWordsCommentListviewAdapter extends BaseAdapter {
         viewHolder.tvLeaveWordmCommentContext.setText(leaveWordsCommentContext[position]);
         viewHolder.tvLeaveWordCommentTime.setText(leaveWordsCommentTime[position]);
         viewHolder.imgLeaveWordCommentVideo.setImageResource(R.mipmap.a);
+
+//        viewHolder.llLeaveWordCommentMore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                View view = layoutInflater.inflate(R.layout.activity_my_leave_words_lv_item,null);
+//                ListView lvMyComment = (ListView)view.findViewById(R.id.lv_my_leave_words_comment);
+//                lvMyComment.setVisibility(View.GONE);
+//                LinearLayout llMore = (LinearLayout)view.findViewById(R.id.ll_leave_word_stue_more);
+//                llMore.setVisibility(View.VISIBLE);
+//            }
+//        });
 
         return convertView;
     }
@@ -84,8 +99,8 @@ public class MyLeaveWordsCommentListviewAdapter extends BaseAdapter {
         @BindView(R.id.img_leave_word_comment_video)
         ImageView imgLeaveWordCommentVideo;
 
-//        @BindView(R.id.ll_leave_word_comment_more)
-//        LinearLayout llLeaveWordCommentMore;
+        @BindView(R.id.ll_leave_word_comment_more)
+        LinearLayout llLeaveWordCommentMore;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,6 +71,9 @@ public class MyLeaveWordsListviewAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.activity_my_leave_words_lv_item, null);
             viewHolder = new ViewHolder(convertView);
+            if (positio == 1) {
+                viewHolder.flLeaveWordStudVideo.setVisibility(View.VISIBLE);
+            }
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -89,22 +93,25 @@ public class MyLeaveWordsListviewAdapter extends BaseAdapter {
         viewHolder.llLeaveWordStueMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isShow == false) {
+                if (isShow == false) {
                     viewHolder.lvMyLeaveWordsComment.setVisibility(View.VISIBLE);
                     viewHolder.tvLeaveWordStudMore.setText("收起");
                     viewHolder.imgLeaveWordStudMore.setImageResource(R.mipmap.ic_arrow_top_blue);
                     isShow = true;
-                }else {
+                } else {
                     viewHolder.lvMyLeaveWordsComment.setVisibility(View.GONE);
                     viewHolder.tvLeaveWordStudMore.setText("更多");
                     viewHolder.imgLeaveWordStudMore.setImageResource(R.mipmap.ic_arrow_bottom_blue);
                     isShow = false;
                 }
+//                viewHolder.lvMyLeaveWordsComment.setVisibility(View.VISIBLE);
+//                viewHolder.llLeaveWordStueMore.setVisibility(View.GONE);
             }
         });
 
         return convertView;
     }
+
     static class ViewHolder {
         @BindView(R.id.img_leave_word_stud_photo)
         ImageView imgLeaveWordStudPhoto;
@@ -127,6 +134,9 @@ public class MyLeaveWordsListviewAdapter extends BaseAdapter {
         TextView tvLeaveWordStudMore;
         @BindView(R.id.img_leave_word_stud_more)
         ImageView imgLeaveWordStudMore;
+
+        @BindView(R.id.fl_leave_word_stud_video)
+        FrameLayout flLeaveWordStudVideo;
 
 
         ViewHolder(View view) {

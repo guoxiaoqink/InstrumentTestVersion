@@ -28,7 +28,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1px"
+            android:layout_height="@dimen/px1"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginRight="@dimen/dp_10"
             android:background="@color/color_d1d1d1"/>
@@ -48,7 +48,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1px"
+            android:layout_height="@dimen/px1"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginRight="@dimen/dp_10"
             android:background="@color/color_d1d1d1"/>
@@ -68,7 +68,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1px"
+            android:layout_height="@dimen/px1"
             android:background="@color/color_d1d1d1"/>
     </RadioGroup>
 
