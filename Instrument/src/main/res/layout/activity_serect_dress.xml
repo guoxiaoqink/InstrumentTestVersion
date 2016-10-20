@@ -26,7 +26,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="选择地址"
+            android:text="@string/select_address"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
 
@@ -41,7 +41,7 @@
         android:layout_marginLeft="@dimen/dp_22"
         android:layout_marginRight="@dimen/dp_22"
         android:background="@color/color_97c8cd"
-        android:text="增加新地址"
+        android:text="@string/add_address"
         android:textColor="@color/color_ffffff"
         android:textSize="@dimen/sp15" />
 

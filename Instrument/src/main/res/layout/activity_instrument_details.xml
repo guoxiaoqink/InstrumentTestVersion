@@ -38,7 +38,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="211dp"
+            android:layout_height="@dimen/dp_211"
             android:src="@mipmap/instrument1" />
 
         <RelativeLayout
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginTop="@dimen/dp15"
-            android:text="乐器XXXXXXX"
+            android:text="@string/instrumentname"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/sp15" />
         <!--等级XXX-->
@@ -65,7 +65,7 @@
             android:layout_below="@+id/tv_instrument_name"
             android:layout_marginBottom="@dimen/dp10"
             android:layout_marginTop="@dimen/dp10"
-            android:text="￥5000"
+            android:text="@string/money_5000"
             android:textColor="@color/color_f49c41"
             android:textSize="@dimen/dp_17" />
         <TextView
@@ -73,10 +73,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_instrument_name"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp10"
             android:layout_toRightOf="@+id/tv_instrument_level"
-            android:text="￥6000"
+            android:text="@string/money_5000"
             android:textColor="@color/color_cccccc"
             android:textSize="@dimen/dp_12" />
         <!--5000.00-->
@@ -87,7 +87,7 @@
                 android:layout_alignLeft="@+id/tv_instrument_name"
                 android:layout_below="@+id/tv_instrument_level"
                 android:layout_marginBottom="@dimen/dp10"
-                android:text="运费：000"
+                android:text="@string/money_logis"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/dp_12" />
             <TextView
@@ -96,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/tv_freight"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:text="上海"
+                android:layout_marginRight="@dimen/dp_10"
+                android:text="@string/shanghai"
                 android:textColor="@color/color_999999" />
 
 
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp8"
-        android:text="参数1：xxx"
+        android:text="@string/infstrumentdetail"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/sp12" />
 
@@ -146,7 +146,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp8"
-        android:text="参数2 ：XXXXXXXX"
+        android:text="@string/infstrumentdetail"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/sp12" />
 
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp8"
-        android:text="参数3 ：XXXXXXXX"
+        android:text="@string/infstrumentdetail"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/sp12" />
 
@@ -165,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp8"
-        android:text="参数4 ：XXXXXXXX"
+        android:text="@string/infstrumentdetail"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/sp12" />
         <TextView
@@ -175,7 +175,7 @@
             android:layout_alignLeft="@id/tv_parameter"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginTop="@dimen/dp10"
-            android:text="商品描述"
+            android:text="@string/commoditydestribe"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/dp12" />
 
@@ -194,8 +194,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
-                android:text="显示的行布局数量是由适配器类的getcount方法返回的数,显示的行布局数量是由适配器类的
-                "
+                android:text="@string/instrument_details"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/dp_13"
                 />
@@ -225,7 +224,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp12"
-                android:text="总计（含运费）"
+                android:text="@string/sum"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/dp_13"
 
@@ -236,7 +235,7 @@
                 android:layout_marginTop="@dimen/dp12"
                 android:layout_toRightOf="@id/tv_altogether"
                 android:padding="@dimen/dp3"
-                android:text="￥5000"
+                android:text="@string/money_5000"
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/dp18" />
             <Button
@@ -248,7 +247,7 @@
                 android:layout_marginRight="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp12"
                 android:background="@drawable/button_pay"
-                android:text="购买" />
+                android:text="@string/buy" />
 
         </RelativeLayout>
 

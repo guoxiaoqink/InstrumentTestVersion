@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/textview1Top_instrument_listview1Item"
-            android:text="乐器名称乐器名称"
+            android:text="@string/instrumentname"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/textview1Size_instrument_listview1Item" />
 
@@ -54,7 +54,7 @@
             android:layout_marginRight="@dimen/textview3Right_instrument_listview1Item"
             android:layout_marginTop="@dimen/textview1Top_instrument_listview1Item"
             android:gravity="center"
-            android:text="音质优美 配件齐全 手工实木 哈哈哈 哈哈哈 哈哈哈哈 我已经写不下去啦"
+            android:text="@string/fool"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/textview2Size_instrument_listview1Item" />
 

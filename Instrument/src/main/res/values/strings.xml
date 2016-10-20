@@ -120,6 +120,25 @@
     <string name="student_xxxx">学员XXXX</string>
     <string name="six_minuits_6">6分钟前</string>
     <string name="count_xxxxx">内容XXXXX</string>
+    <string name="instrumentname">乐器XXXXXXX</string>
+    <string name="money_5000">￥5000</string>
+    <string name="money_logis">运费：000</string>
+    <string name="shanghai">上海</string>
+    <string name="paybaby">支付宝</string>
+    <string name="infstrumentdetail">参数1：xxx</string>
+    <string name="commoditydestribe">商品描述</string>
+    <string name="sum">总计（含运费）</string>
+    <string name="buy">购买</string>
+    <string name="here">这个在这里</string>
+    <string name="subx">课程XXXXXXXX</string>
+    <string name="xx_xx_xx">XX区XX大厦XX楼</string>
+    <string name="all">全部</string>
+    <string name="fool">音质优美 配件齐全 手工实木 哈哈哈 哈哈哈 哈哈哈哈 我已经写不下去啦</string>
+    <string name="money_15">￥ 15.00</string>
+    <string name="_30_00">30.00</string>
+    <string name="money_30">30.00</string>
+    <string name="select_address">选择地址</string>
+    <string name="add_address">增加新地址</string>
 
     <array name="hehe">
         <item>niu</item>

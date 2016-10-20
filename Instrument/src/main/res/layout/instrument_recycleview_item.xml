@@ -15,7 +15,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/instrument_instrument_recycleviewItem_textpading"
             android:layout_marginRight="@dimen/instrument_instrument_recycleviewItem_textpading"
-            android:text="全部"
+            android:text="@string/all"
             android:textColor="@drawable/instrument_textview"
             android:textSize="@dimen/instrument_instrument_textSize" />
     </RelativeLayout>

@@ -33,7 +33,7 @@
                 android:layout_marginTop="@dimen/dp5"
                 android:layout_toRightOf="@+id/subject_image"
                 android:gravity="center"
-                android:text="课程XXXXXXXX"
+                android:text="@string/subx"
                 android:textColor="@color/g333"
                 android:textSize="@dimen/px30" />
 
@@ -74,7 +74,7 @@
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_toRightOf="@+id/subject_image"
                 android:gravity="bottom"
-                android:text="XX区XX大厦XX楼"
+                android:text="@string/xx_xx_xx"
                 android:textColor="@color/s999999"
                 android:textSize="@dimen/px26" />
 
