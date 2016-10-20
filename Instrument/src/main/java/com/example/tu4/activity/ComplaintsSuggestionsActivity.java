@@ -30,6 +30,7 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
 
     RadioGroup rgComplaintType;
     @BindView(R.id.tv_complaint_type)
+
     TextView tvComplaintType;
     @BindView(R.id.bt_complaint_push)
     Button btComplaintPush;
