@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp5"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_TR"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_below="@id/rl_TR"
+        android:background="@color/color_d1d1d1"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp11"
+        android:layout_marginRight="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp11">
+
+        <TextView
+            android:id="@+id/tv_TR_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/color_cccccc"
+            android:textSize="@dimen/sp12" />
+
+        <TextView
+            android:id="@+id/tv_TR_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_f49c41"
+            android:textSize="@dimen/sp13" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_below="@id/tv_TR_time"
+            android:layout_marginTop="@dimen/dp11"
+            android:background="@color/color_d1d1d1"></View>
+    </RelativeLayout>
+
+    <com.example.tu4.view.ExpandedListView
+        android:id="@+id/lv_TR_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp11"
+        android:layout_marginTop="@dimen/dp11"
+        android:divider="@color/color_ffffff"></com.example.tu4.view.ExpandedListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_below="@id/tv_TR_time"
+        android:layout_marginLeft="@dimen/dp11"
+        android:layout_marginRight="@dimen/dp11"
+        android:background="@color/color_d1d1d1"></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp11">
+
+        <TextView
+            android:id="@+id/tv_TR_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp16" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/color_d1d1d1"></View>
+
+</LinearLayout>

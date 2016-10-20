@@ -21,6 +21,7 @@ import com.example.tu4.activity.MyLeaveWordsActivity;
 import com.example.tu4.activity.MyWorksActivity;
 import com.example.tu4.activity.PersonalDataActivity;
 import com.example.tu4.activity.SearchActivity;
+import com.example.tu4.activity.TransactionRecordsActivity;
 import com.example.tu4.adapter.PersonMessageListViewAdapter;
 import com.example.tu4.view.CircleImageView;
 
@@ -60,6 +61,11 @@ public class PersonalMessageFragment extends Fragment {
                     Intent intentHelpCenter = new Intent(getContext(),
                             HelpCenterActivity.class);
                     startActivity(intentHelpCenter);
+                }
+                if (position == 1) {
+                    Intent intentMyLeaveWords = new Intent(getContext(),
+                            TransactionRecordsActivity.class);
+                    startActivity(intentMyLeaveWords);
                 }
                 if (position == 2) {
                     Intent intentMyLeaveWords = new Intent(getContext(),

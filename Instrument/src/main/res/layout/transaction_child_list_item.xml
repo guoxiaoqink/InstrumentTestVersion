@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/dp11"
+    android:layout_marginTop="@dimen/dp11"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_TD_child"
+        android:layout_width="@dimen/dp_62"
+        android:layout_height="@dimen/dp_62"
+        android:background="@color/color_d1d1d1" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp11">
+
+        <TextView
+            android:id="@+id/tv_TR_C_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/tv_TR_C_attribute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_TR_C_name"
+            android:layout_marginTop="@dimen/dp5" />
+
+        <TextView
+            android:id="@+id/tv_TR_C_piece"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_TR_C_attribute" />
+    </RelativeLayout>
+
+</LinearLayout>
