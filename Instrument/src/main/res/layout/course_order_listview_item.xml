@@ -93,7 +93,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/dp11"
-                android:text="@string/money_5000"
+                android:text="@string/money_5000_00"
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/sp19" />
 
