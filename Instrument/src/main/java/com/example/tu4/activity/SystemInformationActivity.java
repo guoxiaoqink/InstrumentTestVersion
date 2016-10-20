@@ -21,7 +21,7 @@ public class SystemInformationActivity extends AppCompatActivity {
             "内容1111111111111",};
     private String[] time = {"2016-05-05", "2016-06-06", "2016-07-07", "2016-08-08",};
 
-    @BindView(R.id.lvSystemInformation)
+    @BindView(R.id.lv_system_information)
     ListView lvSystemInformation;
 
     @Override

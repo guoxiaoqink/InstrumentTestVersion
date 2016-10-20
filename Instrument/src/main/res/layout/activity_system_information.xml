@@ -37,7 +37,7 @@
     <include layout="@layout/include_system_information_line"/>
 
     <ListView
-        android:id="@+id/lvSystemInformation"
+        android:id="@+id/lv_system_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/stroke_line_up_down"

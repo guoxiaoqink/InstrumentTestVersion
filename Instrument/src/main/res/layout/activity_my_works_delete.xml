@@ -9,7 +9,7 @@
     tools:context="com.example.tu4.activity.MyWorksDeleteActivity">
 
     <RelativeLayout
-    android:id="@+id/title_delete"
+    android:id="@+id/rl_title"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_45"
     android:background="@color/color_97c8cd">
@@ -38,8 +38,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title_delete"
-        android:layout_above="@+id/btDelete">
+        android:layout_below="@id/rl_title"
+        android:layout_above="@+id/bt_delete">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
             android:orientation="vertical">
 
             <com.example.tu4.view.ResolveConflictsScoolviewGridview
-                android:id="@+id/gvMyWorksSelect"
+                android:id="@+id/gv_my_works_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:horizontalSpacing="@dimen/px_2"
@@ -58,7 +58,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btDelete"
+        android:id="@+id/bt_delete"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_49"
         android:layout_alignParentBottom="true"

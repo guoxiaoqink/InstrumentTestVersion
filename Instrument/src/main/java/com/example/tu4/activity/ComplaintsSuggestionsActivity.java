@@ -40,6 +40,7 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     RelativeLayout rePopup;
 
     private View popupView;
+    private static boolean isShowPopup = false;
     private PopupWindow mPopupWindow;
     private RadioButton radioButton;
 
@@ -62,8 +63,15 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
         rePopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopup(v);
-                imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_top);
+                if (isShowPopup == false) {
+                    showPopup(v);
+                    imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_top);
+                    isShowPopup = true;
+                }else {
+                    mPopupWindow.dismiss();
+                    imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
+                    isShowPopup = false;
+                }
 
             }
         });
