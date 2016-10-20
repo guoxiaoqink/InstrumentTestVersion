@@ -153,7 +153,7 @@ public class SelectDressActivity extends AppCompatActivity {
                         null);
                 holder = new ViewHolder();
                 holder.checkBox = (CheckBox) convertView
-                        .findViewById(R.id.rb_select_dress);
+                        .findViewById(R.id.cb_select_dress);
                 holder.tv_name = (TextView) convertView
                         .findViewById(R.id.tv_SD_cnee);
                 holder.tv_phone = (TextView) convertView
