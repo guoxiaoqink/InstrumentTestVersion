@@ -21,6 +21,7 @@ public class PaySuccessActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_pay_success);
         Toast.makeText(this, "ceshi", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ceshi", Toast.LENGTH_SHORT).show();
     }
 
     public void show_course_details(View v) {
