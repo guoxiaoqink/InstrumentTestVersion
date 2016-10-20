@@ -106,6 +106,7 @@ public class SelectDressActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgbtn_select_left:
+                this.finish();
                 break;
             case R.id.btn_add_dress:
                 break;
