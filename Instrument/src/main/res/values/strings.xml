@@ -120,6 +120,8 @@
     <string name="student_xxxx">学员XXXX</string>
     <string name="six_minuits_6">6分钟前</string>
     <string name="count_xxxxx">内容XXXXX</string>
+    <string name="position_xx_xx_xx">XX区XX大厦XX楼</string>
+    <string name="money_5000_00">5000.00</string>
 
     <array name="hehe">
         <item>niu</item>

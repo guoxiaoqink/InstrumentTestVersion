@@ -97,7 +97,7 @@
         android:background="@color/e0e0e0" />
     <!--课程信息列表-->
     <ListView
-        android:id="@+id/course_info_list"
+        android:id="@+id/list_course_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/cut_off_rule_short"></ListView>
@@ -106,11 +106,11 @@
         android:id="@+id/tv_long_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
-        android:layout_below="@id/course_info_list"
+        android:layout_below="@id/list_course_info"
         android:background="@color/e0e0e0" />
     <!--收件人信息-->
     <LinearLayout
-        android:id="@+id/receiver_info"
+        android:id="@+id/lin_receiver_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_long_line"
@@ -147,7 +147,7 @@
         android:id="@+id/lin_receiver_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/receiver_info"
+        android:layout_below="@id/lin_receiver_info"
         android:layout_marginTop="@dimen/dp11"
         android:orientation="horizontal">
         <!--必须输入的标识符-->
@@ -218,7 +218,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="60dp"
-                android:text="5000.00"
+                android:text="@string/money_5000_00"
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/sp19" />
             <!--确认订购按钮-->

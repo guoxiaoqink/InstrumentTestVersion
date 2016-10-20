@@ -40,7 +40,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_course_subscribe);
         ButterKnife.bind(this);
-        course_info = (ListView) findViewById(R.id.course_info_list);
+        course_info = (ListView) findViewById(R.id.list_course_info);
         accountDetails.setText(account);
         initListviewCourseinfo();
 
