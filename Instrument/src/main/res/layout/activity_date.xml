@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/imgbtn_date_wait"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_22"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp10"
