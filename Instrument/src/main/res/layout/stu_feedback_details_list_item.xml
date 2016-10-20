@@ -39,7 +39,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/stu_feedback_details_content"
+        android:id="@+id/tv_stu_feedback_details_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/details_top"
@@ -53,7 +53,7 @@
         android:id="@+id/feedback_video"
         android:layout_width="@dimen/dp121"
         android:layout_height="@dimen/dp_101"
-        android:layout_below="@id/stu_feedback_details_content"
+        android:layout_below="@id/tv_stu_feedback_details_content"
         android:layout_marginBottom="@dimen/dp11"
         android:layout_marginStart="@dimen/dp11"
         android:layout_marginTop="@dimen/dp11"

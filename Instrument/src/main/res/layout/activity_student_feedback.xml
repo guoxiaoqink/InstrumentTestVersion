@@ -14,7 +14,7 @@
         android:background="#97C8CD" />
     <!--设置标题-->
     <RelativeLayout
-        android:id="@+id/course_order_title"
+        android:id="@+id/re_course_order_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp30"
         android:layout_alignParentStart="true"
@@ -22,7 +22,7 @@
         android:background="#97C8CD">
         <!--返回按钮-->
         <ImageButton
-            android:id="@+id/course_return"
+            android:id="@+id/btn_course_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -43,14 +43,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/course_time"
+        android:id="@+id/re_course_time"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp37"
-        android:layout_below="@id/course_order_title"
+        android:layout_below="@id/re_course_order_title"
         android:background="@android:color/white">
 
         <ImageButton
-            android:id="@+id/pre_course"
+            android:id="@+id/btn_pre_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -59,7 +59,7 @@
             android:src="@mipmap/ic_feedback_left" />
 
         <TextView
-            android:id="@+id/course_time_x"
+            android:id="@+id/tv_course_time_x"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -70,7 +70,7 @@
             android:textSize="@dimen/sp18" />
 
         <ImageButton
-            android:id="@+id/next_course"
+            android:id="@+id/btn_next_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -82,10 +82,10 @@
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/stu_feedback_details"
+        android:id="@+id/list_stu_feedback_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/course_time"
+        android:layout_below="@id/re_course_time"
         android:layout_marginTop="@dimen/dp5"
         android:background="@android:color/white"
         android:divider="@color/color_f0f0f0"

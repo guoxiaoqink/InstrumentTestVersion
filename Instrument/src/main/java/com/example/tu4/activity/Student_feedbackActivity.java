@@ -24,15 +24,15 @@ import butterknife.OnClick;
  * created at 2016/10/16 9:49
  */
 public class Student_feedbackActivity extends AppCompatActivity {
-    @BindView(R.id.stu_feedback_details)
+    @BindView(R.id.list_stu_feedback_details)
     ListView stuFeedbackDetails;
-    @BindView(R.id.course_return)
+    @BindView(R.id.btn_course_return)
     ImageButton courseReturn;
-    @BindView(R.id.pre_course)
+    @BindView(R.id.btn_pre_course)
     ImageButton preCourse;
-    @BindView(R.id.course_time_x)
+    @BindView(R.id.tv_course_time_x)
     TextView courseTimeX;
-    @BindView(R.id.next_course)
+    @BindView(R.id.btn_next_course)
     ImageButton nextCourse;
     private int a = 1;
 
@@ -52,13 +52,13 @@ public class Student_feedbackActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.course_return, R.id.pre_course, R.id.course_time_x, R.id.next_course})
+    @OnClick({R.id.btn_course_return, R.id.btn_pre_course, R.id.tv_course_time_x, R.id.btn_next_course})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.course_return:
+            case R.id.btn_course_return:
                 this.finish();
                 break;
-            case R.id.pre_course:
+            case R.id.btn_pre_course:
                 a = a - 1;
                 courseTimeX.setText("课时" + a);
                 nextCourse.setImageResource(R.mipmap.ic_feedback_right);
@@ -72,7 +72,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
                     preCourse.setClickable(false);
                 }
                 break;
-            case R.id.next_course:
+            case R.id.btn_next_course:
                 a = a + 1;
                 courseTimeX.setText("课时" + a);
                 preCourse.setImageResource(R.mipmap.ic_feedback_left);
