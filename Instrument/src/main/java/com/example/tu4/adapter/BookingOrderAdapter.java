@@ -121,6 +121,7 @@ public class BookingOrderAdapter extends BaseAdapter {
             switch (type) {
                 case TYPE1:
                     holder1 = (ViewHolder1) convertView.getTag();
+
                     break;
           //      case TYPE2:
           //          holder2 = (ViewHolder2) convertView.getTag();
