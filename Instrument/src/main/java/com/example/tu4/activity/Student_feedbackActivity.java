@@ -3,10 +3,10 @@ package com.example.tu4.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.FeedbackListviewAdapter;
@@ -39,6 +39,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_student_feedback);
         ButterKnife.bind(this);
         courseTimeX.setText("课时1");
@@ -47,8 +48,6 @@ public class Student_feedbackActivity extends AppCompatActivity {
             preCourse.setClickable(false);
             FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
             stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
-            Toast.makeText(this, "为什么无法上传啊", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "为什么无法上传啊", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -57,6 +56,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.course_return:
+                this.finish();
                 break;
             case R.id.pre_course:
                 a = a - 1;

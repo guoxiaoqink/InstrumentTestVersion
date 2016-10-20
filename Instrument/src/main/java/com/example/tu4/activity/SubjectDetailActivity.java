@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.view.CircleImageView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER;
 import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER_BACK;
@@ -19,12 +24,15 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
+    @BindView(R.id.imageview_instrument_show)
+    ImageView imageviewInstrumentShow;
     private TextView money;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_detail);
+        ButterKnife.bind(this);
         money = (TextView) findViewById(R.id.tv_money_subjectdetail);
         mInflater = LayoutInflater.from(this);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
@@ -53,7 +61,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     }
 
     public void addHeadImgToLinearlayout(int studentNumber, int MaxNumber, int itemlayout,
-            LinearLayout linearLayout) {
+                                         LinearLayout linearLayout) {
         if (studentNumber <= MaxNumber) {
             for (int i = 0; i < studentNumber; i++) {
                 View v = mInflater.inflate(itemlayout, null);
@@ -72,4 +80,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
     }
 
 
+    @OnClick(R.id.imageview_instrument_show)
+    public void onClick() {
+        Intent intentTofeedback = new Intent();
+        intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
+        startActivity(intentTofeedback);
+    }
 }

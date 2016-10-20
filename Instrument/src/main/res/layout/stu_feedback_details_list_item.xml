@@ -45,7 +45,7 @@
         android:layout_below="@id/details_top"
         android:layout_marginEnd="@dimen/dp11"
         android:layout_marginStart="@dimen/dp11"
-        android:hint="内容XXXXX"
+        android:text="内容XXXXX"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/sp14" />
 
