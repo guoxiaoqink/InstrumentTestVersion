@@ -85,6 +85,9 @@
     <string name="serve">客服</string>
     <string name="servePerson">客服一</string>
     <string name="please_input_suggestion">请输入感想。。。</string>
+    <string name="pleaseinputthinks">请输入感想。。。</string>
+    <string name="issiufeedback">发布反馈</string>
+    <string name="issiu1">发布</string>
 
     <string name="unpaidpaid">待付款</string>
     <string name="pay">付款</string>
