@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="162dp">
+    android:layout_height="@dimen/dp_162">
 
     <FrameLayout
         android:id="@+id/fl_image_cycle"
@@ -9,30 +9,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="@dimen/dp_30"
         android:layout_alignParentBottom="true"
-        android:background="#66666666"
+        android:background="@color/color_66_666666"
         android:gravity="bottom">
 
         <LinearLayout
             android:id="@+id/ll_indication_group"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="@dimen/dp_10"
             android:layout_alignParentBottom="true"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingRight="15dp"></LinearLayout>
+            android:paddingRight="@dimen/dp_15"></LinearLayout>
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="@dimen/dp_30"
         android:layout_alignParentBottom="true"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        android:text="这个在这里"
-        android:textColor="#ffffffff"
+        android:paddingLeft="@dimen/dp_10"
+        android:text="@string/here"
+        android:textColor="@color/color_ff_ffffff"
         android:textSize="15sp" />
 
 

@@ -30,4 +30,7 @@
     <color name="color_f49c41">#f49c41</color>
     <color name="color_000000">#000000</color>
     <color name="color_252525">#252525</color>
+    <color name="color_ff_ffffff">#ffffffff</color>
+    <color name="color_66_666666">#666666</color>
+    <color name="color_97C8CD">#97C8CD</color>
 </resources>

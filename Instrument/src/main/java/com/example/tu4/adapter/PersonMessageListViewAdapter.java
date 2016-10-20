@@ -51,7 +51,7 @@ public class PersonMessageListViewAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.personmessage_listview_item, null);
             ImageView image1 = (ImageView) convertView.findViewById(R.id.image_listItem);
             TextView textView = (TextView) convertView.findViewById(R.id.text_listItem);
-            ImageView person_point = (ImageView) convertView.findViewById(R.id.person_point);
+            ImageView person_point = (ImageView) convertView.findViewById(R.id.iv_person_point);
             viewHolder = new viewHolder();
             viewHolder.ImageView = image1;
             viewHolder.textView = textView;

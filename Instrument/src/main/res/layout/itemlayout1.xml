@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/list_instrument"
         android:layout_width="match_parent"
@@ -12,8 +13,8 @@
 
         <ImageView
             android:id="@+id/iv_instrument_1"
-            android:layout_width="63dp"
-            android:layout_height="63dp"
+            android:layout_width="@dimen/dp_63"
+            android:layout_height="@dimen/dp_63"
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginTop="@dimen/dp16"
             android:background="@mipmap/details_instrument" />

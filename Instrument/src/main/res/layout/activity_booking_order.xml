@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_booking_order"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
     android:orientation="vertical">
     <RelativeLayout
-        android:id="@+id/booking_order_tatil"
+        android:id="@+id/rl_booking_order_tatil"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp44"
         android:background="@color/s97c8cd">
@@ -40,9 +37,9 @@
             android:src="@mipmap/lookup" />
     </RelativeLayout>
     <RelativeLayout
-        android:background="@color/color_d1d1d1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/color_d1d1d1">
        <ListView
            android:id="@+id/lo_listview"
            android:layout_width="match_parent"

@@ -32,9 +32,9 @@
                 android:textSize="@dimen/px26" />
 
             <ImageView
-                android:id="@+id/person_point"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
+                android:id="@+id/iv_person_point"
+                android:layout_width="@dimen/dp_6"
+                android:layout_height="@dimen/dp_6"
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_toEndOf="@+id/frameLayout"

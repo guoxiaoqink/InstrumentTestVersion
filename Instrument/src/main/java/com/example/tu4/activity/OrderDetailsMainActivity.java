@@ -120,7 +120,7 @@ public class OrderDetailsMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_details_activity_main);
+        setContentView(R.layout.activity_order_details);
         ButterKnife.bind(this);
         listView = (ListView) findViewById(R.id.listview);
         initdata();
