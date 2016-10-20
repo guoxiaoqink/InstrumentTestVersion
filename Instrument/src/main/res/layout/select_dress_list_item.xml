@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="115dp">
+
+        <CheckBox
+            android:id="@+id/rb_select_dress"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp11" />
+
+        <RelativeLayout
+            android:id="@+id/rl1_S_D_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_toRightOf="@id/rb_select_dress">
+
+            <TextView
+                android:id="@+id/tv_SD_cnee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货人：XXX"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tv_SD_cneephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_toRightOf="@id/tv_SD_cnee"
+                android:text="1311313313313"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tv_SD_cneedress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_SD_cnee"
+                android:layout_marginTop="@dimen/dp_9"
+                android:text="地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl2_S_D_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/dp11"
+            android:layout_marginRight="@dimen/dp11">
+
+            <TextView
+                android:id="@+id/tv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/dp10"
+                android:text="编辑"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp13" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/tv_edit"
+                android:background="@mipmap/ic_address_choose_edit" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

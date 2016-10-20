@@ -94,7 +94,7 @@ public class OrderDetailsListviewAdapter extends BaseAdapter {
                 case TYPE1:
                     convertView = inflater.inflate(R.layout.itemlayout1, null, false);
                     holder1 = new ViewHolder1();
-                    holder1.item1_tv = (TextView) convertView.findViewById(R.id.lo_tv_order_time);
+                    holder1.item1_tv = (TextView) convertView.findViewById(R.id.tv_instrument_name_1);
                     holder1.item1_im = (ImageView) convertView.findViewById(R.id.iv_instrument_1);
 
                     convertView.setTag(holder1);

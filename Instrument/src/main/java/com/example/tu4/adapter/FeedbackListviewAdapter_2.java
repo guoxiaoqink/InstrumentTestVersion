@@ -52,7 +52,7 @@ public class FeedbackListviewAdapter_2 extends BaseAdapter {
 
         viewHolder.circleImageView.setImageResource(R.mipmap.circle);
         if (position != 2) {
-            viewHolder.feedbackVideo.setVisibility(View.INVISIBLE);
+            viewHolder.feedbackVideo.setVisibility(View.GONE);
         }
 
         return convertView;

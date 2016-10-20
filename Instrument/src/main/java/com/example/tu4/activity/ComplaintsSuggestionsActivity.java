@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
@@ -34,6 +35,8 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     Button btComplaintPush;
     @BindView(R.id.img_somplaints_suggestion_return)
     ImageView imgSomplaintsSuggestionReturn;
+    @BindView(R.id.re_popup)
+    RelativeLayout rePopup;
 
     private View popupView;
     private PopupWindow mPopupWindow;
@@ -55,7 +58,7 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 null);
         rgComplaintType = (RadioGroup) popupView.findViewById(R.id.rg_complaint_type);
 
-        imgbtComplaintType.setOnClickListener(new View.OnClickListener() {
+        rePopup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPopup(v);
@@ -96,13 +99,15 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_complaint_push:
-//                Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+//                Intent intent = new Intent(ComplaintsSuggestionsActivity.this, MainActivity
+// .class);
 //                startActivity(intent);
                 this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
             case R.id.img_somplaints_suggestion_return:
-//                Intent intent1 = new Intent(ComplaintsSuggestionsActivity.this, MainActivity.class);
+//                Intent intent1 = new Intent(ComplaintsSuggestionsActivity.this, MainActivity
+// .class);
 //                startActivity(intent1);
                 this.finish();
                 JUMP_MAINACTIVITY = 2;

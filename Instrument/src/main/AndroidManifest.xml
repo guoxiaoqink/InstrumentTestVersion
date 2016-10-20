@@ -54,12 +54,23 @@
         <activity
             android:name=".activity.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.Student_feedbackActivity" />
+        <activity
+            android:name=".activity.Student_feedbackActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <activity android:name=".activity.ComplaintsSuggestionsActivity">
 
         </activity>
 
+        <activity
+            android:name=".activity.SelectDressActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+
+        <activity
+            android:name=".activity.EditDressActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".activity.SystemInformationActivity" />
         <activity android:name=".activity.MyWorksActivity" />
         <activity android:name=".activity.MyWorksDeleteActivity" />
@@ -69,6 +80,7 @@
         <activity android:name=".activity.PersonalDataActivity" />
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.ConnectUsActivity"></activity>
+        <activity android:name=".activity.OrderDetailsMainActivity"></activity>
     </application>
 
 </manifest>
