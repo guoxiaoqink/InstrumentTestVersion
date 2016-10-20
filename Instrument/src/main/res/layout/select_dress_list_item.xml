@@ -30,7 +30,6 @@
                 android:id="@+id/tv_SD_cnee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="收货人：XXX"
                 android:textColor="@color/color_666666"
                 android:textSize="@dimen/sp13" />
 
@@ -40,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp15"
                 android:layout_toRightOf="@id/tv_SD_cnee"
-                android:text="1311313313313"
                 android:textColor="@color/color_666666"
                 android:textSize="@dimen/sp13" />
 
@@ -50,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_SD_cnee"
                 android:layout_marginTop="@dimen/dp_9"
-                android:text="地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                 android:textColor="@color/color_666666"
                 android:textSize="@dimen/sp13" />
 
@@ -71,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="@dimen/dp10"
-                android:text="编辑"
+                android:text="@string/edit"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/sp13" />
 

@@ -22,6 +22,7 @@
     <string name="logististrackinglistviewitem">内容XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
     <string name="logisticstrack">物流跟踪</string>
     <string name="order">预约订单</string>
+    <string name="edit">编辑</string>
     <string name="transactionrecord">交易记录</string>
     <string name="serach">搜索</string>
     <string name="importdouble">关键词</string>
