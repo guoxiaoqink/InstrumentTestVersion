@@ -67,15 +67,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
-
         <activity
             android:name=".activity.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".activity.TransactionRecordsActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
         <activity android:name=".activity.SystemInformationActivity" />
         <activity android:name=".activity.MyWorksActivity" />
         <activity android:name=".activity.MyWorksDeleteActivity" />
@@ -87,6 +81,8 @@
         <activity android:name=".activity.ConnectUsActivity"></activity>
         <activity android:name=".activity.OrderDetailsMainActivity"></activity>
         <activity android:name=".activity.BookingOrderActivity"></activity>
+        <activity android:name=".activity.TransactionRecordsActivity"></activity>
+        <activity android:name=".activity.InstrumentDetailsActivity"></activity>
     </application>
 
 </manifest>

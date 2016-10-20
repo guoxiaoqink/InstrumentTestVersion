@@ -134,7 +134,7 @@
     <string name="paybaby">支付宝</string>
     <string name="infstrumentdetail">参数1：xxx</string>
     <string name="commoditydestribe">商品描述</string>
-    <string name="sum">总计（含运费）</string>
+    <string name="sum">总计（含运费)</string>
     <string name="buy">购买</string>
     <string name="here">这个在这里</string>
     <string name="subx">课程XXXXXXXX</string>
@@ -147,6 +147,9 @@
     <string name="select_address">选择地址</string>
     <string name="add_address">增加新地址</string>
     <string name="money_5000_00">5000.00</string>
+    <string name="notsubject">未上课</string>
+    <string name="two">14:00</string>
+    <string name="threesubject">课程XXXX（3课时）</string>
 
     <array name="hehe">
         <item>niu</item>

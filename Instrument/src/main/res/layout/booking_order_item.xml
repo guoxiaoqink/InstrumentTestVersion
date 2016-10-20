@@ -1,115 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="@color/color_ffffff"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/lo_tv_order_time"
+        android:id="@+id/tv_order_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
         android:text="@string/tv_order_time"
         android:textColor="@color/color_cccccc"
-        android:textSize="@dimen/dp12"
-        android:layout_marginTop="@dimen/dp10"
-        android:layout_marginLeft="@dimen/dp10"
-        />
+        android:textSize="@dimen/dp12" />
+
     <TextView
-        android:id="@+id/lo_tv_isclass"
+        android:id="@+id/tv_isclass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="未上课"
-        android:textColor="@color/color_f49c41"
-        android:textSize="@dimen/dp15"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dp10"
         android:layout_marginTop="@dimen/dp10"
-        />
+        android:text="@string/notsubject"
+        android:textColor="@color/color_f49c41"
+        android:textSize="@dimen/dp15" />
+
     <TextView
-        android:id="@+id/lo_line"
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp1"
-        android:layout_below="@id/lo_tv_order_time"
+        android:layout_alignLeft="@id/tv_order_time"
+        android:layout_alignRight="@id/tv_isclass"
+        android:layout_below="@id/tv_order_time"
         android:layout_marginTop="@dimen/dp10"
-        android:background="@color/color_d1d1d1"
-        android:layout_alignLeft="@id/lo_tv_order_time"
-        android:layout_alignRight="@id/lo_tv_isclass"/>
+        android:background="@color/color_d1d1d1" />
+
     <ImageView
-        android:id="@+id/lo_image"
+        android:id="@+id/img"
         android:layout_width="@dimen/dp_63"
         android:layout_height="@dimen/dp_63"
-        android:layout_below="@id/lo_line"
-        android:layout_marginTop="@dimen/dp10"
+        android:layout_below="@id/line"
         android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
         android:background="@color/gray" />
 
     <TextView
-        android:id="@+id/lo_text1"
+        android:id="@+id/tv_insname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@id/img"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp5"
-        android:layout_toRightOf="@id/lo_image"
-        android:layout_alignTop="@id/lo_image"
+        android:layout_toRightOf="@id/img"
         android:gravity="center"
         android:text="课程XXXXXXXX"
         android:textColor="@color/color_666666"
         android:textSize="@dimen/px26" />
 
     <TextView
-        android:id="@+id/lo_text2"
+        android:id="@+id/tv_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lo_text1"
+        android:layout_below="@id/tv_insname"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp5"
-        android:layout_toRightOf="@+id/lo_image"
+        android:layout_toRightOf="@+id/img"
         android:gravity="center"
         android:text="六课时"
         android:textColor="@color/s999999"
         android:textSize="@dimen/px26" />
 
     <TextView
-        android:id="@+id/lo_text3"
+        android:id="@+id/tv_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lo_text2"
+        android:layout_below="@id/tv_num"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp1"
-        android:layout_toRightOf="@+id/lo_image"
+        android:layout_toRightOf="@+id/img"
         android:gravity="center"
         android:text="老师：xxx"
         android:textColor="@color/s999999"
         android:textSize="@dimen/px26" />
 
-
-
     <TextView
-        android:id="@+id/lo_money"
+        android:id="@+id/tv_money"
         android:layout_width="wrap_content"
-        android:text="￥5000"
-        android:textSize="@dimen/px26"
-        android:textColor="@color/color_666666"
-        android:layout_alignBottom="@id/lo_image"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/img"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dp10"
-        android:layout_height="wrap_content" />
+        android:text="￥5000"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/px26" />
+
     <TextView
-        android:id="@+id/lo_line2"
+        android:id="@+id/tv_linebottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp1"
-        android:layout_below="@id/lo_text3"
+        android:layout_alignLeft="@id/tv_order_time"
+        android:layout_alignRight="@id/tv_isclass"
+        android:layout_below="@id/tv_teacher"
         android:layout_marginTop="@dimen/dp10"
-        android:background="@color/color_d1d1d1"
-        android:layout_alignLeft="@id/lo_tv_order_time"
-        android:layout_alignRight="@id/lo_tv_isclass"/>
+        android:background="@color/color_d1d1d1" />
+
     <TextView
-        android:id="@+id/lo_money2"
+        android:id="@+id/tv_realmoney"
         android:layout_width="wrap_content"
-        android:text="实付：￥5000"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_linebottom"
         android:padding="@dimen/dp10"
-        android:layout_below="@id/lo_line2"
-        android:layout_height="wrap_content" />
+        android:text="实付：￥5000" />
 </RelativeLayout>

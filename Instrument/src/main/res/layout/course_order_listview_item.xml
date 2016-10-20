@@ -12,67 +12,66 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/course_details"
+            android:id="@+id/rl_course_details"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp86"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true">
 
             <ImageView
-                android:id="@+id/subject_image"
+                android:id="@+id/tv_subject_image"
                 android:layout_width="@dimen/dp86"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/dp10"
                 android:background="@color/gray" />
 
             <TextView
-                android:id="@+id/suject_text1"
+                android:id="@+id/tv_suject_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:layout_toRightOf="@+id/subject_image"
+                android:layout_toRightOf="@id/tv_subject_image"
                 android:gravity="center"
                 android:text="课程XXXXXXXX"
                 android:textColor="@color/g333"
                 android:textSize="@dimen/px30" />
 
             <TextView
-                android:id="@+id/suject_text2"
+                android:id="@+id/tv_suject_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/suject_text1"
+                android:layout_below="@id/tv_suject_text1"
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp1"
-                android:layout_toRightOf="@+id/subject_image"
+                android:layout_toRightOf="@+id/tv_subject_image"
                 android:gravity="center"
                 android:text="@string/subject_listviewItem_text2"
                 android:textColor="@color/s999999"
                 android:textSize="@dimen/px26" />
 
             <TextView
-                android:id="@+id/suject_text3"
+                android:id="@+id/tv_suject_text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/suject_text2"
+                android:layout_below="@id/tv_suject_text2"
                 android:layout_marginLeft="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp1"
-                android:layout_toRightOf="@+id/subject_image"
+                android:layout_toRightOf="@+id/tv_subject_image"
                 android:gravity="center"
                 android:text="@string/subject_listViewItem_text3"
                 android:textColor="@color/s999999"
                 android:textSize="@dimen/px26" />
 
             <TextView
-                android:id="@+id/suject_text4"
+                android:id="@+id/tv_suject_text4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/subject_image"
+                android:layout_alignBottom="@id/tv_subject_image"
                 android:layout_alignParentBottom="true"
-
-                android:layout_below="@id/suject_text3"
+                android:layout_below="@id/tv_suject_text3"
                 android:layout_marginLeft="@dimen/dp10"
-                android:layout_toRightOf="@+id/subject_image"
+                android:layout_toRightOf="@+id/tv_subject_image"
                 android:gravity="bottom"
                 android:text="@string/xx_xx_xx"
                 android:textColor="@color/s999999"

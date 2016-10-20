@@ -27,7 +27,7 @@
             android:textSize="@dimen/px34" />
 
         <ImageView
-            android:id="@+id/subject_titlt_wait"
+            android:id="@+id/iv_subject_titlt_wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -39,9 +39,9 @@
             android:id="@+id/img_subject_titlt_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/subject_titlt_wait"
+            android:layout_alignTop="@+id/iv_subject_titlt_wait"
             android:layout_marginRight="@dimen/dp15"
-            android:layout_toStartOf="@+id/subject_titlt_wait"
+            android:layout_toStartOf="@+id/iv_subject_titlt_wait"
             android:src="@mipmap/lookup" />
 
     </RelativeLayout>

@@ -16,6 +16,7 @@ import com.example.tu4.R;
 import com.example.tu4.activity.DateActivity;
 import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.SubjectDetailActivity;
+import com.example.tu4.activity.TransactionRecordsActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.view.ImageCyclePlayView;
 
@@ -27,18 +28,16 @@ import static com.example.tu4.model.AplicationStatic.cycleImageData;
 
 
 public class SubjectFragment extends Fragment {
-
     @BindView(R.id.icpv_subject)
     ImageCyclePlayView icpvSubject;
     @BindView(R.id.listview_subject)
     ListView listviewSubject;
-    @BindView(R.id.subject_titlt_wait)
-    ImageView mImageView_date;
     @BindView(R.id.img_subject_date)
     ImageView imgSubjectDate;
     @BindView(R.id.img_subject_titlt_find)
     ImageView imgSubjectTitltFind;
-
+    @BindView(R.id.iv_subject_titlt_wait)
+    ImageView ivSubjectTitltWait;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -90,16 +89,11 @@ public class SubjectFragment extends Fragment {
         }
     }
 
-
-/*    @OnClick(R.id.img_subject_date)
+    @OnClick(R.id.iv_subject_titlt_wait)
     public void onClick() {
-        Intent intent = new Intent();
-        intent.setClass(getContext(), DateActivity.class);
-        startActivity(intent);
+        Intent intentTo = new Intent(getActivity(), TransactionRecordsActivity.class);
+        startActivity(intentTo);
     }
 
-    @OnClick(R.id.img_subject_titlt_find)
-    public void onClick() {
-    }*/
 }
 

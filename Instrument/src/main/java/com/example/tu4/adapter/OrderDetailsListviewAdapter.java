@@ -20,15 +20,17 @@ import java.util.List;
 
 public class OrderDetailsListviewAdapter extends BaseAdapter {
 
+    //为三种布局定义一个标识
+    private final int TYPE1 = 0;
+    private final int TYPE2 = 1;
+    private final int TYPE3 = 2;
+    //  public class ViewHolder2 {
+    TextView item2_tv;
     //定义常用的参数
     private Context ctx;
     private int resourceId;
     private List<User> users;
     private LayoutInflater inflater;
-    //为三种布局定义一个标识
-    private final int TYPE1 = 0;
-    private final int TYPE2 = 1;
-    private final int TYPE3 = 2;
 
     public OrderDetailsListviewAdapter(Context context, List<User> objects) {
         this.ctx = context;
@@ -92,7 +94,7 @@ public class OrderDetailsListviewAdapter extends BaseAdapter {
         if (convertView == null) {
             switch (type) {
                 case TYPE1:
-                    convertView = inflater.inflate(R.layout.itemlayout1, null, false);
+                    convertView = inflater.inflate(R.layout.instrument_detail, null, false);
                     holder1 = new ViewHolder1();
                     holder1.item1_tv = (TextView) convertView.findViewById(R.id.tv_instrument_name_1);
                     holder1.item1_im = (ImageView) convertView.findViewById(R.id.iv_instrument_1);
@@ -100,13 +102,13 @@ public class OrderDetailsListviewAdapter extends BaseAdapter {
                     convertView.setTag(holder1);
                     break;
                /// case TYPE2:
-                    //convertView = inflater.inflate(R.layout.itemlayout1, null, false);
+                //convertView = inflater.inflate(R.layout.instrument_detail, null, false);
                    // holder2 = new ViewHolder2();
                    // holder2.item2_tv = (TextView) convertView.findViewById(R.id.tv_instrument_name_1);
                   //  convertView.setTag(holder2);
                    // break;
                // case TYPE3:
-                  //  convertView = inflater.inflate(R.layout.itemlayout1, null, false);
+                //  convertView = inflater.inflate(R.layout.instrument_detail, null, false);
                  //   holder3 = new ViewHolder3();
                     //holder2.item2_tv = (TextView) convertView.findViewById(R.id.tv_instrument_name_1);
                  //   convertView.setTag(holder3);
@@ -149,9 +151,6 @@ public class OrderDetailsListviewAdapter extends BaseAdapter {
         ImageView item1_im;
         TextView item1_tv2;
     }
-
-  //  public class ViewHolder2 {
-        TextView item2_tv;
   //  }
 
   //  public class ViewHolder3 {

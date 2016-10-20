@@ -2,6 +2,7 @@ package com.example.tu4.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.tu4.R;
@@ -11,8 +12,14 @@ import com.example.tu4.bean.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class BookingOrderActivity extends AppCompatActivity {
 
+    @BindView(R.id.iv_return)
+    ImageView ivReturn;
     private ListView listView;
     private BookingOrderAdapter adapter;
     private List<User> users;
@@ -21,7 +28,8 @@ public class BookingOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_order);
-        listView = (ListView) findViewById(R.id.lo_listview);
+        ButterKnife.bind(this);
+        listView = (ListView) findViewById(R.id.listview);
         initdata();
         adapter = new BookingOrderAdapter(this, users);
         listView.setAdapter(adapter);
@@ -33,7 +41,10 @@ public class BookingOrderActivity extends AppCompatActivity {
         users.add(new User("课程XXXXXX", null, null));
         users.add(new User("课程XXXXXX", null, null));
         users.add(new User("课程XXXXXX", null, null));
+    }
 
-
+    @OnClick(R.id.iv_return)
+    public void onClick() {
+        this.finish();
     }
 }

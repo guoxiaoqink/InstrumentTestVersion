@@ -28,8 +28,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     ImageView imageviewInstrumentShow;
     @BindView(R.id.iv_topbar_arrow)
     ImageView ivTopbarArrow;
-    @BindView(R.id.details_imv)
-    ImageView detailsImv;
+
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)

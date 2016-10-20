@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.BookingOrderActivity;
 import com.example.tu4.activity.ComplaintsSuggestionsActivity;
 import com.example.tu4.activity.ConnectUsActivity;
 import com.example.tu4.activity.HelpCenterActivity;
@@ -57,9 +58,9 @@ public class PersonalMessageFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
-                if (position == 6) {
+                if (position == 0) {
                     Intent intentHelpCenter = new Intent(getContext(),
-                            HelpCenterActivity.class);
+                            BookingOrderActivity.class);
                     startActivity(intentHelpCenter);
                 }
                 if (position == 1) {

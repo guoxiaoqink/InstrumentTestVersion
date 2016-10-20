@@ -38,7 +38,6 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
             }
         });
     }
-
     @OnClick(R.id.img_return)
     public void onClick() {
         this.finish();

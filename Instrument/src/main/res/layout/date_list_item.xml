@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="14:00"
+            android:text="@string/two"
             android:textColor="@color/color_97c8cd"
             android:textSize="@dimen/sp18" />
 
@@ -29,7 +29,7 @@
                 android:id="@+id/tv_date_li_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="课程XXXX（3课时）"
+                android:text="@string/threesubject"
                 android:textColor="@color/color_666666"
                 android:textSize="@dimen/sp16" />
 

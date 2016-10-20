@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.InstrumentDetailsActivity;
 import com.example.tu4.activity.OrderDetailsMainActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
@@ -100,8 +101,8 @@ public class InstrumentFragment extends Fragment {
         gridviewInstrumentInstrument.setAdapter(adapter);
         gridviewInstrumentInstrument.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Intent intentToOrderPay = new Intent(getActivity(), OrderDetailsMainActivity.class);
-                startActivity(intentToOrderPay);
+                Intent intentToInstrument = new Intent(getActivity(), InstrumentDetailsActivity.class);
+                startActivity(intentToInstrument);
 
 
             }

@@ -9,7 +9,7 @@
     tools:context="com.example.tu4.activity.SystemInformationActivity">
 
     <RelativeLayout
-        android:id="@+id/title_delete"
+
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_45"
         android:background="@color/color_97c8cd">

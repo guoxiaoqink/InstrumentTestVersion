@@ -1,39 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_main2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_ffffff"
         android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp44"
-        android:background="@color/s97c8cd">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp44"
+            android:background="@color/s97c8cd">
 
-        <ImageView
-            android:id="@+id/img_return"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/white_modle" />
+            <ImageView
+                android:id="@+id/img_return"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp10"
+                android:src="@mipmap/white_modle" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/instrument_details"
-            android:textColor="@color/sffffff"
-            android:textSize="@dimen/px34" />
-
-
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/instrument_details"
+                android:textColor="@color/sffffff"
+                android:textSize="@dimen/px34" />
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/imageView"
@@ -43,43 +40,44 @@
 
         <RelativeLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       >
-        <!--课程XXXXX-->
-        <TextView
-            android:id="@+id/tv_instrument_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dp10"
-            android:layout_marginTop="@dimen/dp15"
-            android:text="@string/instrumentname"
-            android:textColor="@color/color_333333"
-            android:textSize="@dimen/sp15" />
-        <!--等级XXX-->
-        <TextView
-            android:id="@+id/tv_instrument_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_instrument_name"
-            android:layout_below="@+id/tv_instrument_name"
-            android:layout_marginBottom="@dimen/dp10"
-            android:layout_marginTop="@dimen/dp10"
-            android:text="@string/money_5000"
-            android:textColor="@color/color_f49c41"
-            android:textSize="@dimen/dp_17" />
-        <TextView
-            android:id="@+id/tv_old_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_instrument_name"
-            android:layout_marginRight="@dimen/dp_10"
-            android:layout_marginTop="@dimen/dp10"
-            android:layout_toRightOf="@+id/tv_instrument_level"
-            android:text="@string/money_5000"
-            android:textColor="@color/color_cccccc"
-            android:textSize="@dimen/dp_12" />
-        <!--5000.00-->
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--课程XXXXX-->
+            <TextView
+                android:id="@+id/tv_instrument_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp15"
+                android:text="@string/instrumentname"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/sp16" />
+            <!--等级XXX-->
+            <TextView
+                android:id="@+id/tv_instrument_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_instrument_name"
+                android:layout_below="@+id/tv_instrument_name"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="@string/money_5000"
+                android:textColor="@color/color_f49c41"
+                android:textSize="@dimen/sp_18" />
+
+            <TextView
+                android:id="@+id/tv_old_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_instrument_level"
+                android:layout_below="@+id/tv_instrument_name"
+
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_toRightOf="@+id/tv_instrument_level"
+                android:text="@string/money_5000"
+                android:textColor="@color/color_cccccc"
+                android:textSize="@dimen/sp13" />
+            <!--5000.00-->
             <TextView
                 android:id="@+id/tv_freight"
                 android:layout_width="wrap_content"
@@ -89,7 +87,8 @@
                 android:layout_marginBottom="@dimen/dp10"
                 android:text="@string/money_logis"
                 android:textColor="@color/color_999999"
-                android:textSize="@dimen/dp_12" />
+                android:textSize="@dimen/sp_13" />
+
             <TextView
                 android:id="@+id/tv_place"
                 android:layout_width="wrap_content"
@@ -99,174 +98,167 @@
                 android:layout_marginRight="@dimen/dp_10"
                 android:text="@string/shanghai"
                 android:textColor="@color/color_999999" />
+        </RelativeLayout>
 
-
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp10"
-        android:orientation="vertical">
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp10"
-            android:background="@color/color_f0f0f0"
-            />
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/dp10"
-    android:layout_marginTop="@dimen/dp5"
-    android:text="@string/product_parameter"
-    android:textColor="@color/color_666666"
-    android:textSize="@dimen/dp_12" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp1"
-            android:layout_marginLeft="@dimen/dp10"
-            android:layout_marginRight="@dimen/dp10"
-            android:background="@color/color_f0f0f0"
-
-           />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp8"
-        android:text="@string/infstrumentdetail"
-        android:textColor="@color/color_999999"
-        android:textSize="@dimen/sp12" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp8"
-        android:text="@string/infstrumentdetail"
-        android:textColor="@color/color_999999"
-        android:textSize="@dimen/sp12" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp8"
-        android:text="@string/infstrumentdetail"
-        android:textColor="@color/color_999999"
-        android:textSize="@dimen/sp12" />
-
-    <TextView
-        android:id="@+id/tv_parameter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp10"
-        android:layout_marginTop="@dimen/dp8"
-        android:text="@string/infstrumentdetail"
-        android:textColor="@color/color_999999"
-        android:textSize="@dimen/sp12" />
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_alignLeft="@id/tv_parameter"
-            android:layout_marginLeft="@dimen/dp10"
             android:layout_marginTop="@dimen/dp10"
-            android:text="@string/commoditydestribe"
-            android:textColor="@color/color_666666"
-            android:textSize="@dimen/dp12" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp10"
+                android:background="@color/color_f0f0f0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="@string/product_parameter"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp_13" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:background="@color/color_f0f0f0"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp8"
+                android:text="@string/infstrumentdetail"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp8"
+                android:text="@string/infstrumentdetail"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp8"
+                android:text="@string/infstrumentdetail"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:id="@+id/tv_parameter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp8"
+                android:text="@string/infstrumentdetail"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_parameter"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="@string/commoditydestribe"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/dp10">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp1"
-                android:background="@color/color_d1d1d1"
-                />
+                android:background="@color/color_d1d1d1" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:text="@string/instrument_details"
                 android:textColor="@color/color_999999"
-                android:textSize="@dimen/dp_13"
-                />
+                android:textSize="@dimen/dp_13" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
-                android:layout_height="211dp"
+                android:layout_height="@dimen/dp_211"
                 android:src="@mipmap/details1" />
+
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="211dp"
                 android:layout_marginBottom="@dimen/dp_32"
                 android:src="@mipmap/details1" />
-
-
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/dp_49">
             <TextView
                 android:layout_width="match_parent"
-                android:background="@color/color_d1d1d1"
-                android:layout_height="@dimen/dp1" />
+                android:layout_height="@dimen/dp1"
+                android:background="@color/color_d1d1d1" />
             <TextView
                 android:id="@+id/tv_altogether"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp_18"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
                 android:text="@string/sum"
                 android:textColor="@color/color_999999"
-                android:textSize="@dimen/dp_13"
+                android:textSize="@dimen/sp_14" />
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_altogether"
+                android:layout_toRightOf="@id/tv_altogether"
+                android:text="@string/money"
+                android:textColor="@color/color_f49c41"
+                android:textSize="@dimen/sp_14" />
 
-                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp12"
-                android:layout_toRightOf="@id/tv_altogether"
-                android:padding="@dimen/dp3"
+                android:layout_alignBaseline="@id/tv_money"
+                android:layout_toRightOf="@+id/tv_money"
                 android:text="@string/money_5000"
                 android:textColor="@color/color_f49c41"
-                android:textSize="@dimen/dp18" />
+                android:textSize="@dimen/sp_20" />
             <Button
                 android:id="@+id/btn_buy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/dp8"
                 android:layout_marginRight="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp8"
                 android:background="@drawable/instrument_button_pay"
+                android:text="@string/buy"
                 android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/dp16"
-                android:layout_marginBottom="@dimen/dp8"
-
-                android:text="@string/buy" />
-
+                android:textSize="@dimen/dp16" />
         </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp1"
-            android:background="@color/color_d1d1d1"
-            />
-
-
     </LinearLayout>
-
-
 </ScrollView>

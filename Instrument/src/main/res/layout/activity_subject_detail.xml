@@ -45,7 +45,7 @@
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/details_imv"
+            android:id="@+id/iv_details"
             android:layout_width="match_parent"
             android:layout_height="211dp"
             android:src="@mipmap/instrument_instrument" />
