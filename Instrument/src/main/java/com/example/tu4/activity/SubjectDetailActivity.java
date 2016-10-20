@@ -122,15 +122,17 @@ public class SubjectDetailActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_topbar_arrow:
+                this.finish();
+                break;
+            case R.id.imageview_instrument_show:
                 Intent intentTofeedback = new Intent();
                 intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
                 startActivity(intentTofeedback);
                 break;
-            case R.id.imageview_instrument_show:
-                this.finish();
-                break;
         }
     }
+
+
 
 /*
     @OnClick(R.id.imageview_instrument_show)
