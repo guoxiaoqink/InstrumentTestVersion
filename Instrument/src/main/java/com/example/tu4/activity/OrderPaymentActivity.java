@@ -19,15 +19,15 @@ import butterknife.OnClick;
  * 订单支付界面
  */
 public class OrderPaymentActivity extends AppCompatActivity {
-    @BindView(R.id.pay_person)
+    @BindView(R.id.tv_pay_person)
     TextView payPerson;
-    @BindView(R.id.pay_money)
+    @BindView(R.id.tv_pay_money)
     TextView payMoney;
-    @BindView(R.id.pay_account)
+    @BindView(R.id.tv_pay_account)
     TextView payAccount;
-    @BindView(R.id.zfb_radiobutton)
+    @BindView(R.id.radiobutton_zfb)
     RadioButton zfbRadiobutton;
-    @BindView(R.id.wx_radiobutton)
+    @BindView(R.id.radiobutton_wx)
     RadioButton wxRadiobutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +59,14 @@ public class OrderPaymentActivity extends AppCompatActivity {
     }
 
     //不同支付事件的切换
-    @OnClick({R.id.zfb_radiobutton, R.id.wx_radiobutton})
+    @OnClick({R.id.radiobutton_zfb, R.id.radiobutton_wx})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.zfb_radiobutton:
+            case R.id.radiobutton_zfb:
                 zfbRadiobutton.setChecked(true);
                 wxRadiobutton.setChecked(false);
                 break;
-            case R.id.wx_radiobutton:
+            case R.id.radiobutton_wx:
                 wxRadiobutton.setChecked(true);
                 zfbRadiobutton.setChecked(false);
                 break;

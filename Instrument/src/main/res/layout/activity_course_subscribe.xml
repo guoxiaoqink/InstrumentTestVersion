@@ -23,7 +23,7 @@
         android:background="#97C8CD">
         <!--返回按钮-->
         <ImageButton
-            android:id="@+id/course_return"
+            android:id="@+id/btn_course_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -44,7 +44,7 @@
     </RelativeLayout>
     <!--账户-->
     <LinearLayout
-        android:id="@+id/account_lin"
+        android:id="@+id/lin_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/course_order_title"
@@ -59,7 +59,7 @@
             android:textColor="@color/color_999999" />
         <!--账户名称-->
         <TextView
-            android:id="@+id/account_details"
+            android:id="@+id/tv_account_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp20"
@@ -72,11 +72,11 @@
         android:id="@+id/cut_off_rule_long"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
-        android:layout_below="@id/account_lin"
+        android:layout_below="@id/lin_account"
         android:background="@color/e0e0e0" />
     <!--课程信息-->
     <TextView
-        android:id="@+id/course_info"
+        android:id="@+id/tv_course_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cut_off_rule_long"
@@ -90,7 +90,7 @@
         android:id="@+id/cut_off_rule_short"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
-        android:layout_below="@id/course_info"
+        android:layout_below="@id/tv_course_info"
         android:layout_marginLeft="@dimen/dp11"
         android:layout_marginRight="@dimen/dp11"
         android:layout_marginTop="@dimen/dp11"
@@ -103,7 +103,7 @@
         android:layout_below="@id/cut_off_rule_short"></ListView>
 
     <TextView
-        android:id="@+id/long_line"
+        android:id="@+id/tv_long_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
         android:layout_below="@id/course_info_list"
@@ -113,7 +113,7 @@
         android:id="@+id/receiver_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/long_line"
+        android:layout_below="@id/tv_long_line"
         android:layout_marginTop="@dimen/dp11"
         android:orientation="horizontal">
         <!--必须输入的标识符-->
@@ -132,7 +132,7 @@
             android:textSize="@dimen/sp14" />
         <!--姓名输入框-->
         <EditText
-            android:id="@+id/account_name"
+            android:id="@+id/et_account_name"
             android:layout_width="230dp"
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
@@ -144,7 +144,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/receiver_phone"
+        android:id="@+id/lin_receiver_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/receiver_info"
@@ -166,7 +166,7 @@
             android:textSize="@dimen/sp14" />
         <!--手机号码输入框-->
         <EditText
-            android:id="@+id/account_tel"
+            android:id="@+id/et_account_tel"
             android:layout_width="@dimen/dp230"
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
@@ -184,7 +184,7 @@
         android:orientation="vertical">
         <!--分割线-->
         <TextView
-            android:id="@+id/bottom_line_long"
+            android:id="@+id/tv_bottom_line_long"
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:background="@color/color_d1d1d1" />
@@ -212,7 +212,7 @@
                 android:textColor="@color/color_f49c41" />
             <!--总金额-->
             <TextView
-                android:id="@+id/total_money"
+                android:id="@+id/tv_total_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

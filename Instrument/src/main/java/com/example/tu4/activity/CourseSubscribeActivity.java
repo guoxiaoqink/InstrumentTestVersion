@@ -24,13 +24,13 @@ import static com.example.tu4.model.AplicationStatic.account;
  * 课程订购页面
  */
 public class CourseSubscribeActivity extends AppCompatActivity {
-    @BindView(R.id.account_details)
+    @BindView(R.id.tv_account_details)
     TextView accountDetails;
-    @BindView(R.id.account_name)
+    @BindView(R.id.et_account_name)
     EditText accountName;
-    @BindView(R.id.account_tel)
+    @BindView(R.id.et_account_tel)
     EditText accountTel;
-    @BindView(R.id.total_money)
+    @BindView(R.id.tv_total_money)
     TextView totalMoney;
     private ListView course_info;
 

@@ -28,7 +28,9 @@ public class PaySuccessActivity extends AppCompatActivity {
     }
 
     public void return_course(View v) {
-        this.finish();
+        Intent intentToCourse = new Intent();
+        intentToCourse.setClass(PaySuccessActivity.this, MainActivity.class);
+        startActivity(intentToCourse);
     }
 
     public void success_return(View v) {

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp50"
-            android:text="学员XXXX"
+            android:text="@string/student_xxxx"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp14" />
 
@@ -33,7 +33,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginEnd="@dimen/dp11"
-            android:text="6分钟前"
+            android:text="@string/six_minuits_6"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/sp12" />
     </RelativeLayout>
@@ -45,7 +45,7 @@
         android:layout_below="@id/details_top"
         android:layout_marginEnd="@dimen/dp11"
         android:layout_marginStart="@dimen/dp11"
-        android:text="内容XXXXX"
+        android:text="@string/count_xxxxx"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/sp14" />
 

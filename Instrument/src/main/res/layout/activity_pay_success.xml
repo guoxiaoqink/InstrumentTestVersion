@@ -21,7 +21,7 @@
         android:background="#97C8CD">
         <!--返回按钮-->
         <ImageButton
-            android:id="@+id/course_return"
+            android:id="@+id/btn_course_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -42,7 +42,7 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/pay_success_li"
+        android:id="@+id/li_pay_success"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/course_order_title"
@@ -68,10 +68,10 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/pay_attention"
+        android:id="@+id/tv_pay_attention"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pay_success_li"
+        android:layout_below="@id/li_pay_success"
         android:layout_marginTop="@dimen/dp_19"
         android:gravity="center"
         android:text="@string/pay_attention"
@@ -81,7 +81,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pay_attention"
+        android:layout_below="@id/tv_pay_attention"
         android:layout_marginTop="@dimen/dp78">
         <!--查看课程详情-->
         <Button
