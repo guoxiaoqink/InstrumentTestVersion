@@ -9,13 +9,13 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp0"
         android:layout_weight="1"></android.support.v4.view.ViewPager>
 
     <LinearLayout
         android:id="@+id/linearlayoutSubject"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/dp_70"
         android:background="@drawable/tu1_shape"
         android:orientation="horizontal">
 
@@ -37,7 +37,7 @@
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/dp0"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/subject"
@@ -48,7 +48,7 @@
 
         <LinearLayout
             android:id="@+id/linearlayoutPerson"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp0"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -65,7 +65,7 @@
             <TextView
                 android:id="@+id/text2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/dp0"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/wo"
@@ -76,7 +76,7 @@
 
         <LinearLayout
             android:id="@+id/linearlayoutInstrument"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp0"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
@@ -93,7 +93,7 @@
             <TextView
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/dp0"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/instrument"

@@ -127,4 +127,5 @@ public class InstrumentFragment extends Fragment {
         Intent intentToSearch = new Intent(getActivity(), OrderDetailsMainActivity.class);
         startActivity(intentToSearch);
     }
+
 }
