@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#97c8cd"
+
         android:orientation="vertical">
 
         <RelativeLayout
@@ -330,8 +330,9 @@
                 android:background="@color/color_f0f0f0"/>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/rl_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="190dp"
 
             android:background="@color/color_ffffff">
             <Button
@@ -346,15 +347,26 @@
                 android:layout_marginLeft="@dimen/dp_16"
                 />
             <Button
+                android:id="@+id/btn_cancel_order_center"
+                android:layout_width="@dimen/dp_161"
+                android:layout_height="@dimen/dp_37"
+                android:text="@string/cancel_order"
+                android:textSize="@dimen/dp16"
+                android:textColor="@color/color_999999"
+                android:background="@drawable/button_shape"
+                android:layout_centerInParent="true"
+                />
+            <Button
                 android:id="@+id/btn_return_it"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:background="@drawable/button_shape"
-                android:layout_marginTop="@dimen/dp_140"
                 android:text="@string/return_it"
                 android:textSize="@dimen/dp16"
                 android:textColor="@color/color_999999"
                 android:layout_marginLeft="@dimen/dp_16"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dp_21"
                 />
             />
             <Button
@@ -375,24 +387,29 @@
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:background="@drawable/button2_shape"
-                android:layout_marginTop="@dimen/dp_140"
+
                 android:text="@string/recrive"
                 android:textSize="@dimen/dp16"
                 android:textColor="@color/color_ffffff"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dp_21"
 
                 />
-            <TextView
-                android:id="@+id/textview_line_10_5"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/btn_recrive"
-                android:layout_marginTop="@dimen/dp_26"
 
-                android:background="@color/color_f0f0f0"/>
 
         </RelativeLayout>
+        <TextView
+            android:layout_alignTop="@id/rl_button"
+            android:id="@+id/textview_line_10_6"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/btn_recrive"
+            android:layout_marginTop="@dimen/dp_26"
+
+            android:background="@color/color_f0f0f0"></TextView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -403,6 +420,7 @@
             android:background="@color/color_ffffff"
 
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -466,7 +484,7 @@
             <LinearLayout
                 android:layout_width="@dimen/dp10"
                 android:layout_height="@dimen/dp10">
-                
+
             </LinearLayout>
 
             <LinearLayout
