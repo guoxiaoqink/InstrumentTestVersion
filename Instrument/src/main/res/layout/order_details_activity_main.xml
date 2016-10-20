@@ -474,11 +474,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <RadioButton
+                    android:background="@drawable/order_details_rb"
                     android:id="@+id/rb_paytype_of_weixin"
-                    android:layout_width="wrap_content"
                     android:checked="true"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/dp_19"
+                    android:layout_height="@dimen/dp_19"
                     android:focusable="false"
+                    android:button="@null"
                     />
             </LinearLayout>
             <LinearLayout
@@ -513,10 +515,12 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"/>
                 <RadioButton
+                    android:background="@drawable/order_details_rb"
                     android:id="@+id/rb_paytype_of_zhifubao"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/dp_19"
+                    android:layout_height="@dimen/dp_19"
                     android:focusable="false"
+                    android:button="@null"
                     />
             </LinearLayout>
 
