@@ -223,7 +223,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp12"
+                android:layout_marginTop="@dimen/dp_18"
                 android:text="@string/sum"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/dp_13"
@@ -245,8 +245,12 @@
                 android:layout_alignParentRight="true"
                 android:layout_gravity="right"
                 android:layout_marginRight="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp12"
-                android:background="@drawable/button_pay"
+                android:layout_marginTop="@dimen/dp8"
+                android:background="@drawable/instrument_button_pay"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/dp16"
+                android:layout_marginBottom="@dimen/dp8"
+
                 android:text="@string/buy" />
 
         </RelativeLayout>
