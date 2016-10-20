@@ -24,10 +24,10 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
     ImageView imgMyWorksReturn;
     private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
-    @BindView(R.id.imgMyWorksDelete)
+    @BindView(R.id.img_my_works_delete)
     ImageView imgMyWorksDelete;
 
-    @BindView(R.id.gvMyWorks)
+    @BindView(R.id.gv_my_works)
     GridView gvMyWorks;
 
     @Override
@@ -78,7 +78,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgMyWorksDelete:
+            case R.id.img_my_works_delete:
                 Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
                 startActivity(intent);
                 break;

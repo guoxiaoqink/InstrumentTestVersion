@@ -32,7 +32,7 @@
             android:id="@+id/textView"/>
 
         <ImageView
-            android:id="@+id/imgMyWorksDelete"
+            android:id="@+id/img_my_works_delete"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:src="@mipmap/my_works_delete"
@@ -45,21 +45,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <GridView
-            android:id="@+id/gvMyWorksSelect"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:gravity="center"
-            android:horizontalSpacing="@dimen/px_2"
-            android:numColumns="2"
-            android:verticalSpacing="@dimen/px_2"
-            android:visibility="gone"/>
+        <!--<GridView-->
+            <!--android:id="@+id/gv_my_works_select"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:gravity="center"-->
+            <!--android:horizontalSpacing="@dimen/px_2"-->
+            <!--android:numColumns="2"-->
+            <!--android:verticalSpacing="@dimen/px_2"-->
+            <!--android:visibility="gone"/>-->
 
 
         <GridView
-            android:id="@+id/gvMyWorks"
+            android:id="@+id/gv_my_works"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:horizontalSpacing="@dimen/px_2"

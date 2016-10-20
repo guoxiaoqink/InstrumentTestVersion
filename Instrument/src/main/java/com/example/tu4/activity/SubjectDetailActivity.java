@@ -26,6 +26,44 @@ public class SubjectDetailActivity extends AppCompatActivity {
     LayoutInflater mInflater = null;
     @BindView(R.id.imageview_instrument_show)
     ImageView imageviewInstrumentShow;
+    @BindView(R.id.iv_topbar_arrow)
+    ImageView ivTopbarArrow;
+    @BindView(R.id.details_imv)
+    ImageView detailsImv;
+    @BindView(R.id.tv_course_name)
+    TextView tvCourseName;
+    @BindView(R.id.tv_course_level)
+    TextView tvCourseLevel;
+    @BindView(R.id.tv_money_subjectdetail)
+    TextView tvMoneySubjectdetail;
+    @BindView(R.id.tv_money)
+    TextView tvMoney;
+    @BindView(R.id.person_image)
+    CircleImageView personImage;
+    @BindView(R.id.textview_studentnumber_subjectdetail)
+    TextView textviewStudentnumberSubjectdetail;
+    @BindView(R.id.line_studentnumber)
+    TextView lineStudentnumber;
+    @BindView(R.id.linearlayout_studenimage_subjectdetail)
+    LinearLayout linearlayoutStudenimageSubjectdetail;
+    @BindView(R.id.jiantou)
+    ImageView jiantou;
+    @BindView(R.id.subject)
+    TextView subject;
+    @BindView(R.id.line_subject)
+    TextView lineSubject;
+    @BindView(R.id.textview_cintent)
+    TextView textviewCintent;
+    @BindView(R.id.subject1)
+    TextView subject1;
+    @BindView(R.id.line_subject1)
+    TextView lineSubject1;
+    @BindView(R.id.textview_cintent1)
+    TextView textviewCintent1;
+    @BindView(R.id.linearlayout_studentback_subjectdetail)
+    LinearLayout linearlayoutStudentbackSubjectdetail;
+    @BindView(R.id.image_jiantoufankui)
+    ImageView imageJiantoufankui;
     private TextView money;
 
     @Override
@@ -38,6 +76,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
         mLinearLayoutFeedback = (LinearLayout) findViewById(
                 R.id.linearlayout_studentback_subjectdetail);
+
         money.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,11 +118,29 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
+    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_topbar_arrow:
+                Intent intentTofeedback = new Intent();
+                intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
+                startActivity(intentTofeedback);
+                break;
+            case R.id.imageview_instrument_show:
+                this.finish();
+                break;
+        }
+    }
 
+/*
     @OnClick(R.id.imageview_instrument_show)
     public void onClick() {
         Intent intentTofeedback = new Intent();
         intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
         startActivity(intentTofeedback);
     }
+
+    @OnClick(R.id.iv_topbar_arrow)
+    public void onClick() {
+    }*/
 }

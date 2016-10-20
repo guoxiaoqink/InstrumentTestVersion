@@ -44,9 +44,9 @@ public class VideoRecordActivity extends AppCompatActivity implements SurfaceHol
     }
 
     private void init() {
-        videoButton = (ImageButton) findViewById(R.id.video_button);
+        videoButton = (ImageButton) findViewById(R.id.imgbt_video_button);
         videoButton.setOnClickListener(new TestVideoListener());
-        surfaceView = (SurfaceView) this.findViewById(R.id.surfaceView);
+        surfaceView = (SurfaceView) this.findViewById(R.id.sv_video_record);
         SurfaceHolder holder = surfaceView.getHolder();// 取得holder
         holder.addCallback(this); // holder加入回调接口
         // setType必须设置，要不出错.
