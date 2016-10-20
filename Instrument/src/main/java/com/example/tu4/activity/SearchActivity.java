@@ -17,6 +17,7 @@ import com.example.tu4.view.ResolveConflictsScoolviewGridview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
 
@@ -58,6 +59,8 @@ public class SearchActivity extends AppCompatActivity {
     ListView listviewRecordSerach;
     @BindView(R.id.gridview_serach)
     ResolveConflictsScoolviewGridview gridviewSerach;
+    @BindView(R.id.img_actionbar_serach)
+    ImageView imgActionbarSerach;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,5 +101,10 @@ public class SearchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             }
         });
+    }
+
+    @OnClick(R.id.img_actionbar_serach)
+    public void onClick() {
+        this.finish();
     }
 }

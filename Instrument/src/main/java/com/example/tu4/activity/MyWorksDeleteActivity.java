@@ -32,10 +32,10 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
     MyWorksSelectGridviewAdapter myWorksSelectGridviewAdapter;
 
 
-    @BindView(R.id.gvMyWorksSelect)
+    @BindView(R.id.gv_my_works_select)
     ResolveConflictsScoolviewGridview gvMyWorksSelect;
 
-    @BindView(R.id.btDelete)
+    @BindView(R.id.bt_delete)
     Button btDelete;
 
     @Override
