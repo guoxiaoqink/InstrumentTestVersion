@@ -120,6 +120,12 @@
     <string name="student_xxxx">学员XXXX</string>
     <string name="six_minuits_6">6分钟前</string>
     <string name="count_xxxxx">内容XXXXX</string>
+    <string name="edit_dress">编辑地址</string>
+    <string name="getman_name">收货人姓名</string>
+    <string name="hit_input">点击即可输入</string>
+    <string name="xaingxi_dress">详细地址</string>
+    <string name="del_dress">删除当前地址</string>
+    <string name="save">保存</string>
     <string name="instrumentname">乐器XXXXXXX</string>
     <string name="money_5000">￥5000</string>
     <string name="money_logis">运费：000</string>

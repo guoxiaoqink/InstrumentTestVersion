@@ -26,7 +26,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="编辑地址"
+            android:text="@string/edit_dress"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
     </RelativeLayout>
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp11"
-            android:text="收货人姓名"
+            android:text="@string/getman_name"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/sp13" />
 
@@ -54,7 +54,7 @@
             android:layout_marginLeft="@dimen/dp16"
             android:layout_toRightOf="@id/tv_edit1"
             android:background="@drawable/edit_dress_shape"
-            android:hint="点击即可输入"
+            android:hint="@string/hit_input"
             android:textColorHint="@color/color_999999"
             android:textSize="@dimen/sp13" />
 
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_22"
-            android:text="手机号码"
+            android:text="@string/recever_phone_number"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/sp13" />
 
@@ -93,7 +93,7 @@
             android:layout_marginLeft="@dimen/dp16"
             android:layout_toRightOf="@id/tv_edit2"
             android:background="@drawable/edit_dress_shape"
-            android:hint="点击即可输入"
+            android:hint="@string/hit_input"
             android:textColorHint="@color/color_999999"
             android:textSize="@dimen/sp13" />
 
@@ -122,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_22"
-            android:text="详细地址"
+            android:text="@string/xaingxi_dress"
             android:textColor="@color/color_333333"
             android:textSize="@dimen/sp13" />
 
@@ -133,7 +133,7 @@
             android:layout_marginLeft="@dimen/dp16"
             android:layout_toRightOf="@id/tv_edit3"
             android:background="@drawable/edit_dress_shape"
-            android:hint="点击即可输入"
+            android:hint="@string/hit_input"
             android:textColorHint="@color/color_999999"
             android:textSize="@dimen/sp13" />
 
@@ -165,7 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="删除当前地址"
+            android:text="@string/del_dress"
             android:textColor="@color/color_999999"
             android:textSize="@dimen/sp13" />
 
@@ -189,7 +189,7 @@
         android:layout_marginRight="@dimen/dp_22"
         android:layout_marginTop="@dimen/dp110"
         android:background="@color/color_97c8cd"
-        android:text="保存"
+        android:text="@string/save"
         android:textColor="@color/color_ffffff"
         android:textSize="@dimen/sp15" />
 
