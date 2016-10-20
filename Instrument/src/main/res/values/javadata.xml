@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="all">全部</string>
     <string name="classify">分类</string>
     <string name="Refresh">没有更多的数据</string>
     <string name="registerSuccess">注册成功</string>
@@ -8,7 +7,6 @@
     <string name="passwordWrong">密码输入6-12位</string>
     <string name="verificationWrong">验证码输入不正确</string>
     <string name="verificationNull">验证码不能是空的</string>
-    String[] stringArray = {"预约订单", "交易记录", "我的留言", "我的作品", "投诉建议", "联系我们", "帮助中心"};
 
     <array name="personmessage_listview_textarray">
         <item>预约订单</item>

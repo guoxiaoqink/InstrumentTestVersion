@@ -56,6 +56,11 @@ public class PersonalMessageFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //               Toast.makeText(getContext(), "点击了傻子", Toast.LENGTH_SHORT).show();
+                if (position == 6) {
+                    Intent intentHelpCenter = new Intent(getContext(),
+                            HelpCenterActivity.class);
+                    startActivity(intentHelpCenter);
+                }
                 if (position == 2) {
                     Intent intentMyLeaveWords = new Intent(getContext(),
                             MyLeaveWordsActivity.class);
