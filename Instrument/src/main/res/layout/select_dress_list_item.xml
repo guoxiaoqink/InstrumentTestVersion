@@ -9,7 +9,7 @@
         android:layout_height="115dp">
 
         <CheckBox
-            android:id="@+id/rb_select_dress"
+            android:id="@+id/cb_select_dress"
             style="@style/CustomCheckboxTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_booking_order"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/booking_order_tatil"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/white_modle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/booking_order"
+            android:textColor="@color/sffffff"
+            android:textSize="@dimen/px34" />
+
+        <ImageView
+            android:id="@+id/imageview_instrument_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/lookup" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/color_d1d1d1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <ListView
+           android:id="@+id/lo_listview"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+       </ListView>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
