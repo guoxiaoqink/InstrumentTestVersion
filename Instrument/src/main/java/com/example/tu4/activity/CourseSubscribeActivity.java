@@ -67,7 +67,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
         } else if (accountTel.length() != 11) {
             Toast.makeText(this, "手机号码格式不正确", Toast.LENGTH_SHORT).show();
         } else {
-
+            //页面之间数据的传递
             Intent intent = new Intent();
             intent.putExtra("account", account);
             intent.putExtra("TrueNmae", accountName.getText().toString().trim() + "  " + accountTel.getText().toString().trim());
