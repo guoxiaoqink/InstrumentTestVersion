@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.EnsureOrderListviewAdapter;
-import com.example.tu4.view.CustomScrollView;
 import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
 import butterknife.BindView;
@@ -70,7 +69,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
     @BindView(R.id.activity_ensure_order)
     RelativeLayout activityEnsureOrder;
     @BindView(R.id.sv_ensure_order)
-    CustomScrollView svEnsureOrder;
+    ScrollView svEnsureOrder;
 
     public static void scrollToBottom(final ScrollView scrollView) {
 
