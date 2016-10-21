@@ -125,7 +125,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 break;
             case R.id.imageview_instrument_show:
                 Intent intentTofeedback = new Intent();
-                intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
+                intentTofeedback.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
                 startActivity(intentTofeedback);
                 break;
         }

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/class_1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/dp_12"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:layout_marginRight="@dimen/dp_10"-->
+    <!--android:layout_marginTop="@dimen/dp_12"-->
+    <!--android:layout_weight="0.3333"-->
+    <!--android:button="@null"-->
+    <!--android:text="@string/class_1"-->
+    <!--android:textColor="@color/color_666666"-->
+    <!--android:textSize="@dimen/sp_13" />-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginEnd="@dimen/dp11"-->
+    <!--android:background="@drawable/payment_radiobutton_bg" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_line1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/px1"-->
+    <!--android:layout_below="@id/class_1"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:layout_marginRight="@dimen/dp_10"-->
+    <!--android:background="@color/color_d1d1d1" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/class_2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/tv_line1">-->
+
+    <!--<TextView-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/dp_12"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:layout_marginRight="@dimen/dp_10"-->
+    <!--android:layout_marginTop="@dimen/dp_12"-->
+    <!--android:layout_weight="0.3333"-->
+    <!--android:button="@null"-->
+    <!--android:text="@string/class_2"-->
+    <!--android:textColor="@color/color_666666"-->
+    <!--android:textSize="@dimen/sp_13" />-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginEnd="@dimen/dp11"-->
+    <!--android:background="@drawable/payment_radiobutton_bg" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_line2"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/px1"-->
+    <!--android:layout_below="@id/class_2"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:layout_marginRight="@dimen/dp_10"-->
+    <!--android:background="@color/color_d1d1d1" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/class_3"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/tv_line2">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/dp_12"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:layout_marginRight="@dimen/dp_10"-->
+    <!--android:layout_marginTop="@dimen/dp_12"-->
+    <!--android:layout_weight="0.3333"-->
+    <!--android:button="@null"-->
+    <!--android:text="@string/threesubjects"-->
+    <!--android:textColor="@color/color_666666"-->
+    <!--android:textSize="@dimen/sp_13" />-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_marginEnd="@dimen/dp11"-->
+    <!--android:background="@drawable/payment_radiobutton_bg" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<TextView-->
+
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/px1"-->
+    <!--android:background="@color/color_d1d1d1" />-->
+
+    <ListView
+        android:id="@+id/list_issiu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp11"></ListView>
+
+</RelativeLayout>

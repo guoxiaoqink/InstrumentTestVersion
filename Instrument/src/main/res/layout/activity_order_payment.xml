@@ -17,7 +17,7 @@
         android:id="@+id/course_order_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp30"
-        android:layout_below="@id/top_tv"
+        android:layout_below="@id/tv_top"
         android:background="@color/color_97c8cd">
         <!--返回按钮-->
         <ImageButton

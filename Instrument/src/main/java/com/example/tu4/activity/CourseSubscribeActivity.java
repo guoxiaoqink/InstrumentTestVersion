@@ -43,6 +43,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
         course_info = (ListView) findViewById(R.id.list_course_info);
         accountDetails.setText(account);
         initListviewCourseinfo();
+        accountName.setFocusable(true);
 
 
     }

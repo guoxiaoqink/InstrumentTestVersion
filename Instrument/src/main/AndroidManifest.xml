@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.InstrumentClassifyActivity"
             android:label="@string/title_activity_inatrument_classify_activity"
@@ -78,6 +79,8 @@
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.InstrumentDetailsActivity" />
         <activity android:name=".activity.ConnectUsActivity" />
+        <activity android:name=".activity.IssiuFeedbackActivity" />
+
         <activity android:name=".activity.OrderDetailsMainActivity">
 
         </activity>

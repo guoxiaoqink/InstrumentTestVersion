@@ -164,6 +164,10 @@
     <string name="two">2</string>
     <string name="threesubjects">课时3</string>
     <string name="money_10000_00">10000.00</string>
+    <string name="class_1">课时1</string>
+    <string name="class_2">课时2</string>
+    <string name="pleaseInputName">请输入姓名</string>
+    <string name="pleaseInputPhonenamber">请输入手机号码</string>
 
     <array name="hehe">
         <item>niu</item>

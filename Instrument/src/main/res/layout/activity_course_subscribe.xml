@@ -137,9 +137,10 @@
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
             android:background="@drawable/true_name_shape"
-            android:hint="@string/name_user"
+            android:hint="@string/pleaseInputName"
+            android:paddingLeft="@dimen/dp5"
             android:textColor="@color/color_333333"
-            android:textColorHint="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:textSize="@dimen/sp14" />
     </LinearLayout>
 
@@ -171,9 +172,10 @@
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
             android:background="@drawable/true_name_shape"
-            android:hint="@string/recever_phone_number"
+            android:hint="@string/pleaseInputPhonenamber"
+            android:paddingLeft="@dimen/dp5"
             android:textColor="@color/color_333333"
-            android:textColorHint="@color/color_333333"
+            android:textColorHint="@color/color_999999"
             android:textSize="@dimen/sp14" />
     </LinearLayout>
     <!--底部框架-->

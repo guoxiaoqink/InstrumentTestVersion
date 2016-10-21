@@ -32,6 +32,7 @@
             android:textSize="@dimen/sp_17" />
 
         <TextView
+            android:id="@+id/tv_issiu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -82,5 +83,50 @@
         android:textColor="@color/color_666666"
         android:textSize="@dimen/sp_13" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <FrameLayout
+            android:id="@+id/fl_square"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ed_complaint_context"
+            android:layout_margin="@dimen/dp11">
+
+            <ImageButton
+                android:id="@+id/ib_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dp2"
+                android:background="#00FFFFFF"
+                android:src="@mipmap/ic_delete" />
+
+            <RelativeLayout
+                android:layout_width="79sp"
+                android:layout_height="79sp"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@color/color_666666">
+
+                <ImageView
+                    android:id="@+id/iv_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/ic_video" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/iv_add_square"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ed_complaint_context"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_toEndOf="@id/fl_square"
+            android:src="@drawable/ic_add_square" />
+    </LinearLayout>
 </LinearLayout>
