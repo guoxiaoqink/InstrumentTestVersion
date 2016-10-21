@@ -70,6 +70,8 @@ public class EnsureOrderActivity extends AppCompatActivity {
     RelativeLayout activityEnsureOrder;
     @BindView(R.id.sv_ensure_order)
     ScrollView svEnsureOrder;
+    @BindView(R.id.re_position)
+    RelativeLayout rePosition;
 
     public static void scrollToBottom(final ScrollView scrollView) {
 
@@ -104,7 +106,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.btn_course_return, R.id.tv_clickToLeaveMessage, R.id.radiobutton_zfb, R.id.radiobutton_wx, R.id.rdoBtn_leave_message_resolve, R.id.rdoBtn_leave_message_affirm})
+    @OnClick({R.id.btn_course_return, R.id.tv_clickToLeaveMessage, R.id.radiobutton_zfb, R.id.radiobutton_wx, R.id.rdoBtn_leave_message_resolve, R.id.rdoBtn_leave_message_affirm, R.id.re_position})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_course_return:
@@ -130,6 +132,11 @@ public class EnsureOrderActivity extends AppCompatActivity {
                 rlMessageBoard.setVisibility(View.INVISIBLE);
                 scrollToTop(svEnsureOrder);
                 break;
+            case R.id.re_position:
+                Intent in = new Intent();
+                in.setClass(EnsureOrderActivity.this, SelectDressActivity.class);
+                startActivity(in);
+                break;
         }
     }
 
@@ -139,4 +146,6 @@ public class EnsureOrderActivity extends AppCompatActivity {
         intent.setClass(EnsureOrderActivity.this, OrderDetailsMainActivity.class);
         startActivity(intent);
     }
+
+
 }
