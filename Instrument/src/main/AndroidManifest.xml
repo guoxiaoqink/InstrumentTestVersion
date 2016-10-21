@@ -35,7 +35,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.LogisticsTrackingActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.SearchActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -57,11 +57,9 @@
         <activity
             android:name=".activity.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity android:name=".activity.ComplaintsSuggestionsActivity">
 
         </activity>
-
         <activity
             android:name=".activity.SelectDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -69,7 +67,7 @@
         </activity>
         <activity
             android:name=".activity.EditDressActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.SystemInformationActivity" />
         <activity android:name=".activity.MyWorksActivity" />
         <activity android:name=".activity.MyWorksDeleteActivity" />
@@ -77,12 +75,18 @@
         <activity android:name=".activity.VideoPlayActivity" />
         <activity android:name=".activity.HeadPortraitActivity" />
         <activity android:name=".activity.PersonalDataActivity" />
-        <activity android:name=".activity.MyLeaveWordsActivity"></activity>
-        <activity android:name=".activity.ConnectUsActivity"></activity>
-        <activity android:name=".activity.OrderDetailsMainActivity"></activity>
-        <activity android:name=".activity.BookingOrderActivity"></activity>
-        <activity android:name=".activity.TransactionRecordsActivity"></activity>
-        <activity android:name=".activity.InstrumentDetailsActivity"></activity>
+        <activity android:name=".activity.MyLeaveWordsActivity" />
+        <activity android:name=".activity.InstrumentDetailsActivity" />
+        <activity android:name=".activity.ConnectUsActivity" />
+        <activity android:name=".activity.OrderDetailsMainActivity">
+
+        </activity>
+        <activity android:name=".activity.BookingOrderActivity" />
+        <activity
+            android:name=".activity.EnsureOrderActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

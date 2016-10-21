@@ -40,6 +40,7 @@
     <dimen name="dp16">16dp</dimen>
     <dimen name="dp82">82dp</dimen>
     <dimen name="dp48">48dp</dimen>
+    <dimen name="dp08">-8dp</dimen>
     <dimen name="dp162">162dp</dimen>
     <dimen name="subject_black">32dp</dimen>
     <dimen name="subject_tu">150dp</dimen>

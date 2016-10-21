@@ -29,7 +29,7 @@
                 android:id="@+id/tv_date_li_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/threesubject"
+                android:text="@string/threesubjects"
                 android:textColor="@color/color_666666"
                 android:textSize="@dimen/sp16" />
 

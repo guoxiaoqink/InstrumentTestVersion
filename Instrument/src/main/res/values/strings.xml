@@ -134,7 +134,7 @@
     <string name="paybaby">支付宝</string>
     <string name="infstrumentdetail">参数1：xxx</string>
     <string name="commoditydestribe">商品描述</string>
-    <string name="sum">总计（含运费)</string>
+    <string name="sum">总计（含运费）</string>
     <string name="buy">购买</string>
     <string name="here">这个在这里</string>
     <string name="subx">课程XXXXXXXX</string>
@@ -144,12 +144,26 @@
     <string name="money_15">￥ 15.00</string>
     <string name="_30_00">30.00</string>
     <string name="money_30">30.00</string>
+    <string name="money_sign">¥</string>
     <string name="select_address">选择地址</string>
     <string name="add_address">增加新地址</string>
     <string name="money_5000_00">5000.00</string>
+    <string name="ensure_order">确认订单</string>
+    <string name="receiver">收货人</string>
+    <string name="tel_num">131313212131</string>
+    <string name="position">地点：</string>
+    <string name="position_hint">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>
+    <string name="clickToLeaveMessage">点击留言</string>
+    <string name="text_freight">运费</string>
+    <string name="money_0_00">0.00</string>
+    <string name="buyerMessage">买家留言：</string>
+    <string name="real_pay">实付（含运费）</string>
+    <string name="money_6000_00">6000.00</string>
+    <string name="submit_indent">提交订单</string>
     <string name="notsubject">未上课</string>
-    <string name="two">14:00</string>
-    <string name="threesubject">课程XXXX（3课时）</string>
+    <string name="two">2</string>
+    <string name="threesubjects">课时3</string>
+    <string name="money_10000_00">10000.00</string>
 
     <array name="hehe">
         <item>niu</item>

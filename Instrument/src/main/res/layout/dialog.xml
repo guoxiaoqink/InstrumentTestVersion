@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_message_board"
+        android:layout_width="@dimen/dp_301"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tv_message_board_buyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp11"
+            android:layout_marginTop="@dimen/dp11"
+            android:text="留言"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp13" />
+
+        <EditText
+            android:id="@+id/et_message_board_buyer"
+            android:layout_width="@dimen/dp_281"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_message_board_buyer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp11"
+            android:background="@drawable/confirm_order_message_board_edittext_bg"
+            android:hint="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            android:padding="5dp"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/sp13" />
+
+        <View
+            android:id="@+id/view_divider_line7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1"
+            android:layout_alignLeft="@id/et_message_board_buyer"
+            android:layout_alignRight="@id/et_message_board_buyer"
+            android:layout_below="@id/et_message_board_buyer"
+            android:layout_marginTop="@dimen/dp_33"
+            android:background="#e3e3e3" />
+
+        <RadioGroup
+            android:id="@+id/rg_leave_message_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_35"
+            android:layout_below="@id/view_divider_line7"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdoBtn_leave_message_resolve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:button="@null"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+
+            <View
+                android:id="@+id/view_divider_line8"
+                android:layout_width="@dimen/dp1"
+                android:layout_height="@dimen/dp_24"
+                android:background="#E3E3E3" />
+
+            <RadioButton
+                android:id="@+id/rdoBtn_leave_message_affirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp13" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</RelativeLayout>

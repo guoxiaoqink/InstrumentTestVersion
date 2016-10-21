@@ -33,7 +33,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InstrumentDetailsActivity.this, OrderDetailsMainActivity.class);
+                Intent intent = new Intent(InstrumentDetailsActivity.this, EnsureOrderActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_instrument"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_80"
+    android:background="@color/color_ffffff">
+
+
+    <ImageView
+        android:id="@+id/iv_instrument_1"
+        android:layout_width="@dimen/dp_63"
+        android:layout_height="@dimen/dp_63"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp16"
+        android:background="@mipmap/details_instrument" />
+
+    <TextView
+        android:id="@+id/tv_instrument_name_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_toRightOf="@+id/iv_instrument_1"
+        android:text="@string/tv_instrument_name"
+        android:textColor="@color/g333"
+        android:textSize="@dimen/px30" />
+
+    <TextView
+        android:id="@+id/tv_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_instrument_name_1"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp1"
+        android:layout_toRightOf="@+id/iv_instrument_1"
+        android:gravity="center"
+        android:text="@string/instrument_property"
+        android:textColor="@color/s999999"
+        android:textSize="@dimen/px26" />
+
+    <TextView
+        android:id="@+id/tv_money_5000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dp11"
+        android:text="@string/money_5000_00"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/sp14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@id/tv_money_5000"
+        android:layout_marginStart="@dimen/dp08"
+        android:hint="@string/money_sign" />
+</RelativeLayout>

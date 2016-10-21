@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.tu4.R;
-import com.example.tu4.adapter.OrderDetailsListviewAdapter;
-import com.example.tu4.bean.User;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.tu4.adapter.EnsureOrderListviewAdapter;
+import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,19 +21,21 @@ public class OrderDetailsMainActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_return)
     ImageView ivReturn;
-    private ListView listView;
-    private OrderDetailsListviewAdapter adapter;
-    private List<User> users;
+    @BindView(R.id.order_details_listview)
+    ResolveConflictsScoolviewListview orderDetailsListview;
+    @BindView(R.id.radiobutton_zfb)
+    RadioButton radiobuttonZfb;
+    @BindView(R.id.radiobutton_wx)
+    RadioButton radiobuttonWx;
+    @BindView(R.id.tv_go_pay)
+    TextView tvGoPay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_details);
         ButterKnife.bind(this);
-        listView = (ListView) findViewById(R.id.listview);
-        initdata();
-        /*adapter = new OrderDetailsListviewAdapter(this, users);
-        listView.setAdapter(adapter);*/
+        orderDetailsListview.setAdapter(new EnsureOrderListviewAdapter(OrderDetailsMainActivity.this));
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.rl_address_consignee);
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,18 +46,26 @@ public class OrderDetailsMainActivity extends AppCompatActivity {
         });
     }
 
-    //为了测试，特地将不同的布局的数据混乱的添加到list里
-    private void initdata() {
-        users = new ArrayList<User>();
-        users.add(new User("乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX", null, null));
-        users.add(new User("乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX", null, null));
-        users.add(new User("乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX", null, null));
 
-
+    @OnClick({R.id.iv_return, R.id.radiobutton_zfb, R.id.radiobutton_wx, R.id.tv_go_pay})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_return:
+                this.finish();
+                break;
+            case R.id.radiobutton_zfb:
+                radiobuttonZfb.setChecked(true);
+                radiobuttonWx.setChecked(false);
+                break;
+            case R.id.radiobutton_wx:
+                radiobuttonWx.setChecked(true);
+                radiobuttonZfb.setChecked(false);
+                break;
+            case R.id.tv_go_pay:
+                Intent intent = new Intent();
+                intent.setClass(OrderDetailsMainActivity.this, PaySuccessActivity.class);
+                startActivity(intent);
+        }
     }
 
-    @OnClick(R.id.iv_return)
-    public void onClick() {
-        this.finish();
-    }
 }

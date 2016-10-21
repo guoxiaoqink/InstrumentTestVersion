@@ -3,25 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_f0f0f0"
     tools:context="com.example.tu4.activity.OrderDetailsMainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_97c8cd"
         android:orientation="vertical"
         android:weightSum="1">
+
         <RelativeLayout
             android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp44"
             android:background="@color/color_97c8cd">
+
             <ImageView
                 android:id="@+id/iv_return"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/dp10"
                 android:src="@mipmap/white_modle" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -32,12 +35,14 @@
                 android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/px34" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rl_payment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_65"
             android:background="@color/color_97c8cd"
             android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +52,7 @@
                 android:textColor="@color/color_ffffff"
                 android:textSize="@dimen/dp27"
                 android:textStyle="bold" />
+
             <Button
                 android:id="@+id/btn_payment_top"
                 android:layout_width="wrap_content"
@@ -108,7 +114,6 @@
                 android:id="@+id/tv_line_Tel"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
-
                 android:background="@color/color_d1d1d1" />
 
             <ImageView
@@ -153,23 +158,29 @@
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/dp15" />
 
-            <TextView
-                android:id="@+id/textview_line_10_1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_10"
-                android:layout_alignParentBottom="true"
-
-                android:background="@color/color_f0f0f0" />
-
-
         </RelativeLayout>
 
-        <ListView
-            android:id="@+id/listview"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_ffffff"
-            android:dividerHeight="@dimen/px1"></ListView>
+            android:layout_marginTop="@dimen/dp5"
+            android:background="@android:color/white">
+
+            <com.example.tu4.view.ResolveConflictsScoolviewListview
+                android:id="@+id/order_details_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.example.tu4.view.ResolveConflictsScoolviewListview>
+
+            <TextView
+                android:id="@+id/textview_line_4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:layout_below="@id/order_details_listview"
+                android:layout_marginEnd="@dimen/dp11"
+                android:layout_marginStart="@dimen/dp11"
+                android:layout_marginTop="@dimen/dp16"
+                android:background="@color/color_d1d1d1" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl_freight"
@@ -177,11 +188,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.02"
             android:background="@color/color_ffffff">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_1"
-                android:background="@color/color_f0f0f0" />
 
             <TextView
                 android:id="@+id/tv_freight_text"
@@ -223,15 +229,26 @@
                 android:layout_alignBottom="@id/tv_actual_text"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="@dimen/dp_20"
-                android:text="￥6000"
+                android:text="@string/money_10000_00"
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/px30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/tv_actual"
+                android:layout_alignStart="@id/tv_actual"
+                android:layout_marginStart="@dimen/dp08"
+                android:text="@string/money_sign"
+                android:textColor="@color/color_f49c41" />
 
             <TextView
                 android:id="@+id/textview_line_3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp1"
                 android:layout_below="@id/tv_actual_text"
+                android:layout_marginEnd="@dimen/dp11"
+                android:layout_marginStart="@dimen/dp11"
                 android:layout_marginTop="@dimen/dp12"
                 android:background="@color/color_f0f0f0" />
 
@@ -343,11 +360,10 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:background="@color/color_ffffff">
 
             <Button
-                android:id="@+id/btn_cancel_order"
+                android:id="@+id/btn_cancel_order1"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_marginLeft="@dimen/dp_16"
@@ -355,18 +371,31 @@
                 android:background="@drawable/button_shape"
                 android:text="@string/cancel_order"
                 android:textColor="@color/color_999999"
-                android:textSize="@dimen/dp16" />
+                android:textSize="@dimen/sp17" />
+
+            <Button
+                android:id="@+id/btn_cancel_order"
+                android:layout_width="@dimen/dp_161"
+                android:layout_height="@dimen/dp_37"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_80"
+                android:background="@drawable/button_shape"
+                android:text="@string/cancel_order"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp17" />
 
             <Button
                 android:id="@+id/btn_return_it"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
+                android:layout_marginBottom="@dimen/dp26"
                 android:layout_marginLeft="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_140"
+                android:layout_marginTop="@dimen/dp121"
                 android:background="@drawable/button_shape"
                 android:text="@string/return_it"
                 android:textColor="@color/color_999999"
-                android:textSize="@dimen/dp16" />
+                android:textSize="@dimen/sp17" />
             />
 
             <Button
@@ -379,17 +408,16 @@
                 android:background="@drawable/button2_shape"
                 android:text="@string/payment"
                 android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/dp16"
-
-                />
+                android:textSize="@dimen/sp17" />
 
             <Button
                 android:id="@+id/btn_recrive"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_alignParentEnd="true"
+                android:layout_marginBottom="@dimen/dp26"
                 android:layout_marginEnd="@dimen/dp_16"
-                android:layout_marginTop="@dimen/dp_140"
+                android:layout_marginTop="@dimen/dp121"
                 android:background="@drawable/button2_shape"
                 android:text="@string/recrive"
                 android:textColor="@color/color_ffffff"
@@ -397,170 +425,155 @@
 
                 />
 
-            <TextView
-                android:id="@+id/textview_line_10_5"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_20"
-                android:layout_below="@id/btn_recrive"
-                android:layout_marginTop="@dimen/dp_26"
-
-                android:background="@color/color_f0f0f0" />
-
         </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_ffffff"
-            android:orientation="vertical"
-            android:paddingLeft="@dimen/dp_10"
-            android:paddingRight="@dimen/dp10"
-            android:paddingTop="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@android:color/white">
 
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:padding="@dimen/dp10"
-                android:text="@string/payment_way"
-                android:textColor="@color/color_999999"
-                android:textSize="@dimen/sp_24" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_paychoice"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/color_ffffff"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/dp_10"
-            android:paddingLeft="@dimen/dp_10"
-            android:paddingRight="@dimen/dp_10"
-            android:paddingTop="@dimen/dp10">
-
-            <LinearLayout
-                android:id="@+id/ll_paytype_of_weixin"
+            <RelativeLayout
+                android:id="@+id/re_payment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_weixin_shape"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp_10">
-
-
-                <ImageView
-                    android:layout_width="@dimen/dp_44"
-                    android:layout_height="@dimen/dp_41"
-                    android:src="@mipmap/weixin" />
+                android:layout_below="@id/re_pay_details"
+                android:background="@android:color/white">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_payment_style"
+                    android:layout_width="@dimen/dp60"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_marginRight="@dimen/dp_10"
-                    android:text="微信支付"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp_24" />
+                    android:layout_marginStart="@dimen/dp11"
+                    android:layout_marginTop="@dimen/dp13"
+                    android:background="@android:color/white"
+                    android:gravity="end"
+                    android:text="@string/payment_style"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/sp_13" />
+                <!--支付宝支付-->
+                <RelativeLayout
+                    android:id="@+id/re_pament_zfb"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp41"
+                    android:layout_alignStart="@+id/tv_payment_style"
+                    android:layout_below="@+id/tv_payment_style"
+                    android:layout_marginEnd="@dimen/dp11"
+                    android:layout_marginTop="@dimen/dp13"
+                    android:background="@drawable/payment_style_li_shape">
 
-                <View
-                    android:layout_width="@dimen/dp0"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp11"
+                        android:src="@mipmap/zhifubao" />
 
-                <RadioButton
-                    android:id="@+id/rb_paytype_of_weixin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:focusable="false" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp50"
+                        android:text="@string/zhifubao_style"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/dp13" />
 
-            <LinearLayout
-                android:layout_width="@dimen/dp10"
-                android:layout_height="@dimen/dp10">
+                    <RadioButton
+                        android:id="@+id/radiobutton_zfb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dp11"
+                        android:background="@drawable/payment_radiobutton_bg"
+                        android:button="@null" />
+                </RelativeLayout>
+                <!--微信支付方式-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp41"
+                    android:layout_alignStart="@+id/tv_payment_style"
+                    android:layout_below="@+id/re_pament_zfb"
+                    android:layout_marginBottom="@dimen/dp11"
+                    android:layout_marginEnd="@dimen/dp11"
+                    android:layout_marginTop="@dimen/dp11"
+                    android:background="@drawable/payment_style_li_shape">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dp11"
+                        android:src="@mipmap/weixin" />
 
-            <LinearLayout
-                android:id="@+id/ll_paytype_of_zhifubao"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp50"
+                        android:text="@string/weixin_style"
+                        android:textColor="@color/color_666666"
+                        android:textSize="@dimen/dp13" />
+
+                    <RadioButton
+                        android:id="@+id/radiobutton_wx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/dp11"
+                        android:background="@drawable/payment_radiobutton_bg"
+                        android:button="@null" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_pay_or_cencle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_weixin_shape"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp10">
-
-                <ImageView
-                    android:layout_width="@dimen/dp_44"
-                    android:layout_height="@dimen/dp_44"
-                    android:src="@mipmap/zhifubao" />
+                android:layout_height="@dimen/dp50"
+                android:layout_below="@id/re_payment"
+                android:layout_marginTop="@dimen/dp11"
+                android:background="@color/color_ffffff"
+                android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px1"
+                    android:background="@color/color_d1d1d1" />
+
+                <TextView
+                    android:id="@+id/tv_cencle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_10"
-                    android:layout_marginRight="@dimen/dp_10"
-                    android:text="@string/paybaby"
-                    android:textSize="24sp" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_63"
+                    android:text="@string/cancle"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/sp_17"
 
-                <View
-                    android:layout_width="@dimen/dp0"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    />
 
-                <RadioButton
-                    android:id="@+id/rb_paytype_of_zhifubao"
+                <TextView
+                    android:id="@+id/tv_go_pay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:focusable="false" />
-            </LinearLayout>
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_63"
+                    android:text="@string/go_payment"
+                    android:textColor="@color/color_97c8cd"
+                    android:textSize="@dimen/sp_17"
 
+                    />
 
-        </LinearLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/rl_pay_or_cencle"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp50"
-            android:background="@color/color_ffffff"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_cencle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dp_63"
-                android:text="@string/cancle"
-                android:textColor="@color/color_999999"
-                android:textSize="@dimen/sp_30"
-
-                />
-
-            <TextView
-                android:id="@+id/tv_go_pay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dp_63"
-                android:text="@string/go_payment"
-                android:textColor="@color/color_97c8cd"
-                android:textSize="@dimen/sp_30"
-
-                />
-
-            <TextView
-                android:layout_width="@dimen/dp1"
-                android:layout_height="@dimen/dp36"
-                android:layout_centerInParent="true"
-                android:background="@color/color_d1d1d1" />
-
+                <TextView
+                    android:layout_width="@dimen/dp1"
+                    android:layout_height="@dimen/dp36"
+                    android:layout_centerInParent="true"
+                    android:background="@color/color_d1d1d1" />
+            </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>
