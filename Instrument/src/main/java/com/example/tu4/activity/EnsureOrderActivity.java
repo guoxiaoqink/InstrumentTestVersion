@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.EnsureOrderListviewAdapter;
@@ -102,7 +101,6 @@ public class EnsureOrderActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         listYueqi.setAdapter(new EnsureOrderListviewAdapter(EnsureOrderActivity.this));
         svEnsureOrder.smoothScrollTo(0, 0);
-        Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
 
     }
 
