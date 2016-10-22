@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.personal;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,7 +52,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                     Intent intent = new Intent(MyWorksActivity.this, VideoRecordActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(MyWorksActivity.this, VideoPlayActivity.class);
+                    Intent intent = new Intent(MyWorksActivity.this,VideoPlayActivity.class);
                     startActivity(intent);
                 }
             }

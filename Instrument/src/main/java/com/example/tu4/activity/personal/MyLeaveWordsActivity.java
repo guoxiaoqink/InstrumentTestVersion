@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.personal;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,9 +48,9 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
     private String[] leaveWordsCommentTime = new String[]{"2016-05-05", "2016-05-05",
             "2016-05-05",};
 
-    private ArrayList<String> systemInforTime ;
+    private ArrayList<String> systemInforTime;
     private String systemInforContext = "内容内容内容";
-    private ArrayList<String> systemInforNumber ;
+    private ArrayList<String> systemInforNumber;
 
 
     @Override
@@ -75,13 +75,13 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initInformationDate() {
-       systemInforNumber = new ArrayList<>();
+        systemInforNumber = new ArrayList<>();
         systemInforTime = new ArrayList<>();
-        for (int i = 0;i<100;i++){
-            systemInforNumber.add(i+"");
+        for (int i = 0; i < 100; i++) {
+            systemInforNumber.add(i + "");
         }
-        for (int i = 0;i<=60;i++){
-            systemInforTime.add(i+"分钟前");
+        for (int i = 0; i <= 60; i++) {
+            systemInforTime.add(i + "分钟前");
         }
     }
 

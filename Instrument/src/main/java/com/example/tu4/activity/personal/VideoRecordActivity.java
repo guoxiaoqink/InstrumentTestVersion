@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.personal;
 
 import android.content.pm.ActivityInfo;
 import android.media.MediaRecorder;

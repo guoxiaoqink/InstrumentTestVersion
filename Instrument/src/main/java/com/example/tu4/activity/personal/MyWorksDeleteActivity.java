@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.personal;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
