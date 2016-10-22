@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.personal.HeadPortraitActivity;
 import com.example.tu4.view.CircleImageView;
 
 import butterknife.BindView;

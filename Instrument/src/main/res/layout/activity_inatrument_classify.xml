@@ -7,7 +7,7 @@
     android:background="@color/color_d1d1d1"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".activity.InstrumentClassifyActivity">
+    tools:context=".activity.instrument.InstrumentClassifyActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

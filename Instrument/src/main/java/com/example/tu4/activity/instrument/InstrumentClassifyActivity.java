@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.instrument;
 
 import android.os.Bundle;
 import android.os.Handler;

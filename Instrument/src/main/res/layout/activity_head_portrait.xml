@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_000000"
     android:orientation="vertical"
-    tools:context="com.example.tu4.activity.HeadPortraitActivity">
+    tools:context="com.example.tu4.activity.personal.HeadPortraitActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

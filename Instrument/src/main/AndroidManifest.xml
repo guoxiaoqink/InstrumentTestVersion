@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".activity.InstrumentClassifyActivity"
+            android:name=".activity.instrument.InstrumentClassifyActivity"
             android:label="@string/title_activity_inatrument_classify_activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
@@ -74,7 +74,7 @@
         <activity android:name=".activity.MyWorksDeleteActivity" />
         <activity android:name=".activity.VideoRecordActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
-        <activity android:name=".activity.HeadPortraitActivity" />
+        <activity android:name=".activity.personal.HeadPortraitActivity" />
         <activity android:name=".activity.PersonalDataActivity" />
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.InstrumentDetailsActivity" />

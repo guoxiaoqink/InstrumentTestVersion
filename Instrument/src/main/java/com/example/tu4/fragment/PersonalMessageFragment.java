@@ -41,6 +41,7 @@ public class PersonalMessageFragment extends Fragment {
     @BindView(R.id.listview)
     ListView listview;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
