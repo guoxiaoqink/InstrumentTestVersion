@@ -50,7 +50,7 @@
             android:name=".activity.payment.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.DateActivity"
+            android:name=".activity.course.DateActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.HelpCenterActivity"
@@ -62,12 +62,12 @@
 
         </activity>
         <activity
-            android:name=".activity.SelectDressActivity"
+            android:name=".activity.instrument.SelectDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <activity
-            android:name=".activity.EditDressActivity"
+            android:name=".activity.instrument.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.SystemInformationActivity" />
         <activity android:name=".activity.MyWorksActivity" />
@@ -90,6 +90,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
+        <activity android:name=".activity.personal.TransactionRecordsActivity"></activity>
+
     </application>
 
 </manifest>
