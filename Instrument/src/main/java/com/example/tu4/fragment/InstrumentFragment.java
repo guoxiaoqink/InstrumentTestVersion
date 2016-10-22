@@ -14,8 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.InstrumentDetailsActivity;
-import com.example.tu4.activity.OrderDetailsMainActivity;
+import com.example.tu4.activity.instrument.InstrumentDetailsActivity;
+import com.example.tu4.activity.personal.OrderDetailsMainActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
 import com.example.tu4.adapter.InstrumentListViewInstruDetialAdapter;

@@ -25,9 +25,9 @@ import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
 public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
         .OnClickListener {
 
+    private static boolean isShowPopup = false;
     @BindView(R.id.imgbt_complaint_type)
     ImageButton imgbtComplaintType;
-
     RadioGroup rgComplaintType;
     @BindView(R.id.tv_complaint_type)
 
@@ -38,9 +38,7 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     ImageView imgSomplaintsSuggestionReturn;
     @BindView(R.id.re_popup)
     RelativeLayout rePopup;
-
     private View popupView;
-    private static boolean isShowPopup = false;
     private PopupWindow mPopupWindow;
     private RadioButton radioButton;
 

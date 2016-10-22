@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.Course;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.Course.CourseSubscribeActivity;
 import com.example.tu4.activity.feedback.IssiuFeedbackActivity;
 import com.example.tu4.view.CircleImageView;
 

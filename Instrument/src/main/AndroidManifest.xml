@@ -32,10 +32,10 @@
             android:label="@string/title_activity_inatrument_classify_activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.SubjectDetailActivity"
+            android:name=".activity.Course.SubjectDetailActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.LogisticsTrackingActivity"
+            android:name=".activity.instrument.LogisticsTrackingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.SearchActivity"
@@ -75,16 +75,16 @@
         <activity android:name=".activity.VideoRecordActivity" />
         <activity android:name=".activity.VideoPlayActivity" />
         <activity android:name=".activity.personal.HeadPortraitActivity" />
-        <activity android:name=".activity.PersonalDataActivity" />
+        <activity android:name=".activity.personal.PersonalDataActivity" />
         <activity android:name=".activity.MyLeaveWordsActivity" />
-        <activity android:name=".activity.InstrumentDetailsActivity" />
-        <activity android:name=".activity.ConnectUsActivity" />
+        <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
+        <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.feedback.IssiuFeedbackActivity" />
 
-        <activity android:name=".activity.OrderDetailsMainActivity">
+        <activity android:name=".activity.personal.OrderDetailsMainActivity">
 
         </activity>
-        <activity android:name=".activity.BookingOrderActivity" />
+        <activity android:name=".activity.personal.BookingOrderActivity" />
         <activity
             android:name=".activity.payment.EnsureOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
