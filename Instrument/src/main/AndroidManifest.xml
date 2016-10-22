@@ -53,14 +53,8 @@
             android:name=".activity.DateActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.HelpCenterActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
             android:name=".activity.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.ComplaintsSuggestionsActivity">
-
-        </activity>
         <activity
             android:name=".activity.SelectDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -69,14 +63,16 @@
         <activity
             android:name=".activity.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.SystemInformationActivity" />
-        <activity android:name=".activity.MyWorksActivity" />
-        <activity android:name=".activity.MyWorksDeleteActivity" />
-        <activity android:name=".activity.VideoRecordActivity" />
-        <activity android:name=".activity.VideoPlayActivity" />
         <activity android:name=".activity.personal.HeadPortraitActivity" />
+        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity" />
+        <activity android:name=".activity.personal.HelpCenterActivity" />
+        <activity android:name=".activity.personal.MyLeaveWordsActivity" />
+        <activity android:name=".activity.personal.MyWorksDeleteActivity" />
+        <activity android:name=".activity.personal.MyWorksActivity" />
+        <activity android:name=".activity.personal.SystemInformationActivity" />
+        <activity android:name=".activity.personal.VideoPlayActivity" />
+        <activity android:name=".activity.personal.VideoRecordActivity" />
         <activity android:name=".activity.personal.PersonalDataActivity" />
-        <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.feedback.IssiuFeedbackActivity" />
