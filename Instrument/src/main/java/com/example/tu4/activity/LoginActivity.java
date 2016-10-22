@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +15,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.example.tu4.model.AplicationStatic.account;
+import okhttp3.Call;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
@@ -66,26 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         edtTel.setOnFocusChangeListener(this);
         edtPassword.setOnFocusChangeListener(this);
         edtVerification.setOnFocusChangeListener(this);
-     /*   String url = "http://112.124.38.1:12345/login";
-        OkHttpUtils
-                .post()//
-                .url(url)//
-               *//* .addParams("username", "hyman")//
-                .addParams("password", "123")/*//*//**//**//*
-                .build()//
-                .execute(new GenericsCallback<testwebmao>(new JsonGenericsSerializator()) {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-//                        textview.setText("onError:" + e.getMessage());
-                    }
 
-                    @Override
-                    public void onResponse(testwebmao response, int id) {
-//                        textview.setText(String.valueOf(response.getStatus_code()));
-                        Toast.makeText(LoginActivity.this, ""+response.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
-                });*/
     }
 
     @OnClick({R.id.btnLogin, R.id.btnRegister, R.id.imgShowPassword, R.id.btnGetVertification,
@@ -181,6 +168,32 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
     public void judgeLoginOrRegister() {
         if (judgeLoginOrRegister) {//代表当前的是注册页面
+            String url = "http://138.68.4.19:8080/regist/getdata";
+
+            OkHttpUtils
+                    .postString()
+                    .url(url)//
+                    .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
+                    .tag(this)//
+                    .build()//
+                    .connTimeOut(20000)
+                    .readTimeOut(20000)
+                    .writeTimeOut(20000)
+                    .execute(new StringCallback()      //这个是没有处理json
+                    {
+                        @Override
+                        public void onError(Call call, Exception e, int id) {
+                            Log.d("onError:", e.getMessage());
+                        }
+
+                        @Override
+                        public void onResponse(String response, int id) {
+                            Log.d("success", response);
+                            Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        }
+
+                    });
+
             if (judgeTelPassword() && judgeVertification()) {
                 Toast.makeText(LoginActivity.this,
                         getResources().getString(R.string.registerSuccess),
@@ -191,10 +204,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
             }
         } else {
             if (judgeTelPassword()) {
-                account = edtTel.getText().toString().trim();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
+//                account = edtTel.getText().toString().trim();
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+                String Url = "http://138.68.4.19:8080/login/api_login";
+//                Map<String, String> params = new HashMap<String, String>();
+//                params.put("username", "11144477700");
+//                params.put("password", "000000");
+                OkHttpUtils
+                        .postString()//
+                        .url(Url)//
+                        .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
+                        .build()//
+                        .execute(new StringCallback() {
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                Log.d("onError:", e.getMessage());
+                            }
+
+                            @Override
+                            public void onResponse(String response, int id) {
+                                // Log.d("onResponse:" ,response);
+                                System.out.print(id);
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response);
+                                    String result = jsonObject.getString("Result");
+                                    Log.d("Result", result);
+                                    System.out.print(result);
+                                    if (result.equals("false")) {
+                                        Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Intent intent = new Intent();
+                                        intent.setClass(LoginActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
             }
         }
     }
@@ -206,6 +256,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         } else {
 
             line.setBackgroundResource(R.color.s40sffffff);
+        }
+    }
+
+    public class User {
+        public String username;
+        public String password;
+
+        public User() {
+            // TODO Auto-generated constructor stub
+        }
+
+        public User(String username, String password) {
+            this.username = username;
+            this.password = password;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "username='" + username + '\'' +
+                    ", password='" + password + '\'' +
+                    '}';
         }
     }
 }
