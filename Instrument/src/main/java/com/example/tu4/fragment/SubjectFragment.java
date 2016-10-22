@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.Course.SubjectDetailActivity;
 import com.example.tu4.activity.DateActivity;
 import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.TransactionRecordsActivity;
+import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.view.ImageCyclePlayView;
 

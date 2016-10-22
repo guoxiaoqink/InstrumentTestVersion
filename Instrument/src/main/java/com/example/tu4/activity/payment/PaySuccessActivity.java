@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.Course.SubjectDetailActivity;
 import com.example.tu4.activity.MainActivity;
+import com.example.tu4.activity.course.SubjectDetailActivity;
 
 /**
  * Created by WQJ on 2016/10/20

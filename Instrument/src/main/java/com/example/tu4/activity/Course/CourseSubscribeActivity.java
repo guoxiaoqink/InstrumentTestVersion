@@ -1,4 +1,4 @@
-package com.example.tu4.activity.Course;
+package com.example.tu4.activity.course;
 
 
 import android.content.Intent;

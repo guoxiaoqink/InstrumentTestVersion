@@ -32,7 +32,7 @@
             android:label="@string/title_activity_inatrument_classify_activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.Course.SubjectDetailActivity"
+            android:name=".activity.course.SubjectDetailActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.instrument.LogisticsTrackingActivity"
@@ -41,7 +41,7 @@
             android:name=".activity.SearchActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.Course.CourseSubscribeActivity"
+            android:name=".activity.course.CourseSubscribeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.payment.OrderPaymentActivity"
