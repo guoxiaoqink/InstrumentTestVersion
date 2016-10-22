@@ -44,10 +44,10 @@
             android:name=".activity.course.CourseSubscribeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.payment.OrderPaymentActivity"
+            android:name=".activity.course.payment.OrderPaymentActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.payment.PaySuccessActivity"
+            android:name=".activity.course.payment.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.DateActivity"
@@ -56,7 +56,7 @@
             android:name=".activity.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.feedback.Student_feedbackActivity"
+            android:name=".activity.course.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.ComplaintsSuggestionsActivity">
 
@@ -79,14 +79,14 @@
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
-        <activity android:name=".activity.feedback.IssiuFeedbackActivity" />
+        <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
 
         <activity android:name=".activity.personal.OrderDetailsMainActivity">
 
         </activity>
         <activity android:name=".activity.personal.BookingOrderActivity" />
         <activity
-            android:name=".activity.payment.EnsureOrderActivity"
+            android:name=".activity.course.payment.EnsureOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>

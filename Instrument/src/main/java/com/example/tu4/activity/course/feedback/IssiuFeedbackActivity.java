@@ -1,4 +1,4 @@
-package com.example.tu4.activity.feedback;
+package com.example.tu4.activity.course.feedback;
 
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;

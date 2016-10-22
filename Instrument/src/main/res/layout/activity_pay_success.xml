@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.example.tu4.activity.payment.PaySuccessActivity">
+    tools:context="com.example.tu4.activity.course.payment.PaySuccessActivity">
     <!--设置状态栏颜色-->
     <TextView
         android:id="@+id/top_tv"
