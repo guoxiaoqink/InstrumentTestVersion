@@ -1,6 +1,8 @@
 package com.example.tu4.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
@@ -238,6 +240,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         Intent intent = new Intent();
                                         intent.setClass(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
+                                        saveDate();
                                         finish();
                                     }
                                 } catch (JSONException e) {
@@ -247,6 +250,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                         });
             }
         }
+    }
+
+    /**
+     * 保存用户数据，判断是否登录过
+     */
+    private void saveDate() {
+
+        SharedPreferences mySharedPreferences= getSharedPreferences("test",
+                Activity.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+
+        editor.putString("name", edtTel.getText().toString());
+        editor.putString("password", edtPassword.getText().toString());
+
+        editor.commit();
     }
 
 
