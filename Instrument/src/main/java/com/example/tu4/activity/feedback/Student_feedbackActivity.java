@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.feedback;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,10 +18,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 学员反馈详情页面
- *
- * @auther WQJ
- * created at 2016/10/16 9:49
+ * Created by WQJ on 2016/10/19
+ * Descripyion: 这个是学员反馈页面
+ * Version: 1
+ * Modify Person : wqj
  */
 public class Student_feedbackActivity extends AppCompatActivity {
     @BindView(R.id.list_stu_feedback_details)

@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.Course.CourseSubscribeActivity;
+import com.example.tu4.activity.feedback.IssiuFeedbackActivity;
 import com.example.tu4.view.CircleImageView;
 
 import butterknife.BindView;

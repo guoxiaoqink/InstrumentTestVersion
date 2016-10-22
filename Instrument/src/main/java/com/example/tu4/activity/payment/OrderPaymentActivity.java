@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.payment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,8 +15,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Create by MR.WEN
- * 订单支付界面
+ * Created by WQJ on 2016/10/20
+ * Descripyion: 购买课程的订单支付页面
+ * Version: 1
+ * Modify Person : wqj
  */
 public class OrderPaymentActivity extends AppCompatActivity {
     @BindView(R.id.tv_pay_person)

@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.feedback;
 
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
@@ -22,6 +22,13 @@ import com.example.tu4.adapter.IssiuListviewAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+/**
+ * Created by WQJ on 2016/10/21
+ * Descripyion: 这个是发布反馈页面
+ * Version: 1
+ * Modify Person : wqj
+ */
 
 public class IssiuFeedbackActivity extends AppCompatActivity {
 
@@ -61,10 +68,10 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         listView = (ListView) view.findViewById(R.id.list_issiu);
         class_time = (TextView) view1.findViewById(R.id.class_time);
         checked_image = (ImageView) view1.findViewById(R.id.check_image);
-        listView.setAdapter(new IssiuListviewAdapter(IssiuFeedbackActivity.this));
+        listView.setAdapter(new IssiuListviewAdapter(IssiuFeedbackActivity.this));//配置适配器
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {//popupwindow中listview点击事件
                 checked_image.setBackgroundResource(R.mipmap.payment_radiobutton_checked);
                 if (position == 0) {
                     tvComplaintType.setText("课时1");
@@ -83,16 +90,16 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
     @OnClick({R.id.img_somplaints_suggestion_return, R.id.tv_issiu, R.id.pop_re})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.img_somplaints_suggestion_return:
+            case R.id.img_somplaints_suggestion_return://返回按钮
                 this.finish();
                 break;
-            case R.id.tv_issiu:
+            case R.id.tv_issiu://发布按钮
                 Intent in = new Intent();
                 in.setClass(IssiuFeedbackActivity.this, Student_feedbackActivity.class);
                 startActivity(in);
                 Toast.makeText(this, "发布成功", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.pop_re:
+            case R.id.pop_re://popupwindow布局框点击事件
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_top);
                 if (mPopupWindow.isShowing()) {
                     // 隐藏窗口，如果设置了点击窗口外小时即不需要此方式隐藏

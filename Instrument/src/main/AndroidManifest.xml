@@ -41,13 +41,13 @@
             android:name=".activity.SearchActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.CourseSubscribeActivity"
+            android:name=".activity.Course.CourseSubscribeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.OrderPaymentActivity"
+            android:name=".activity.payment.OrderPaymentActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.PaySuccessActivity"
+            android:name=".activity.payment.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.DateActivity"
@@ -56,7 +56,7 @@
             android:name=".activity.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.Student_feedbackActivity"
+            android:name=".activity.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.ComplaintsSuggestionsActivity">
 
@@ -79,14 +79,14 @@
         <activity android:name=".activity.MyLeaveWordsActivity" />
         <activity android:name=".activity.InstrumentDetailsActivity" />
         <activity android:name=".activity.ConnectUsActivity" />
-        <activity android:name=".activity.IssiuFeedbackActivity" />
+        <activity android:name=".activity.feedback.IssiuFeedbackActivity" />
 
         <activity android:name=".activity.OrderDetailsMainActivity">
 
         </activity>
         <activity android:name=".activity.BookingOrderActivity" />
         <activity
-            android:name=".activity.EnsureOrderActivity"
+            android:name=".activity.payment.EnsureOrderActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>

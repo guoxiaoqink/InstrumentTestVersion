@@ -1,17 +1,20 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.payment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.MainActivity;
+import com.example.tu4.activity.SubjectDetailActivity;
 
 /**
- * Created by MR.WEN on 2016/10/14.
- * 这是支付成功页面
+ * Created by WQJ on 2016/10/20
+ * Descripyion: 支付成功页面
+ * Version: 1
+ * Modify Person : wqj
  */
 public class PaySuccessActivity extends AppCompatActivity {
 
@@ -20,8 +23,6 @@ public class PaySuccessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_pay_success);
-        Toast.makeText(this, "ceshi", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "ceshi", Toast.LENGTH_SHORT).show();
     }
 
     public void show_course_details(View v) {

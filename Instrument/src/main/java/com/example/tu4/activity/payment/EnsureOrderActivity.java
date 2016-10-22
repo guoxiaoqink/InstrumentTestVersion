@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.payment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.OrderDetailsMainActivity;
+import com.example.tu4.activity.SelectDressActivity;
 import com.example.tu4.adapter.EnsureOrderListviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
@@ -23,10 +25,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 乐器确认订单页面
- *
- * @auther WQJ
- * created at 2016/10/20 20:07
+ * Created by WQJ on 2016/10/21
+ * Descripyion: 乐器确认订购页面
+ * Version: 1
+ * Modify Person : wqj
  */
 public class EnsureOrderActivity extends AppCompatActivity {
 

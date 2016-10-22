@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.Course;
 
 
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.payment.OrderPaymentActivity;
 import com.example.tu4.adapter.CourseInfoListviewAdapter;
 
 import butterknife.BindView;
@@ -20,8 +21,10 @@ import butterknife.ButterKnife;
 import static com.example.tu4.model.AplicationStatic.account;
 
 /**
- * Created by MR.WEN on 2016/10/13.
- * 课程订购页面
+ * Created by WQJ on 2016/10/20
+ * Descripyion: 这个是课程订购页面
+ * Version: 1
+ * Modify Person : wqj
  */
 public class CourseSubscribeActivity extends AppCompatActivity {
     @BindView(R.id.tv_account_details)

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.payment.EnsureOrderActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
