@@ -15,7 +15,6 @@ import android.widget.RelativeLayout;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
-import com.example.tu4.activity.TransactionRecordsActivity;
 import com.example.tu4.activity.personal.BookingOrderActivity;
 import com.example.tu4.activity.personal.ComplaintsSuggestionsActivity;
 import com.example.tu4.activity.personal.ConnectUsActivity;
@@ -23,6 +22,7 @@ import com.example.tu4.activity.personal.HelpCenterActivity;
 import com.example.tu4.activity.personal.MyLeaveWordsActivity;
 import com.example.tu4.activity.personal.MyWorksActivity;
 import com.example.tu4.activity.personal.PersonalDataActivity;
+import com.example.tu4.activity.personal.TransactionRecordsActivity;
 import com.example.tu4.adapter.PersonMessageListViewAdapter;
 import com.example.tu4.view.CircleImageView;
 

@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.course;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
