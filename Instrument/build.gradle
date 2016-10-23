@@ -4,7 +4,8 @@ apply plugin: 'com.neenbedankt.android-apt'//增加这一句
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
-
+//**兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'**
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.example.tu4"
         minSdkVersion 21
@@ -30,6 +31,11 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.0.1' //添加这行
     compile project(':okhttputils')
     compile project(':photopicker')
+//bmob-sms ：Bmob单独为短信服务提供的包
+    compile 'cn.bmob.android:bmob-sms:1.0.1'
+
+    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    compile 'cn.bmob.android:http-legacy:1.0'
     /*   compile 'com.squareup.okhttp3:okhttp:3.4.1'
        compile 'com.squareup.okio:okio:1.10.0'
         compile 'com.google.code.gson:gson:2.6.2'*/

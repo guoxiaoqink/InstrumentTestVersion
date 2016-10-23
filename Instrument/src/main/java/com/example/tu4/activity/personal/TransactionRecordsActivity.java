@@ -16,6 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by 秦孟飞 on 2016/10/20
+ * Descripyion: 查看订单
+ * Version: 1
+ * Modify Person : Moofei
+ */
 public class TransactionRecordsActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_TR_left)

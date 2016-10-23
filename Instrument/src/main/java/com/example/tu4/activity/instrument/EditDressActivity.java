@@ -17,6 +17,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by 秦孟飞 on 2016/10/20
+ * Descripyion: 编辑收货地址
+ * Version: 1
+ * Modify Person : Moofei
+ */
 public class EditDressActivity extends AppCompatActivity {
 
     @BindView(R.id.imgbtn_edit_left)

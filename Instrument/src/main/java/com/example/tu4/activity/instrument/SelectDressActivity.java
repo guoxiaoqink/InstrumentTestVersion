@@ -29,6 +29,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by 秦孟飞 on 2016/10/20
+ * Descripyion: 选择收货地址
+ * Version: 1
+ * Modify Person : Moofei
+ */
 public class SelectDressActivity extends AppCompatActivity {
 
 

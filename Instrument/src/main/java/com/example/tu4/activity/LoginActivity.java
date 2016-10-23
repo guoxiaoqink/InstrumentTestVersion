@@ -31,29 +31,26 @@ import okhttp3.Call;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
+    public static int UserId;
     /*
     * 判断是登录还是注册，默认的是注册，就是注册时true，登录时false
     * */
     Boolean judgeLoginOrRegister = true;
     Boolean judgePasswordShow = true;
-
     @BindView(R.id.btnLogin)
     Button btnLogin;
     @BindView(R.id.btnRegister)
     Button btnRegister;
-
     @BindView(R.id.edtTel)
     EditText edtTel;
     @BindView(R.id.textview_line_Tel)
     TextView textviewLineTel;
-
     @BindView(R.id.edtPassword)
     EditText edtPassword;
     @BindView(R.id.imgShowPassword)
     ImageView imgShowPassword;
     @BindView(R.id.textview_line_password)
     TextView textviewLinePassword;
-
     @BindView(R.id.edtVerification)
     EditText edtVerification;
     @BindView(R.id.btnGetVertification)
@@ -64,7 +61,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     TextView textviewLineVertification;
     @BindView(R.id.btnLoginOrRegister)
     Button btnLoginOrRegister;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,6 +188,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                         public void onResponse(String response, int id) {
                             Log.d("success", response);
                             Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                UserId = jsonObject.getInt("id");
+                                Log.d("id", String.valueOf(UserId));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
 
                     });
@@ -278,7 +281,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         }
     }
 
-    public class User {
+    private class User {
         public String username;
         public String password;
 
