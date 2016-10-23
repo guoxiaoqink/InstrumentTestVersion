@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.course;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +22,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by 秦孟飞 on 2016/10/20
+ * Descripyion: 日历
+ * Version: 1
+ * Modify Person : Moofei
+ */
 public class DateActivity extends AppCompatActivity {
     @BindView(R.id.imgbtn_date_left)
     ImageView imgbtnDateLeft;

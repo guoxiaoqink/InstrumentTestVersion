@@ -9,7 +9,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <!--允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,13 +25,14 @@
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
-
         <activity
             android:name=".activity.instrument.InstrumentClassifyActivity"
             android:label="@string/title_activity_inatrument_classify_activity"
@@ -44,47 +50,50 @@
             android:name=".activity.course.CourseSubscribeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.payment.OrderPaymentActivity"
+            android:name=".activity.course.payment.OrderPaymentActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.payment.PaySuccessActivity"
+            android:name=".activity.course.payment.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.DateActivity"
+            android:name=".activity.course.DateActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.feedback.Student_feedbackActivity"
+            android:name=".activity.personal.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".activity.SelectDressActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".activity.EditDressActivity"
+            android:name=".activity.course.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.personal.HeadPortraitActivity" />
-        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity" />
-        <activity android:name=".activity.personal.HelpCenterActivity" />
-        <activity android:name=".activity.personal.MyLeaveWordsActivity" />
-        <activity android:name=".activity.personal.MyWorksDeleteActivity" />
-        <activity android:name=".activity.personal.MyWorksActivity" />
+        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity"></activity>
+        <activity
+            android:name=".activity.instrument.SelectDressActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".activity.instrument.EditDressActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
-        <activity android:name=".activity.personal.VideoPlayActivity" />
+        <activity android:name=".activity.personal.MyWorksActivity" />
+        <activity android:name=".activity.personal.MyWorksDeleteActivity" />
         <activity android:name=".activity.personal.VideoRecordActivity" />
+        <activity android:name=".activity.personal.VideoPlayActivity" />
+        <activity android:name=".activity.personal.HeadPortraitActivity" />
         <activity android:name=".activity.personal.PersonalDataActivity" />
+        <activity android:name=".activity.personal.MyLeaveWordsActivity" />
         <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
-        <activity android:name=".activity.feedback.IssiuFeedbackActivity" />
-
-        <activity android:name=".activity.personal.OrderDetailsMainActivity">
-
-        </activity>
+        <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
+        <activity android:name=".activity.personal.OrderDetailsMainActivity"></activity>
         <activity android:name=".activity.personal.BookingOrderActivity" />
         <activity
-            android:name=".activity.payment.EnsureOrderActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".activity.course.payment.EnsureOrderActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".activity.personal.TransactionRecordsActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

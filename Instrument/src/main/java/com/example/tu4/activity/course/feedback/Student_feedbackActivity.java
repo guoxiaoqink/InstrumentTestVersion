@@ -1,4 +1,4 @@
-package com.example.tu4.activity.feedback;
+package com.example.tu4.activity.course.feedback;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

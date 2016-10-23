@@ -1,4 +1,4 @@
-package com.example.tu4.activity.payment;
+package com.example.tu4.activity.course.payment;
 
 import android.content.Intent;
 import android.os.Bundle;

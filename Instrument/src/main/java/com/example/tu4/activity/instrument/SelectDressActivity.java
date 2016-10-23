@@ -1,4 +1,4 @@
-package com.example.tu4.activity;
+package com.example.tu4.activity.instrument;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +29,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by 秦孟飞 on 2016/10/20
+ * Descripyion: 选择收货地址
+ * Version: 1
+ * Modify Person : Moofei
+ */
 public class SelectDressActivity extends AppCompatActivity {
 
 

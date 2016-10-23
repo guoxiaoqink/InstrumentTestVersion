@@ -6,48 +6,47 @@ package com.example.tu4.bean;
 
 public class User {
     //第一种布局的字段
-    private String item1_str;
+    private String username;
     //第二种布局的字段
-    private String item2_str;
+    private String password;
     //第三种布局的字段
-    private String item3_str;
+    private String id;
 
-    public User(String item1_str, String item2_str, String item3_str) {
-        this.item1_str = item1_str;
-        this.item2_str = item2_str;
-        this.item3_str = item3_str;
+    public User(String username, String password, String id) {
+        this.username = username;
+        this.password = password;
+        this.id = id;
     }
 
     public String getItem1_str() {
-        return item1_str;
-    }
-
-    public String getItem2_str() {
-        return item2_str;
-    }
-
-    public String getItem3_str() {
-        return item3_str;
+        return username;
     }
 
     public void setItem1_str(String item1_str) {
-        this.item1_str = item1_str;
+        this.password = item1_str;
+    }
+
+    public String getItem2_str() {
+        return username;
     }
 
     public void setItem2_str(String item2_str) {
-        this.item2_str = item2_str;
+        this.password = item2_str;
+    }
+
+    public String getItem3_str() {
+        return password;
     }
 
     public void setItem3_str(String item3_str) {
-        this.item3_str = item3_str;
+        this.id = item3_str;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "item1_str='" + item1_str + '\'' +
-                ", item2_str='" + item2_str + '\'' +
-                ", item3_str='" + item3_str + '\'' +
+                "item1_str='" + username + '\'' +
+                ", item2_str='" + password + '\'' +
                 '}';
     }
 }

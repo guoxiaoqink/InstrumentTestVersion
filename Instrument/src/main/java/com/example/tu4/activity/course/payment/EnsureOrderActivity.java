@@ -1,4 +1,4 @@
-package com.example.tu4.activity.payment;
+package com.example.tu4.activity.course.payment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.SelectDressActivity;
+import com.example.tu4.activity.instrument.SelectDressActivity;
 import com.example.tu4.activity.personal.OrderDetailsMainActivity;
 import com.example.tu4.adapter.EnsureOrderListviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewListview;

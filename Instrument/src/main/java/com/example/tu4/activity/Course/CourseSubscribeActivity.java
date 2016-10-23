@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.payment.OrderPaymentActivity;
+import com.example.tu4.activity.course.payment.OrderPaymentActivity;
 import com.example.tu4.adapter.CourseInfoListviewAdapter;
 
 import butterknife.BindView;
