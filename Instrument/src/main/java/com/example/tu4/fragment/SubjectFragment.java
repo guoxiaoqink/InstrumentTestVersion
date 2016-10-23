@@ -38,13 +38,13 @@ public class SubjectFragment extends Fragment {
     ImageView imgSubjectTitltFind;
     @BindView(R.id.iv_subject_titlt_wait)
     ImageView ivSubjectTitltWait;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
-
         initImageCyclePlayView();
         initListviewSubjectDetail();
         return view;

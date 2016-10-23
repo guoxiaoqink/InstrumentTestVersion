@@ -395,6 +395,7 @@ public class ImageCyclePlayView extends FrameLayout {
 
     public static class ImageInfo {
         public Object image;
+
         public String text = "";
         public Object value;
 

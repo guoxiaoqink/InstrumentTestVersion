@@ -50,7 +50,6 @@
         android:id="@+id/icpv_subject"
         android:layout_width="match_parent"
         android:layout_height="@dimen/instrument_instrument_viewpagerHeight">
-
     </com.example.tu4.view.ImageCyclePlayView>
 
 
