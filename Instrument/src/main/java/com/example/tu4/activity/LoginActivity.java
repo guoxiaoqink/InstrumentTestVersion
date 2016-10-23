@@ -167,7 +167,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     public void judgeLoginOrRegister() {
         if (judgeLoginOrRegister) {//代表当前的是注册页面
             String url = "http://138.68.4.19:8080/regist/getdata";
-
             OkHttpUtils
                     .postString()
                     .url(url)//
@@ -261,7 +260,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
      */
     private void saveDate() {
 
-        SharedPreferences mySharedPreferences= getSharedPreferences("test",
+        SharedPreferences mySharedPreferences = getSharedPreferences("test",
                 Activity.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = mySharedPreferences.edit();

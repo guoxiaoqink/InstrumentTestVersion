@@ -19,7 +19,9 @@
             android:layout_alignParentBottom="true"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingRight="@dimen/dp_15"></LinearLayout>
+            android:paddingRight="@dimen/dp_15">
+
+        </LinearLayout>
     </LinearLayout>
 
     <TextView
