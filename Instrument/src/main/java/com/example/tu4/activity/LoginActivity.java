@@ -230,11 +230,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
                             @Override
                             public void onResponse(String response, int id) {
-                                // Log.d("onResponse:" ,response);
+                                Log.d("onResponse:", response);
                                 System.out.print(id);
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String result = jsonObject.getString("Result");
+                                    UserId = jsonObject.getInt("User_id");
                                     Log.d("Result", result);
                                     System.out.print(result);
                                     if (result.equals("false")) {
