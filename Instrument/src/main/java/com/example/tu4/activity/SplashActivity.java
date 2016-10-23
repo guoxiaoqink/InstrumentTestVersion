@@ -1,4 +1,4 @@
-package com.example.tu4;
+package com.example.tu4.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,8 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.tu4.activity.LoginActivity;
-import com.example.tu4.activity.MainActivity;
+import com.example.tu4.R;
 
 public class SplashActivity extends AppCompatActivity {
 

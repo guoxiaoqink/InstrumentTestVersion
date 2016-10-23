@@ -6,6 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/splash"
-    tools:context="com.example.tu4.SplashActivity">
+    tools:context="com.example.tu4.activity.SplashActivity">
 
 </RelativeLayout>
