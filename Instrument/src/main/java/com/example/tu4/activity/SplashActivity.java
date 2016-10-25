@@ -39,7 +39,6 @@ public class SplashActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             return result;
-
         }
 
         @Override
@@ -58,6 +57,5 @@ public class SplashActivity extends AppCompatActivity {
             }
 
         }
-
     }
 }
