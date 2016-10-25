@@ -35,6 +35,7 @@ import static com.example.tu4.model.AplicationStatic.LoginResult;
 import static com.example.tu4.model.AplicationStatic.Other;
 import static com.example.tu4.model.AplicationStatic.UserId;
 import static com.example.tu4.model.AplicationStatic.UserName;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
@@ -173,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
     public void judgeLoginOrRegister() {
         if (judgeLoginOrRegister) {//代表当前的是注册页面
-            String url = "http://138.68.11.223:8080/regist/getdata";
+            String url = baseUrl + "/regist/getdata";
             OkHttpUtils
                     .postString()
                     .url(url)//
@@ -219,10 +220,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 //                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                startActivity(intent);
 //                finish();
-                String url = "http://138.68.11.223:8080/login/api_login";
-//                Map<String, String> params = new HashMap<String, String>();
-//                params.put("username", "11144477700");
-//                params.put("password", "000000");
+                String url = baseUrl + "/login/api_login";
                 OkHttpUtils
                         .postString()//
                         .url(url)//
