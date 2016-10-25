@@ -166,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
     public void judgeLoginOrRegister() {
         if (judgeLoginOrRegister) {//代表当前的是注册页面
-            String url = "http://138.68.4.19:8080/regist/getdata";
+            String url = "http://138.68.11.223:8080/regist/getdata";
             OkHttpUtils
                     .postString()
                     .url(url)//
@@ -212,7 +212,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 //                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                startActivity(intent);
 //                finish();
-                String Url = "http://138.68.4.19:8080/login/api_login";
+                String Url = "http://138.68.11.223:8080/login/api_login";
 //                Map<String, String> params = new HashMap<String, String>();
 //                params.put("username", "11144477700");
 //                params.put("password", "000000");
