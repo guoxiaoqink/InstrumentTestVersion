@@ -220,15 +220,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         @Override
                                         public void onError(Call call, Exception e, int id) {
                                             Log.d("onError:", e.getMessage());
+
                                         }
 
                                         @Override
                                         public void onResponse(String response, int id) {
                                             Log.d("success", response);
-                                            Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+
                                             try {
                                                 JSONObject jsonObject = new JSONObject(response);
-                                                UserId = jsonObject.getInt("id");
+                                                if (jsonObject.getInt("id") == -1) {
+                                                    Toast.makeText(LoginActivity.this, "该用户已存在", Toast.LENGTH_SHORT).show();
+                                                    edtVerification.setText("");
+                                                } else {
+                                                    UserId = jsonObject.getInt("id");
+                                                    Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                                }
                                                 Log.d("id", String.valueOf(UserId));
                                             } catch (JSONException e) {
                                                 e.printStackTrace();
@@ -277,22 +284,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String result = jsonObject.getString("Result");
-                                    UserId = jsonObject.getInt("User_id");
-                                    UserName = jsonObject.getString("Username");
-                                    Introduction = jsonObject.getString("Introduction");
-                                    LoginResult = jsonObject.getString("Result");
-                                    Location = jsonObject.getString("Location");
-                                    Other = jsonObject.getString("Other");
-
+                                    int type = jsonObject.getInt("Type");
                                     System.out.print(result);
-                                    if (result.equals("false")) {
-                                        Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
-                                    } else {
+                                    Log.d("type:", "type  " + type);
+                                    if (type == 2) {
+                                        Toast.makeText(LoginActivity.this, "密码错误！", Toast.LENGTH_SHORT).show();
+                                    } else if (type == 3) {
+                                        UserId = jsonObject.getInt("User_id");
+                                        UserName = jsonObject.getString("Username");
+                                        Introduction = jsonObject.getString("Introduction");
+                                        LoginResult = jsonObject.getString("Result");
+                                        Location = jsonObject.getString("Location");
+                                        Other = jsonObject.getString("Other");
                                         Intent intent = new Intent();
                                         intent.setClass(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         //saveDate();//
                                         finish();
+                                    } else if (type == 1) {
+                                        Toast.makeText(LoginActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
