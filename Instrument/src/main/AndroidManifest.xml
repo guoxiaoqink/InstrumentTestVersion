@@ -26,12 +26,11 @@
             android:name=".activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN"/> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN"/>
 
-
-            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER"/>
+             </intent-filter>
         </activity>
         <activity
             android:name=".activity.instrument.InstrumentClassifyActivity"
@@ -73,7 +72,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
         <activity android:name=".activity.personal.MyWorksActivity" />
-        <activity android:name=".activity.personal.MyWorksDeleteActivity" />
+        <activity android:name=".activity.personal.MyWorksDeleteActivity" >
+        </activity>
         <activity android:name=".activity.personal.VideoRecordActivity" />
         <activity android:name=".activity.personal.VideoPlayActivity" />
         <activity android:name=".activity.personal.HeadPortraitActivity" />
@@ -89,10 +89,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".activity.personal.TransactionRecordsActivity" />
         <activity android:name=".activity.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
     </application>
 
