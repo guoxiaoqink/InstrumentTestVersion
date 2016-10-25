@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -27,6 +29,10 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.sms.BmobSMS;
+import cn.bmob.sms.exception.BmobException;
+import cn.bmob.sms.listener.RequestSMSCodeListener;
+import cn.bmob.sms.listener.VerifySMSCodeListener;
 import okhttp3.Call;
 
 import static com.example.tu4.model.AplicationStatic.Introduction;
@@ -69,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     TextView textviewLineVertification;
     @BindView(R.id.btnLoginOrRegister)
     Button btnLoginOrRegister;
-
+    private TimeCount time;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         edtTel.setOnFocusChangeListener(this);
         edtPassword.setOnFocusChangeListener(this);
         edtVerification.setOnFocusChangeListener(this);
+        time = new TimeCount(60000, 1000);//构造CountDownTimer对象
+        // SMS初始化
+        BmobSMS.initialize(LoginActivity.this, "db03e03fc5d422ec028e9adfbb8f68e6");
 
     }
 
@@ -98,6 +107,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                 break;
             case R.id.btnGetVertification:
                 // Toast.makeText(LoginActivity.this, "获取验证码", Toast.LENGTH_LONG).show();
+                // 将按钮设置为不可用状态
+                btnGetVertification.setEnabled(false);
+                //启动倒计时
+                time.start();
+                BmobSMS.requestSMSCode(LoginActivity.this, edtTel.getText().toString(), "天才", new RequestSMSCodeListener() {
+                    @Override
+                    public void done(Integer smsId, BmobException ex) {
+                        if (ex == null) {//验证码发送成功
+                            Log.e("bmob", "短信id：" + smsId);//用于查询本次短信发送详情
+                        }
+                    }
+                });
+
                 break;
             case R.id.btnLoginOrRegister:
                 judgeLoginOrRegister();
@@ -173,53 +195,69 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
     }
 
     public void judgeLoginOrRegister() {
+
         if (judgeLoginOrRegister) {//代表当前的是注册页面
-            String url = baseUrl + "/regist/getdata";
-            OkHttpUtils
-                    .postString()
-                    .url(url)//
-                    .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
-                    .tag(this)//
-                    .build()//
-                    .connTimeOut(20000)
-                    .readTimeOut(20000)
-                    .writeTimeOut(20000)
-                    .execute(new StringCallback()      //这个是没有处理json
-                    {
-                        @Override
-                        public void onError(Call call, Exception e, int id) {
-                            Log.d("onError:", e.getMessage());
-                        }
+            String number = edtVerification.getText().toString();
+            if (!TextUtils.isEmpty(number)) {
+                //通过verifySmsCode方式可验证该短信验证码
+                BmobSMS.verifySmsCode(LoginActivity.this, edtTel.getText().toString(), number, new VerifySMSCodeListener() {
+                    @Override
+                    public void done(BmobException ex) {
+                        if (ex == null) {//短信验证码已验证成功
+                            Log.e("bmob", "验证通过");
+                            String url = baseUrl + "/regist/getdata";
+                            OkHttpUtils
+                                    .postString()
+                                    .url(url)//
+                                    .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
+                                    .tag(this)//
+                                    .build()//
+                                    .connTimeOut(20000)
+                                    .readTimeOut(20000)
+                                    .writeTimeOut(20000)
+                                    .execute(new StringCallback()      //这个是没有处理json
+                                    {
+                                        @Override
+                                        public void onError(Call call, Exception e, int id) {
+                                            Log.d("onError:", e.getMessage());
+                                        }
 
-                        @Override
-                        public void onResponse(String response, int id) {
-                            Log.d("success", response);
-                            Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                UserId = jsonObject.getInt("id");
-                                Log.d("id", String.valueOf(UserId));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                                        @Override
+                                        public void onResponse(String response, int id) {
+                                            Log.d("success", response);
+                                            Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                                            try {
+                                                JSONObject jsonObject = new JSONObject(response);
+                                                UserId = jsonObject.getInt("id");
+                                                Log.d("id", String.valueOf(UserId));
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
 
-                    });
+                                    });
 
-            if (judgeTelPassword() && judgeVertification()) {
-                Toast.makeText(LoginActivity.this,
-                        getResources().getString(R.string.registerSuccess),
-                        Toast.LENGTH_SHORT).show();
+                            if (judgeTelPassword() && judgeVertification()) {
+                                Toast.makeText(LoginActivity.this,
+                                        getResources().getString(R.string.registerSuccess),
+                                        Toast.LENGTH_SHORT).show();
               /*  Intent intentToSearchactivity = new Intent(LoginActivity.this,
                         SearchActivity.class);
                 startActivity(intentToSearchactivity);*/
+                            }
+
+                        } else {
+                            Log.e("bmob", "验证失败：code =" + ex.getErrorCode() + ",msg = " + ex.getLocalizedMessage());
+                            Toast.makeText(LoginActivity.this, "验证码错误！", Toast.LENGTH_SHORT).show();
+                            edtVerification.setText("");
+                        }
+                    }
+                });
             }
+
         } else {
             if (judgeTelPassword()) {
-//                account = edtTel.getText().toString().trim();
-//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
+
                 String url = baseUrl + "/login/api_login";
                 OkHttpUtils
                         .postString()//
@@ -245,11 +283,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                     LoginResult = jsonObject.getString("Result");
                                     Location = jsonObject.getString("Location");
                                     Other = jsonObject.getString("Other");
-//                                    Log.d("UserName", UserName );
-//                                    Log.d("UserId", "id"+UserId );
-//                                    Log.d("Introduction", Introduction );
-//                                    Log.d("LoginResult", LoginResult );
-//                                    Log.d("Location", Location );
+
                                     System.out.print(result);
                                     if (result.equals("false")) {
                                         Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
@@ -314,6 +348,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                     "username='" + username + '\'' +
                     ", password='" + password + '\'' +
                     '}';
+        }
+    }
+
+    private class TimeCount extends CountDownTimer {
+        public TimeCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);//参数依次为总时长,和计时的时间间隔
+        }
+
+        @Override
+        public void onFinish() {//计时完毕时触发
+            btnGetVertification.setText("获取验证码");
+            btnGetVertification.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {//计时过程显示
+            btnGetVertification.setClickable(false);
+            btnGetVertification.setText(millisUntilFinished / 1000 + "秒");
         }
     }
 }
