@@ -35,6 +35,14 @@ public class AplicationStatic {
     public static int chooseRecycleView = 0;
     public static String account = "";
     public static String headPortrait = "";
+    //用户登录成功的返回值
+    public static String UserName = "";
+    public static int UserId;
+    public static String LoginResult = "";
+    public static String Introduction = "";
+    public static String Location = "";
+    public static String Other = "";
+
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
         List<InstrumentDetails> clist = null;

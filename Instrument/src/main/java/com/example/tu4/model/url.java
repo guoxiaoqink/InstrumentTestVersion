@@ -7,6 +7,6 @@ package com.example.tu4.model;
  * Modify Person：   on
  */
 
-public interface Url {
+public interface url {
     String url = "http://138.68.11.233:8080/";
 }

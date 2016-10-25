@@ -29,9 +29,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.model.AplicationStatic.Introduction;
+import static com.example.tu4.model.AplicationStatic.Location;
+import static com.example.tu4.model.AplicationStatic.LoginResult;
+import static com.example.tu4.model.AplicationStatic.Other;
+import static com.example.tu4.model.AplicationStatic.UserId;
+import static com.example.tu4.model.AplicationStatic.UserName;
+
 
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
-    public static int UserId;
+
     /*
     * 判断是登录还是注册，默认的是注册，就是注册时true，登录时false
     * */
@@ -212,13 +219,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 //                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //                startActivity(intent);
 //                finish();
-                String Url = "http://138.68.11.223:8080/login/api_login";
+                String url = "http://138.68.11.223:8080/login/api_login";
 //                Map<String, String> params = new HashMap<String, String>();
 //                params.put("username", "11144477700");
 //                params.put("password", "000000");
                 OkHttpUtils
                         .postString()//
-                        .url(Url)//
+                        .url(url)//
                         .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
                         .build()//
                         .execute(new StringCallback() {
@@ -235,7 +242,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                     JSONObject jsonObject = new JSONObject(response);
                                     String result = jsonObject.getString("Result");
                                     UserId = jsonObject.getInt("User_id");
-                                    Log.d("Result", result);
+                                    UserName = jsonObject.getString("Username");
+                                    Introduction = jsonObject.getString("Introduction");
+                                    LoginResult = jsonObject.getString("Result");
+                                    Location = jsonObject.getString("Location");
+                                    Other = jsonObject.getString("Other");
+//                                    Log.d("UserName", UserName );
+//                                    Log.d("UserId", "id"+UserId );
+//                                    Log.d("Introduction", Introduction );
+//                                    Log.d("LoginResult", LoginResult );
+//                                    Log.d("Location", Location );
                                     System.out.print(result);
                                     if (result.equals("false")) {
                                         Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
