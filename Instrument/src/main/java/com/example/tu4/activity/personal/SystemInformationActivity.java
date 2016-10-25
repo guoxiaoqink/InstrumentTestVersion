@@ -8,6 +8,8 @@ import android.widget.ListView;
 import com.example.tu4.R;
 import com.example.tu4.adapter.SystemInformationListviewAdapter;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,15 +31,64 @@ public class SystemInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_information);
         ButterKnife.bind(this);
+       // getDate();
         lvSystemInformation.setAdapter(new SystemInformationListviewAdapter(this, name, text,
                 time));
 
     }
 
+    /**
+     * 获取数据
+     */
+//    private void getDate() {
+//        String url = "";
+//        OkHttpUtils
+//                .post()
+//                .url(url)
+//                .build()
+//                .execute(new GenericsCallback<SystemInformation>(new JsonGenericsSerializator()) {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(SystemInformation response, int id) {
+//
+//
+//                    }
+//
+//                });
+//    }
+
     @OnClick(R.id.img_system_information_return)
     public void onClick() {
-//        Intent intent = new Intent(SystemInformationActivity.this,MyLeaveWordsActivity.class);
-//        startActivity(intent);
         this.finish();
     }
+
+
+
+    public class SystemInformation {
+        private List<SysInfor> list;
+
+        public SystemInformation(List<SysInfor> list) {
+            this.list = list;
+        }
+
+        public class SysInfor {
+
+            private String system_title;
+            private String system_content;
+            private String system_time;
+
+
+            public SysInfor(String system_title, String system_content, String system_time) {
+                this.system_title = system_title;
+                this.system_content = system_content;
+                this.system_time = system_time;
+            }
+        }
+    }
+
+
 }

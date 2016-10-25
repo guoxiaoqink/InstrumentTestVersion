@@ -243,7 +243,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         Intent intent = new Intent();
                                         intent.setClass(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
-                                        //saveDate();
+                                        //saveDate();//
                                         finish();
                                     }
                                 } catch (JSONException e) {

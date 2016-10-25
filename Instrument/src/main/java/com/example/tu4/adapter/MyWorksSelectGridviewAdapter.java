@@ -11,14 +11,16 @@ import android.widget.TextView;
 import com.example.tu4.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyWorksSelectGridviewAdapter extends BaseAdapter {
-    private String[] myWorksTime, myWorksDate;
+    private ArrayList<String> myWorksTime, myWorksDate;
     private Context context;
     private LayoutInflater layoutInflater;
     private ArrayList<Integer> myWorksPisture;
@@ -27,8 +29,9 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
     // 定义一个向量作为选中与否容器
     private Vector<Boolean> mImage_bs = new Vector<Boolean>();
 
-    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture,String[]
-                                        myWorksTime, String[] myWorksDate) {
+    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture,
+                                        ArrayList<String>
+            myWorksTime, ArrayList<String> myWorksDate) {
         this.context = context;
         this.myWorksPisture = myWorksPisture;
         this.myWorksTime = myWorksTime;
@@ -64,12 +67,12 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.activity_my_works_gridview_item, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
-        }else {
-            viewHolder = (ViewHolder)convertView.getTag();
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.imgMyWorksItem.setImageResource(myWorksPisture.get(position));
-        viewHolder.tvMyWorksTime.setText(myWorksTime[position]);
-        viewHolder.tvMyWorksDate.setText(myWorksDate[position]);
+        viewHolder.tvMyWorksTime.setText(myWorksTime.get(position));
+        viewHolder.tvMyWorksDate.setText(myWorksDate.get(position));
 
         if (mImage_bs.elementAt(position))
             viewHolder.imgMyWorksSelectItem.setImageResource(R.mipmap.ic_mywork_check);
@@ -80,13 +83,24 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public List<Integer> getNameList() {
-        List<Integer> tempList = new ArrayList<Integer>();
+    public ArrayList<Map> getNameList() {
+        ArrayList<Map> daleteList = null;
+        Map<String, Object> deleteDate = new HashMap<>();
+//        ArrayList<Integer> pistureList = new ArrayList<Integer>();
+//        ArrayList<String> dateList = new ArrayList<String>();
+//        ArrayList<String> timeList = new ArrayList<String>();
         for (int i = 0; i < indexList.size(); i++) {
+            daleteList = new ArrayList<>();
             int temp = Integer.parseInt(indexList.get(i));
-            tempList.add(myWorksPisture.get(temp));
+//            pistureList.add(myWorksPisture.get(temp));
+//            dateList.add(myWorksDate.get(temp));
+//            timeList.add(myWorksTime.get(temp));
+            deleteDate.put("picture", myWorksPisture.get(temp));
+            deleteDate.put("date",myWorksDate.get(temp));
+            deleteDate.put("time",myWorksTime.get(temp));
+            daleteList.add(deleteDate);
         }
-        return tempList;
+        return daleteList;
     }
 
     // 修改选中的状态
@@ -100,7 +114,8 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
         mImage_bs.setElementAt(!mImage_bs.elementAt(position), position); // 直接
         notifyDataSetChanged(); // 通知适配器进行更新
     }
-    public void fresh(){
+
+    public void fresh() {
         notifyDataSetChanged();
     }
 

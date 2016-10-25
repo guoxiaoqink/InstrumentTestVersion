@@ -1,6 +1,7 @@
 package com.example.tu4.activity.personal;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +18,7 @@ import com.example.tu4.adapter.MyWorksSelectGridviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewGridview;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,8 +28,9 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
 
     @BindView(R.id.img_my_works_delete_return)
     ImageView imgMyWorksDeleteReturn;
-    private String[] myWorksTime, myWorksDate;
     private ArrayList<Integer> myWorksPisture;
+    private ArrayList<String> myWorksTime, myWorksDate;
+    ArrayList<Map> deleteList;
     MyWorksSelectGridviewAdapter myWorksSelectGridviewAdapter;
 
 
@@ -51,13 +53,15 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<Integer> tempList = myWorksSelectGridviewAdapter.getNameList();
-                if (tempList.size() > 0) {
+                deleteList = myWorksSelectGridviewAdapter.getNameList();
+                if (deleteList.size() > 0) {
                     StringBuffer sbBuffer = new StringBuffer();
-                    sbBuffer.append("您已删除：" + "\n");
-                    for (int i = 0; i < tempList.size(); i++) {
-                        myWorksPisture.remove(tempList.get(i));
-                        sbBuffer.append(tempList.get(i)).append("\n");
+                    sbBuffer.append("您已删除： ");
+                    for (int i = 0; i < deleteList.size(); i++) {
+                        myWorksPisture.remove(deleteList.get(i).get("picture"));
+                        myWorksDate.remove(deleteList.get(i).get("date"));
+                        myWorksTime.remove(deleteList.get(i).get("time"));
+                        sbBuffer.append(deleteList.size()+" 个");
                     }
                     myWorksSelectGridviewAdapter.fresh();
                     Toast.makeText(MyWorksDeleteActivity.this, sbBuffer.toString(),
@@ -70,24 +74,23 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
 
     void initDate() {
         myWorksPisture = new ArrayList<>();
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksTime = new String[]{"20s", "20s", "20s", "20s", "20s", "20s", "20s",};
-        myWorksDate = new String[]{"2016-05-06 15:00", "2016-05-06 15:00",
-                "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
-                "2016-05-06 15:00",};
+        myWorksDate = new ArrayList<>();
+        myWorksTime = new ArrayList<>();
+       for (int i = 0;i<=7;i++){
+           myWorksPisture.add(R.mipmap.a);
+           myWorksDate.add("2016-05-06 " + i);
+           myWorksTime.add(i+"s");
+
+       }
+
     }
 
     @OnClick(R.id.img_my_works_delete_return)
     public void onClick() {
-//        Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
-//        startActivity(intent);
-        this.finish();
+        Intent intent = new Intent(MyWorksDeleteActivity.this,MyWorksActivity.class);
+        intent.putExtra("deleteList",deleteList);
+        startActivity(intent);
+        finish();
     }
 
     class MyOpenWork extends AsyncTask<String, String, Boolean> {
