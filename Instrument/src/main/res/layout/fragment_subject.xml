@@ -43,10 +43,10 @@
 
     </RelativeLayout>
 
-    <com.example.tu4.autoplayingviewpager.AutoPlayingViewPager
+    <com.example.tu4.view.AutoPlayingViewPager
         android:id="@+id/auto_play_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp200"></com.example.tu4.autoplayingviewpager.AutoPlayingViewPager>
+        android:layout_height="@dimen/dp200"></com.example.tu4.view.AutoPlayingViewPager>
     <ListView
         android:id="@+id/listview_subject"
         android:layout_width="match_parent"

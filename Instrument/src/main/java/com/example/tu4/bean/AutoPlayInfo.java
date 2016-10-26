@@ -1,4 +1,4 @@
-package com.example.tu4.autoplayingviewpager;
+package com.example.tu4.bean;
 
 /**
  * 项目名称 : AutoPlayingViewPager<br>

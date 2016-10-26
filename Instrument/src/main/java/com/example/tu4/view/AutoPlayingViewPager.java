@@ -1,4 +1,4 @@
-package com.example.tu4.autoplayingviewpager;
+package com.example.tu4.view;
 
 import android.content.Context;
 import android.os.Handler;
@@ -20,6 +20,7 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.bean.AutoPlayInfo;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 

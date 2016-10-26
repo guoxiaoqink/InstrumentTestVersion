@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/dp5"
-                android:text="@string/username"
+                android:text="@string/username1"
                 android:textColor="@color/sffffff"
                 android:textSize="@dimen/px30" />
 
