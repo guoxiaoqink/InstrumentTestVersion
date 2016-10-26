@@ -89,7 +89,6 @@
     <string name="pleaseinputthinks">请输入感想。。。</string>
     <string name="issiufeedback">发布反馈</string>
     <string name="issiu1">发布</string>
-
     <string name="unpaidpaid">待付款</string>
     <string name="pay">付款</string>
     <string name="express">X X物流 6666666</string>
@@ -165,6 +164,7 @@
     <string name="threesubjects">课时3</string>
     <string name="money_10000_00">10000.00</string>
     <string name="class_1">课时1</string>
+    <string name="username">课时1</string>
     <string name="class_2">课时2</string>
     <string name="pleaseInputName">请输入姓名</string>
     <string name="pleaseInputPhonenamber">请输入手机号码</string>

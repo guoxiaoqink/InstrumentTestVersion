@@ -10,7 +10,6 @@
         android:background="@color/s97c8cd">
 
         <ImageView
-            android:id="@+id/img_subject_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp10"
@@ -25,41 +24,35 @@
             android:text="@string/subject"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
-
         <ImageView
-            android:id="@+id/iv_subject_titlt_wait"
+            android:id="@+id/subject_titlt_wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp10"
             android:src="@mipmap/wait_subject" />
-
         <ImageView
-            android:id="@+id/img_subject_titlt_find"
+            android:id="@+id/subject_titlt_find"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/iv_subject_titlt_wait"
+            android:layout_alignTop="@+id/subject_titlt_wait"
             android:layout_marginRight="@dimen/dp15"
-            android:layout_toStartOf="@+id/iv_subject_titlt_wait"
+            android:layout_toStartOf="@+id/subject_titlt_wait"
             android:src="@mipmap/lookup" />
 
     </RelativeLayout>
 
-    <com.example.tu4.view.ImageCyclePlayView
-        android:id="@+id/icpv_subject"
+    <com.example.tu4.autoplayingviewpager.AutoPlayingViewPager
+        android:id="@+id/auto_play_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/instrument_instrument_viewpagerHeight">
-    </com.example.tu4.view.ImageCyclePlayView>
-
-
+        android:layout_height="@dimen/dp200"></com.example.tu4.autoplayingviewpager.AutoPlayingViewPager>
     <ListView
         android:id="@+id/listview_subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@color/sdddddd"
         android:dividerHeight="@dimen/px1">
-
     </ListView>
 
 </LinearLayout>
