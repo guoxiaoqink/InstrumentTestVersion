@@ -70,6 +70,7 @@ public class SubjectFragment extends Fragment {
                         AdvertisementActivity.class);
                 intent.putExtra("linkPath", adLink);
                 startActivity(intent);
+                Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
             }
         }
 
