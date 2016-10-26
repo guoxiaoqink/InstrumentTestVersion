@@ -15,11 +15,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SystemInformationActivity extends AppCompatActivity {
-
     @BindView(R.id.img_system_information_return)
     ImageView imgSystemInformationReturn;
     @BindView(R.id.lv_system_information)
     ListView lvSystemInformation;
+
     private String[] name = {"通知标题", "通知标题", "通知标题", "通知标题",};
     private String[] text = {"内容1111111111111", "内容1111111111111", "内容1111111111111",
             "内容1111111111111",};
@@ -35,7 +35,6 @@ public class SystemInformationActivity extends AppCompatActivity {
                 time));
 
     }
-
     /**
      * 获取数据
      */
