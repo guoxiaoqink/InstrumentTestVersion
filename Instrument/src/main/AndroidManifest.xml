@@ -83,7 +83,7 @@
         <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
-        <activity android:name=".activity.personal.OrderDetailsMainActivity"></activity>
+        <activity android:name=".activity.instrument.OrderDetailsMainActivity"></activity>
         <activity android:name=".activity.personal.BookingOrderActivity" />
 
         <activity

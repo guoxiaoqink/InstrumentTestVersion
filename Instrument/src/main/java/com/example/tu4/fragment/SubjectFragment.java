@@ -20,6 +20,9 @@ import com.example.tu4.activity.AdvertisementActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.bean.AutoPlayInfo;
+import com.example.tu4.bean.CalssList;
+import com.example.tu4.bean.ClassListDetails;
+import com.example.tu4.bean.Classshowpost;
 import com.example.tu4.bean.ImageCircleView;
 import com.example.tu4.bean.ImageViewInfo;
 import com.example.tu4.bean.SlideView;
@@ -84,6 +87,7 @@ public class SubjectFragment extends Fragment {
         ButterKnife.bind(this, view);
         initListviewSubjectDetail();
         getImageByUrl();
+        getListDataByUrl();
         return view;
     }
 
@@ -145,6 +149,52 @@ public class SubjectFragment extends Fragment {
                 });
     }
 
+    public void getListDataByUrl() {
+        String url = baseUrl + "/regist/sc";
+        OkHttpUtils
+                .postString()
+                .url(url)//
+                .content(new Gson().toJson(new Classshowpost(UserId, "student", "9527", 0)))
+                .build()//
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(getActivity(), "列表内容获取失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("success", response);
+                        try {
+                            Gson gson = new Gson();
+                            JSONObject jsonObject = new JSONObject(response);
+                            CalssList calssList = gson.fromJson(response, CalssList.class);
+                            List<ClassListDetails> classListDetailses = new ArrayList<>();
+                            classListDetailses = calssList.getList();
+                            if (classListDetailses == null) {
+                                Toast.makeText(getContext(), "列表内容为空", Toast.LENGTH_SHORT).show();
+                            }
+                            for (int i = 0; i < classListDetailses.size(); i++) {
+                                classListDetailses.get(i).getClass_name();
+                                classListDetailses.get(i).getAvailable();
+                                classListDetailses.get(i).getClass_pic_url();
+                                classListDetailses.get(i).getLevel();
+                                classListDetailses.get(i).getTeacher_name();
+                                classListDetailses.get(i).getLocal();
+                            }
+//                            System.out.println(classListDetailses.get(0).getClass_name()+"00000000000000000000000000000000000000");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                });
+    }
+
     /**
      * 将数据转换为AutoPlayInfo形式
      */
@@ -169,11 +219,11 @@ public class SubjectFragment extends Fragment {
         super.onResume();
     }
 
-    @Override
-    public void onPause() {
-        autoPlayViewpager.stopPlaying();
-        super.onPause();
-    }
+//    @Override
+//    public void onPause() {
+//        autoPlayViewpager.stopPlaying();
+//        super.onPause();
+//    }
 
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 

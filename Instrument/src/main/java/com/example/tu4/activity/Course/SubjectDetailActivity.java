@@ -138,17 +138,4 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
-
-
-/*
-    @OnClick(R.id.imageview_instrument_show)
-    public void onClick() {
-        Intent intentTofeedback = new Intent();
-        intentTofeedback.setClass(SubjectDetailActivity.this, Student_feedbackActivity.class);
-        startActivity(intentTofeedback);
-    }
-
-    @OnClick(R.id.iv_topbar_arrow)
-    public void onClick() {
-    }*/
 }

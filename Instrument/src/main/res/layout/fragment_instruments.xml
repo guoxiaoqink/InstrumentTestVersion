@@ -35,12 +35,10 @@
 
         </RelativeLayout>
 
-        <com.example.tu4.view.ImageCyclePlayView
-            android:id="@+id/icpv_instrumentFragment"
+        <com.example.tu4.view.AutoPlayingViewPager
+            android:id="@+id/auto_play_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/instrument_instrument_viewpagerHeight">
-
-        </com.example.tu4.view.ImageCyclePlayView>
+            android:layout_height="@dimen/dp200"></com.example.tu4.view.AutoPlayingViewPager>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
