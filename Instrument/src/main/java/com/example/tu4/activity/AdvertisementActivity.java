@@ -1,4 +1,4 @@
-package com.example.tu4.autoplayingviewpager;
+package com.example.tu4.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

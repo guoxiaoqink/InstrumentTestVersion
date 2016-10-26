@@ -16,14 +16,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.AdvertisementActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
-import com.example.tu4.autoplayingviewpager.AdvertisementActivity;
-import com.example.tu4.autoplayingviewpager.AutoPlayInfo;
-import com.example.tu4.autoplayingviewpager.AutoPlayingViewPager;
+import com.example.tu4.bean.AutoPlayInfo;
 import com.example.tu4.bean.ImageCircleView;
 import com.example.tu4.bean.ImageViewInfo;
 import com.example.tu4.bean.SlideView;
+import com.example.tu4.view.AutoPlayingViewPager;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
