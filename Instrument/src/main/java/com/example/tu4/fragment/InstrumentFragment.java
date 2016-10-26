@@ -15,7 +15,6 @@ import android.widget.ImageView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.instrument.InstrumentDetailsActivity;
-import com.example.tu4.activity.personal.OrderDetailsMainActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
 import com.example.tu4.adapter.InstrumentListViewInstruDetialAdapter;
@@ -32,6 +31,12 @@ import static com.example.tu4.model.AplicationStatic.cycleImageData;
 import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
 import static com.example.tu4.model.AplicationStatic.instrumentClassify;
 
+/**
+ * Created by gxq
+ * Descripyion: 主界面的乐器界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class InstrumentFragment extends Fragment {
 
     @BindView(R.id.icpv_instrumentFragment)
@@ -84,17 +89,26 @@ public class InstrumentFragment extends Fragment {
                 });
     }
 
+    /**
+     * 乐器介绍lstview
+     */
     private void initlistviewInstumentMoney() {
         InstrumentListViewInstruDetialAdapter list2 = new InstrumentListViewInstruDetialAdapter(
                 getContext());
         listviewInstumentMoney.setAdapter(list2);
     }
 
+    /**
+     * 专辑栏的listview
+     */
     private void initlistviewInstumentAlbum() {
         InstrumentListViewAlbumAdapter list1 = new InstrumentListViewAlbumAdapter(getContext());
         listviewInstumentAlbum.setAdapter(list1);
     }
 
+    /*
+    * 乐器展示的gridview
+    * */
     private void initGridview() {
         InstrumentGridviewAdapter adapter = new InstrumentGridviewAdapter(
                 datalistInstrumentDetail(), getContext());
@@ -104,13 +118,12 @@ public class InstrumentFragment extends Fragment {
                 Intent intentToInstrument = new Intent(getActivity(), InstrumentDetailsActivity.class);
                 startActivity(intentToInstrument);
 
-
             }
         });
     }
 
     /*
-    * RecyclerView的一系列操作
+    * RecyclerView的一系列操作。分类栏
     * */
     private void initRecyclerView() {
         //设置布局管理器
@@ -125,8 +138,8 @@ public class InstrumentFragment extends Fragment {
 
     @OnClick(R.id.imageview_instrument_show)
     public void onClick() {
-        Intent intentToSearch = new Intent(getActivity(), OrderDetailsMainActivity.class);
-        startActivity(intentToSearch);
+        /*Intent intentToSearch = new Intent(getActivity(), OrderDetailsMainActivity.class);
+        startActivity(intentToSearch);*/
     }
 
 }
