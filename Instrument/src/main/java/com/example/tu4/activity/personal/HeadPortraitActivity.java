@@ -21,6 +21,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by gxq on
+ * Descripyion: 更改头像界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class HeadPortraitActivity extends AppCompatActivity {
     @BindView(R.id.img_return)
     ImageView imgReturn;

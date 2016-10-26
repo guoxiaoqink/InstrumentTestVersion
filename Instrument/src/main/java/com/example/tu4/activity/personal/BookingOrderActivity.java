@@ -16,6 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by scy on
+ * Descripyion:预约订单界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class BookingOrderActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_return)

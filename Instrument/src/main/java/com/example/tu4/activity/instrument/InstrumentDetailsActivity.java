@@ -16,6 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by scy on
+ * Descripyion: 乐器详情界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class InstrumentDetailsActivity extends AppCompatActivity {
     @BindView(R.id.img_return)
     ImageView imgReturn;

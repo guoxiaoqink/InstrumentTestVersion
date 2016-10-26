@@ -7,7 +7,6 @@ package com.example.tu4.model;
  * Modify Person：gxq
  */
 
-
 public interface IUrl {
     String baseUrl = "http://138.68.11.223:8080";
 }

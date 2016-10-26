@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 /**
  * Created by Adelais on 2016/9/26.
  */
@@ -36,12 +37,13 @@ public class AplicationStatic {
     public static String account = "";
     public static String headPortrait = "";
     //用户登录成功的返回值
-    public static String UserName = "";
-    public static int UserId;
-    public static String LoginResult = "";
-    public static String Introduction = "";
-    public static String Location = "";
-    public static String Other = "";
+    public static String UserName = "";   //用户名
+    public static int UserId = -1;        //用户id
+    public static String LoginResult = "";//返回成功是否
+    public static String Introduction = "";//自我介绍
+    public static String Location = "";//地址
+    public static String Other = "";//其他
+    public static String UserTel = "";//电话号码
 
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
@@ -56,6 +58,7 @@ public class AplicationStatic {
                 e.printStackTrace();
             }
         }
+
         return clist;
     }
 

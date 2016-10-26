@@ -17,6 +17,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by gxq on
+ * Descripyion: 联系我们界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class ConnectUsActivity extends AppCompatActivity {
 
     @BindView(R.id.img_return)

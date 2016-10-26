@@ -38,7 +38,7 @@
         android:orientation="horizontal">
 
         <com.example.tu4.view.CircleImageView
-            android:id="@+id/person_image"
+            android:id="@+id/civ_person_image"
             android:layout_width="57dp"
             android:layout_height="57dp"
             android:layout_marginLeft="@dimen/dp5"
@@ -50,22 +50,24 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/person_image"
+            android:layout_toRightOf="@+id/civ_person_image"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="@dimen/dp15"
             android:paddingTop="@dimen/dp5">
 
             <TextView
+                android:id="@+id/tv_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginTop="@dimen/dp5"
-                android:text="昵称Cdohng"
+                android:text="@string/username"
                 android:textColor="@color/sffffff"
                 android:textSize="@dimen/px30" />
 
             <TextView
+                android:id="@+id/tv_telnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/dp10"

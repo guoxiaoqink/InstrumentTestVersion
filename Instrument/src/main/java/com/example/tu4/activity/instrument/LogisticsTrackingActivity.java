@@ -10,6 +10,12 @@ import com.example.tu4.adapter.LogisticsTrackingListViewAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Created by gxq on
+ * Descripyion: 物流界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class LogisticsTrackingActivity extends AppCompatActivity {
 
     @BindView(R.id.listview_logistics_tracking)

@@ -18,13 +18,12 @@ public class SystemInformationActivity extends AppCompatActivity {
 
     @BindView(R.id.img_system_information_return)
     ImageView imgSystemInformationReturn;
+    @BindView(R.id.lv_system_information)
+    ListView lvSystemInformation;
     private String[] name = {"通知标题", "通知标题", "通知标题", "通知标题",};
     private String[] text = {"内容1111111111111", "内容1111111111111", "内容1111111111111",
             "内容1111111111111",};
     private String[] time = {"2016-05-05", "2016-06-06", "2016-07-07", "2016-08-08",};
-
-    @BindView(R.id.lv_system_information)
-    ListView lvSystemInformation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +40,10 @@ public class SystemInformationActivity extends AppCompatActivity {
      * 获取数据
      */
 //    private void getDate() {
-//        String url = "";
+//        String IUrl = "";
 //        OkHttpUtils
 //                .post()
-//                .url(url)
+//                .IUrl(IUrl)
 //                .build()
 //                .execute(new GenericsCallback<SystemInformation>(new JsonGenericsSerializator()) {
 //                    @Override

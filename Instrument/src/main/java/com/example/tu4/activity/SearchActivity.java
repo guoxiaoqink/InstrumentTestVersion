@@ -21,6 +21,12 @@ import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
 
+/**
+ * Created by gxq on
+ * Descripyion: 查询界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class SearchActivity extends AppCompatActivity {
 
     @BindView(R.id.img_topmenu_subject)

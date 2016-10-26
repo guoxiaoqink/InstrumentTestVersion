@@ -41,9 +41,15 @@ import static com.example.tu4.model.AplicationStatic.LoginResult;
 import static com.example.tu4.model.AplicationStatic.Other;
 import static com.example.tu4.model.AplicationStatic.UserId;
 import static com.example.tu4.model.AplicationStatic.UserName;
+import static com.example.tu4.model.AplicationStatic.UserTel;
 import static com.example.tu4.model.IUrl.baseUrl;
 
-
+/**
+ * Created by gxq on
+ * Descripyion: 登陆，注册，界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     /*
@@ -220,7 +226,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         @Override
                                         public void onError(Call call, Exception e, int id) {
                                             Log.d("onError:", e.getMessage());
-
                                         }
 
                                         @Override
@@ -281,6 +286,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                             public void onResponse(String response, int id) {
                                 Log.d("onResponse:", response);
                                 System.out.print(id);
+                                System.out.print(response);
                                 try {
                                     JSONObject jsonObject = new JSONObject(response);
                                     String result = jsonObject.getString("Result");
@@ -296,6 +302,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         LoginResult = jsonObject.getString("Result");
                                         Location = jsonObject.getString("Location");
                                         Other = jsonObject.getString("Other");
+                                        UserTel = edtTel.getText().toString();
                                         Intent intent = new Intent();
                                         intent.setClass(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);

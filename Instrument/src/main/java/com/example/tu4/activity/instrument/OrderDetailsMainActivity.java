@@ -1,4 +1,4 @@
-package com.example.tu4.activity.personal;
+package com.example.tu4.activity.instrument;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.payment.PaySuccessActivity;
-import com.example.tu4.activity.instrument.SelectDressActivity;
 import com.example.tu4.adapter.EnsureOrderListviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewListview;
 
@@ -19,6 +18,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by scyon
+ * Descripyion: 订单详情界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class OrderDetailsMainActivity extends AppCompatActivity {
 
     @BindView(R.id.iv_return)

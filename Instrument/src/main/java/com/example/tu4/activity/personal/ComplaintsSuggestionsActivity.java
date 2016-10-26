@@ -22,6 +22,12 @@ import butterknife.ButterKnife;
 
 import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
 
+/**
+ * Created by hs on
+ * Descripyion:投诉建议界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
         .OnClickListener {
 

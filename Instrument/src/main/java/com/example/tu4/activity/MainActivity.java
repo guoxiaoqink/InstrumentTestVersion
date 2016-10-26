@@ -24,6 +24,12 @@ import static com.example.tu4.model.AplicationStatic.THREE;
 import static com.example.tu4.model.AplicationStatic.TWO;
 import static com.example.tu4.model.AplicationStatic.ZERO;
 
+/**
+ * Created by gxq on
+ * Descripyion: 登录进去的主界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     ViewPager viewPager;
     LinearLayout linearLayoutSubject;

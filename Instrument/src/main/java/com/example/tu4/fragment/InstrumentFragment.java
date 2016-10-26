@@ -70,9 +70,6 @@ public class InstrumentFragment extends Fragment {
         return view;
     }
 
-    /*  @BindViews({ R.id.first_name, R.id.middle_name, R.id.last_name })
-      List<EditText> nameViews;*/
-
     /*
     * 初始化轮播图
     * */

@@ -15,6 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.example.tu4.model.AplicationStatic.Introduction;
+import static com.example.tu4.model.AplicationStatic.Location;
+import static com.example.tu4.model.AplicationStatic.Other;
+import static com.example.tu4.model.AplicationStatic.UserTel;
+
 public class PersonalDataActivity extends AppCompatActivity {
 
     @BindView(R.id.img_return)
@@ -37,6 +42,17 @@ public class PersonalDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_data);
         ButterKnife.bind(this);
+        initViewdata();
+    }
+
+    /**
+     * 个人信息的初始化，将登陆的成功，返回的数据，显示在盖界面
+     */
+    public void initViewdata() {
+        tvTelnumber.setText(UserTel);
+        tvPersonlocateLocate.setText(Location);
+        tvSelfcriticism.setText(Introduction);
+        tvOther.setText(Other);
     }
 
     @OnClick({R.id.img_return, R.id.rela_headpro})

@@ -18,7 +18,7 @@ import butterknife.OnClick;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
- * Descripyion: 查看订单
+ * Descripyion: 查看订单,交易记录
  * Version: 1
  * Modify Person : Moofei
  */

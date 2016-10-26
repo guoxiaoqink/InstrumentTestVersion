@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
@@ -30,16 +31,30 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.example.tu4.model.AplicationStatic.UserName;
+import static com.example.tu4.model.AplicationStatic.UserTel;
+
+/**
+ * Created by gxq
+ * Descripyion: ”我“界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class PersonalMessageFragment extends Fragment {
     //   ListView listView;
     @BindView(R.id.rela_person_data)
     RelativeLayout relaPersonData;
     @BindView(R.id.img_find_personmessage)
     ImageView imgFindPersonmessage;
-    @BindView(R.id.person_image)
-    CircleImageView personImage;
+
     @BindView(R.id.listview)
     ListView listview;
+    @BindView(R.id.civ_person_image)
+    CircleImageView civPersonImage;
+    @BindView(R.id.tv_username)
+    TextView tvUsername;
+    @BindView(R.id.tv_telnumber)
+    TextView tvTelnumber;
 
 
     @Override
@@ -48,7 +63,14 @@ public class PersonalMessageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_personmessage, container, false);
         ButterKnife.bind(this, view);
         initListviewPersonalMenu();
+        initViewData();
         return view;
+    }
+
+    private void initViewData() {
+        //   civPersonImage.setImageResource();头像还没有，没有传过来的值
+        tvUsername.setText(UserName);
+        tvTelnumber.setText(UserTel);
     }
 
     public void initListviewPersonalMenu() {
@@ -117,13 +139,4 @@ public class PersonalMessageFragment extends Fragment {
         }
     }
 
-   /* @OnClick(R.id.rela_person_data)
-    public void onClick() {
-        Intent intentToPersonData = new Intent(getActivity(), PersonalDataActivity.class);
-        startActivity(intentToPersonData);
-    }*/
-
-  /*  @OnClick(R.id.img_find_personmessage)
-    public void onClick() {
-    }*/
 }

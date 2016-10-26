@@ -14,6 +14,12 @@ import butterknife.OnClick;
 
 import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
 
+/**
+ * Created by gxq on
+ * Descripyion: 帮助中心界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class HelpCenterActivity extends AppCompatActivity {
 
 

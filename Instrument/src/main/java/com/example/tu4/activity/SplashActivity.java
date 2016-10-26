@@ -9,8 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.tu4.R;
 
+/**
+ * Created by hs
+ * Descripyion: 刚进入软件的界面，软件介绍页面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class SplashActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +24,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     class MyAsyncTask extends AsyncTask<Void, Void, Integer> {
-
         @Override
         protected Integer doInBackground(Void... arg0) {
             int result = 0;

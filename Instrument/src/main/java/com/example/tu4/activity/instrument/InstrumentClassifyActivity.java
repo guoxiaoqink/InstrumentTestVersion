@@ -22,6 +22,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Created by gxq on
+ * Descripyion: 乐器分类界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class InstrumentClassifyActivity extends AppCompatActivity {
 
     GridView mGridview;
@@ -45,10 +51,10 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout_instrument_classify);
         mMaterlayout = (MaterialRefreshLayout) findViewById(R.id.materialrefresh_classfific);
         // mRecyclerView = (RecyclerView) findViewById(R.id.recycleView_instrument_classify);
-        initAllData();
-        initGridview();
+        initAllData();//初始化所有数据
+        initGridview();//初始化gridview
         initTabLayout();
-        initMaterialRefreshLayout();
+        initMaterialRefreshLayout();//刷新
         // initRecycle();
         // initRecycle();
     }
