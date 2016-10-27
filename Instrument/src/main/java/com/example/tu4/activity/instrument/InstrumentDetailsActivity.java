@@ -109,11 +109,10 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.d("Error", e.getMessage());
+                        Toast.makeText(InstrumentDetailsActivity.this, "数据加载失败", Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onResponse(String response, int id) {
-                        Toast.makeText(InstrumentDetailsActivity.this, "success" + response, Toast.LENGTH_SHORT).show();
                         Log.d("success", response);
                         System.out.print(1);
                         try {
