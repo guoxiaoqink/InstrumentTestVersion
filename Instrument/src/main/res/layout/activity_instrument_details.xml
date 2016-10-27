@@ -248,7 +248,6 @@
                 android:layout_alignBaseline="@id/tv_money"
                 android:layout_toRightOf="@+id/tv_money"
                 android:text="@string/money_5000"
-
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/sp_20" />
             <Button
