@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -60,7 +61,7 @@ public class SubjectFragment extends Fragment {
     AutoPlayingViewPager autoPlayViewpager;
     private List<String> ImageCricleViewList_image = new ArrayList<>();
     private List<String> ImageCricleViewList_name = new ArrayList<>();
-
+    private List<List<ClassListDetails>> data = new ArrayList<>();
     private List<AutoPlayInfo> mAutoPlayInfoList;
     private AutoPlayingViewPager.OnPageItemClickListener onPageItemClickListener = new AutoPlayingViewPager.OnPageItemClickListener() {
 
@@ -85,24 +86,25 @@ public class SubjectFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_subject, container, false);
         ButterKnife.bind(this, view);
-        initListviewSubjectDetail();
+//        initListviewSubjectDetail();
         getImageByUrl();
         getListDataByUrl();
         return view;
     }
 
-    public void initListviewSubjectDetail() {
-        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getContext());
-        listviewSubject.setAdapter(adapter);
-        listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
+//    public void initListviewSubjectDetail() {
+//        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getContext());
+//        listviewSubject.setAdapter(adapter);
+//        listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
 
+    //从网上获取图片网址，并显示在轮播图中
     public void getImageByUrl() {
         String url = baseUrl + "/regist/ss";
         OkHttpUtils
@@ -121,7 +123,7 @@ public class SubjectFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("success", response);
+//                        Log.d("success", response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
@@ -149,6 +151,7 @@ public class SubjectFragment extends Fragment {
                 });
     }
 
+    //从网上获取列表内容并显示在列表中
     public void getListDataByUrl() {
         String url = baseUrl + "/regist/sc";
         OkHttpUtils
@@ -177,21 +180,27 @@ public class SubjectFragment extends Fragment {
                             if (classListDetailses == null) {
                                 Toast.makeText(getContext(), "列表内容为空", Toast.LENGTH_SHORT).show();
                             }
+
+
                             for (int i = 0; i < classListDetailses.size(); i++) {
-                                classListDetailses.get(i).getClass_name();
-                                classListDetailses.get(i).getAvailable();
-                                classListDetailses.get(i).getClass_pic_url();
-                                classListDetailses.get(i).getLevel();
-                                classListDetailses.get(i).getTeacher_name();
-                                classListDetailses.get(i).getLocal();
+//                                System.out.println(classListDetailses.get(i).getClass_name() + "注意这里啊，，，，，，，，，，，，，，，");
+                                data.add(classListDetailses);
                             }
-//                            System.out.println(classListDetailses.get(0).getClass_name()+"00000000000000000000000000000000000000");
+//                            System.out.println(data.size()+"00000000000000000000000000000000000000000000");
+                            BaseAdapter adapter = new SubjectListviewAdapter(getContext(), data);
+                            listviewSubject.setAdapter(adapter);
+                            listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                    Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
-
                 });
     }
 
@@ -229,7 +238,7 @@ public class SubjectFragment extends Fragment {
 
         @Override
         protected Void doInBackground(Void... params) {
-            //模拟网络请求获取数据
+            //网络请求获取数据
             try {
                 Thread.sleep(2000);//模拟休眠2秒
                 mAutoPlayInfoList = changeAutoPlayInfoList();
