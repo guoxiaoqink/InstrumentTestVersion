@@ -111,7 +111,6 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                     public void onError(Call call, Exception e, int id) {
                         Log.d("Error", e.getMessage());
                     }
-
                     @Override
                     public void onResponse(String response, int id) {
                         Toast.makeText(InstrumentDetailsActivity.this, "success" + response, Toast.LENGTH_SHORT).show();
