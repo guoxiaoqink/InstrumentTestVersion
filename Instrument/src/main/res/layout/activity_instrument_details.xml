@@ -131,6 +131,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_canshu1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -140,6 +141,7 @@
                 android:textSize="@dimen/sp13" />
 
             <TextView
+                android:id="@+id/tv_canshu2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -149,6 +151,7 @@
                 android:textSize="@dimen/sp13" />
 
             <TextView
+                android:id="@+id/tv_canshu3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -239,6 +242,7 @@
                 android:textSize="@dimen/sp_14" />
 
             <TextView
+                android:id="@+id/tv_moneyNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/tv_money"
