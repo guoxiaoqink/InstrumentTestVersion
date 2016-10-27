@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.example.tu4.R;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.SerachOrderListviewAdapter;
-import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewGridview;
 
 import butterknife.BindView;
@@ -74,7 +73,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
 
-        initListviewSubject();
+//        initListviewSubject();
         initGridview();
         initListviewOrder();
     }
@@ -82,10 +81,10 @@ public class SearchActivity extends AppCompatActivity {
     /*
     *
     * */
-    public void initListviewSubject() {
-        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getBaseContext());
-        listviewSubjectSerach.setAdapter(adapter);
-    }
+//    public void initListviewSubject() {
+//        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getBaseContext(),);
+//        listviewSubjectSerach.setAdapter(adapter);
+//    }
 
     /*
     * 初始化订单信息
