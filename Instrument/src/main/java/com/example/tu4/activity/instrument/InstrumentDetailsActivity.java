@@ -124,8 +124,6 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                             String Instrument_pre_price = jsonObject.getString("Instrument_pre_price");
                             Double Freight = jsonObject.getDouble("Freight");
                             String Instrument_location = jsonObject.getString("Instrument_location");
-                            //  jsonObject.getJSONArray("Product");
-                            // JSONObject jsonObject1 = new JSONObject(jsonObject.getString("Product"));
                             JSONArray array = jsonObject.getJSONArray("Product");
                             JSONObject a = array.getJSONObject(0);
                             tvCanshu1.setText("参数1：" + a.getString("Product_Parameter"));
