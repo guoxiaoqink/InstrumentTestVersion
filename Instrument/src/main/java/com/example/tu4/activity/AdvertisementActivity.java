@@ -18,21 +18,17 @@ import java.util.regex.Pattern;
  * 类描述 : 广告链接展示<br>
  */
 public class AdvertisementActivity extends Activity {
-
     /**
      * 正则表达式:验证URL
      */
     public static final String REGEX_URL = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w ./?%&=]*)?";
-
     private WebView advertisementWeb;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisement);
         initViews();
     }
-
     private void initViews() {
         String linkPath = getIntent().getStringExtra("linkPath");
         advertisementWeb = (WebView) findViewById(R.id.advertisement_web);
@@ -46,7 +42,6 @@ public class AdvertisementActivity extends Activity {
         advertisementWeb.setWebViewClient(new mWebViewClient());
         //advertisementWeb.setWebChromeClient(new WebChromeClient());
     }
-
     /**
      * WebView监听
      */
@@ -57,5 +52,4 @@ public class AdvertisementActivity extends Activity {
             return true;
         }
     }
-
 }

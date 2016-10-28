@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tu4">
-    <uses-sdk android:minSdkVersion="8" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" /><!-- 调用摄像机 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 调用摄像机 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--允许联网 -->
+    <!-- 允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--获取wifi网络状态的信息 -->
+    <!-- 获取wifi网络状态的信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:name">
         <activity android:name=".activity.MainActivity">
 
         </activity>
@@ -31,7 +33,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".activity.instrument.InstrumentClassifyActivity"
@@ -64,17 +65,16 @@
         <activity
             android:name=".activity.course.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity"></activity>
+        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity" />
         <activity
             android:name=".activity.instrument.SelectDressActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.instrument.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
         <activity android:name=".activity.personal.MyWorksActivity" />
-        <activity android:name=".activity.personal.MyWorksDeleteActivity" >
-        </activity>
+        <activity android:name=".activity.personal.MyWorksDeleteActivity"></activity>
         <activity android:name=".activity.personal.VideoRecordActivity" />
         <activity android:name=".activity.personal.VideoPlayActivity" />
         <activity android:name=".activity.personal.HeadPortraitActivity" />
@@ -83,16 +83,25 @@
         <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
-        <activity android:name=".activity.instrument.OrderDetailsMainActivity"></activity>
+        <activity android:name=".activity.instrument.OrderDetailsMainActivity" />
         <activity android:name=".activity.personal.BookingOrderActivity" />
 
         <activity
             android:name=".activity.course.payment.EnsureOrderActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.TransactionRecordsActivity" />
+        <activity android:name=".activity.SplashActivity"></activity>
+        <activity android:name=".activity.personal.CustemServerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
+                <category android:name="android.intent.category.DEFAULT" />
 
-        <activity android:name=".activity.SplashActivity">
+                <data
+                    android:host="com.example.tu4"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
         </activity>
     </application>
 
