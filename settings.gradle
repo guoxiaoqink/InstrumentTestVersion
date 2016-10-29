@@ -1,1 +1,1 @@
-include ':Instrument', ':okhttputils', 'photopicker'
+include ':Instrument', ':okhttputils', 'photopicker', ':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable'

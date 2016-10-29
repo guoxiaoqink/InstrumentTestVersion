@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Instrument" />
+            <option value="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable" />
             <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/photopicker" />
           </set>

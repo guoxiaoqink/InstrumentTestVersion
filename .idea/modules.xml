@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Instrument/Instrument.iml" filepath="$PROJECT_DIR$/Instrument/Instrument.iml" />
       <module fileurl="file://$PROJECT_DIR$/InstrumentTestVersion.iml" filepath="$PROJECT_DIR$/InstrumentTestVersion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable.iml" filepath="$PROJECT_DIR$/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable.iml" />
       <module fileurl="file://$PROJECT_DIR$/okhttputils/okhttputils.iml" filepath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
       <module fileurl="file://$PROJECT_DIR$/photopicker/photopicker.iml" filepath="$PROJECT_DIR$/photopicker/photopicker.iml" />
     </modules>
