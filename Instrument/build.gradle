@@ -35,16 +35,16 @@ dependencies {
     //添加这行
     compile project(':okhttputils')
     compile project(':photopicker')
+
     //bmob-sms ：Bmob单独为短信服务提供的包
     compile 'cn.bmob.android:bmob-sms:1.0.1'
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
     compile 'cn.bmob.android:http-legacy:1.0'
     /*   compile 'com.squareup.okhttp3:okhttp:3.4.1'
-                   compile 'com.squareup.okio:okio:1.10.0'
-                    compile 'com.google.code.gson:gson:2.6.2'*/
+               compile 'com.squareup.okio:okio:1.10.0'
+                compile 'com.google.code.gson:gson:2.6.2'*/
     /*  compile 'com.squareup.okhttp3:okhttp:3.3.1'//okhttp的包*/
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
-    compile files('libs/alipaySdk-20161009.jar')
 }
