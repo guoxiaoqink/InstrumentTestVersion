@@ -104,7 +104,7 @@ public class ConnectUsActivity extends AppCompatActivity {
  */
                     RongIM.getInstance().startCustomerServiceChat(ConnectUsActivity.this, "KEFU147748161344978", "在线客服", csInfo);
                     //                 startActivity(new Intent(MainActivity.this, Main2Activity.class));
-                    finish();
+
                 }
 
                 @Override
