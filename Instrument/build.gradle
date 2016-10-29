@@ -13,6 +13,10 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
 
     buildTypes {
@@ -20,6 +24,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
+        test.jniLibs.srcDirs = ['libs']
     }
 }
 
@@ -35,6 +48,8 @@ dependencies {
     //添加这行
     compile project(':okhttputils')
     compile project(':photopicker')
+    compile project(':Qupaisdk-release')
+    compile project(':vitamio')
 
     //bmob-sms ：Bmob单独为短信服务提供的包
     compile 'cn.bmob.android:bmob-sms:1.0.1'
@@ -45,8 +60,9 @@ dependencies {
                 compile 'com.google.code.gson:gson:2.6.2'*/
     /*  compile 'com.squareup.okhttp3:okhttp:3.3.1'//okhttp的包*/
     compile 'com.google.code.gson:gson:2.7'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.4'
+    compile 'com.google.dagger:dagger-compiler:2.0.1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
     compile project(':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable')
-
 }

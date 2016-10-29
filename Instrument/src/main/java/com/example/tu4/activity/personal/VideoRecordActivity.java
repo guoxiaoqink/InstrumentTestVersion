@@ -1,192 +1,250 @@
 package com.example.tu4.activity.personal;
 
-import android.content.pm.ActivityInfo;
-import android.media.MediaRecorder;
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import com.duanqu.qupai.bean.QupaiUploadTask;
+import com.duanqu.qupai.engine.session.MovieExportOptions;
+import com.duanqu.qupai.engine.session.ProjectOptions;
+import com.duanqu.qupai.engine.session.ThumbnailExportOptions;
+import com.duanqu.qupai.engine.session.UISettings;
+import com.duanqu.qupai.engine.session.VideoSessionCreateInfo;
+import com.duanqu.qupai.sdk.android.QupaiManager;
+import com.duanqu.qupai.sdk.android.QupaiService;
+import com.duanqu.qupai.upload.QupaiUploadListener;
+import com.duanqu.qupai.upload.UploadService;
 import com.example.tu4.R;
+import com.example.tu4.model.Contant;
+import com.example.tu4.model.RequestCode;
+import com.example.tu4.utils.RecordResult;
 
-import java.io.IOException;
+import java.io.File;
+import java.util.UUID;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class VideoRecordActivity extends AppCompatActivity implements SurfaceHolder.Callback {
-    @BindView(R.id.img_video_recorde_return)
-    ImageView imgVideoRecordeReturn;
-    private ImageButton videoButton;
-    private TextView videoTime;
-    private SurfaceHolder surfaceHolder;
-    private SurfaceView surfaceView;
-    private MediaRecorder mediarecorder;
-    private boolean isRecorder = false;
-    //    private MHandler handler;
-    private final static int THREAD_DELAYED = 100;
-    private final static int UPDATE_TIME_RECORD = 1;
+import static com.lling.photopicker.Application.getContext;
+
+public class VideoRecordActivity extends AppCompatActivity {
+
+    private static final String TAG = "Upload";
+
+    private int mVideoBitrate = Contant.DEFAULT_BITRATE;
+    private String waterMarkPath = Contant.WATER_MARK_PATH;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_record);
         ButterKnife.bind(this);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        init();
 
-
+        recording();
     }
 
-    private void init() {
-        videoButton = (ImageButton) findViewById(R.id.imgbt_video_button);
-        videoButton.setOnClickListener(new TestVideoListener());
-        surfaceView = (SurfaceView) this.findViewById(R.id.sv_video_record);
-        SurfaceHolder holder = surfaceView.getHolder();// 取得holder
-        holder.addCallback(this); // holder加入回调接口
-        // setType必须设置，要不出错.
-        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-    }
+    private void recording() {
+        QupaiService qupaiService = QupaiManager.getQupaiService(getContext());
+        if (qupaiService == null) {
+            Toast.makeText(VideoRecordActivity.this, "插件没有初始化，无法获取 QupaiService",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
 
-    @OnClick(R.id.img_video_recorde_return)
-    public void onClick() {
-//        Intent intent = new Intent(VideoRecordActivity.this, MyWorksActivity.class);
-//        startActivity(intent);
-        this.finish();
-    }
+        //UI设置参数
+        UISettings _UISettings = new UISettings() {
 
-    class TestVideoListener implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            if (isRecorder == false) {
-                StarRecorder();
-//                new UpdateThread().run();
-                isRecorder = true;
-            } else {
-                StopRecorder();
-                isRecorder = false;
+            @Override
+            public boolean hasEditor() {
+                return false;//是否需要编辑功能
             }
 
-        }
-    }
+            @Override
+            public boolean hasImporter() {
+                return false;//是否需要导入功能
+            }
 
-    void StarRecorder() {
+            @Override
+            public boolean hasGuide() {
+                return false;//是否启动引导功能，建议用户第一次使用时设置为true
+            }
 
-        mediarecorder = new MediaRecorder();// 创建mediarecorder对象
-        // 设置录制视频源为Camera(相机)
-        mediarecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        //mediarecorder.setOrientationHint(90);//视频旋转90度
-        // 设置录制完成后视频的封装格式THREE_GPP为3gp.MPEG_4为mp4
-        mediarecorder
-                .setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        // 设置录制的视频编码h263 h264
-        mediarecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        // 设置视频录制的分辨率。必须放在设置编码和格式的后面，否则报错
-        mediarecorder.setVideoSize(176, 144);
-        // 设置录制的视频帧率。必须放在设置编码和格式的后面，否则报错
-        mediarecorder.setVideoFrameRate(20);
-        mediarecorder.setPreviewDisplay(surfaceHolder.getSurface());
-        // 设置视频文件输出的路径
-        mediarecorder.setOutputFile("/sdcard/love.3gp");
-        try {
-            // 准备录制
-            mediarecorder.prepare();
-            // 开始录制
-            mediarecorder.start();
-        } catch (IllegalStateException e) {
+            @Override
+            public boolean hasSkinBeautifer() {
+                return false;//是否显示美颜图标
+            }
+        };
 
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+        //压缩参数
+        MovieExportOptions movie_options = new MovieExportOptions.Builder()
+                .setVideoBitrate(mVideoBitrate)
+                .configureMuxer("movflags", "+faststart")
+                .build();
 
-    void StopRecorder() {
-        if (mediarecorder != null) {
-            // 停止录制
-            mediarecorder.stop();
-            // 释放资源
-            mediarecorder.release();
-            mediarecorder = null;
-        }
+        //输出视频的参数
+        ProjectOptions projectOptions = new ProjectOptions.Builder()
+                //输出视频宽高目前只能设置1：1的宽高，建议设置480*480.
+                .setVideoSize(480, 480)
+                //帧率
+                .setVideoFrameRate(30)
+                //时长区间
+                .setDurationRange(2, 8)
+                .get();
 
+        //缩略图参数,可设置取得缩略图的数量，默认10张
+        ThumbnailExportOptions thumbnailExportOptions = new ThumbnailExportOptions.Builder()
+                .setCount(1).get();
+
+        VideoSessionCreateInfo info = new VideoSessionCreateInfo.Builder()
+                //水印地址，如"assets://Qupai/watermark/qupai-logo.png"
+                .setWaterMarkPath(waterMarkPath)
+                //水印的位置
+                .setWaterMarkPosition(1)
+                //摄像头方向,可配置前置或后置摄像头
+                .setCameraFacing(Camera.CameraInfo.CAMERA_FACING_BACK)
+                //美颜百分比,设置之后内部会记住，多次设置无效
+                .setBeautyProgress(80)
+                //默认是否开启
+                .setBeautySkinOn(false)
+                .setMovieExportOptions(movie_options)
+                .setThumbnailExportOptions(thumbnailExportOptions)
+                .build();
+
+        //初始化，建议在application里面做初始化，这里做是为了方便开发者认识参数的意义
+        qupaiService.initRecord(info, projectOptions, _UISettings);
+
+        /**
+         * 建议上面的initRecord只在application里面调用一次。这里为了能够开发者直观看到改变所以可以调用多次
+         */
+        qupaiService.showRecordPage(VideoRecordActivity.this, RequestCode.RECORDE_SHOW,
+                false);
     }
 
     /**
-     * 动态显示录制时间
-     *
-     * @param holder
+     * 在Demo中录制完成后调用了清除草稿的功能，需要存文件的请开发者在删除之前执行move操作。
      */
-//    private class MHandler extends Handler {
-//
-//        SimpleDateFormat format = new SimpleDateFormat("mm:ss");
-//
-//        @Override
-//        public void handleMessage(Message msg) {
-//            try {
-//                switch (msg.what) {
-//
-//                    case UPDATE_TIME_RECORD:
-//                        long currentTimeMillis = System.currentTimeMillis();
-//                        String time = format.format(currentTimeMillis - 0);
-//                        videoTime.setText(time);
-//                        break;
-//
-////                    case UPDATE_TIME_PLAY:
-////                        UpdateTimeing playThread = new UpdateTimeing();
-////                        playThread.start();
-////                        break;
-////
-////                    case UPDATE_PB_PLAY:
-////                        int position = mMediaPlayer.getCurrentPosition();
-////                        record_playPB.setProgress(position);
-////                        record_total.setText(format.format(mMediaPlayer.getDuration()));
-////                        record_current.setText(format.format(position) + "/");
-////                        break;
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//    private class UpdateThread extends Thread {
-//
-//        @Override
-//        public void run() {
-//            while (isRecorder == true) {
-//                try {
-//                    new Thread().sleep(THREAD_DELAYED);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//                handler.sendEmptyMessage(UPDATE_TIME_RECORD);
-//            }
-//        }
-//    }
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        surfaceHolder = holder;
+    String videoFile;
+    String[] thum;
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+
+            RecordResult result = new RecordResult(data);
+            //得到视频地址，和缩略图地址的数组，返回十张缩略图
+            videoFile = result.getPath();
+            thum = result.getThumbnail();
+            result.getDuration();
+
+            Log.w("视频路径","视频路径:" + videoFile + "图片路径:" + thum[0]);
+
+            startUpload();//可以在这里调用上传的方法
+
+        } else {
+            if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(VideoRecordActivity.this, "RESULT_CANCELED", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        surfaceHolder = holder;
-
+    /**
+     * 创建一个上传任务
+     *
+     * @param context
+     * @param uuid        随机生成的UUID
+     * @param _VideoFile  完整视频文件
+     * @param _Thumbnail  缩略图
+     * @param accessToken 通过调用鉴权得到token
+     * @param space       开发者生成的Quid，必须要和token保持一致
+     * @param share       是否公开 0公开分享 1私有(default) 公开类视频不需要AccessToken授权
+     * @param tags        标签 多个标签用 "," 分隔符
+     * @param description 视频描述
+     * @return
+     */
+    private QupaiUploadTask createUploadTask(Context context, String uuid, File _VideoFile, File
+            _Thumbnail, String accessToken,
+                                             String space, int share, String tags, String
+                                                     description) {
+        UploadService uploadService = UploadService.getInstance();
+        return uploadService.createTask(context, uuid, _VideoFile, _Thumbnail,
+                accessToken, space, share, tags, description);
     }
 
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-        surfaceView = null;
-        surfaceHolder = null;
-        mediarecorder = null;
+    private ProgressBar progresstest = null;
+    private Button btn_open_video = null;
+    private String videoUrl = null;
+    private String imageUrl = null;
+    /**
+     * 开始上传
+     */
+    private void startUpload() {
+        // progresstest.setVisibility(View.VISIBLE);
+        UploadService uploadService = UploadService.getInstance();
+        uploadService.setQupaiUploadListener(new QupaiUploadListener() {
+            @Override
+            public void onUploadProgress(String uuid, long uploadedBytes, long totalBytes) {
+                //int percentsProgress = (int) (uploadedBytes * 100 / totalBytes);
+                Log.e(TAG, "uuid:" + uuid + "data:onUploadProgress");
+                // progresstest.setProgress(percentsProgress);
+            }
 
+            @Override
+            public void onUploadError(String uuid, int errorCode, String message) {
+                Log.e(TAG, "uuid:" + uuid + "onUploadError" + errorCode + message);
+            }
+
+            @Override
+            public void onUploadComplte(String uuid, int responseCode, String responseMessage) {
+                //http://{DOMAIN}/v/{UUID}.mp4?token={ACCESS-TOKEN}
+                // progresstest.setVisibility(View.GONE);
+                // btn_open_video.setVisibility(View.VISIBLE);
+
+                //这里返回的uuid是你创建上传任务时生成的uuid.开发者可以使用其他作为标识
+                //videoUrl返回的是上传成功的视频地址,imageUrl是上传成功的图片地址
+
+                videoUrl = Contant.domain + "/v/" + responseMessage + ".mp4" + "?token=" +
+                        Contant.accessToken;
+                imageUrl = Contant.domain + "/v/" + responseMessage + ".jpg" + "?token=" +
+                        Contant.accessToken;
+
+//                videoUrl = ContantTest.domain1 + "/v/" + responseMessage + ".mp4" + "?token=" +
+//                        ContantTest.accessToken;
+//                imageUrl = ContantTest.domain1 + "/v/" + responseMessage + ".jpg" + "?token=" +
+//                        ContantTest.accessToken;
+
+
+                Log.w("网络地址—视频",videoUrl);
+                Log.w("网络地址—图片",imageUrl);
+
+                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + Contant.domain + "/v/" +
+                        responseMessage + ".jpg" + "?token=" + Contant.accessToken);
+                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + Contant.domain + "/v/" +
+                        responseMessage + ".mp4" + "?token=" + Contant.accessToken);
+            }
+        });
+        String uuid = UUID.randomUUID().toString();
+        Log.e("QupaiAuth", "accessToken" + Contant.accessToken + "space" + Contant.space);
+        startUpload(createUploadTask(this, uuid, new File(videoFile), new File(thum[0]),
+                Contant.accessToken, Contant.space, Contant.shareType, Contant.tags, Contant
+                        .description));
+    }
+
+    /**
+     * 开始上传
+     *
+     * @param data 上传任务的task
+     */
+    private void startUpload(QupaiUploadTask data) {
+        try {
+            UploadService uploadService = UploadService.getInstance();
+            uploadService.startUpload(data);
+        } catch (IllegalArgumentException exc) {
+            Log.d("upload", "Missing some arguments. " + exc.getMessage());
+        }
     }
 }

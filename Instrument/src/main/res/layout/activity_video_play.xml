@@ -6,23 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/s000000"
-    tools:context="com.example.tu4.activity.VideoRecordActivity">
+    tools:context="com.example.tu4.activity.personal.VideoPlayActivity">
 
     <ImageView
         android:id="@+id/img_video_play_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_30"
         android:src="@mipmap/video_recorder_arrow_left"/>
 
 
-    <SurfaceView
-        android:id="@+id/sv_video_play"
+    <io.vov.vitamio.widget.VideoView
+        android:id="@+id/vv_video_play"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_200"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:background="@color/color_d1d1d1" />
+        android:layout_centerVertical="true"/>
 
 </RelativeLayout>

@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -17,27 +20,24 @@ import butterknife.ButterKnife;
  */
 
 public class SystemInformationListviewAdapter extends BaseAdapter {
-    private String[] name, text, time;
+    private ArrayList<Map<String,String>> dataList;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public SystemInformationListviewAdapter(Context context, String[] name, String[] text,
-                                            String[] time) {
-        this.name = name;
-        this.text = text;
-        this.time = time;
+    public SystemInformationListviewAdapter(Context context, ArrayList<Map<String,String>> dataList) {
+       this.dataList = dataList;
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return name.length;
+        return dataList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return name[position];
+        return dataList.get(position);
     }
 
     @Override
@@ -57,9 +57,10 @@ public class SystemInformationListviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
 
         }
-        viewHolder.tvSystemInformationName.setText(name[position]);
-        viewHolder.tvSystemInformationContext.setText(text[position]);
-        viewHolder.tvSystemInformationTime.setText(time[position]);
+
+        viewHolder.tvSystemInformationName.setText(dataList.get(position).get("system_title"));
+        viewHolder.tvSystemInformationContext.setText(dataList.get(position).get("system_content"));
+        viewHolder.tvSystemInformationTime.setText(dataList.get(position).get("system_time"));
 
         return convertView;
     }
