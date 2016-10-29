@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tu4">
+
     <uses-sdk android:minSdkVersion="8" />
 
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" /><!-- 调用摄像机 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -39,7 +42,9 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.course.SubjectDetailActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity
             android:name=".activity.instrument.LogisticsTrackingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -73,8 +78,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
         <activity android:name=".activity.personal.MyWorksActivity" />
-        <activity android:name=".activity.personal.MyWorksDeleteActivity" >
-        </activity>
+        <activity android:name=".activity.personal.MyWorksDeleteActivity"></activity>
         <activity android:name=".activity.personal.VideoRecordActivity" />
         <activity android:name=".activity.personal.VideoPlayActivity" />
         <activity android:name=".activity.personal.HeadPortraitActivity" />
@@ -88,12 +92,13 @@
 
         <activity
             android:name=".activity.course.payment.EnsureOrderActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity android:name=".activity.personal.TransactionRecordsActivity" />
 
 
-        <activity android:name=".activity.SplashActivity">
-        </activity>
+        <activity android:name=".activity.SplashActivity"></activity>
     </application>
 
 </manifest>

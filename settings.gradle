@@ -1,1 +1,2 @@
-include ':Instrument', ':okhttputils', 'photopicker'
+include ':Instrument', ':okhttputils', ':testzfb', 'photopicker'
+include ':payDemoActivity_20'

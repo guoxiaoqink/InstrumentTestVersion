@@ -216,7 +216,7 @@ public class AutoPlayingViewPager extends FrameLayout {
      * 停止轮播释放资源
      */
     public void stopPlaying() {
-        scheduledExecutorService.shutdown();
+        scheduledExecutorService.shutdownNow();
     }
 
     /**

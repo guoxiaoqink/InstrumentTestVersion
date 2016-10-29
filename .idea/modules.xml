@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/Instrument/Instrument.iml" filepath="$PROJECT_DIR$/Instrument/Instrument.iml" />
       <module fileurl="file://$PROJECT_DIR$/InstrumentTestVersion.iml" filepath="$PROJECT_DIR$/InstrumentTestVersion.iml" />
       <module fileurl="file://$PROJECT_DIR$/okhttputils/okhttputils.iml" filepath="$PROJECT_DIR$/okhttputils/okhttputils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payDemoActivity_20/payDemoActivity_20.iml" filepath="$PROJECT_DIR$/payDemoActivity_20/payDemoActivity_20.iml" />
       <module fileurl="file://$PROJECT_DIR$/photopicker/photopicker.iml" filepath="$PROJECT_DIR$/photopicker/photopicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testzfb/testzfb.iml" filepath="$PROJECT_DIR$/testzfb/testzfb.iml" />
     </modules>
   </component>
 </project>

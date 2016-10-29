@@ -3,23 +3,34 @@ package com.example.tu4.activity.course;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.feedback.IssiuFeedbackActivity;
+import com.example.tu4.bean.classdetailspost;
 import com.example.tu4.view.CircleImageView;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER;
 import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER_BACK;
 import static com.example.tu4.model.AplicationStatic.STUDENT_NUMBER;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by gxq on
@@ -71,6 +82,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
     @BindView(R.id.image_jiantoufankui)
     ImageView imageJiantoufankui;
     private TextView money;
+    private String class_id;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +104,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Intent intent = getIntent();
+        class_id = intent.getStringExtra("class_id");
+        getDataByUrl();
         initLinearlayoutImage();
         initLinearlayouFeedback();
     }
@@ -136,6 +153,38 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 startActivity(intentTofeedback);
                 break;
         }
+    }
+
+    //从网上获取列表内容并显示在当前页面中
+    public void getDataByUrl() {
+        String url = baseUrl + "/music/api_classdetail";
+        OkHttpUtils
+                .postString()
+                .url(url)//
+                .content(new Gson().toJson(new classdetailspost(class_id, "1003")))
+                .build()//
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(SubjectDetailActivity.this, "内容获取失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("success", response);
+                        System.out.println(response);
+                        try {
+                            Gson gson = new Gson();
+                            JSONObject jsonObject = new JSONObject(response);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
     }
 
 }

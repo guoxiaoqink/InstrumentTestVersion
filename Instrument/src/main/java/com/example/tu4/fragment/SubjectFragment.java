@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,14 +46,12 @@ import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by WQJ on 2016/10/24
- * Descripyion: 课程页面，完成轮播图
- * Version: 3
+ * Descripyion: 课程页面，完成列表接口
+ * Version: 4
  * Modify Person :wqj
  */
 public class SubjectFragment extends Fragment {
 
-    //    @BindView(R.id.icpv_subject)
-//    ImageCyclePlayView icpvSubject;
     @BindView(R.id.listview_subject)
     ListView listviewSubject;
     @BindView(R.id.auto_play_viewpager)
@@ -170,7 +167,7 @@ public class SubjectFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("success", response);
+//                        Log.d("success", response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
@@ -193,6 +190,7 @@ public class SubjectFragment extends Fragment {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+                                    intent.putExtra("class_id", position);
                                     startActivity(intent);
                                 }
                             });
@@ -228,11 +226,11 @@ public class SubjectFragment extends Fragment {
         super.onResume();
     }
 
-//    @Override
-//    public void onPause() {
-//        autoPlayViewpager.stopPlaying();
-//        super.onPause();
-//    }
+    @Override
+    public void onPause() {
+        autoPlayViewpager.stopPlaying();
+        super.onPause();
+    }
 
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
