@@ -35,6 +35,7 @@ public class GetImageByUrl {
         this.imgView = imgView;
         pic_hdl = new PicHandler();
         Thread t = new LoadPicThread();
+
         t.start();
     }
 
@@ -60,6 +61,7 @@ public class GetImageByUrl {
     class LoadPicThread extends Thread {
         @Override
         public void run() {
+
             Bitmap img = getUrlImage(url);
             System.out.println(img + "---");
             Message msg = pic_hdl.obtainMessage();
