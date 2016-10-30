@@ -38,7 +38,7 @@ public class Contant {
 
     public static String accessToken;//accessToken 通过调用授权接口得到
 
-    public static final String space = UUID.randomUUID().toString().replace("-",""); //存储目录 建议使用uid cid之类的信息,不要写死
+    public static String space = UUID.randomUUID().toString().replace("-",""); //存储目录 建议使用uid cid之类的信息,不要写死
     public static final String domain="http://qupai-live.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
     public static final String domain1="http://video.cdn.qupai.me/hsqupai";//当前TEST应用的域名。该地址每个应用都不同
 }

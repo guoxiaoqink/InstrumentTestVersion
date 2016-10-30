@@ -2,6 +2,8 @@ package com.example.tu4.activity.personal;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +60,9 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
     @BindView(R.id.gv_my_works)
     GridView gvMyWorks;
 
+    ApplicationInfo ai;
+    String uid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +70,16 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         ButterKnife.bind(this);
 
         initDate();
+
+        try {
+            PackageManager pm = getPackageManager();
+            ai = pm.getApplicationInfo("com.example.tu4", 0);
+            uid = String.valueOf(ai.uid);
+            Contant.space = uid;
+            Log.w("应用的UID", "!!!!!!!!!!!!!!!" + Contant.space);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         Auth.getInstance().initAuth(this, Contant.APP_KEY,
                 Contant.APP_SECRET, Contant.space);
@@ -301,7 +316,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         String uuid = UUID.randomUUID().toString();
-        Log.e("QupaiAuth", "accessToken" + Contant.accessToken + "space" + Contant.space);
+        Log.e("QupaiAuth", "accessToken" + Contant.accessToken + "space" + uid);
         startUpload(createUploadTask(this, uuid, new File(videoFile), new File(thum[0]),
                 Contant.accessToken, Contant.space, Contant.shareType, Contant.tags, Contant
                         .description));
