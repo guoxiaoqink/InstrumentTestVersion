@@ -228,7 +228,8 @@ public class SubjectFragment extends Fragment {
 
     @Override
     public void onPause() {
-        autoPlayViewpager.stopPlaying();
+
+        // autoPlayViewpager.stopPlaying();
         super.onPause();
     }
 

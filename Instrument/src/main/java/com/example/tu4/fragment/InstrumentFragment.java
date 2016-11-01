@@ -35,6 +35,7 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -110,22 +111,6 @@ public class InstrumentFragment extends Fragment {
         initlistviewInstumentAlbum();
         return view;
     }
-
-    /*
-    * 初始化轮播图
-    * */
-//    public void initImageCyclePlayView() {
-//        icpvInstrumentFragment.loadData(cycleImageData(),
-//                new ImageCyclePlayView.LoadImageCallBack() {
-//                    @Override
-//                    public ImageView loadAndDisplay(ImageCyclePlayView.ImageInfo imageInfo) {
-//                        //本地图片
-//                        ImageView imageView = new ImageView(getContext());
-//                        imageView.setImageResource(Integer.parseInt(imageInfo.image.toString()));
-//                        return imageView;
-//                    }
-//                });
-//    }
 
     /**
      * 乐器介绍lstview
@@ -256,6 +241,40 @@ public class InstrumentFragment extends Fragment {
 //        super.onPause();
 //    }
 
+    public void getIns() {
+        String url = baseUrl + "www.baidu.com";
+        String code = "2017";
+        int maxtime = 638;
+        OkHttpUtils.postString()
+                .url(url)
+                .content(new Gson().toJson(new Ins(code, maxtime)))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.d("Error", e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("success", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray array = jsonObject.getJSONArray("top");
+                            JSONObject top1 = array.getJSONObject(0);
+                            String instrument_main_image = top1.getString("instrument_main_image");
+                            //.........
+                            JSONArray array1 = jsonObject.getJSONArray("list");
+                            JSONObject list1 = array1.getJSONObject(0);
+                            String instrument_image = list1.getString("instrument_image");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+    }
+
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -277,6 +296,24 @@ public class InstrumentFragment extends Fragment {
             autoPlayViewpager.initialize(mAutoPlayInfoList).build();
             autoPlayViewpager.setOnPageItemClickListener(onPageItemClickListener);
             autoPlayViewpager.startPlaying();
+        }
+    }
+
+    private class Ins {
+        private String code;
+        private int maxtime;
+
+        public Ins(String code, int maxtime) {
+            this.code = code;
+            this.maxtime = maxtime;
+        }
+
+        @Override
+        public String toString() {
+            return "Ins{" +
+                    "username='" + code + '\'' +
+                    ", password='" + maxtime + '\'' +
+                    '}';
         }
     }
 

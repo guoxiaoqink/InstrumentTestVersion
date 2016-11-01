@@ -114,6 +114,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
+                        Toast.makeText(InstrumentDetailsActivity.this, response, Toast.LENGTH_SHORT).show();
                         System.out.print(1);
                         try {
                             JSONObject jsonObject = new JSONObject(response);

@@ -94,11 +94,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
         <activity android:name=".activity.personal.MyWorksActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.personal.MyWorksDeleteActivity" >
         </activity>
@@ -107,7 +103,14 @@
         <activity android:name=".activity.personal.HeadPortraitActivity" />
         <activity android:name=".activity.personal.PersonalDataActivity" />
         <activity android:name=".activity.personal.MyLeaveWordsActivity" />
-        <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
+        <activity android:name=".activity.instrument.InstrumentDetailsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
         <activity android:name=".activity.instrument.OrderDetailsMainActivity"></activity>
