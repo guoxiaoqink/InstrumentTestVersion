@@ -149,6 +149,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
         tvInstrumentNameEO.setText(in.getStringExtra("Ins_name"));
         tvMoneyEO.setText(in.getStringExtra("price"));
         tvInstrumentTotalMoney.setText(in.getStringExtra("MoneyNum"));
+
         tvPropertyEO.setText(in.getStringExtra("para"));
     }
 
