@@ -12,10 +12,17 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.model.AplicationStatic.UserId;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -31,8 +38,15 @@ public class EditDressActivity extends AppCompatActivity {
     RelativeLayout rlEditDel;
     @BindView(R.id.btn_save_dress)
     Button btnSaveDress;
-
+    @BindView(R.id.et_edit_name)
+    EditText etEditName;
+    @BindView(R.id.et_edit_phone)
+    EditText etEditPhone;
+    @BindView(R.id.et_edit_dress)
+    EditText etEditDress;
+    String userid = "" + UserId;
     private int mDayColor = Color.parseColor("#000000");
+    private String[] data = {userid, "student", etEditName.getText().toString(), etEditName.getText().toString(), etEditDress.getText().toString()};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +82,55 @@ public class EditDressActivity extends AppCompatActivity {
             case R.id.btn_save_dress:
                 Toast.makeText(EditDressActivity.this, "保存", Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+
+    private void getAddDress() {
+        String url = baseUrl + "";
+        OkHttpUtils.postString()
+                .url(url)
+                .content(new Gson().toJson(new putDress("2008", data)))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+
+                    }
+                });
+    }
+
+    private class putDress {
+        private String code;
+        private int User_id;
+        private String role;
+        private String consigneeName;
+        private String phoneNumber;
+        private String consigneeAddress;
+
+        public putDress(String code, String[] data) {
+            this.code = code;
+            this.User_id = Integer.parseInt(data[0]);
+            this.role = data[1];
+            this.consigneeName = data[2];
+            this.phoneNumber = data[3];
+            this.consigneeAddress = data[4];
+        }
+
+        @Override
+        public String toString() {
+            return "putDress{" +
+                    "code='" + code + '\'' +
+                    "data[{" + "User_id='" + User_id + '\'' +
+                    "role='" + role + '\'' +
+                    "consigneeName='" + consigneeName + '\'' +
+                    "phoneNumber='" + phoneNumber + '\'' +
+                    "consigneeAddress='" + consigneeAddress + '\'' +
+                    '}' + ']' + '}';
         }
     }
 }
