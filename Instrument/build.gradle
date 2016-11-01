@@ -56,8 +56,8 @@ dependencies {
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
     compile 'cn.bmob.android:http-legacy:1.0'
     /*   compile 'com.squareup.okhttp3:okhttp:3.4.1'
-               compile 'com.squareup.okio:okio:1.10.0'
-                compile 'com.google.code.gson:gson:2.6.2'*/
+                   compile 'com.squareup.okio:okio:1.10.0'
+                    compile 'com.google.code.gson:gson:2.6.2'*/
     /*  compile 'com.squareup.okhttp3:okhttp:3.3.1'//okhttp的包*/
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.4'
@@ -65,4 +65,6 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
     compile project(':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable')
+
+    compile files('E:/GitHub/InstrumentTestVersion/Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable/src/main/libs/Rong_IMKit_v2_7_3.jar')
 }

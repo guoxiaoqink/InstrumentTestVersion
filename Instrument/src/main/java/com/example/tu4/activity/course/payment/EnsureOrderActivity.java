@@ -32,20 +32,20 @@ import butterknife.OnClick;
  * Modify Person : wqj
  */
 public class EnsureOrderActivity extends AppCompatActivity {
-    public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAL63YgQKppqEkuZK\n" +
-            "QfkHuAeulDImk/Gf/A7Acx0S7RzjaLJIzSXKocs/OM+sZENO1EcHQpWcLF7J2dqk\n" +
-            "5E7CzzR2s2Kqpx2Y7Gt0qEj/6YsuekceYISeIYfzct7kBi5TAFRhBmZRG+T3HdfL\n" +
-            "7eWZ8CKGCfZVxfdmOTkHgiBjR15PAgMBAAECgYBScpzg+mnD6wRGolua+QdJ6uMO\n" +
-            "OzdCAdPJ3NDnBMOU9YrRaD+n0s3XO+GnhfNiVbXXbwAOBZH4+HJB338DvZwtZiij\n" +
-            "nh/F1IYWte04m/xLPQPJc3dnh8osPV8fuB1LQblu8ooqNtL/qfdKgTsDyyKCHPKU\n" +
-            "76baWZEGaGADQykqQQJBAPMS4SskaVKWcMj22JBNgvQfOdJCzaS/CW3jjX513oer\n" +
-            "k4LyyBQXkRfWA1nEXMS94O9fp7uVVOZ30GdKQl9JpokCQQDI27pcrKFejWSkNlBL\n" +
-            "Rxp34TEoZjC17T8YV4DlNhGQqjmoP/Vn8ZVINnoexFM/58pk7SeC/Pfv4FjkG9wb\n" +
-            "hCgXAkEA7aXFs3JT7sTa3ABK1zqRD6//zgw2Fh4YT/GsArmmqSocfGh1KP+pgY5h\n" +
-            "lEAhGtExu5bf3MwxR2pYvMOjhJnzUQJAMtt/+oszaM+AVhvyhL0CNKxuV/5YAxiJ\n" +
-            "S06MsnzYQbr4UmOvbZw74kb48OVg9uNn2do6kO4gkTpLB6cOOmFiDQJAKnGK+Lz9\n" +
-            "FTz1y/n+/63IBwcFRPx0n+tOHUvRK15L2sW03aXBwtTRMHYWC5fomKuBPHthj85T\n" +
-            "s3QOhFjFwY2iSA==";
+    public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJqv8DsgJULMOI6G\n" +
+            "MocoeujqQKzQ6/hH2AKsDueUEhdVu2fTIg6gbxxwWC4MNaSBkVqeSfBUVW63XACI\n" +
+            "JBIk4N+VYvwFPgZt9TNf3UrOb00A9rYH3nxH38YObR45fDtJi0cYy547gNv5YwLF\n" +
+            "ioyKGTrthpatvlVRINwt7G+1crejAgMBAAECgYAZYClZmbFjHttcThl14KchFGSd\n" +
+            "tPww06BU9+LODJVXLKI8qv8YRStVD/z3ONuH7BVrNzJL8Zm+Ougl0i+QpmoZIjuB\n" +
+            "PUdu7MhP93AoXoYeUVjypwdjH1LaWMWVvdVu6RH9aquZqk1YLMqUcBEAJJ38Z1JQ\n" +
+            "O3sJXE7fnRf/a9dnMQJBAMtIt6Gw+M+s//oHxSTEvrot0zNXLvWf3lpoKVMZFTkz\n" +
+            "2vaYoumEaPqd5MDpZfRzNVFpVve7n2KJSNEWGKs0cUkCQQDCzQ7psLfkEY8OG9Gn\n" +
+            "UjG1jPOwgBt3ZYL9DTUD1pgWFR5xqJR0tBLvdwJhjmfoxbDndhnhCDDva4CBKM/E\n" +
+            "9I2LAkAnYkI5cEj0K0c4kLLQKdHtzh0B8F0ntz5j85Q2BkEHYRWF+xJs/Xs9OsPr\n" +
+            "4AwhrQRibm8r9cyuUXyrDYXf/XwJAkA5IdUO2uKEBFZVh/ksPqIPoiBSkq/7i40o\n" +
+            "VHhJAOYoC9ea9BteQvYOv3O2UwLMtTZWHEAozLM1dO0CdIrDNApTAkEAsiNrjQSi\n" +
+            "SlKhW9b4dLg9xukHLrZl9EpzFwsgr6/5pE/w/QIG0n6NlGTFwEWuiGxEvSWSXSFp\n" +
+            "DmeyygSLiVeWFw==";
     @BindView(R.id.btn_course_return)
     ImageButton btnCourseReturn;
     @BindView(R.id.list_yueqi)
@@ -90,7 +90,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
     TextView tvInstrumentTotalMoney;
 
 
-    public static void scrollToBottom(final ScrollView scrollView) {
+    public static void scrollToBottom(final ScrollView scrollView) {//滚动到底部
 
         Handler mHandler = new Handler();
 
@@ -101,7 +101,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
         });
     }
 
-    public static void scrollToTop(final ScrollView scrollView) {
+    public static void scrollToTop(final ScrollView scrollView) {//滚动到顶部
 
         Handler mHandler = new Handler();
 
@@ -160,12 +160,13 @@ public class EnsureOrderActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_ensure_order)
     public void onClick() {
-        if (radiobuttonZfb.isChecked() == true) {
+        if (radiobuttonZfb.isChecked() == true) {//接入支付宝，由于不是商家支付宝账户所以无法完成支付
             AliPay.Builder builder = new AliPay.Builder(this);
             builder.setSELLER("17090403292")//卖家支付宝账号
                     .setPARTNER("2088702803595690")//签约合作人身份PID
                     .setRSA_PRIVATE(RSA_PRIVATE)//商户私钥
                     .setPrice("0.01")//商品价格
+                    .setRSA_PUBLIC("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDI6d306Q8fIfCOaTXyiUeJHkrIvYISRcc73s3vF1ZT7XN8RNPwJxo8pWaJMmvyTn9N4HQ632qJBVHf8sxHi/fEsraprwCtzvzQETrNRwVxLO5jVmRGi60j8Ue1efIlzPXV9je9mkjzOmdssymZkh2QhUrCmZYI/FCEa3/cNMW0QIDAQAB")
                     .setNotifyURL("")//通知网址（可以不填）
                     .setSubTitle("商品详情")//商品详情
                     .setOrderTitle("测试商品")//商品名称
@@ -176,7 +177,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
                         }
                     });
             builder.pay();
-        } else if (radiobuttonWx.isChecked() == true) {
+        } else if (radiobuttonWx.isChecked() == true) {//微信支付由于需要收费，所以就没有开发。如果可以支付300元的话就可以了
             Toast.makeText(EnsureOrderActivity.this, "微信支付正在开发中，请选择其他支付方式", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "请选择支付方式", Toast.LENGTH_SHORT).show();

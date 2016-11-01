@@ -48,11 +48,7 @@
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".activity.instrument.InstrumentClassifyActivity"
@@ -85,10 +81,14 @@
         <activity
             android:name=".activity.course.feedback.Student_feedbackActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity"></activity>
+        <activity android:name=".activity.personal.ComplaintsSuggestionsActivity">
+
+        </activity>
         <activity
             android:name=".activity.instrument.SelectDressActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
         <activity
             android:name=".activity.instrument.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -114,7 +114,13 @@
         <activity android:name=".activity.personal.BookingOrderActivity" />
         <activity
             android:name=".activity.course.payment.EnsureOrderActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
         <activity android:name=".activity.personal.TransactionRecordsActivity" />
         <activity android:name=".activity.SplashActivity">
         </activity>

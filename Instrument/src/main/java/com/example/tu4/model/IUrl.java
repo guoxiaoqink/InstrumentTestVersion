@@ -8,5 +8,5 @@ package com.example.tu4.model;
  */
 
 public interface IUrl {
-    String baseUrl = "http://128.199.201.13:8080";
+    String baseUrl = "http://128.199.137.227:8080";
 }

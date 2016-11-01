@@ -100,9 +100,7 @@ public class AliPay {
 
     public static class Builder {
         private Activity mActivity;
-        /**
-         * 设置商户PID
-         */
+        //设置商户PID
         private String PARTNER = "";
         // 商户收款账号
         private String SELLER = "";
