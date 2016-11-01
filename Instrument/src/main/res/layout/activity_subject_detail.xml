@@ -101,14 +101,15 @@
         </RelativeLayout>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
-
             android:background="@drawable/subject_detail_shape"
             android:orientation="vertical">
 
             <TextView
+               android:id="@+id/tv_control_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -118,6 +119,7 @@
                 android:textSize="@dimen/sp12" />
 
             <TextView
+                android:id="@+id/tv_sub_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -127,6 +129,7 @@
                 android:textSize="@dimen/sp12" />
 
             <TextView
+                android:id="@+id/tv_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -136,6 +139,7 @@
                 android:textSize="@dimen/sp12" />
 
             <TextView
+                android:id="@+id/tv_notes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp10"
@@ -200,6 +204,7 @@
                     android:paddingLeft="@dimen/dp15">
 
                     <TextView
+                        android:id="@+id/tv_class_teacher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -208,6 +213,7 @@
                         android:textSize="@dimen/px30" />
 
                     <TextView
+                        android:id="@+id/tv_teacher_tel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="@dimen/dp10"
@@ -447,6 +453,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/tv_numof_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="121条学生反馈"

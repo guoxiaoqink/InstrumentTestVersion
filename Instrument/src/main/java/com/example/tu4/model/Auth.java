@@ -41,6 +41,7 @@ public class Auth {
             public void onAuthComplte(int responseCode, String responseMessage) {
                 Log.e(AUTHTAG, "onAuthComplte" + responseCode + "message" + responseMessage);
                 Contant.accessToken = responseMessage;
+                Log.w(AUTHTAG,"成功成功成功成功成功成功成功成功成功成功成功成功成功成功成功"+Contant.accessToken);
             }
         });
         service.startAuth(context,appKey, appsecret, space);
