@@ -83,6 +83,8 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
         Auth.getInstance().initAuth(this, Contant.APP_KEY,
                 Contant.APP_SECRET, Contant.space);
+//        public static final String APP_KEY = "20cffd9799a88e4";
+//        public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
 
 
         MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture,

@@ -67,8 +67,4 @@ public class PersonalDataActivity extends AppCompatActivity {
                 break;
         }
     }
-
-    public void changeHeadPortrait() {
-
-    }
 }
