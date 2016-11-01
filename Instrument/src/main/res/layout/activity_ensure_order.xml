@@ -89,6 +89,7 @@
                             android:textSize="@dimen/sp13" />
 
                         <TextView
+                            android:id="@+id/tv_consignee_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp11"
@@ -97,7 +98,7 @@
                             android:textSize="@dimen/sp13" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/tv_consignee_phone"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/dp16"
@@ -121,6 +122,7 @@
                             android:textSize="@dimen/sp13" />
 
                         <TextView
+                            android:id="@+id/tv_consignee_dress"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/dp25"
@@ -162,19 +164,77 @@
                 android:layout_below="@id/tv_line1"
                 android:background="@android:color/white">
 
-                <com.example.tu4.view.ResolveConflictsScoolviewListview
 
-                    android:id="@+id/list_yueqi"
+                <!--<com.example.tu4.view.ResolveConflictsScoolviewListview-->
+
+                <!--android:id="@+id/list_yueqi"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--</com.example.tu4.view.ResolveConflictsScoolviewListview>-->
+                <RelativeLayout
+                    android:id="@+id/list_instrument"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="@dimen/dp_80"
+                    android:background="@color/color_ffffff">
 
-                </com.example.tu4.view.ResolveConflictsScoolviewListview>
 
+                    <ImageView
+                        android:id="@+id/iv_instrument_EO"
+                        android:layout_width="@dimen/dp_63"
+                        android:layout_height="@dimen/dp_63"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:background="@mipmap/details_instrument" />
+
+                    <TextView
+                        android:id="@+id/tv_instrument_name_EO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp16"
+                        android:layout_toRightOf="@+id/iv_instrument_EO"
+                        android:text="@string/tv_instrument_name"
+                        android:textColor="@color/g333"
+                        android:textSize="@dimen/px30" />
+
+                    <TextView
+                        android:id="@+id/tv_property_EO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_instrument_name_EO"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp1"
+                        android:layout_toRightOf="@+id/iv_instrument_EO"
+                        android:gravity="center"
+                        android:text="@string/instrument_property"
+                        android:textColor="@color/s999999"
+                        android:textSize="@dimen/px26" />
+
+                    <TextView
+                        android:id="@+id/tv_money_EO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/dp11"
+                        android:text="@string/money_5000_00"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/sp14" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignStart="@id/tv_money_EO"
+                        android:layout_marginStart="@dimen/dp08"
+                        android:hint="@string/money_sign" />
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/tv_line2"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px1"
-                    android:layout_below="@id/list_yueqi"
+                    android:layout_below="@id/list_instrument"
                     android:layout_marginEnd="@dimen/dp11"
                     android:layout_marginStart="@dimen/dp11"
                     android:layout_marginTop="@dimen/dp16"

@@ -43,7 +43,11 @@
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
         <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activity.LoginActivity"
@@ -104,11 +108,7 @@
         <activity android:name=".activity.personal.PersonalDataActivity" />
         <activity android:name=".activity.personal.MyLeaveWordsActivity" />
         <activity android:name=".activity.instrument.InstrumentDetailsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".activity.personal.ConnectUsActivity" />

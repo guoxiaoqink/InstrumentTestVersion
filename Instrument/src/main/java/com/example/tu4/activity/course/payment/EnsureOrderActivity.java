@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -17,13 +19,22 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.instrument.SelectDressActivity;
-import com.example.tu4.adapter.EnsureOrderListviewAdapter;
 import com.example.tu4.utils.AliPay;
-import com.example.tu4.view.ResolveConflictsScoolviewListview;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.model.AplicationStatic.UserId;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -48,8 +59,6 @@ public class EnsureOrderActivity extends AppCompatActivity {
             "DmeyygSLiVeWFw==";
     @BindView(R.id.btn_course_return)
     ImageButton btnCourseReturn;
-    @BindView(R.id.list_yueqi)
-    ResolveConflictsScoolviewListview listYueqi;
     @BindView(R.id.tv_clickToLeaveMessage)
     TextView tvClickToLeaveMessage;
     @BindView(R.id.tv_freight)
@@ -88,6 +97,20 @@ public class EnsureOrderActivity extends AppCompatActivity {
     RelativeLayout rePosition;
     @BindView(R.id.tv_instrument_total_money)
     TextView tvInstrumentTotalMoney;
+    @BindView(R.id.tv_consignee_name)
+    TextView tvConsigneeName;
+    @BindView(R.id.tv_consignee_phone)
+    TextView tvConsigneePhone;
+    @BindView(R.id.tv_consignee_dress)
+    TextView tvConsigneeDress;
+    @BindView(R.id.iv_instrument_EO)
+    ImageView ivInstrumentEO;
+    @BindView(R.id.tv_instrument_name_EO)
+    TextView tvInstrumentNameEO;
+    @BindView(R.id.tv_property_EO)
+    TextView tvPropertyEO;
+    @BindView(R.id.tv_money_EO)
+    TextView tvMoneyEO;
 
 
     public static void scrollToBottom(final ScrollView scrollView) {//滚动到底部
@@ -118,10 +141,15 @@ public class EnsureOrderActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_ensure_order);
         ButterKnife.bind(this);
-        listYueqi.setAdapter(new EnsureOrderListviewAdapter(EnsureOrderActivity.this));
+        Intent in = getIntent();
+        // listYueqi.setAdapter(new EnsureOrderListviewAdapter(EnsureOrderActivity.this));
         svEnsureOrder.smoothScrollTo(0, 0);
-        tvTotalMoney.setText(tvInstrumentTotalMoney.getText().toString());
-
+        tvTotalMoney.setText(in.getStringExtra("MoneyNum"));
+        tvFreight.setText(in.getStringExtra("Freight"));
+        tvInstrumentNameEO.setText(in.getStringExtra("Ins_name"));
+        tvMoneyEO.setText(in.getStringExtra("price"));
+        tvInstrumentTotalMoney.setText(in.getStringExtra("MoneyNum"));
+        tvPropertyEO.setText(in.getStringExtra("para"));
     }
 
     @OnClick({R.id.btn_course_return, R.id.tv_clickToLeaveMessage, R.id.radiobutton_zfb, R.id.radiobutton_wx, R.id.rdoBtn_leave_message_resolve, R.id.rdoBtn_leave_message_affirm, R.id.re_position})
@@ -185,6 +213,58 @@ public class EnsureOrderActivity extends AppCompatActivity {
 //        Intent intent = new Intent();
 //        intent.setClass(EnsureOrderActivity.this, OrderDetailsMainActivity.class);
 //        startActivity(intent);
+    }
+
+    private void getOrder() {
+        String url = baseUrl + "";
+        OkHttpUtils.postString()
+                .url(url)
+                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("SUCCESS", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray1 = jsonObject.getJSONArray("Content");
+                            JSONObject order1 = jsonArray1.getJSONObject(0);
+                            String Recipient = order1.getString("Recipient");
+                            tvConsigneeName.setText(Recipient);
+                            String Telephone = order1.getString("Telephone");
+                            tvConsigneePhone.setText(Telephone);
+                            String Address = order1.getString("Address");
+                            tvConsigneeDress.setText(Address);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+    }
+
+    private class OrderDetails {
+        private String code;
+        private int userId;
+
+        public OrderDetails(int userId, String code) {
+            this.code = code;
+            this.userId = userId;
+        }
+
+        @Override
+        public String toString() {
+            return "InsDetails{" +
+                    "User_id='" + userId + '\'' +
+                    ", code='" + code + '\'' +
+                    '}';
+        }
     }
 
 

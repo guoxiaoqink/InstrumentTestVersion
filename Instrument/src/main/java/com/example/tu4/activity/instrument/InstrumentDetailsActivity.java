@@ -89,7 +89,13 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                 this.finish();
                 break;
             case R.id.btn_buy:
-                Intent intent = new Intent(InstrumentDetailsActivity.this, EnsureOrderActivity.class);
+                Intent intent = new Intent();
+                intent.putExtra("Ins_name", tvInstrumentName.getText().toString());
+                intent.putExtra("Freight", tvFreight.getText().toString());
+                intent.putExtra("MoneyNum", tvMoneyNum.getText().toString());
+                intent.putExtra("price", tvInstrumentLevel.getText().toString());
+                intent.putExtra("para", tvCanshu1.getText().toString() + "   " + tvCanshu2.getText().toString());
+                intent.setClass(InstrumentDetailsActivity.this, EnsureOrderActivity.class);
                 startActivity(intent);
         }
 
@@ -114,7 +120,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
-                        Toast.makeText(InstrumentDetailsActivity.this, response, Toast.LENGTH_SHORT).show();
+
                         System.out.print(1);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
@@ -135,8 +141,12 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                             tvPlace.setText(Instrument_location);
                             double pNum = Integer.parseInt(Instrument_now_price) + Freight;
                             tvMoneyNum.setText("" + pNum);
-                            String url_pic = jsonObject.getString("");
 
+//                            JSONArray Pic_url = jsonObject.getJSONArray("Pic_url");
+//                            JSONObject Ins_pic1 = Pic_url.getJSONObject(0);
+//                            String Ins_pic_url1 = Ins_pic1.getString("Ins_pic_url");
+//                            Toast.makeText(InstrumentDetailsActivity.this, Ins_pic_url1, Toast.LENGTH_SHORT).show();
+//                            Log.d("Ins_pic_url1",Ins_pic_url1);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
