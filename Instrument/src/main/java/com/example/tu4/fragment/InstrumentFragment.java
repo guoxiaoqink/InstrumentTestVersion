@@ -105,6 +105,7 @@ public class InstrumentFragment extends Fragment {
         ButterKnife.bind(this, view);
 
 //        initImageCyclePlayView();
+        getImageByUrl();
         initRecyclerView();
         initGridview();
         initlistviewInstumentMoney();
