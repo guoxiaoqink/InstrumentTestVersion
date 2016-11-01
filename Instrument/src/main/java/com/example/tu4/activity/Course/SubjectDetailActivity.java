@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.feedback.IssiuFeedbackActivity;
+import com.example.tu4.bean.SubjectDetails;
+import com.example.tu4.bean.SubjectInfo;
 import com.example.tu4.bean.classdetailspost;
 import com.example.tu4.view.CircleImageView;
 import com.google.gson.Gson;
@@ -21,6 +23,9 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,21 +45,17 @@ import static com.example.tu4.model.IUrl.baseUrl;
  */
 public class SubjectDetailActivity extends AppCompatActivity {
 
+
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
     @BindView(R.id.imageview_instrument_show)
     ImageView imageviewInstrumentShow;
     @BindView(R.id.iv_topbar_arrow)
     ImageView ivTopbarArrow;
-
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)
     TextView tvCourseLevel;
-    @BindView(R.id.tv_money_subjectdetail)
-    TextView tvMoneySubjectdetail;
-    @BindView(R.id.tv_money)
-    TextView tvMoney;
     @BindView(R.id.person_image)
     CircleImageView personImage;
     @BindView(R.id.textview_studentnumber_subjectdetail)
@@ -81,6 +82,24 @@ public class SubjectDetailActivity extends AppCompatActivity {
     LinearLayout linearlayoutStudentbackSubjectdetail;
     @BindView(R.id.image_jiantoufankui)
     ImageView imageJiantoufankui;
+    @BindView(R.id.tv_control_num)
+    TextView tvControlNum;
+    @BindView(R.id.tv_sub_time)
+    TextView tvSubTime;
+    @BindView(R.id.tv_location)
+    TextView tvLocation;
+    @BindView(R.id.tv_notes)
+    TextView tvNotes;
+    @BindView(R.id.tv_class_teacher)
+    TextView tvClassTeacher;
+    @BindView(R.id.tv_teacher_tel)
+    TextView tvTeacherTel;
+    @BindView(R.id.tv_money_subjectdetail)
+    TextView tvMoneySubjectdetail;
+    @BindView(R.id.tv_money)
+    TextView tvMoney;
+    @BindView(R.id.tv_numof_feedback)
+    TextView tvNumofFeedback;
     private TextView money;
     private String class_id;
 
@@ -90,20 +109,11 @@ public class SubjectDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_detail);
         ButterKnife.bind(this);
-        money = (TextView) findViewById(R.id.tv_money_subjectdetail);
         mInflater = LayoutInflater.from(this);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
         mLinearLayoutFeedback = (LinearLayout) findViewById(
                 R.id.linearlayout_studentback_subjectdetail);
 
-        money.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
-                startActivity(intent);
-            }
-        });
 
         Intent intent = getIntent();
         class_id = intent.getStringExtra("class_id");
@@ -113,8 +123,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     }
 
     private void initLinearlayouFeedback() {
-        addHeadImgToLinearlayout(STUDENT_NUMBER, MAX_STUDENT_NUMBER_BACK,
-                R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
+
     }
 
     public void initLinearlayoutImage() {
@@ -141,7 +150,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show})
+    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show, R.id.tv_money_subjectdetail, R.id.tv_money})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_topbar_arrow:
@@ -152,6 +161,16 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 intentTofeedback.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
                 startActivity(intentTofeedback);
                 break;
+            case R.id.tv_money_subjectdetail:
+                Intent intent = new Intent();
+                intent.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_money:
+                Intent intent1 = new Intent();
+                intent1.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
+                startActivity(intent1);
+                break;
         }
     }
 
@@ -161,7 +180,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(url)//
-                .content(new Gson().toJson(new classdetailspost(class_id, "1003")))
+                .content(new Gson().toJson(new classdetailspost("1", "1003")))
                 .build()//
                 .connTimeOut(20000)
                 .readTimeOut(20000)
@@ -175,9 +194,27 @@ public class SubjectDetailActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
-                        System.out.println(response);
+//                        System.out.println(response);
                         try {
                             Gson gson = new Gson();
+                            SubjectDetails subjectDetails = gson.fromJson(response, SubjectDetails.class);
+                            List<SubjectInfo> subjectInfos = new ArrayList<SubjectInfo>();
+                            subjectInfos = subjectDetails.getTeacher();
+                            tvCourseName.setText(subjectDetails.getClass_name().toString());
+                            tvCourseLevel.setText("等级：" + subjectDetails.getClass_level().toString());
+                            tvClassTeacher.setText(subjectInfos.get(0).getTeacher_name());
+                            tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
+                            textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
+                            int price = subjectDetails.getClass_price();
+                            tvMoneySubjectdetail.setText(String.valueOf(price));
+                            tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));
+                            tvSubTime.setText("课时：" + String.valueOf(subjectDetails.getClass_number()));
+                            tvNotes.setText("备注：" + subjectDetails.getClass_remark().toString());
+                            tvLocation.setText("地点：" + subjectDetails.getClass_location().toString());
+                            tvNumofFeedback.setText(subjectDetails.getFeedback_number()+"条学生反馈");
+                            addHeadImgToLinearlayout(subjectDetails.getFeedback_number(), MAX_STUDENT_NUMBER_BACK,
+                                    R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
+//                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
                             JSONObject jsonObject = new JSONObject(response);
 
                         } catch (JSONException e) {

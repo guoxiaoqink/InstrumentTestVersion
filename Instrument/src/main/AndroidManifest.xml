@@ -2,17 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.tu4">
+
+
     <uses-sdk android:minSdkVersion="8" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.READ_SETTINGS"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,7 +42,7 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity android:name=".activity.MainActivity">
 
@@ -56,7 +58,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.course.SubjectDetailActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+
+        </activity>
         <activity
             android:name=".activity.instrument.LogisticsTrackingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -94,7 +99,11 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.personal.SystemInformationActivity" />
         <activity android:name=".activity.personal.MyWorksActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.personal.MyWorksDeleteActivity" >
         </activity>
@@ -103,14 +112,7 @@
         <activity android:name=".activity.personal.HeadPortraitActivity" />
         <activity android:name=".activity.personal.PersonalDataActivity" />
         <activity android:name=".activity.personal.MyLeaveWordsActivity" />
-        <activity android:name=".activity.instrument.InstrumentDetailsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".activity.instrument.InstrumentDetailsActivity" />
         <activity android:name=".activity.personal.ConnectUsActivity" />
         <activity android:name=".activity.course.feedback.IssiuFeedbackActivity" />
         <activity android:name=".activity.instrument.OrderDetailsMainActivity"></activity>
