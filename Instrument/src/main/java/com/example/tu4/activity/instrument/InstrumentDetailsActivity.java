@@ -91,7 +91,6 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
             case R.id.btn_buy:
                 Intent intent = new Intent();
                 intent.putExtra("Ins_name", tvInstrumentName.getText().toString());
-
                 intent.putExtra("Freight", tvFreight.getText().toString());
                 intent.putExtra("MoneyNum", tvMoneyNum.getText().toString());
                 intent.putExtra("price", tvInstrumentLevel.getText().toString());

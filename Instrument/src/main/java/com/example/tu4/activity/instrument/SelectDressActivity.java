@@ -19,6 +19,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,6 +35,10 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.model.AplicationStatic.UserId;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -66,7 +77,7 @@ public class SelectDressActivity extends AppCompatActivity {
         dress = new ArrayList();
         dress.add("地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         dress.add("地点：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-
+        //   getOrder();
         initList();
         //黄油刀监听器已创建，版本问题无法使用暂时使用普通
         mbutton = (Button) findViewById(R.id.btn_add_dress);
@@ -119,6 +130,41 @@ public class SelectDressActivity extends AppCompatActivity {
         }
     }
 
+    private void getOrder() {
+        String url = baseUrl + "";
+        OkHttpUtils.postString()
+                .url(url)
+                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("SUCCESS", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray1 = jsonObject.getJSONArray("Content");
+                            for (int i = 0; i < jsonArray1.length(); i++) {
+                                JSONObject order1 = jsonArray1.getJSONObject(i);
+                                String Recipient = order1.getString("Recipient");
+                                String Telephone = order1.getString("Telephone");
+                                String Address = order1.getString("Address");
+                                name.add(Recipient);
+                                phone.add(Telephone);
+                                dress.add(Address);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+    }
 
     class ListAdapter extends BaseAdapter {
 
@@ -224,6 +270,24 @@ public class SelectDressActivity extends AppCompatActivity {
 
         RelativeLayout relativeLayout;
 
+    }
+
+    private class OrderDetails {
+        private String code;
+        private int userId;
+
+        public OrderDetails(int userId, String code) {
+            this.code = code;
+            this.userId = userId;
+        }
+
+        @Override
+        public String toString() {
+            return "InsDetails{" +
+                    "User_id='" + userId + '\'' +
+                    ", code='" + code + '\'' +
+                    '}';
+        }
     }
 
 }
