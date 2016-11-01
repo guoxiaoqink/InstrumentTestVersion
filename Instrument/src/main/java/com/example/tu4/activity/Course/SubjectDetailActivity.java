@@ -3,7 +3,6 @@ package com.example.tu4.activity.course;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -101,7 +100,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     @BindView(R.id.tv_numof_feedback)
     TextView tvNumofFeedback;
     private TextView money;
-    private String class_id;
+    private int class_id;
 
 
     @Override
@@ -115,8 +114,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 R.id.linearlayout_studentback_subjectdetail);
 
 
-        Intent intent = getIntent();
-        class_id = intent.getStringExtra("class_id");
+//        Intent intent = getIntent();
+//        class_id = Integer.parseInt(intent.getStringExtra("class_id"));
         getDataByUrl();
         initLinearlayoutImage();
         initLinearlayouFeedback();
@@ -163,11 +162,21 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 break;
             case R.id.tv_money_subjectdetail:
                 Intent intent = new Intent();
+                intent.putExtra("class_name", tvCourseName.getText());
+                intent.putExtra("class_level", tvCourseLevel.getText());
+                intent.putExtra("class_teacher", tvClassTeacher.getText());
+                intent.putExtra("class_location", tvLocation.getText());
+                intent.putExtra("money", tvMoneySubjectdetail.getText());
                 intent.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_money:
                 Intent intent1 = new Intent();
+                intent1.putExtra("class_name", tvCourseName.getText());
+                intent1.putExtra("class_level", tvCourseLevel.getText());
+                intent1.putExtra("class_teacher", tvClassTeacher.getText());
+                intent1.putExtra("class_location", tvLocation.getText());
+                intent1.putExtra("money", tvMoneySubjectdetail.getText());
                 intent1.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
                 startActivity(intent1);
                 break;
@@ -193,7 +202,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("success", response);
+//                        Log.d("success", response);
 //                        System.out.println(response);
                         try {
                             Gson gson = new Gson();
@@ -206,7 +215,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                             tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
                             textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
                             int price = subjectDetails.getClass_price();
-                            tvMoneySubjectdetail.setText(String.valueOf(price));
+                            tvMoneySubjectdetail.setText(String.valueOf(price) + ".00");
                             tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));
                             tvSubTime.setText("课时：" + String.valueOf(subjectDetails.getClass_number()));
                             tvNotes.setText("备注：" + subjectDetails.getClass_remark().toString());

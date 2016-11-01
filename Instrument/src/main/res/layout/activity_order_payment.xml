@@ -97,6 +97,7 @@
             android:textSize="@dimen/sp_13" />
         <!--课程信息名称-->
         <TextView
+            android:id="@+id/tv_pay_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp13"

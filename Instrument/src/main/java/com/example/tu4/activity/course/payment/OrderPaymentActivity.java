@@ -31,6 +31,9 @@ public class OrderPaymentActivity extends AppCompatActivity {
     RadioButton zfbRadiobutton;
     @BindView(R.id.radiobutton_wx)
     RadioButton wxRadiobutton;
+    @BindView(R.id.tv_pay_course_name)
+    TextView tvPayCourseName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +46,12 @@ public class OrderPaymentActivity extends AppCompatActivity {
         String pay_account = intent.getStringExtra("account");
         String pay_preson = intent.getStringExtra("TrueNmae");
         String pay_money = intent.getStringExtra("TotalMoney");
+        String pay_name = intent.getStringExtra("name");
+        tvPayCourseName.setText(pay_name);
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
         payMoney.setText(pay_money);
+
     }
 
     //返回按钮点击事件

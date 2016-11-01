@@ -42,6 +42,7 @@ import static com.example.tu4.model.AplicationStatic.Other;
 import static com.example.tu4.model.AplicationStatic.UserId;
 import static com.example.tu4.model.AplicationStatic.UserName;
 import static com.example.tu4.model.AplicationStatic.UserTel;
+import static com.example.tu4.model.AplicationStatic.account;
 import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
@@ -284,6 +285,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
                             @Override
                             public void onResponse(String response, int id) {
+
                                 Log.d("onResponse:", response);
                                 System.out.print(id);
                                 System.out.print(response);
@@ -298,6 +300,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                     } else if (type == 3) {
                                         UserId = jsonObject.getInt("User_id");
                                         UserName = jsonObject.getString("Username");
+                                        account = UserName;
                                         Introduction = jsonObject.getString("Introduction");
                                         LoginResult = jsonObject.getString("Result");
                                         Location = jsonObject.getString("Location");

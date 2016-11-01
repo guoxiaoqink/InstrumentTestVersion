@@ -10,6 +10,7 @@
         android:background="@color/s97c8cd">
 
         <ImageView
+            android:id="@+id/couse_"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp10"
@@ -46,7 +47,10 @@
     <com.example.tu4.view.AutoPlayingViewPager
         android:id="@+id/auto_play_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp200"></com.example.tu4.view.AutoPlayingViewPager>
+        android:layout_height="@dimen/dp200">
+
+    </com.example.tu4.view.AutoPlayingViewPager>
+
     <ListView
         android:id="@+id/listview_subject"
         android:layout_width="match_parent"

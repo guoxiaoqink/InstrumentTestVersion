@@ -2,12 +2,14 @@ package com.example.tu4.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -89,17 +91,6 @@ public class SubjectFragment extends Fragment {
         return view;
     }
 
-//    public void initListviewSubjectDetail() {
-//        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getContext());
-//        listviewSubject.setAdapter(adapter);
-//        listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
 
     //从网上获取图片网址，并显示在轮播图中
     public void getImageByUrl() {
@@ -186,12 +177,23 @@ public class SubjectFragment extends Fragment {
 //                            System.out.println(data.size()+"00000000000000000000000000000000000000000000");
                             BaseAdapter adapter = new SubjectListviewAdapter(getContext(), data);
                             listviewSubject.setAdapter(adapter);
+                            listviewSubject.setOnTouchListener(new View.OnTouchListener() {
+                                @Override
+                                public boolean onTouch(View v, MotionEvent event) {
+                                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                                        listviewSubject.setBackgroundColor(Color.YELLOW);
+                                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                                        listviewSubject.setBackgroundColor(Color.WHITE);
+                                        Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+//                                        intent.putExtra("class_id", position);
+                                        startActivity(intent);
+                                    }
+                                    return false;
+                                }
+                            });
                             listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                    Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
-                                    intent.putExtra("class_id", position);
-                                    startActivity(intent);
                                 }
                             });
 
@@ -229,7 +231,7 @@ public class SubjectFragment extends Fragment {
     @Override
     public void onPause() {
 
-        // autoPlayViewpager.stopPlaying();
+        autoPlayViewpager.stopPlaying();
         super.onPause();
     }
 

@@ -184,7 +184,7 @@ public class InstrumentFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("success", response);
+//                        Log.d("success", response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
@@ -236,11 +236,11 @@ public class InstrumentFragment extends Fragment {
         super.onResume();
     }
 
-//    @Override
-//    public void onPause() {
-//        autoPlayViewpager.stopPlaying();
-//        super.onPause();
-//    }
+    @Override
+    public void onPause() {
+        autoPlayViewpager.stopPlaying();
+        super.onPause();
+    }
 
     public void getIns() {
         String url = baseUrl + "www.baidu.com";
@@ -282,7 +282,7 @@ public class InstrumentFragment extends Fragment {
         protected Void doInBackground(Void... params) {
             //模拟网络请求获取数据
             try {
-                Thread.sleep(2000);//模拟休眠2秒
+                Thread.sleep(4000);//模拟休眠4秒
                 mAutoPlayInfoList = changeAutoPlayInfoList();
             } catch (InterruptedException e) {
                 e.printStackTrace();

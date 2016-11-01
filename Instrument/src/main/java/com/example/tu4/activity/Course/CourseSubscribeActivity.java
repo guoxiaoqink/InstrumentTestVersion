@@ -7,13 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.payment.OrderPaymentActivity;
-import com.example.tu4.adapter.CourseInfoListviewAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,28 +33,40 @@ public class CourseSubscribeActivity extends AppCompatActivity {
     EditText accountTel;
     @BindView(R.id.tv_total_money)
     TextView totalMoney;
-    private ListView course_info;
-
+    @BindView(R.id.tv_suject_name)
+    TextView tvSujectName;
+    @BindView(R.id.tv_suject_level)
+    TextView tvSujectLevel;
+    @BindView(R.id.tv_suject_teacher)
+    TextView tvSujectTeacher;
+    @BindView(R.id.tv_suject_location)
+    TextView tvSujectLocation;
+    @BindView(R.id.tv_course_money)
+    TextView tvCourseMoney;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_course_subscribe);
         ButterKnife.bind(this);
-        course_info = (ListView) findViewById(R.id.list_course_info);
         accountDetails.setText(account);
-        initListviewCourseinfo();
         accountName.setFocusable(true);
-
-
+        initview();
     }
 
-    //    初始化课程信息列表方法
-    public void initListviewCourseinfo() {
-        CourseInfoListviewAdapter courseInfoListviewAdapter = new CourseInfoListviewAdapter(
-                CourseSubscribeActivity.this);
-        course_info.setAdapter(courseInfoListviewAdapter);
-
+    public void initview() {
+        Intent intent = getIntent();
+        String class_name = intent.getStringExtra("class_name");
+        String class_tea = intent.getStringExtra("class_teacher");
+        String class_level = intent.getStringExtra("class_level");
+        String class_local = intent.getStringExtra("class_location");
+        String class_price = intent.getStringExtra("money");
+        tvSujectName.setText(class_name);
+        tvSujectLevel.setText(class_level);
+        tvSujectLocation.setText(class_local);
+        tvSujectTeacher.setText("老师：" + class_tea);
+        tvCourseMoney.setText(class_price);
+        totalMoney.setText(tvCourseMoney.getText());
     }
 
     //返回按钮点击事件
@@ -76,6 +86,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
             intent.putExtra("account", account);
             intent.putExtra("TrueNmae", accountName.getText().toString().trim() + "  " + accountTel.getText().toString().trim());
             intent.putExtra("TotalMoney", totalMoney.getText().toString().trim());
+            intent.putExtra("name", tvSujectName.getText());
             intent.setClass(CourseSubscribeActivity.this, OrderPaymentActivity.class);
             startActivity(intent);
         }
