@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.tu4.R;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,17 +22,13 @@ import butterknife.ButterKnife;
  */
 
 public class MyWorksGridviewAdapter extends BaseAdapter {
-    private ArrayList<Integer> myWorksPisture;
-    private String[] myWorksTime, myWorksDate;
+    private ArrayList<Map<String,Object>> listdata;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public MyWorksGridviewAdapter(Context context, ArrayList<Integer> myWorksPisture, String[]
-            myWorksTime, String[] myWorksDate) {
+    public MyWorksGridviewAdapter(Context context, ArrayList<Map<String,Object>> listdata) {
         this.context = context;
-        this.myWorksTime = myWorksTime;
-        this.myWorksDate = myWorksDate;
-        this.myWorksPisture = myWorksPisture;
+       this.listdata = listdata;
         this.layoutInflater = LayoutInflater.from(context);
 
     }
@@ -39,12 +36,12 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return myWorksPisture.size();
+        return listdata.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return myWorksPisture.get(position);
+        return listdata.get(position);
     }
 
     @Override
@@ -65,11 +62,13 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
         if (position == 0) {
             viewHolder.imgMyWorksVideoBg.setVisibility(View.GONE);
             viewHolder.rlMyWorksVideoTime.setVisibility(View.GONE);
+            viewHolder.imgMyWorksItem.setImageResource(R.mipmap.image1);
 
+        }else {
+            viewHolder.imgMyWorksItem.setImageResource((Integer)listdata.get(position).get("img"));
+            viewHolder.tvMyWorksTime.setText((String)listdata.get(position).get("time"));
+            viewHolder.tvMyWorksDate.setText((String)listdata.get(position).get("date"));
         }
-        viewHolder.imgMyWorksItem.setImageResource(myWorksPisture.get(position));
-        viewHolder.tvMyWorksTime.setText(myWorksTime[position]);
-        viewHolder.tvMyWorksDate.setText(myWorksDate[position]);
 
         return convertView;
     }
@@ -86,10 +85,9 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
 
         @BindView(R.id.img_my_works_video_bg)
         ImageView imgMyWorksVideoBg;
+
         @BindView(R.id.rl_my_works_video_time)
         RelativeLayout rlMyWorksVideoTime;
-
-
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

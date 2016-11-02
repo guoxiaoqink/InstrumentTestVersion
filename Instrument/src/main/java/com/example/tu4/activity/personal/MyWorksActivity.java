@@ -35,6 +35,8 @@ import com.example.tu4.utils.RecordResult;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import butterknife.BindView;
@@ -42,18 +44,29 @@ import butterknife.ButterKnife;
 
 import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
 
+/**
+ * Created by hs on
+ * Descripyion: 我的作品界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "Upload";
+//    private ArrayList<Map<String, String>> listData;
+    private ArrayList<Map<String, Object>> listData;
+    //    private Map<String,String> mapData;
+    private Map<String, Object> mapData;
+    private ArrayList<Integer> myWorksPisture;
+
+    private String[] myWorksTime, myWorksDate;
 
     private int mVideoBitrate = Contant.DEFAULT_BITRATE;
     private String waterMarkPath = Contant.WATER_MARK_PATH;
 
-
     @BindView(R.id.img_my_works_return)
     ImageView imgMyWorksReturn;
-    private String[] myWorksTime, myWorksDate;
-    private ArrayList<Integer> myWorksPisture;
+
     @BindView(R.id.img_my_works_delete)
     ImageView imgMyWorksDelete;
 
@@ -83,12 +96,8 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
         Auth.getInstance().initAuth(this, Contant.APP_KEY,
                 Contant.APP_SECRET, Contant.space);
-//        public static final String APP_KEY = "20cffd9799a88e4";
-//        public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
 
-
-        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, myWorksPisture,
-                myWorksTime, myWorksDate);
+        MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, listData);
         gvMyWorks.setAdapter(workAdapter);
 
         imgMyWorksDelete.setOnClickListener(this);
@@ -100,7 +109,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                 if (position == 0) {
                     recording(view);
                 } else {
-                    Intent intent = new Intent(MyWorksActivity.this,VideoPlayActivity.class);
+                    Intent intent = new Intent(MyWorksActivity.this, VideoPlayActivity.class);
                     startActivity(intent);
                 }
             }
@@ -108,20 +117,54 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    /**
+     * 获取数据
+     */
     void initDate() {
-        myWorksPisture = new ArrayList<>();
-        myWorksPisture.add(R.mipmap.image1);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksPisture.add(R.mipmap.a);
-        myWorksTime = new String[]{"20s", "20s", "20s", "20s", "20s", "20s", "20s", "20s",};
-        myWorksDate = new String[]{"2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
-                "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00", "2016-05-06 15:00",
-                "2016-05-06 15:00",};
+//        listData = new ArrayList<>();
+//
+//        String url = "";
+//        MyWorksInfoPost data = new MyWorksInfoPost("1","student",0);
+//        List<MyWorksInfoPost> datas = new ArrayList<>();
+//        datas.add(data);
+//        OkHttpUtils
+//                .postString()
+//                .url(url)
+//                .content(new Gson().toJson(new MyWorksPost("2005",datas)))
+//                .build()
+//                .execute(new GenericsCallback<MyWorks>(new JsonGenericsSerializator()) {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                        Log.e("onError",e.getMessage());
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(MyWorks response, int id) {
+//                        List<MyWorksInfo> myWorksInfos = response.getList();
+//                        for (int i = 0;i<myWorksInfos.size();i++){
+//                            mapData = new HashMap<String, String>();
+//                            mapData.put("imgUrl",myWorksInfos.get(i).getWork_icon());
+//                            mapData.put("workUrl",myWorksInfos.get(i).getWork_url());
+//                            mapData.put("workPostTime",myWorksInfos.get(i).getWork_post_time());
+//                            mapData.put("workContentTime",myWorksInfos.get(i)
+// .getWork_content_time());
+//                            listData.add(mapData);
+//                        }
+//
+//                    }
+//
+//                });
+
+
+        listData = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            mapData = new HashMap<>();
+            mapData.put("img", R.mipmap.a);
+            mapData.put("time", i + "0s");
+            mapData.put("date", "2016-05-06 " + "1" + i + ":00");
+            listData.add(mapData);
+        }
     }
 
     @Override
@@ -129,6 +172,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()) {
             case R.id.img_my_works_delete:
                 Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
+                intent.putExtra("listData",listData);
                 startActivity(intent);
                 break;
             case R.id.img_my_works_return:
@@ -139,6 +183,11 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    /**
+     * 拍摄视频
+     *
+     * @param view
+     */
     private void recording(View view) {
         QupaiService qupaiService = QupaiManager.getQupaiService(view.getContext());
         if (qupaiService == null) {
@@ -231,7 +280,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
             thum = result.getThumbnail();
             result.getDuration();
 
-            Log.w("视频路径","视频路径:" + videoFile + "图片路径:" + thum[0]);
+            Log.w("视频路径", "视频路径:" + videoFile + "图片路径:" + thum[0]);
 
             startUpload();//可以在这里调用上传的方法
 
@@ -269,6 +318,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
     private Button btn_open_video = null;
     private String videoUrl = null;
     private String imageUrl = null;
+
     /**
      * 开始上传
      */
@@ -308,8 +358,8 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
 //                        ContantTest.accessToken;
 
 
-                Log.w("网络地址—视频",videoUrl);
-                Log.w("网络地址—图片",imageUrl);
+                Log.w("网络地址—视频", videoUrl);
+                Log.w("网络地址—图片", imageUrl);
 
                 Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + Contant.domain + "/v/" +
                         responseMessage + ".jpg" + "?token=" + Contant.accessToken);

@@ -16,7 +16,12 @@ import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
-
+/**
+ * Created by hs on
+ * Descripyion: 播放视频界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class VideoPlayActivity extends AppCompatActivity {
 
     @BindView(R.id.vv_video_play)

@@ -2,33 +2,44 @@ package com.example.tu4.activity.personal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.HelpCenterListviewAdapter;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
 
 import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
- * Created by gxq on
+ * Created by hs on
  * Descripyion: 帮助中心界面
  * Version：1
  * Modify Person：gxq
  */
 public class HelpCenterActivity extends AppCompatActivity {
 
-
+    private ArrayList<Map<String, String>> listDate;
     @BindView(R.id.lv_help_center)
     ListView lvHelpCenter;
     @BindView(R.id.img_help_center_return)
     ImageView imgHelpCenterReturn;
-    private String[] title = {"标题", "标题", "标题",};
-    private String[] text = {"内容1", "内容2", "内容3",};
 
 
     @Override
@@ -37,20 +48,63 @@ public class HelpCenterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help_center);
         ButterKnife.bind(this);
 
+        getDate();
+
+        lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(this, listDate));
 
 
-        lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(this, title, text));
+    }
 
+    /**
+     * 获取网络数据
+     */
+    private void getDate() {
+        listDate = new ArrayList<>();
+        String url = baseUrl + "/music-stju-test/api_helpcenter";
+        OkHttpUtils
+                .post()
+                .url(url)
+                .addParams("code", "1020")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("onError", "数据加载失败");
+                        Toast.makeText(HelpCenterActivity.this, "数据加载失败", Toast.LENGTH_SHORT)
+                                .show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.w("onResponse", "okokokokokokokokokokokokok");
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String Content = jsonObject.getString("Content");
+                            String About = jsonObject.getString("About");
+                            Log.w("onResponse", "Content = " + Content);
+                            Log.w("onResponse", "About = " + About);
+                            Map<String, String> mapDate = new HashMap<String, String>();
+                            mapDate.put("title", "使用文章");
+                            mapDate.put("text", Content);
+                            listDate.add(mapDate);
+                            Map<String, String> mapDate1 = new HashMap<String, String>();
+                            mapDate1.put("title", "关于");
+                            mapDate1.put("text", About);
+                            listDate.add(mapDate1);
+                            Log.w("listDate",listDate.toString());
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
 
     }
 
     @OnClick(R.id.img_help_center_return)
     public void onClick() {
-//        Intent intent = new Intent(HelpCenterActivity.this, MainActivity.class);
-//        startActivity(intent);
         this.finish();
-
         JUMP_MAINACTIVITY = 2;
-
     }
 }

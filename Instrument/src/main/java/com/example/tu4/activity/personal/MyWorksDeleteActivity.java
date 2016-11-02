@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -23,8 +24,15 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
+/**
+ * Created by hs on
+ * Descripyion: 删除作品界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class MyWorksDeleteActivity extends AppCompatActivity {
+
+    private ArrayList<Map<String, Object>> listData;
 
     @BindView(R.id.img_my_works_delete_return)
     ImageView imgMyWorksDeleteReturn;
@@ -46,7 +54,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_works_delete);
         ButterKnife.bind(this);
         initDate();
-
+        Log.w("listData",listData.toString());
 
         new MyOpenWork().execute();
 
@@ -61,7 +69,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
                         myWorksPisture.remove(deleteList.get(i).get("picture"));
                         myWorksDate.remove(deleteList.get(i).get("date"));
                         myWorksTime.remove(deleteList.get(i).get("time"));
-                        sbBuffer.append(deleteList.size()+" 个");
+                        sbBuffer.append(deleteList.size() + " 个");
                     }
                     myWorksSelectGridviewAdapter.fresh();
                     Toast.makeText(MyWorksDeleteActivity.this, sbBuffer.toString(),
@@ -73,22 +81,25 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
     }
 
     void initDate() {
-        myWorksPisture = new ArrayList<>();
-        myWorksDate = new ArrayList<>();
-        myWorksTime = new ArrayList<>();
-       for (int i = 0;i<=7;i++){
-           myWorksPisture.add(R.mipmap.a);
-           myWorksDate.add("2016-05-06 " + i);
-           myWorksTime.add(i+"s");
+        Intent intent = new Intent();
+        listData = (ArrayList<Map<String, Object>>) intent.getSerializableExtra("listData");
 
-       }
+//        myWorksPisture = new ArrayList<>();
+//        myWorksDate = new ArrayList<>();
+//        myWorksTime = new ArrayList<>();
+//       for (int i = 0;i<=7;i++){
+//           myWorksPisture.add(R.mipmap.a);
+//           myWorksDate.add("2016-05-06 " + i);
+//           myWorksTime.add(i+"s");
+//
+//       }
 
     }
 
     @OnClick(R.id.img_my_works_delete_return)
     public void onClick() {
-        Intent intent = new Intent(MyWorksDeleteActivity.this,MyWorksActivity.class);
-        intent.putExtra("deleteList",deleteList);
+        Intent intent = new Intent(MyWorksDeleteActivity.this, MyWorksActivity.class);
+        intent.putExtra("deleteList", deleteList);
         startActivity(intent);
         finish();
     }
@@ -99,7 +110,7 @@ public class MyWorksDeleteActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... arg0) {
             myWorksSelectGridviewAdapter = new MyWorksSelectGridviewAdapter(MyWorksDeleteActivity
-                    .this, myWorksPisture, myWorksTime, myWorksDate);
+                    .this, listData);
             return true;
         }
 

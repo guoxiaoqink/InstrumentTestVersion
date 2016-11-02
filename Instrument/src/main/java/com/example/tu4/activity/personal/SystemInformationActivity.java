@@ -22,7 +22,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
-
+/**
+ * Created by hs on
+ * Descripyion: 系统消息界面
+ * Version：1
+ * Modify Person：gxq
+ */
 public class SystemInformationActivity extends AppCompatActivity {
 
     @BindView(R.id.img_system_information_return)

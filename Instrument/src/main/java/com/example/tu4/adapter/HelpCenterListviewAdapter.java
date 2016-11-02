@@ -1,6 +1,7 @@
 package com.example.tu4.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -16,25 +20,24 @@ import butterknife.ButterKnife;
  * 帮助中心
  */
 public class HelpCenterListviewAdapter extends BaseAdapter {
-    private String[] title, text;
+    private ArrayList<Map<String,String>> listDate;
     private Context context;
     private LayoutInflater layoutInflater = null;
 
-    public HelpCenterListviewAdapter(Context context, String[] title, String[] text) {
+    public HelpCenterListviewAdapter(Context context,ArrayList<Map<String,String>> listDate) {
         this.context = context;
-        this.text = text;
-        this.title = title;
+        this.listDate = listDate;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return title.length;
+        return listDate.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return title[position];
+        return position;
     }
 
     @Override
@@ -53,8 +56,10 @@ public class HelpCenterListviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        viewHolder.tvHelpCenterTitle.setText(title[position]);
-        viewHolder.tvHelpCenterText.setText(text[position]);
+        Log.w("adapter",listDate.get(position).get("title"));
+        Log.w("adapter",listDate.get(position).get("text"));
+        viewHolder.tvHelpCenterTitle.setText(listDate.get(position).get("title"));
+        viewHolder.tvHelpCenterText.setText(listDate.get(position).get("text"));
 
         return convertView;
     }

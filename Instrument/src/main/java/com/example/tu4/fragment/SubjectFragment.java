@@ -221,11 +221,11 @@ public class SubjectFragment extends Fragment {
         super.onResume();
     }
 
-    @Override
-    public void onPause() {
-        autoPlayViewpager.stopPlaying();
-        super.onPause();
-    }
+//    @Override
+//    public void onPause() {
+//        autoPlayViewpager.stopPlaying();
+//        super.onPause();
+//    }
 
     @OnClick(R.id.couse_)
     public void onClick() {
