@@ -72,6 +72,7 @@
         <activity
             android:name=".activity.course.payment.PaySuccessActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".activity.course.DateActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
