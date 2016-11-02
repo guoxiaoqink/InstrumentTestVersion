@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_edit_dress"
@@ -7,29 +8,32 @@
     android:background="@color/color_ffffff"
     tools:context=".activity.instrument.EditDressActivity">
 
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
         android:id="@+id/rl_E_D"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp44"
-        android:background="@color/s97c8cd">
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp44"-->
+    <!--android:background="@color/s97c8cd">-->
 
-        <ImageView
-            android:id="@+id/imgbtn_edit_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/left_arrow_white" />
+    <!--<ImageView-->
+    <!--android:id="@+id/imgbtn_edit_left"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/dp10"-->
+    <!--android:src="@mipmap/left_arrow_white" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/edit_dress"
-            android:textColor="@color/sffffff"
-            android:textSize="@dimen/px34" />
-    </RelativeLayout>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/edit_dress"-->
+    <!--android:textColor="@color/sffffff"-->
+    <!--android:textSize="@dimen/px34" />-->
+    <!--</RelativeLayout>-->
 
     <RelativeLayout
         android:id="@+id/rl_edit_name"

@@ -1,17 +1,20 @@
 package com.example.tu4.activity.instrument;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -32,8 +35,6 @@ import static com.example.tu4.model.IUrl.baseUrl;
  */
 public class EditDressActivity extends AppCompatActivity {
 
-    @BindView(R.id.imgbtn_edit_left)
-    ImageView imgbtnEditLeft;
     @BindView(R.id.rl_edit_del)
     RelativeLayout rlEditDel;
     @BindView(R.id.btn_save_dress)
@@ -45,12 +46,15 @@ public class EditDressActivity extends AppCompatActivity {
     @BindView(R.id.et_edit_dress)
     EditText etEditDress;
     String userid = "" + UserId;
+    @BindView(R.id.rl_E_D)
+    TitleView rlED;
     private int mDayColor = Color.parseColor("#000000");
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_edit_dress);
         ButterKnife.bind(this);
         Intent in = getIntent();
@@ -66,16 +70,25 @@ public class EditDressActivity extends AppCompatActivity {
         phoneEditText.setTextColor(mDayColor);
         dressEditText.setText(dress);
         dressEditText.setTextColor(mDayColor);
-
+        Resources res = getResources();
+        String title = "编辑地址".toString();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        rlED.setImgLeft(ic_return);
+        rlED.getImgLeft().setVisibility(View.VISIBLE);
+        rlED.setTitleText(title);
+        rlED.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditDressActivity.this.finish();
+            }
+        });
 
     }
 
-    @OnClick({R.id.imgbtn_edit_left, R.id.rl_edit_del, R.id.btn_save_dress})
+    @OnClick({R.id.rl_edit_del, R.id.btn_save_dress})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imgbtn_edit_left:
-                this.finish();
-                break;
+
             case R.id.rl_edit_del:
                 Toast.makeText(EditDressActivity.this, "删除", Toast.LENGTH_SHORT).show();
                 break;
