@@ -7,31 +7,34 @@
     android:background="@color/color_ffffff"
     tools:context=".activity.instrument.SelectDressActivity">
 
-
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
         android:id="@+id/rl_S_D"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp44"
-        android:background="@color/s97c8cd">
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/rl_S_D"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp44"-->
+    <!--android:background="@color/s97c8cd">-->
 
-        <ImageView
-            android:id="@+id/imgbtn_select_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/left_arrow_white" />
+    <!--<ImageView-->
+    <!--android:id="@+id/imgbtn_select_left"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/dp10"-->
+    <!--android:src="@mipmap/left_arrow_white" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/select_address"
-            android:textColor="@color/sffffff"
-            android:textSize="@dimen/px34" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/select_address"-->
+    <!--android:textColor="@color/sffffff"-->
+    <!--android:textSize="@dimen/px34" />-->
 
-    </RelativeLayout>
+    <!--</RelativeLayout>-->
 
     <Button
         android:id="@+id/btn_add_dress"

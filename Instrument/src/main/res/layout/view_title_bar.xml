@@ -21,8 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/date_subject" />
-
+            android:src="@mipmap/date_subject"
+            android:visibility="invisible" />
+        <!--标题-->
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -33,15 +34,7 @@
             android:text="@string/please_modify"
             android:textColor="@color/sffffff"
             android:textSize="@dimen/px34" />
-        <!--右边的第一个图片-->
-        <ImageView
-            android:id="@+id/img_right_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/subject_titlt_wait"
-            android:layout_marginRight="@dimen/dp15"
-            android:layout_toStartOf="@+id/subject_titlt_wait"
-            android:src="@mipmap/lookup" />
+
         <!--最右边的图片-->
         <ImageView
             android:id="@+id/img_right_2"
@@ -52,7 +45,16 @@
             android:layout_marginRight="@dimen/dp10"
             android:src="@mipmap/wait_subject"
             android:visibility="invisible" />
-
+        <!--右边的第一个图片-->
+        <ImageView
+            android:id="@+id/img_right_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img_right_2"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_toStartOf="@+id/img_right_2"
+            android:src="@mipmap/lookup"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

@@ -2,23 +2,26 @@ package com.example.tu4.activity.instrument;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -34,7 +37,6 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.model.AplicationStatic.UserId;
@@ -49,11 +51,13 @@ import static com.example.tu4.model.IUrl.baseUrl;
 public class SelectDressActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.imgbtn_select_left)
-    ImageView imgbtnSelectLeft;
-    @BindView(R.id.btn_add_dress)
-    Button btnAddDress;
+    //    @BindView(R.id.imgbtn_select_left)
+//    ImageView imgbtnSelectLeft;
+//    @BindView(R.id.btn_add_dress)
+//    Button btnAddDress;
     ListAdapter adapter;
+    @BindView(R.id.rl_S_D)
+    TitleView rlSD;
     //    @BindView(R.id.title)
 //    TitleView title;
     private ListView listView;
@@ -67,7 +71,10 @@ public class SelectDressActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_serect_dress);
+        Resources res = getResources();
+        String title = "修改地址".toString();
         ButterKnife.bind(this);
         listView = (ListView) this.findViewById(R.id.lv_select_dress);
         name = new ArrayList();
@@ -92,7 +99,17 @@ public class SelectDressActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+//        rlSD.setTvTitle(title);
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        rlSD.setImgLeft(ic_return);
+        rlSD.getImgLeft().setVisibility(View.VISIBLE);
+        rlSD.setTitleText(title);
+        rlSD.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectDressActivity.this.finish();
+            }
+        });
     }
 
     void initList() {
@@ -122,16 +139,16 @@ public class SelectDressActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.imgbtn_select_left, R.id.btn_add_dress})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.imgbtn_select_left:
-                this.finish();
-                break;
-            case R.id.btn_add_dress:
-                break;
-        }
-    }
+//    @OnClick({R.id.imgbtn_select_left, R.id.btn_add_dress})
+//    public void onClick(View view) {
+//        switch (view.getId()) {
+//            case R.id.imgbtn_select_left:
+//                this.finish();
+//                break;
+//            case R.id.btn_add_dress:
+//                break;
+//        }
+//    }
 
     private void getOrder() {
         String url = baseUrl + "";
