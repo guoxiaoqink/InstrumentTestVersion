@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -99,6 +100,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
     TextView tvMoney;
     @BindView(R.id.tv_numof_feedback)
     TextView tvNumofFeedback;
+    @BindView(R.id.btn_choose_class)
+    Button btnChooseClass;
     private TextView money;
     private int class_id;
 
@@ -149,7 +152,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show, R.id.tv_money_subjectdetail, R.id.tv_money})
+    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show, R.id.tv_money_subjectdetail, R.id.tv_money, R.id.btn_choose_class})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_topbar_arrow:
@@ -160,7 +163,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 intentTofeedback.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
                 startActivity(intentTofeedback);
                 break;
-            case R.id.tv_money_subjectdetail:
+            case R.id.btn_choose_class:
                 Intent intent = new Intent();
                 intent.putExtra("class_name", tvCourseName.getText());
                 intent.putExtra("class_level", tvCourseLevel.getText());
@@ -170,16 +173,16 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 intent.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.tv_money:
-                Intent intent1 = new Intent();
-                intent1.putExtra("class_name", tvCourseName.getText());
-                intent1.putExtra("class_level", tvCourseLevel.getText());
-                intent1.putExtra("class_teacher", tvClassTeacher.getText());
-                intent1.putExtra("class_location", tvLocation.getText());
-                intent1.putExtra("money", tvMoneySubjectdetail.getText());
-                intent1.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
-                startActivity(intent1);
-                break;
+//            case R.id.tv_money:
+//                Intent intent1 = new Intent();
+//                intent1.putExtra("class_name", tvCourseName.getText());
+//                intent1.putExtra("class_level", tvCourseLevel.getText());
+//                intent1.putExtra("class_teacher", tvClassTeacher.getText());
+//                intent1.putExtra("class_location", tvLocation.getText());
+//                intent1.putExtra("money", tvMoneySubjectdetail.getText());
+//                intent1.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
+//                startActivity(intent1);
+//                break;
         }
     }
 
@@ -220,7 +223,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                             tvSubTime.setText("课时：" + String.valueOf(subjectDetails.getClass_number()));
                             tvNotes.setText("备注：" + subjectDetails.getClass_remark().toString());
                             tvLocation.setText("地点：" + subjectDetails.getClass_location().toString());
-                            tvNumofFeedback.setText(subjectDetails.getFeedback_number()+"条学生反馈");
+                            tvNumofFeedback.setText(subjectDetails.getFeedback_number() + "条学生反馈");
                             addHeadImgToLinearlayout(subjectDetails.getFeedback_number(), MAX_STUDENT_NUMBER_BACK,
                                     R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
 //                            System.out.println(subjectInfos.get(0).getTeacher_telephone());

@@ -169,6 +169,7 @@
     <string name="pleaseInputName">请输入姓名</string>
     <string name="pleaseInputPhonenamber">请输入手机号码</string>
     <string name="username1">昵称Cdohng</string>
+    <string name="please_modify">请改为自己的标题</string>
 
     <array name="hehe">
         <item>niu</item>

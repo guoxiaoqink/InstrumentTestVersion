@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--设置状态栏颜色-->
+    <TextView
+        android:id="@+id/tv_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp20"
+        android:background="@color/color_97c8cd" />
+    <!--设置标题栏-->
+    <!--这里面有三个图片，请根据各个页面的需要显示或者隐藏图片，默认都是隐藏的，并把图片更改图片为自己的-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp44"
+        android:background="@color/s97c8cd">
+        <!--最左边的图片-->
+        <ImageView
+            android:id="@+id/img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp10"
+            android:src="@mipmap/date_subject" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/please_modify"
+            android:textColor="@color/sffffff"
+            android:textSize="@dimen/px34" />
+        <!--右边的第一个图片-->
+        <ImageView
+            android:id="@+id/img_right_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/subject_titlt_wait"
+            android:layout_marginRight="@dimen/dp15"
+            android:layout_toStartOf="@+id/subject_titlt_wait"
+            android:src="@mipmap/lookup" />
+        <!--最右边的图片-->
+        <ImageView
+            android:id="@+id/img_right_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp10"
+            android:src="@mipmap/wait_subject"
+            android:visibility="invisible" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

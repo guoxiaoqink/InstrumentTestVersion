@@ -239,6 +239,7 @@
                 android:background="@color/color_999999" />
 
             <RelativeLayout
+                android:id="@+id/re_classmates_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -467,6 +468,7 @@
                     android:background="@color/color_d1d1d1" />
 
                 <RelativeLayout
+                    android:id="@+id/re_feedback_img"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp43"
                     android:layout_marginBottom="@dimen/dp5"
@@ -501,6 +503,7 @@
             android:background="@color/color_ffffff">
 
             <Button
+                android:id="@+id/btn_choose_class"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp49"
                 android:layout_gravity="center"

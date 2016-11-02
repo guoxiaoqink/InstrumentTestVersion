@@ -54,6 +54,8 @@ public class SelectDressActivity extends AppCompatActivity {
     @BindView(R.id.btn_add_dress)
     Button btnAddDress;
     ListAdapter adapter;
+    //    @BindView(R.id.title)
+//    TitleView title;
     private ListView listView;
     private Map<Integer, Boolean> isSelected;
     private List beSelectedData = new ArrayList();
@@ -90,6 +92,7 @@ public class SelectDressActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
     void initList() {

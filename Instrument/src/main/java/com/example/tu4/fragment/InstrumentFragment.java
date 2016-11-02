@@ -236,11 +236,11 @@ public class InstrumentFragment extends Fragment {
         super.onResume();
     }
 
-    //@Override
-//    public void onPause() {
+    @Override
+    public void onPause() {
 //        autoPlayViewpager.stopPlaying();
-//        super.onPause();
-//    }
+        super.onPause();
+    }
 
     public void getIns() {
         String url = baseUrl + "www.baidu.com";
