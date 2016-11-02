@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.feedback.IssiuFeedbackActivity;
+import com.example.tu4.bean.ClassDetailsPost;
 import com.example.tu4.bean.SubjectDetails;
 import com.example.tu4.bean.SubjectInfo;
-import com.example.tu4.bean.classdetailspost;
 import com.example.tu4.view.CircleImageView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -189,7 +189,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(url)//
-                .content(new Gson().toJson(new classdetailspost("1", "1003")))
+                .content(new Gson().toJson(new ClassDetailsPost("1", "1003")))
                 .build()//
                 .connTimeOut(20000)
                 .readTimeOut(20000)

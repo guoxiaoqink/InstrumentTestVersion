@@ -2,14 +2,12 @@ package com.example.tu4.fragment;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,7 +22,7 @@ import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.bean.AutoPlayInfo;
 import com.example.tu4.bean.CalssList;
 import com.example.tu4.bean.ClassListDetails;
-import com.example.tu4.bean.Classshowpost;
+import com.example.tu4.bean.ClassShowPost;
 import com.example.tu4.bean.ImageCircleView;
 import com.example.tu4.bean.ImageViewInfo;
 import com.example.tu4.bean.SlideView;
@@ -145,7 +143,7 @@ public class SubjectFragment extends Fragment {
         OkHttpUtils
                 .postString()
                 .url(url)//
-                .content(new Gson().toJson(new Classshowpost(UserId, "student", "9527", 0)))
+                .content(new Gson().toJson(new ClassShowPost(UserId, "student", "9527", 0)))
                 .build()//
                 .connTimeOut(20000)
                 .readTimeOut(20000)
@@ -177,23 +175,13 @@ public class SubjectFragment extends Fragment {
 //                            System.out.println(data.size()+"00000000000000000000000000000000000000000000");
                             BaseAdapter adapter = new SubjectListviewAdapter(getContext(), data);
                             listviewSubject.setAdapter(adapter);
-                            listviewSubject.setOnTouchListener(new View.OnTouchListener() {
-                                @Override
-                                public boolean onTouch(View v, MotionEvent event) {
-                                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                                        listviewSubject.setBackgroundColor(Color.YELLOW);
-                                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                                        listviewSubject.setBackgroundColor(Color.WHITE);
-                                        Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
-//                                        intent.putExtra("class_id", position);
-                                        startActivity(intent);
-                                    }
-                                    return false;
-                                }
-                            });
                             listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                    Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+//                                        intent.putExtra("class_id", position);
+                                    startActivity(intent);
                                 }
                             });
 
@@ -230,7 +218,6 @@ public class SubjectFragment extends Fragment {
 
     @Override
     public void onPause() {
-
         autoPlayViewpager.stopPlaying();
         super.onPause();
     }

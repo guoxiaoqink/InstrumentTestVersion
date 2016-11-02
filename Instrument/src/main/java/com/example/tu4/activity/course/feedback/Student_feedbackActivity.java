@@ -88,4 +88,8 @@ public class Student_feedbackActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void getInfoFromUrl() {
+
+    }
 }

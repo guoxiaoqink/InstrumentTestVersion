@@ -4,11 +4,11 @@ package com.example.tu4.bean;
  * Created by MR.WEN on 2016/10/27.
  */
 
-public class classdetailspost {
+public class ClassDetailsPost {
     private String Class_id;
     private String code;
 
-    public classdetailspost(String Class_id, String code) {
+    public ClassDetailsPost(String Class_id, String code) {
         this.Class_id = Class_id;
         this.code = code;
     }
@@ -31,7 +31,7 @@ public class classdetailspost {
 
     @Override
     public String toString() {
-        return "classdetailspost{" +
+        return "ClassDetailsPost{" +
                 "Class_id='" + Class_id + '\'' +
                 ", code='" + code + '\'' +
                 '}';

@@ -229,7 +229,7 @@ public class InstrumentFragment extends Fragment {
 
     @Override
     public void onResume() {
-        //没有数据时不执行startPlaying,避免执行几次导致轮播混乱
+        //没有数据时不执行startPlaying,避免执行几次导致轮播混乱1
         if (mAutoPlayInfoList != null && !mAutoPlayInfoList.isEmpty()) {
             autoPlayViewpager.startPlaying();
         }

@@ -4,13 +4,13 @@ package com.example.tu4.bean;
  * Created by MR.WEN on 2016/10/26.
  */
 
-public class Classshowpost {
+public class ClassShowPost {
     private int id;
     private String role;
     private String code;
     private int maxtime;
 
-    public Classshowpost(int id, String role, String code, int maxtime) {
+    public ClassShowPost(int id, String role, String code, int maxtime) {
         this.id = id;
         this.role = role;
         this.code = code;
@@ -51,7 +51,7 @@ public class Classshowpost {
 
     @Override
     public String toString() {
-        return "Classshowpost{" +
+        return "ClassShowPost{" +
                 "id=" + id +
                 ", role='" + role + '\'' +
                 ", code='" + code + '\'' +
