@@ -7,38 +7,41 @@
     android:background="@color/color_f5f5f5"
     tools:context=".activity.personal.TransactionRecordsActivity">
 
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
         android:id="@+id/rl_TR"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp44"
-        android:background="@color/s97c8cd">
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp44"-->
+    <!--android:background="@color/s97c8cd">-->
 
-        <ImageView
-            android:id="@+id/iv_TR_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/white_modle" />
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_TR_left"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/dp10"-->
+    <!--android:src="@mipmap/white_modle" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/transactionrecord"
-            android:textColor="@color/sffffff"
-            android:textSize="@dimen/px34" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/transactionrecord"-->
+    <!--android:textColor="@color/sffffff"-->
+    <!--android:textSize="@dimen/px34" />-->
 
-        <ImageView
-            android:id="@+id/iv_TR_find"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp10"
-            android:src="@mipmap/lookup" />
-    </RelativeLayout>
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_TR_find"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginRight="@dimen/dp10"-->
+    <!--android:src="@mipmap/lookup" />-->
+    <!--</RelativeLayout>-->
 
     <ListView
         android:id="@+id/lv_TR_parent"
