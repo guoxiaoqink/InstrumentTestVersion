@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.AdvertisementActivity;
+import com.example.tu4.activity.course.DateActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.bean.AutoPlayInfo;
@@ -39,6 +41,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.model.AplicationStatic.UserId;
@@ -56,6 +59,8 @@ public class SubjectFragment extends Fragment {
     ListView listviewSubject;
     @BindView(R.id.auto_play_viewpager)
     AutoPlayingViewPager autoPlayViewpager;
+    @BindView(R.id.couse_)
+    ImageView couse;
     private List<String> ImageCricleViewList_image = new ArrayList<>();
     private List<String> ImageCricleViewList_name = new ArrayList<>();
     private List<List<ClassListDetails>> data = new ArrayList<>();
@@ -220,6 +225,13 @@ public class SubjectFragment extends Fragment {
     public void onPause() {
         autoPlayViewpager.stopPlaying();
         super.onPause();
+    }
+
+    @OnClick(R.id.couse_)
+    public void onClick() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), DateActivity.class);
+        startActivity(intent);
     }
 
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {

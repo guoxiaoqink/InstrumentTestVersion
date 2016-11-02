@@ -2,6 +2,7 @@ package com.example.tu4.activity.course;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.view.MonthDateView;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +25,10 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.model.AplicationStatic.UserId;
+import static com.example.tu4.model.IUrl.baseUrl;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -72,6 +80,26 @@ public class DateActivity extends AppCompatActivity {
         String[] from = {"time", "course", "dress"};
         int[] id = new int[]{R.id.tv_date_li_time, R.id.tv_date_li_course, R.id.tv_date_li_dress};
         getData();
+        String url = baseUrl + "/music-stju-test/api_calendar";
+        OkHttpUtils.postString()
+                .url(url)
+                .content(new Gson().toJson(new getData(UserId, "1004")))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+
+                        Log.d("error", e.getMessage());
+
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+
+                        Log.d("success", response);
+
+                    }
+                });
         sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, id);
         mListView.setAdapter(sim_adapter);
 
@@ -79,6 +107,7 @@ public class DateActivity extends AppCompatActivity {
 
     public List<Map<String, Object>> getData() {
         //cion和iconName的长度是相同的，这里任选其一都可以
+
         for (int i = 0; i < 2; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("time", "14:00");
@@ -121,4 +150,23 @@ public class DateActivity extends AppCompatActivity {
     public void onClick() {
         this.finish();
     }
+
+    private class getData {
+        private String code;
+        private int User_id;
+
+        public getData(int User_id, String code) {
+            this.User_id = User_id;
+            this.code = code;
+        }
+
+        @Override
+        public String toString() {
+            return "getData{" +
+                    "User_id='" + User_id + '\'' +
+                    "code='" + code + '\'' +
+                    "}";
+        }
+    }
+
 }
