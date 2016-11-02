@@ -46,7 +46,7 @@ public class EditDressActivity extends AppCompatActivity {
     EditText etEditDress;
     String userid = "" + UserId;
     private int mDayColor = Color.parseColor("#000000");
-    private String[] data = {userid, "student", etEditName.getText().toString(), etEditName.getText().toString(), etEditDress.getText().toString()};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class EditDressActivity extends AppCompatActivity {
     }
 
     private void getAddDress() {
+        String[] data = {userid, "student", etEditName.getText().toString(), etEditName.getText().toString(), etEditDress.getText().toString()};
         String url = baseUrl + "";
         OkHttpUtils.postString()
                 .url(url)
