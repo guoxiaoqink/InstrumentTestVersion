@@ -34,6 +34,7 @@ public class StudentListActivity extends AppCompatActivity {
     @BindView(R.id.gv_student_list)
     GridView gvStudentList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
