@@ -6,42 +6,48 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context="com.example.tu4.activity.course.CourseSubscribeActivity">
-    <!--设置状态栏颜色-->
-    <TextView
-        android:id="@+id/top_tv"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp20"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/color_97c8cd" />
-    <!--设置标题-->
-    <RelativeLayout
+
+    <com.example.tu4.view.TitleView
         android:id="@+id/course_order_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp30"
-        android:layout_below="@id/top_tv"
-        android:background="@color/color_97c8cd">
-        <!--返回按钮-->
-        <ImageButton
-            android:id="@+id/btn_course_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/dp11"
-            android:background="@color/color_97c8cd"
-            android:contentDescription="@string/returnback"
-            android:onClick="course_order_return"
-            android:src="@mipmap/left_arrow_white" />
-        <!--标题-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/course_order"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-    </RelativeLayout>
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+
+    <!--&lt;!&ndash;设置状态栏颜色&ndash;&gt;-->
+    <!--<TextView-->
+    <!--android:id="@+id/top_tv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp20"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:background="@color/color_97c8cd" />-->
+    <!--&lt;!&ndash;设置标题&ndash;&gt;-->
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/course_order_title"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp30"-->
+    <!--android:layout_below="@id/top_tv"-->
+    <!--android:background="@color/color_97c8cd">-->
+    <!--&lt;!&ndash;返回按钮&ndash;&gt;-->
+    <!--<ImageButton-->
+    <!--android:id="@+id/btn_course_return"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginStart="@dimen/dp11"-->
+    <!--android:background="@color/color_97c8cd"-->
+    <!--android:contentDescription="@string/returnback"-->
+    <!--android:onClick="course_order_return"-->
+    <!--android:src="@mipmap/left_arrow_white" />-->
+    <!--&lt;!&ndash;标题&ndash;&gt;-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="@string/course_order"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="18sp" />-->
+    <!--</RelativeLayout>-->
     <!--账户-->
     <LinearLayout
         android:id="@+id/lin_account"

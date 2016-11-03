@@ -2,6 +2,8 @@ package com.example.tu4.activity.course;
 
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.payment.OrderPaymentActivity;
+import com.example.tu4.view.TitleView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +46,9 @@ public class CourseSubscribeActivity extends AppCompatActivity {
     TextView tvSujectLocation;
     @BindView(R.id.tv_course_money)
     TextView tvCourseMoney;
+    @BindView(R.id.course_order_title)
+    TitleView courseOrderTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +61,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
     }
 
     public void initview() {
+        String titile = "课程订购";
         Intent intent = getIntent();
         String class_name = intent.getStringExtra("class_name");
         String class_tea = intent.getStringExtra("class_teacher");
@@ -67,12 +74,24 @@ public class CourseSubscribeActivity extends AppCompatActivity {
         tvSujectTeacher.setText("老师：" + class_tea);
         tvCourseMoney.setText(class_price);
         totalMoney.setText(tvCourseMoney.getText());
+        courseOrderTitle.setTitleText(titile);
+        courseOrderTitle.getImgLeft().setVisibility(View.VISIBLE);
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        courseOrderTitle.setImgLeft(ic_return);
+        courseOrderTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CourseSubscribeActivity.this.finish();
+            }
+        });
+
     }
 
-    //返回按钮点击事件
-    public void course_order_return(View v) {
-        this.finish();
-    }
+//    //返回按钮点击事件
+//    public void course_order_return(View v) {
+//        this.finish();
+//    }
 
     //确认支付按钮点击事件
     public void ensure_order(View v) {

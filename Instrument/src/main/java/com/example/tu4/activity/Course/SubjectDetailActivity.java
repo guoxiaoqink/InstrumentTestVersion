@@ -1,10 +1,13 @@
 package com.example.tu4.activity.course;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +20,7 @@ import com.example.tu4.bean.ClassDetailsPost;
 import com.example.tu4.bean.SubjectDetails;
 import com.example.tu4.bean.SubjectInfo;
 import com.example.tu4.view.CircleImageView;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -48,10 +52,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
-    @BindView(R.id.imageview_instrument_show)
-    ImageView imageviewInstrumentShow;
-    @BindView(R.id.iv_topbar_arrow)
-    ImageView ivTopbarArrow;
+    //    @BindView(R.id.imageview_instrument_show)
+//    ImageView imageviewInstrumentShow;
+//    @BindView(R.id.iv_topbar_arrow)
+//    ImageView ivTopbarArrow;
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)
@@ -102,15 +106,16 @@ public class SubjectDetailActivity extends AppCompatActivity {
     TextView tvNumofFeedback;
     @BindView(R.id.btn_choose_class)
     Button btnChooseClass;
-    private TextView money;
-    private int class_id;
-
-
+    @BindView(R.id.kcxq_title_view)
+    TitleView kcxqTitleView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_subject_detail);
         ButterKnife.bind(this);
+        String title = "课程详情".toString();
+        Resources res = getResources();
         mInflater = LayoutInflater.from(this);
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
         mLinearLayoutFeedback = (LinearLayout) findViewById(
@@ -122,6 +127,27 @@ public class SubjectDetailActivity extends AppCompatActivity {
         getDataByUrl();
         initLinearlayoutImage();
         initLinearlayouFeedback();
+        kcxqTitleView.setTitleText(title);
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        kcxqTitleView.setImgLeft(ic_return);
+        kcxqTitleView.getImgLeft().setVisibility(View.VISIBLE);
+        kcxqTitleView.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SubjectDetailActivity.this.finish();
+            }
+        });
+        Drawable stu_feedback = res.getDrawable(R.mipmap.subjectdetail_more);
+        kcxqTitleView.setImgRight2(stu_feedback);
+        kcxqTitleView.getImgRight2().setVisibility(View.VISIBLE);
+        kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initLinearlayouFeedback() {
@@ -152,17 +178,17 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.iv_topbar_arrow, R.id.imageview_instrument_show, R.id.tv_money_subjectdetail, R.id.tv_money, R.id.btn_choose_class})
+    @OnClick({R.id.tv_money_subjectdetail, R.id.tv_money, R.id.btn_choose_class})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_topbar_arrow:
-                this.finish();
-                break;
-            case R.id.imageview_instrument_show:
-                Intent intentTofeedback = new Intent();
-                intentTofeedback.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
-                startActivity(intentTofeedback);
-                break;
+//            case R.id.iv_topbar_arrow:
+//                this.finish();
+//                break;
+//            case R.id.imageview_instrument_show:
+//                Intent intentTofeedback = new Intent();
+//                intentTofeedback.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
+//                startActivity(intentTofeedback);
+//                break;
             case R.id.btn_choose_class:
                 Intent intent = new Intent();
                 intent.putExtra("class_name", tvCourseName.getText());

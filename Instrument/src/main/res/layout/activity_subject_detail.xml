@@ -12,37 +12,41 @@
         android:background="@color/color_f0f0f0"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.example.tu4.view.TitleView
+            android:id="@+id/kcxq_title_view"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp44"
-            android:background="@color/s97c8cd">
+            android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/dp44"-->
+        <!--android:background="@color/s97c8cd">-->
 
-            <ImageView
-                android:id="@+id/iv_topbar_arrow"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dp10"
-                android:src="@mipmap/left_arrow_white" />
+        <!--<ImageView-->
+        <!--android:id="@+id/iv_topbar_arrow"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="@dimen/dp10"-->
+        <!--android:src="@mipmap/left_arrow_white" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="@string/subjectdetail"
-                android:textColor="@color/sffffff"
-                android:textSize="@dimen/px34" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="@string/subjectdetail"-->
+        <!--android:textColor="@color/sffffff"-->
+        <!--android:textSize="@dimen/px34" />-->
 
-            <ImageView
-                android:id="@+id/imageview_instrument_show"
-                android:layout_width="@dimen/dp20"
-                android:layout_height="@dimen/dp15"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dp10"
-                android:src="@mipmap/subjectdetail_more" />
-        </RelativeLayout>
+        <!--<ImageView-->
+        <!--android:id="@+id/imageview_instrument_show"-->
+        <!--android:layout_width="@dimen/dp20"-->
+        <!--android:layout_height="@dimen/dp15"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="@dimen/dp10"-->
+        <!--android:src="@mipmap/subjectdetail_more" />-->
+        <!--</RelativeLayout>-->
 
         <ImageView
             android:id="@+id/iv_details"

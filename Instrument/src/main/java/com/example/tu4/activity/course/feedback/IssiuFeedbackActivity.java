@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,7 +15,6 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.IssiuListviewAdapter;
@@ -52,6 +52,7 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_issiu_feedback);
         ButterKnife.bind(this);
         LayoutInflater inflater = LayoutInflater.from(this);
@@ -97,7 +98,7 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
                 Intent in = new Intent();
                 in.setClass(IssiuFeedbackActivity.this, Student_feedbackActivity.class);
                 startActivity(in);
-                Toast.makeText(this, "发布成功", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "发布成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.pop_re://popupwindow布局框点击事件
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_top);
