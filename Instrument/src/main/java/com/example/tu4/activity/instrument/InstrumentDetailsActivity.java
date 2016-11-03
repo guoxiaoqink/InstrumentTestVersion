@@ -1,22 +1,26 @@
 package com.example.tu4.activity.instrument;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.course.payment.EnsureOrderActivity;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,8 +38,8 @@ import static com.example.tu4.utils.ApplicationStaticConstants.INS_DETAILS_URL;
  * Modify Person：gxq
  */
 public class InstrumentDetailsActivity extends AppCompatActivity {
-    @BindView(R.id.img_return)
-    ImageView imgReturn;
+    //    @BindView(R.id.img_return)
+//    ImageView imgReturn;
     @BindView(R.id.imageView)
     ImageView imageView;
     @BindView(R.id.tv_instrument_name)
@@ -68,25 +72,39 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
     TextView tvCanshu3;
     @BindView(R.id.tv_moneyNum)
     TextView tvMoneyNum;
+    @BindView(R.id.instrment_title)
+    TitleView instrmentTitle;
     private Button button;
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_instrument_details);
         ButterKnife.bind(this);
         textView = (TextView) findViewById(R.id.tv_old_level);
         textView.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG); //中划线
         getInsDetails();
+        instrmentTitle.getImgLeft().setVisibility(View.VISIBLE);
+        instrmentTitle.setTitleText("乐器详情");
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        instrmentTitle.setImgLeft(ic_return);
+        instrmentTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InstrumentDetailsActivity.this.finish();
+            }
+        });
     }
 
-    @OnClick({R.id.img_return, R.id.btn_buy})
+    @OnClick({R.id.btn_buy})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.img_return:
-                this.finish();
-                break;
+//            case R.id.img_return:
+//                this.finish();
+//                break;
             case R.id.btn_buy:
                 Intent intent = new Intent();
                 intent.putExtra("Ins_name", tvInstrumentName.getText().toString());
@@ -94,7 +112,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                 intent.putExtra("MoneyNum", tvMoneyNum.getText().toString());
                 intent.putExtra("price", tvInstrumentLevel.getText().toString());
                 intent.putExtra("para", tvCanshu1.getText().toString() + "   " + tvCanshu2.getText().toString());
-                intent.setClass(InstrumentDetailsActivity.this, EnsureOrderActivity.class);
+                intent.setClass(InstrumentDetailsActivity.this, com.example.tu4.activity.course.payment.EnsureOrderActivity.class);
                 startActivity(intent);
         }
 
@@ -114,6 +132,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                     public void onError(Call call, Exception e, int id) {
                         Toast.makeText(InstrumentDetailsActivity.this, "数据加载失败", Toast.LENGTH_SHORT).show();
                     }
+
                     @Override
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
@@ -122,24 +141,21 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String Instrument_name = jsonObject.getString("Instrument_name");
-                            int Instrument_now_price = jsonObject.getInt("Instrument_now_price");
-                            int Instrument_pre_price = jsonObject.getInt("Instrument_pre_price");
+                            String Instrument_now_price = jsonObject.getString("Instrument_now_price");
+                            String Instrument_pre_price = jsonObject.getString("Instrument_pre_price");
                             Double Freight = jsonObject.getDouble("Freight");
                             String Instrument_location = jsonObject.getString("Instrument_location");
-
-                            String Product_Parameter = jsonObject.getString("Product_Parameter");
-//                            JSONArray array = jsonObject.getJSONArray("Product");
-//                            JSONObject a = array.getJSONObject(0);
-//                            tvCanshu1.setText("参数1：" + a.getString("Product_Parameter"));
-//                            JSONObject b = array.getJSONObject(1);
-//                            tvCanshu2.setText("参数2：" + b.getString("Product_Parameter"));
-                            tvCanshu1.setText(Product_Parameter);
+                            JSONArray array = jsonObject.getJSONArray("Product");
+                            JSONObject a = array.getJSONObject(0);
+                            tvCanshu1.setText("参数1：" + a.getString("Product_Parameter"));
+                            JSONObject b = array.getJSONObject(1);
+                            tvCanshu2.setText("参数2：" + b.getString("Product_Parameter"));
                             tvInstrumentLevel.setText("¥" + Instrument_now_price);
                             tvOldLevel.setText("¥" + Instrument_pre_price);
                             tvInstrumentName.setText(Instrument_name);
                             tvFreight.setText("运费： " + Freight);
                             tvPlace.setText(Instrument_location);
-                            double pNum = Instrument_now_price + Freight;
+                            double pNum = Integer.parseInt(Instrument_now_price) + Freight;
                             tvMoneyNum.setText("" + pNum);
 
 //                            JSONArray Pic_url = jsonObject.getJSONArray("Pic_url");

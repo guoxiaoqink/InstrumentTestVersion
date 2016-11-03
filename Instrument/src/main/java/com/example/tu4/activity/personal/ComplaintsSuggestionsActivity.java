@@ -1,16 +1,18 @@
 package com.example.tu4.activity.personal;
 
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.bean.SuggestionsPost;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -40,7 +43,6 @@ import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
  * Descripyion:投诉建议界面
  * Version：1
  * Modify Person：gxq
- *
  */
 public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
         .OnClickListener {
@@ -54,12 +56,14 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     TextView tvComplaintType;
     @BindView(R.id.bt_complaint_push)
     Button btComplaintPush;
-    @BindView(R.id.img_somplaints_suggestion_return)
-    ImageView imgSomplaintsSuggestionReturn;
+    //    @BindView(R.id.img_somplaints_suggestion_return)
+//    ImageView imgSomplaintsSuggestionReturn;
     @BindView(R.id.re_popup)
     RelativeLayout rePopup;
     @BindView(R.id.ed_complaint_context)
     EditText edComplaintContext;
+    @BindView(R.id.suggestion_title)
+    TitleView suggestionTitle;
     private View popupView;
     private PopupWindow mPopupWindow;
     private RadioButton radioButton;
@@ -68,11 +72,12 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_complaints_suggestions);
         ButterKnife.bind(this);
 
         btComplaintPush.setOnClickListener(this);
-        imgSomplaintsSuggestionReturn.setOnClickListener(this);
+//        imgSomplaintsSuggestionReturn.setOnClickListener(this);
 
         tvComplaintType.setText("请选择意见类型");
         imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
@@ -115,6 +120,18 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
             }
         });
+        suggestionTitle.getImgLeft().setVisibility(View.VISIBLE);
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        suggestionTitle.setImgLeft(ic_return);
+        suggestionTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ComplaintsSuggestionsActivity.this.finish();
+                JUMP_MAINACTIVITY = 2;
+            }
+        });
+        suggestionTitle.setTitleText("投诉建议");
 
     }
 
@@ -142,10 +159,10 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 this.finish();
                 JUMP_MAINACTIVITY = 2;
                 break;
-            case R.id.img_somplaints_suggestion_return:
-                this.finish();
-                JUMP_MAINACTIVITY = 2;
-                break;
+//            case R.id.img_somplaints_suggestion_return:
+//                this.finish();
+//                JUMP_MAINACTIVITY = 2;
+//                break;
         }
     }
 
@@ -161,9 +178,6 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 .content(new Gson().toJson(new SuggestionsPost(type, content, String.valueOf(UserId),
                         "1002")))
                 .build()
-                .connTimeOut(20000)
-                .readTimeOut(20000)
-                .writeTimeOut(20000)
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
@@ -175,15 +189,15 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.w("onResponse",response);
+                        Log.w("onResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String result = jsonObject.getString("Result");
-                            Log.w("result",result);
-                            if (result.equals("OK")){
+                            Log.w("result", result);
+                            if (result.equals("OK")) {
                                 Toast.makeText(ComplaintsSuggestionsActivity.this, "提交成功", Toast.LENGTH_SHORT)
                                         .show();
-                            }else {
+                            } else {
                                 Toast.makeText(ComplaintsSuggestionsActivity.this, "提交失败，请重试", Toast.LENGTH_SHORT)
                                         .show();
                             }

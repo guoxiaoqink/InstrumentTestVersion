@@ -1,18 +1,21 @@
 package com.example.tu4.activity.personal;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.App;
 import com.example.tu4.R;
 import com.example.tu4.adapter.ConnectUsGridviewAdapter;
 import com.example.tu4.utils.ApplicationStaticConstants;
+import com.example.tu4.view.TitleView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,19 +32,33 @@ import io.rong.imlib.model.CSCustomServiceInfo;
  */
 public class ConnectUsActivity extends AppCompatActivity {
 
-    @BindView(R.id.img_return)
-    ImageView imgReturn;
+    //    @BindView(R.id.img_return)
+//    ImageView imgReturn;
     @BindView(R.id.tv_telephone_call)
     TextView tvTelephoneCall;
     @BindView(R.id.gv_service)
     GridView gvService;
+    @BindView(R.id.connectus_title)
+    TitleView connectusTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_connect_us);
         ButterKnife.bind(this);
         initGridview();
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        connectusTitle.getImgLeft().setVisibility(View.VISIBLE);
+        connectusTitle.setImgLeft(ic_return);
+        connectusTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConnectUsActivity.this.finish();
+            }
+        });
+        connectusTitle.setTitleText("联系我们");
     }
 
 
@@ -59,12 +76,12 @@ public class ConnectUsActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.img_return, R.id.tv_telephone_call})
+    @OnClick({R.id.tv_telephone_call})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.img_return:
-                this.finish();
-                break;
+//            case R.id.img_return:
+//                this.finish();
+//                break;
             case R.id.tv_telephone_call:
                 break;
         }
@@ -100,7 +117,7 @@ public class ConnectUsActivity extends AppCompatActivity {
  * @param context           应用上下文。
  * @param customerServiceId 要与之聊天的客服 Id。
  * @param title             聊天的标题，如果传入空值，则默认显示与之聊天的客服名称。
- * @param customServiceInfo 当前使用客服者的用户信息。{@link io.rong.imlib.model.CSCustomServiceInfo}
+ * @param customServiceInfo 当前使用客服者的用户信息。{@link CSCustomServiceInfo}
  */
                     RongIM.getInstance().startCustomerServiceChat(ConnectUsActivity.this, "KEFU147748161344978", "在线客服", csInfo);
                     //                 startActivity(new Intent(MainActivity.this, Main2Activity.class));

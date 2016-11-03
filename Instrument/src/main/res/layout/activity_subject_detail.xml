@@ -450,6 +450,7 @@
             android:background="@drawable/subject_detail_shape">
 
             <LinearLayout
+                android:id="@+id/li_num_stu_feedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"

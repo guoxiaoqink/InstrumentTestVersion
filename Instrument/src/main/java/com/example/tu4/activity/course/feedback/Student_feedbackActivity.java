@@ -21,6 +21,9 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -121,7 +124,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
                 .url(STUDENT_FEED_BACK_URL)//
                 .content(new Gson().toJson(new StudentFeedbackPost(1, 1, "1000")))
                 .build()//
-                .connTimeOut(2000)
+                .connTimeOut(20000)
                 .readTimeOut(20000)
                 .writeTimeOut(20000)
                 .execute(new StringCallback() {
@@ -134,14 +137,13 @@ public class Student_feedbackActivity extends AppCompatActivity {
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
 //                        System.out.println(response);
-//                        try {
-//                            Gson gson = new Gson();
-////                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
-//                            JSONObject jsonObject = new JSONObject(response);
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
+                        try {
+                            Gson gson = new Gson();
+                            JSONObject jsonObject = new JSONObject(response);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }

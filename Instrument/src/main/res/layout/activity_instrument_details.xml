@@ -9,28 +9,32 @@
         android:background="@color/color_ffffff"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.example.tu4.view.TitleView
+            android:id="@+id/instrment_title"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp44"
-            android:background="@color/s97c8cd">
+            android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/dp44"-->
+        <!--android:background="@color/s97c8cd">-->
 
-            <ImageView
-                android:id="@+id/img_return"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dp10"
-                android:src="@mipmap/white_modle" />
+        <!--<ImageView-->
+        <!--android:id="@+id/img_return"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginLeft="@dimen/dp10"-->
+        <!--android:src="@mipmap/white_modle" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:text="@string/instrument_details"
-                android:textColor="@color/sffffff"
-                android:textSize="@dimen/px34" />
-        </RelativeLayout>
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:gravity="center"-->
+        <!--android:text="@string/instrument_details"-->
+        <!--android:textColor="@color/sffffff"-->
+        <!--android:textSize="@dimen/px34" />-->
+        <!--</RelativeLayout>-->
 
         <ImageView
             android:id="@+id/imageView"
@@ -218,10 +222,12 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_49">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp1"
                 android:background="@color/color_d1d1d1" />
+
             <TextView
                 android:id="@+id/tv_altogether"
                 android:layout_width="wrap_content"
@@ -231,6 +237,7 @@
                 android:text="@string/sum"
                 android:textColor="@color/color_999999"
                 android:textSize="@dimen/sp_14" />
+
             <TextView
                 android:id="@+id/tv_money"
                 android:layout_width="wrap_content"
@@ -250,6 +257,7 @@
                 android:text="@string/money_5000"
                 android:textColor="@color/color_f49c41"
                 android:textSize="@dimen/sp_20" />
+
             <Button
                 android:id="@+id/btn_buy"
                 android:layout_width="wrap_content"

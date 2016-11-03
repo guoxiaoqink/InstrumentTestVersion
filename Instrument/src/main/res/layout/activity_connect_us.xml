@@ -4,31 +4,36 @@
     android:id="@+id/activity_connect_us"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context="com.example.tu4.activity.personal.ConnectUsActivity">
 
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
+        android:id="@+id/connectus_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_45"
-        android:background="@color/color_97c8cd">
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp_45"-->
+    <!--android:background="@color/color_97c8cd">-->
 
-        <ImageView
-            android:id="@+id/img_return"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:src="@mipmap/left_arrow_white" />
+    <!--<ImageView-->
+    <!--android:id="@+id/img_return"-->
+    <!--android:layout_width="@dimen/dp_20"-->
+    <!--android:layout_height="@dimen/dp_20"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:src="@mipmap/left_arrow_white" />-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/connectus"
-            android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/sp_18" />
-    </RelativeLayout>
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="@string/connectus"-->
+    <!--android:textColor="@color/color_ffffff"-->
+    <!--android:textSize="@dimen/sp_18" />-->
+    <!--</RelativeLayout>-->
 
     <TextView
         style="@style/text_14_333333"

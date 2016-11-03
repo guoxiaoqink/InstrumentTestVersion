@@ -9,31 +9,35 @@
     android:orientation="vertical"
     tools:context="com.example.tu4.activity.personal.ComplaintsSuggestionsActivity">
 
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
+        android:id="@+id/suggestion_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_45"
-        android:background="@color/color_97c8cd">
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp_45"-->
+    <!--android:background="@color/color_97c8cd">-->
 
-        <ImageView
-            android:id="@+id/img_somplaints_suggestion_return"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_10"
-            android:src="@mipmap/left_arrow_white"
-            />
+    <!--<ImageView-->
+    <!--android:id="@+id/img_somplaints_suggestion_return"-->
+    <!--android:layout_width="@dimen/dp_20"-->
+    <!--android:layout_height="@dimen/dp_20"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginLeft="@dimen/dp_10"-->
+    <!--android:src="@mipmap/left_arrow_white"-->
+    <!--/>-->
 
-        <TextView
-            android:id="@+id/tv_suggest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/complaints_titl"
-            android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/sp_17"/>
+    <!--<TextView-->
+    <!--android:id="@+id/tv_suggest"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="@string/complaints_titl"-->
+    <!--android:textColor="@color/color_ffffff"-->
+    <!--android:textSize="@dimen/sp_17"/>-->
 
-    </RelativeLayout>
+    <!--</RelativeLayout>-->
 
     <RelativeLayout
         android:id="@+id/re_popup"
@@ -56,9 +60,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@color/color_ffffff"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp_10"/>
+            android:layout_marginRight="@dimen/dp_10"
+            android:background="@color/color_ffffff" />
     </RelativeLayout>
 
     <EditText

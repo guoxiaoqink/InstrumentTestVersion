@@ -4,14 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.duanqu.qupai.bean.QupaiUploadTask;
@@ -24,11 +28,13 @@ import com.duanqu.qupai.sdk.android.QupaiManager;
 import com.duanqu.qupai.sdk.android.QupaiService;
 import com.duanqu.qupai.upload.QupaiUploadListener;
 import com.duanqu.qupai.upload.UploadService;
-import com.duanqu.qupai.utils.Contant;
 import com.example.tu4.R;
 import com.example.tu4.adapter.MyWorksGridviewAdapter;
 import com.example.tu4.utils.Auth;
+import com.example.tu4.utils.Contant;
 import com.example.tu4.utils.RecordResult;
+import com.example.tu4.utils.RequestCode;
+import com.example.tu4.view.TitleView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,17 +45,7 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.tu4.utils.ApplicationStaticConstants.APP_KEY;
-import static com.example.tu4.utils.ApplicationStaticConstants.APP_SECRET;
-import static com.example.tu4.utils.ApplicationStaticConstants.DEFAULT_BITRATE;
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
-import static com.example.tu4.utils.ApplicationStaticConstants.RECORDE_SHOW;
-import static com.example.tu4.utils.ApplicationStaticConstants.WATER_MARK_PATH;
-import static com.example.tu4.utils.ApplicationStaticConstants.accessToken;
-import static com.example.tu4.utils.ApplicationStaticConstants.description;
-import static com.example.tu4.utils.ApplicationStaticConstants.domain;
-import static com.example.tu4.utils.ApplicationStaticConstants.shareType;
-import static com.example.tu4.utils.ApplicationStaticConstants.tags;
 
 /**
  * Created by hs on
@@ -57,13 +53,13 @@ import static com.example.tu4.utils.ApplicationStaticConstants.tags;
  * Version：1
  * Modify Person：gxq
  */
-public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyWorksActivity extends AppCompatActivity {
 
     private static final String TAG = "Upload";
-    @BindView(R.id.img_my_works_return)
-    ImageView imgMyWorksReturn;
-    @BindView(R.id.img_my_works_delete)
-    ImageView imgMyWorksDelete;
+    //    @BindView(R.id.img_my_works_return)
+//    ImageView imgMyWorksReturn;
+//    @BindView(R.id.img_my_works_delete)
+//    ImageView imgMyWorksDelete;
     @BindView(R.id.gv_my_works)
     GridView gvMyWorks;
     ApplicationInfo ai;
@@ -73,23 +69,28 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
      */
     String videoFile;
     String[] thum;
-//    private ArrayList<Map<String, String>> listData;
+    @BindView(R.id.my_work_title)
+    TitleView myWorkTitle;
+    //    private ArrayList<Map<String, String>> listData;
     private ArrayList<Map<String, Object>> listData;
     //    private Map<String,String> mapData;
     private Map<String, Object> mapData;
-    private int mVideoBitrate = DEFAULT_BITRATE;
-    private String waterMarkPath = WATER_MARK_PATH;
+    private ArrayList<Integer> myWorksPisture;
+    private String[] myWorksTime, myWorksDate;
+    private int mVideoBitrate = Contant.DEFAULT_BITRATE;
+    private String waterMarkPath = Contant.WATER_MARK_PATH;
+    private ProgressBar progresstest = null;
+    private Button btn_open_video = null;
     private String videoUrl = null;
     private String imageUrl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_my_works);
         ButterKnife.bind(this);
-
         initDate();
-
         try {
             PackageManager pm = getPackageManager();
             ai = pm.getApplicationInfo("com.example.tu4", 0);
@@ -100,14 +101,14 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
 
-        Auth.getInstance().initAuth(this, APP_KEY,
-                APP_SECRET, Contant.space);
+        Auth.getInstance().initAuth(this, Contant.APP_KEY,
+                Contant.APP_SECRET, Contant.space);
 
         MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, listData);
         gvMyWorks.setAdapter(workAdapter);
 
-        imgMyWorksDelete.setOnClickListener(this);
-        imgMyWorksReturn.setOnClickListener(this);
+//        imgMyWorksDelete.setOnClickListener(this);
+//        imgMyWorksReturn.setOnClickListener(this);
 
         gvMyWorks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -118,6 +119,30 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                     Intent intent = new Intent(MyWorksActivity.this, VideoPlayActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+        myWorkTitle.getImgLeft().setVisibility(View.VISIBLE);
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        Drawable ic_delete = res.getDrawable(R.mipmap.my_works_delete);
+        myWorkTitle.setImgLeft(ic_return);
+        myWorkTitle.setImgRight2(ic_delete);
+        myWorkTitle.getImgLeft().setVisibility(View.VISIBLE);
+        myWorkTitle.getImgRight2().setVisibility(View.VISIBLE);
+        myWorkTitle.setTitleText("我的作品");
+        myWorkTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyWorksActivity.this.finish();
+                JUMP_MAINACTIVITY = 2;
+            }
+        });
+        myWorkTitle.setImgRight2OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
+                intent.putExtra("listData", listData);
+                startActivity(intent);
             }
         });
 
@@ -173,21 +198,21 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_my_works_delete:
-                Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
-                intent.putExtra("listData",listData);
-                startActivity(intent);
-                break;
-            case R.id.img_my_works_return:
-                this.finish();
-                JUMP_MAINACTIVITY = 2;
-                break;
-        }
-
-    }
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.img_my_works_delete:
+//                Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
+//                intent.putExtra("listData", listData);
+//                startActivity(intent);
+//                break;
+//            case R.id.img_my_works_return:
+//                this.finish();
+//                JUMP_MAINACTIVITY = 2;
+//                break;
+//        }
+//
+//    }
 
     /**
      * 拍摄视频
@@ -267,7 +292,7 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         /**
          * 建议上面的initRecord只在application里面调用一次。这里为了能够开发者直观看到改变所以可以调用多次
          */
-        qupaiService.showRecordPage(MyWorksActivity.this,RECORDE_SHOW,
+        qupaiService.showRecordPage(MyWorksActivity.this, RequestCode.RECORDE_SHOW,
                 false);
     }
 
@@ -342,10 +367,10 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                 //这里返回的uuid是你创建上传任务时生成的uuid.开发者可以使用其他作为标识
                 //videoUrl返回的是上传成功的视频地址,imageUrl是上传成功的图片地址
 
-                videoUrl = domain + "/v/" + responseMessage + ".mp4" + "?token=" +
-                        accessToken;
-                imageUrl = domain + "/v/" + responseMessage + ".jpg" + "?token=" +
-                        accessToken;
+                videoUrl = Contant.domain + "/v/" + responseMessage + ".mp4" + "?token=" +
+                        Contant.accessToken;
+                imageUrl = Contant.domain + "/v/" + responseMessage + ".jpg" + "?token=" +
+                        Contant.accessToken;
 
 //                videoUrl = ContantTest.domain1 + "/v/" + responseMessage + ".mp4" + "?token=" +
 //                        ContantTest.accessToken;
@@ -356,16 +381,17 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                 Log.w("网络地址—视频", videoUrl);
                 Log.w("网络地址—图片", imageUrl);
 
-                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + domain + "/v/" +
-                        responseMessage + ".jpg" + "?token=" + accessToken);
-                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + domain + "/v/" +
-                        responseMessage + ".mp4" + "?token=" + accessToken);
+                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + Contant.domain + "/v/" +
+                        responseMessage + ".jpg" + "?token=" + Contant.accessToken);
+                Log.i("TAG", "data:onUploadComplte" + "uuid:" + uuid + Contant.domain + "/v/" +
+                        responseMessage + ".mp4" + "?token=" + Contant.accessToken);
             }
         });
         String uuid = UUID.randomUUID().toString();
-        Log.e("QupaiAuth", "accessToken" + accessToken + "space" + uid);
+        Log.e("QupaiAuth", "accessToken" + Contant.accessToken + "space" + uid);
         startUpload(createUploadTask(this, uuid, new File(videoFile), new File(thum[0]),
-                accessToken, Contant.space, shareType, tags, description));
+                Contant.accessToken, Contant.space, Contant.shareType, Contant.tags, Contant
+                        .description));
     }
 
     /**

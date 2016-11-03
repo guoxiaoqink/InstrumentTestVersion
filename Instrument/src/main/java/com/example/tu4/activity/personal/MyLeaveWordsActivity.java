@@ -1,21 +1,25 @@
 package com.example.tu4.activity.personal;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.MyLeaveWordsListviewAdapter;
+import com.example.tu4.view.TitleView;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 
@@ -26,14 +30,16 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
     ListView lvMyLeaveWords;
     @BindView(R.id.rl_system_information)
     RelativeLayout rlSystemInformation;
-    @BindView(R.id.img_my_leave_words_return)
-    ImageView imgMyLeaveWordsReturn;
+    //    @BindView(R.id.img_my_leave_words_return)
+//    ImageView imgMyLeaveWordsReturn;
     @BindView(R.id.tv_sys_infor_num)
     TextView tvSysInforNum;
     @BindView(R.id.tv_sys_infor_context)
     TextView tvSysInforContext;
     @BindView(R.id.tv_sys_infor_time)
     TextView tvSysInforTime;
+    @BindView(R.id.leave_word_title)
+    TitleView leaveWordTitle;
     private MyLeaveWordsListviewAdapter myLeaveWordsListviewAdapter;
 
     private int[] leaveWordsPhoto = new int[]{R.mipmap.a, R.mipmap.a, R.mipmap.a,};
@@ -56,9 +62,9 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_my_leave_words);
         ButterKnife.bind(this);
-
         initInformationDate();
         tvSysInforTime.setText(systemInforTime.get(6));
         tvSysInforNum.setText(systemInforNumber.get(11));
@@ -70,9 +76,22 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
                 leaveWordsCommentName, leaveWordsCommentContext, leaveWordsCommentTime);
         lvMyLeaveWords.setAdapter(myLeaveWordsListviewAdapter);
 
-        imgMyLeaveWordsReturn.setOnClickListener(this);
+//        imgMyLeaveWordsReturn.setOnClickListener(this);
         rlSystemInformation.setOnClickListener(this);
+        leaveWordTitle.getImgLeft().setVisibility(View.VISIBLE);
+        Resources res = getResources();
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        leaveWordTitle.setImgLeft(ic_return);
+        leaveWordTitle.setTitleText("我的留言");
+        leaveWordTitle.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyLeaveWordsActivity.this.finish();
+                JUMP_MAINACTIVITY = 2;
+            }
+        });
     }
+
 
     private void initInformationDate() {
         systemInforNumber = new ArrayList<>();
@@ -85,21 +104,15 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
+    @OnClick(R.id.rl_system_information)
+    public void onClick() {
+        Intent intent = new Intent();
+        intent.setClass(MyLeaveWordsActivity.this, SystemInformationActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rl_system_information:
-                Intent intent = new Intent(MyLeaveWordsActivity.this, SystemInformationActivity
-                        .class);
-                startActivity(intent);
-                break;
-            case R.id.img_my_leave_words_return:
-//                Intent intent1 = new Intent(MyLeaveWordsActivity.this, MainActivity.class);
-//                startActivity(intent1);
-                this.finish();
-                JUMP_MAINACTIVITY = 2;
-                break;
-        }
+
     }
 }
