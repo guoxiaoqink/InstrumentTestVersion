@@ -161,6 +161,8 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.course.StudentListActivity">
+        </activity>
     </application>
 
 </manifest>
