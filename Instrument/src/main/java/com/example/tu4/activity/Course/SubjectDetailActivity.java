@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +40,7 @@ import okhttp3.Call;
 import static com.example.tu4.utils.ApplicationStaticConstants.MAX_STUDENT_NUMBER;
 import static com.example.tu4.utils.ApplicationStaticConstants.MAX_STUDENT_NUMBER_BACK;
 import static com.example.tu4.utils.ApplicationStaticConstants.STUDENT_NUMBER;
-import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.SUBJECT_DETAIL_URL;
 
 /**
  * Created by gxq on
@@ -108,6 +109,11 @@ public class SubjectDetailActivity extends AppCompatActivity {
     Button btnChooseClass;
     @BindView(R.id.kcxq_title_view)
     TitleView kcxqTitleView;
+    @BindView(R.id.re_classmates_num)
+    RelativeLayout reClassmatesNum;
+    @BindView(R.id.re_feedback_img)
+    RelativeLayout reFeedbackImg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -214,10 +220,9 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     //从网上获取列表内容并显示在当前页面中
     public void getDataByUrl() {
-        String url = baseUrl + "/music/api_classdetail";
         OkHttpUtils
                 .postString()
-                .url(url)//
+                .url(SUBJECT_DETAIL_URL)//
                 .content(new Gson().toJson(new ClassDetailsPost("1", "1003")))
                 .build()//
                 .connTimeOut(20000)

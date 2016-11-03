@@ -24,8 +24,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.HELP_CENTER_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
-import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by hs on
@@ -59,10 +59,9 @@ public class HelpCenterActivity extends AppCompatActivity {
      */
     private void getDate() {
         listDate = new ArrayList<>();
-        String url = baseUrl + "/music-stju-test/api_helpcenter";
         OkHttpUtils
                 .post()
-                .url(url)
+                .url(HELP_CENTER_URL)
                 .addParams("code", "1020")
                 .build()
                 .execute(new StringCallback() {

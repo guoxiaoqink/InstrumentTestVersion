@@ -36,9 +36,11 @@ import cn.bmob.sms.listener.VerifySMSCodeListener;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.Introduction;
+import static com.example.tu4.utils.ApplicationStaticConstants.LOGIN_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.Location;
 import static com.example.tu4.utils.ApplicationStaticConstants.LoginResult;
 import static com.example.tu4.utils.ApplicationStaticConstants.Other;
+import static com.example.tu4.utils.ApplicationStaticConstants.REGISTER_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserName;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserTel;
@@ -212,10 +214,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                     public void done(BmobException ex) {
                         if (ex == null) {//短信验证码已验证成功
                             Log.e("bmob", "验证通过");
-                            String url = baseUrl + "/regist/getdata";
+                            //  String url = baseUrl + "/regist/getdata";
                             OkHttpUtils
                                     .postString()
-                                    .url(url)//
+                                    .url(REGISTER_URL)//
                                     .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
                                     .tag(this)//
                                     .build()//
@@ -274,7 +276,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                 String url = baseUrl + "/login/api_login";
                 OkHttpUtils
                         .postString()//
-                        .url(url)//
+                        .url(LOGIN_URL)//
                         .content(new Gson().toJson(new User(edtTel.getText().toString(), edtPassword.getText().toString())))
                         .build()//
                         .execute(new StringCallback() {

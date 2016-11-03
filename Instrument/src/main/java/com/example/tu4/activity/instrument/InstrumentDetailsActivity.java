@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.INS_DETAILS_URL;
 
 /**
  * Created by scy on
@@ -102,10 +102,8 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
     }
 
     private void getInsDetails() {
-        String url = baseUrl + "/music/api_insdetail";
-        //String url = "http://128.199.201.13:8080/login/api_login";
         OkHttpUtils.postString()
-                .url(url)
+                .url(INS_DETAILS_URL)
                 .content(new Gson().toJson(new InsDetails("1", "1005")))
                 .tag(this)
                 .build()

@@ -27,6 +27,8 @@ import butterknife.OnClick;
 import io.vov.vitamio.utils.Log;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.STUDENT_FEED_BACK_URL;
+
 /**
  * Created by WQJ on 2016/10/19
  * Descripyion: 这个是学员反馈页面
@@ -113,10 +115,10 @@ public class Student_feedbackActivity extends AppCompatActivity {
     }
 
     public void getInfoFromUrl() {
-        String url = "http://128.199.137.227:8080/music-stju-test/api_feedback";
+
         OkHttpUtils
                 .postString()
-                .url(url)//
+                .url(STUDENT_FEED_BACK_URL)//
                 .content(new Gson().toJson(new StudentFeedbackPost(1, 1, "1000")))
                 .build()//
                 .connTimeOut(2000)

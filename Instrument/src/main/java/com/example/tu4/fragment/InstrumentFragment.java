@@ -47,6 +47,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.IMAGE_BY_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 import static com.example.tu4.utils.ApplicationStaticConstants.datalistInstrumentDetail;
 import static com.example.tu4.utils.ApplicationStaticConstants.instrumentClassify;
@@ -167,10 +168,9 @@ public class InstrumentFragment extends Fragment {
     }
 
     public void getImageByUrl() {
-        String url = baseUrl + "/regist/ss";
         OkHttpUtils
                 .postString()
-                .url(url)//
+                .url(IMAGE_BY_URL)//
                 .content(new Gson().toJson(new SlideView(UserId, "9527")))
                 .build()//
                 .connTimeOut(20000)

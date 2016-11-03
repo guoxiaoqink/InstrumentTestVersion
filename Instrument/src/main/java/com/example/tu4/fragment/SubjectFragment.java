@@ -44,8 +44,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.IMAGE_BY_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.SUBJECT_FRAGMENT_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
-import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by WQJ on 2016/10/24
@@ -96,10 +97,9 @@ public class SubjectFragment extends Fragment {
 
     //从网上获取图片网址，并显示在轮播图中
     public void getImageByUrl() {
-        String url = baseUrl + "/regist/ss";
         OkHttpUtils
                 .postString()
-                .url(url)//
+                .url(IMAGE_BY_URL)//
                 .content(new Gson().toJson(new SlideView(UserId, "9527")))
                 .build()//
                 .connTimeOut(20000)
@@ -143,10 +143,9 @@ public class SubjectFragment extends Fragment {
 
     //从网上获取列表内容并显示在列表中
     public void getListDataByUrl() {
-        String url = baseUrl + "/regist/sc";
         OkHttpUtils
                 .postString()
-                .url(url)//
+                .url(SUBJECT_FRAGMENT_URL)//
                 .content(new Gson().toJson(new ClassShowPost(UserId, "student", "9527", 0)))
                 .build()//
                 .connTimeOut(20000)

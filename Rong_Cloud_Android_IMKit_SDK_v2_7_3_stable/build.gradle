@@ -31,5 +31,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'src/main/libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'src/main/libs')
+    compile files('src/main/libs/Rong_IMKit_v2_7_3.jar')
 }

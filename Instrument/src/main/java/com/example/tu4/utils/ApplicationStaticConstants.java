@@ -32,6 +32,18 @@ public class ApplicationStaticConstants {
     public final static int ONE = 1;
     public final static int TWO = 2;
     public final static int THREE = 3;
+    //url
+    public final static String CONSTANTS_URL = "http://128.199.137.227:8080";
+    public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
+    public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";
+    public final static String CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
+    public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music/api_insdetail";
+    public final static String STUDENT_FEED_BACK_URL = CONSTANTS_URL + "/music-stju-test/api_feedback";
+    public final static String SUBJECT_DETAIL_URL = CONSTANTS_URL + "/music/api_classdetail";
+    public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
+    public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
+    public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
+    public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";
@@ -44,7 +56,6 @@ public class ApplicationStaticConstants {
     public static String Location = "";//地址
     public static String Other = "";//其他
     public static String UserTel = "";//电话号码
-
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
         List<InstrumentDetails> clist = null;

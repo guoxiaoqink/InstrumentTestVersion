@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
-import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.CALENDAR_URL;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -118,11 +118,8 @@ public class DateActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.lv_date);
         data_list = new ArrayList<Map<String, Object>>();
 
-
-        String url = baseUrl + "/music-stju-test/api_calendar";
-
         OkHttpUtils.postString()
-                .url(url)
+                .url(CALENDAR_URL)
                 .content(new Gson().toJson(new getData(1, "1004")))
                 .build()
                 .execute(new StringCallback() {

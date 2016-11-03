@@ -31,9 +31,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.COMP_SUGGESTION_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
-import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by hs on
@@ -153,10 +153,10 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
      */
     private void postDate() {
         String content = edComplaintContext.getText().toString();
-        String url = baseUrl + "/music-stju-test/api_complaint";
+        //String url = baseUrl + "/music-stju-test/api_complaint";
         OkHttpUtils
                 .postString()
-                .url(url)
+                .url(COMP_SUGGESTION_URL)
                 .content(new Gson().toJson(new SuggestionsPost(type, content, String.valueOf(UserId),
                         "1002")))
                 .build()
