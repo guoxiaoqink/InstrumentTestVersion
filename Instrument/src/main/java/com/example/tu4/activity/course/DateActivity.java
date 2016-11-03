@@ -76,7 +76,7 @@ public class DateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_date);
         ButterKnife.bind(this);
         Resources res = getResources();
-        String title = "交易记录".toString();
+        String title = "课程日历".toString();
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         monthDateView = (MonthDateView) findViewById(R.id.monthDateView);
