@@ -37,20 +37,18 @@ public class ApplicationStaticConstants {
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
     public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";
     public final static String CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
-    public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music-stju-test/api_insdetail";
+    public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music/api_insdetail";
     public final static String STUDENT_FEED_BACK_URL = CONSTANTS_URL + "/music-stju-test/api_feedback";
     public final static String SUBJECT_DETAIL_URL = CONSTANTS_URL + "/music/api_classdetail";
     public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
-    public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
-
+    public final static String TRANSACTION_RECORDS_URL = CONSTANTS_URL + "/myapi/buyOrder/api_buyInsOrder";
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";
     public static String headPortrait = "";
-
     //用户登录成功的返回值
     public static String UserName = "";   //用户名
     public static int UserId = -1;        //用户id
@@ -59,6 +57,43 @@ public class ApplicationStaticConstants {
     public static String Location = "";//地址
     public static String Other = "";//其他
     public static String UserTel = "";//电话号码
+
+    //趣拍
+    public static final String APP_KEY = "20cffd9799a88e4";
+    public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
+    public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
+    /**
+     * 默认时长
+     */
+    public static  float DEFAULT_DURATION_LIMIT = 8;
+    /**
+     * 默认最小时长
+     */
+    public static  float DEFAULT_MIN_DURATION_LIMIT = 2;
+    /**
+     * 默认码率
+     */
+    public static  int DEFAULT_BITRATE =2000 * 1000;
+    /**
+     * 默认Video保存路径，请开发者自行指定
+     */
+    public static  String VIDEOPATH = FileUtils.newOutgoingFilePath();
+    /**
+     * 默认缩略图保存路径，请开发者自行指定
+     */
+    public static  String THUMBPATH =  VIDEOPATH + ".jpg";
+    /**
+     * 水印本地路径，文件必须为rgba格式的PNG图片
+     */
+    public static  String WATER_MARK_PATH ="assets://Qupai/watermark/qupai-logo.png";
+    public static String tags = "tags";
+    public static String description = "description";
+    public static int shareType = 0; //是否公开 0公开分享 1私有(default) 公开类视频不需要AccessToken授权
+    public static String accessToken;//accessToken 通过调用授权接口得到
+    //    public static String space = UUID.randomUUID().toString().replace("-",""); //存储目录 建议使用uid cid之类的信息,不要写死
+    public static String space = null; //存储目录 建议使用uid cid之类的信息,不要写死
+    //开发者自定义RequestCode,避免重复
+    public static int RECORDE_SHOW = 10001;
 
     public static List<InstrumentDetails> getInstrumentDetailfromJson() {
         List<InstrumentDetails> clist = null;

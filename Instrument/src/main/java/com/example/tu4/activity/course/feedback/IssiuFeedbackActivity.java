@@ -4,24 +4,37 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.IssiuListviewAdapter;
+import com.example.tu4.bean.IssiuFeedbascPost;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -44,10 +57,13 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
     TextView tvIssiu;
     @BindView(R.id.pop_re)
     RelativeLayout popRe;
+    @BindView(R.id.ed_complaint_context)
+    EditText edComplaintContext;
     private PopupWindow mPopupWindow;
     private ListView listView;
     private ImageView checked_image;
     private TextView class_time;
+    private int classTimeType;//记录选择的是那个课时
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +77,8 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         View view1 = inflater.inflate(R.layout.issiu_listview_item, null);
         tvComplaintType.setText("选择课时");
         imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
-        mPopupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false);
+        mPopupWindow = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup
+                .LayoutParams.WRAP_CONTENT, false);
         // 需要设置一下此参数，点击外边可消失
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
         mPopupWindow.setOutsideTouchable(true);
@@ -72,18 +89,68 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         listView.setAdapter(new IssiuListviewAdapter(IssiuFeedbackActivity.this));//配置适配器
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {//popupwindow中listview点击事件
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {//popupwindow中listview点击事件
                 checked_image.setBackgroundResource(R.mipmap.payment_radiobutton_checked);
                 if (position == 0) {
                     tvComplaintType.setText("课时1");
+                    classTimeType = 1;
                 } else if (position == 1) {
                     tvComplaintType.setText("课时2");
+                    classTimeType = 2;
                 } else
                     tvComplaintType.setText("课时3");
+                    classTimeType = 3;
                 mPopupWindow.dismiss();
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
             }
         });
+
+    }
+
+    /**
+     * 获取数据
+     */
+    void getData() {
+        String context = edComplaintContext.getText().toString();
+        Log.w("context", context);
+        String url = baseUrl + "/myapi/feedback/api_feedBack";
+        OkHttpUtils
+                .postString()
+                .url(url)
+                .content(new Gson().toJson(new IssiuFeedbascPost("2061", "2016-11-3 9:00",
+                        classTimeType,
+                        context, 1, 1)))
+                .build()
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("onError", e.getMessage());
+                        Toast.makeText(IssiuFeedbackActivity.this, "发布失败", Toast.LENGTH_SHORT)
+                                .show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.w("onResponse", response);
+                        try {
+                            JSONObject jsonobject = new JSONObject(response);
+                            String result = jsonobject.getString("result");
+                            Log.w("result", result);
+                            if (result.equals("ok")) {
+                                Toast.makeText(IssiuFeedbackActivity.this, "发布成功", Toast
+                                        .LENGTH_SHORT).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
 
     }
 
@@ -95,6 +162,7 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
                 this.finish();
                 break;
             case R.id.tv_issiu://发布按钮
+                getData();
                 Intent in = new Intent();
                 in.setClass(IssiuFeedbackActivity.this, Student_feedbackActivity.class);
                 startActivity(in);

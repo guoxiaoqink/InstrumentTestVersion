@@ -40,6 +40,7 @@ import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
  * Descripyion:投诉建议界面
  * Version：1
  * Modify Person：gxq
+ *
  */
 public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
         .OnClickListener {
@@ -160,6 +161,9 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 .content(new Gson().toJson(new SuggestionsPost(type, content, String.valueOf(UserId),
                         "1002")))
                 .build()
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {

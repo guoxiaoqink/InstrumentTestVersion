@@ -3,6 +3,9 @@ package com.example.tu4.utils;
 import android.content.Intent;
 import android.os.Bundle;
 
+/**
+ * 趣拍RecordResult
+ */
 public class RecordResult {
 
     private final Bundle _Bundle;

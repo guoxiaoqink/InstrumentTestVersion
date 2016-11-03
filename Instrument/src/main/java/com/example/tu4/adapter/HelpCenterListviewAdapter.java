@@ -56,8 +56,6 @@ public class HelpCenterListviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        Log.w("adapter",listDate.get(position).get("title"));
-        Log.w("adapter",listDate.get(position).get("text"));
         viewHolder.tvHelpCenterTitle.setText(listDate.get(position).get("title"));
         viewHolder.tvHelpCenterText.setText(listDate.get(position).get("text"));
 

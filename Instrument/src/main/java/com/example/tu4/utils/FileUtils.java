@@ -6,6 +6,9 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 趣拍保存路径工具类
+ */
 public class FileUtils {
 
     /**

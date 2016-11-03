@@ -9,12 +9,14 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.HelpCenterListviewAdapter;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,10 +49,8 @@ public class HelpCenterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help_center);
         ButterKnife.bind(this);
 
+        listDate = new ArrayList<>();
         getDate();
-
-        lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(this, listDate));
-
 
     }
 
@@ -58,12 +58,14 @@ public class HelpCenterActivity extends AppCompatActivity {
      * 获取网络数据
      */
     private void getDate() {
-        listDate = new ArrayList<>();
         OkHttpUtils
-                .post()
+                .postString()
                 .url(HELP_CENTER_URL)
-                .addParams("code", "1020")
+                .content(new Gson().toJson(new HelpCenterPost("1020")))
                 .build()
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
@@ -74,13 +76,10 @@ public class HelpCenterActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.w("onResponse", "okokokokokokokokokokokokok");
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String Content = jsonObject.getString("Content");
                             String About = jsonObject.getString("About");
-                            Log.w("onResponse", "Content = " + Content);
-                            Log.w("onResponse", "About = " + About);
                             Map<String, String> mapDate = new HashMap<String, String>();
                             mapDate.put("title", "使用文章");
                             mapDate.put("text", Content);
@@ -90,6 +89,7 @@ public class HelpCenterActivity extends AppCompatActivity {
                             mapDate1.put("text", About);
                             listDate.add(mapDate1);
                             Log.w("listDate",listDate.toString());
+                            lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(HelpCenterActivity.this, listDate));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -104,5 +104,13 @@ public class HelpCenterActivity extends AppCompatActivity {
     public void onClick() {
         this.finish();
         JUMP_MAINACTIVITY = 2;
+    }
+
+    public class HelpCenterPost implements Serializable{
+        private String code;
+
+        public HelpCenterPost(String code) {
+            this.code = code;
+        }
     }
 }
