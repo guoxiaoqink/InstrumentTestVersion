@@ -160,6 +160,9 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
                 .content(new Gson().toJson(new SuggestionsPost(type, content, String.valueOf(UserId),
                         "1002")))
                 .build()
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {

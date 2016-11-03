@@ -64,6 +64,9 @@ public class HelpCenterActivity extends AppCompatActivity {
                 .url(HELP_CENTER_URL)
                 .addParams("code", "1020")
                 .build()
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
