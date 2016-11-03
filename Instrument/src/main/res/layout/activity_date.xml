@@ -6,46 +6,52 @@
     android:background="@color/color_ffffff"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <com.example.tu4.view.TitleView
+        android:id="@+id/rl_D"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp44"
-        android:background="@color/s97c8cd">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imgbtn_date_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp10"
-            android:src="@mipmap/left_arrow_white" />
+    </com.example.tu4.view.TitleView>
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp44"-->
+    <!--android:background="@color/s97c8cd">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/subjectdate"
-            android:textColor="@color/sffffff"
-            android:textSize="@dimen/px34" />
+    <!--<ImageView-->
+    <!--android:id="@+id/imgbtn_date_left"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/dp10"-->
+    <!--android:src="@mipmap/left_arrow_white" />-->
 
-        <ImageView
-            android:id="@+id/imgbtn_date_wait"
-            android:layout_width="@dimen/dp_22"
-            android:layout_height="@dimen/dp_22"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp10"
-            android:src="@mipmap/wait_subject" />
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/subjectdate"-->
+    <!--android:textColor="@color/sffffff"-->
+    <!--android:textSize="@dimen/px34" />-->
 
-        <ImageView
-            android:id="@+id/imgbtn_date_find"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp15"
-            android:layout_toStartOf="@+id/imgbtn_date_wait"
-            android:src="@mipmap/lookup" />
-    </RelativeLayout>
+    <!--<ImageView-->
+    <!--android:id="@+id/imgbtn_date_wait"-->
+    <!--android:layout_width="@dimen/dp_22"-->
+    <!--android:layout_height="@dimen/dp_22"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginRight="@dimen/dp10"-->
+    <!--android:src="@mipmap/wait_subject" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imgbtn_date_find"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginRight="@dimen/dp15"-->
+    <!--android:layout_toStartOf="@+id/imgbtn_date_wait"-->
+    <!--android:src="@mipmap/lookup" />-->
+    <!--</RelativeLayout>-->
 
     <ScrollView
         android:layout_width="match_parent"

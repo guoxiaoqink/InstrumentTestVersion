@@ -1,20 +1,25 @@
 package com.example.tu4.activity.personal;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.SearchActivity;
+import com.example.tu4.view.TitleView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -24,8 +29,8 @@ import butterknife.OnClick;
  */
 public class TransactionRecordsActivity extends AppCompatActivity {
 
-    @BindView(R.id.iv_TR_left)
-    ImageView ivTRLeft;
+    @BindView(R.id.rl_TR)
+    TitleView rlTR;
     private ListView mListView;
     private DataBaseForParent dataBaseForParent;
     private LayoutInflater inflater;
@@ -39,17 +44,36 @@ public class TransactionRecordsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_transaction_records);
+        Resources res = getResources();
+        String title = "交易记录".toString();
         ButterKnife.bind(this);
-
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        Drawable ic_search = res.getDrawable(R.mipmap.lookup);
+        rlTR.setImgLeft(ic_return);
+        rlTR.setImgRight2(ic_search);
+        rlTR.getImgLeft().setVisibility(View.VISIBLE);
+        rlTR.getImgRight2().setVisibility(View.VISIBLE);
+        rlTR.setTitleText(title);
+        rlTR.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TransactionRecordsActivity.this.finish();
+            }
+        });
+        rlTR.setImgRight2OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent();
+                in.setClass(TransactionRecordsActivity.this, SearchActivity.class);
+                startActivity(in);
+                finish();
+            }
+        });
         mListView = (ListView) findViewById(R.id.lv_TR_parent);
         dataBaseForParent = new DataBaseForParent();
         mListView.setAdapter(dataBaseForParent);
-    }
-
-    @OnClick(R.id.iv_TR_left)
-    public void onClick() {
-        this.finish();
     }
 
     private class DataBaseForParent extends BaseAdapter {

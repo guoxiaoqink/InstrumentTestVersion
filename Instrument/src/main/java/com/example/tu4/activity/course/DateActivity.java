@@ -1,11 +1,15 @@
 package com.example.tu4.activity.course;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -13,7 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.view.MonthDateView;
+import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -28,7 +34,6 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.model.IUrl.baseUrl;
@@ -44,8 +49,8 @@ public class DateActivity extends AppCompatActivity {
     private static int Num1;
     private static String[] from = {"time", "course", "dress"};
     private static int[] ids = new int[]{R.id.tv_date_li_time, R.id.tv_date_li_course, R.id.tv_date_li_dress};
-    @BindView(R.id.imgbtn_date_left)
-    ImageView imgbtnDateLeft;
+    @BindView(R.id.rl_D)
+    TitleView rlD;
     private ImageView iv_left;
     private ImageView iv_right;
     private TextView tv_date;
@@ -67,8 +72,11 @@ public class DateActivity extends AppCompatActivity {
         list.add(12);
         list.add(15);
         list.add(16);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_date);
         ButterKnife.bind(this);
+        Resources res = getResources();
+        String title = "课程日历".toString();
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         monthDateView = (MonthDateView) findViewById(R.id.monthDateView);
@@ -83,6 +91,29 @@ public class DateActivity extends AppCompatActivity {
             }
         });
         setOnlistener();
+
+        Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
+        Drawable ic_search = res.getDrawable(R.mipmap.lookup);
+        rlD.setImgLeft(ic_return);
+        rlD.setImgRight2(ic_search);
+        rlD.getImgLeft().setVisibility(View.VISIBLE);
+        rlD.getImgRight2().setVisibility(View.VISIBLE);
+        rlD.setTitleText(title);
+        rlD.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateActivity.this.finish();
+            }
+        });
+        rlD.setImgRight2OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent();
+                in.setClass(DateActivity.this, SearchActivity.class);
+                startActivity(in);
+                finish();
+            }
+        });
         //
         mListView = (ListView) findViewById(R.id.lv_date);
         data_list = new ArrayList<Map<String, Object>>();
@@ -170,10 +201,6 @@ public class DateActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
-    @OnClick(R.id.imgbtn_date_left)
-    public void onClick() {
-        this.finish();
-    }
 
     private class getData {
         private String code;
