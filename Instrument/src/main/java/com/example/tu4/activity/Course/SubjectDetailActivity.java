@@ -36,10 +36,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER;
-import static com.example.tu4.model.AplicationStatic.MAX_STUDENT_NUMBER_BACK;
-import static com.example.tu4.model.AplicationStatic.STUDENT_NUMBER;
-import static com.example.tu4.model.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.MAX_STUDENT_NUMBER;
+import static com.example.tu4.utils.ApplicationStaticConstants.MAX_STUDENT_NUMBER_BACK;
+import static com.example.tu4.utils.ApplicationStaticConstants.STUDENT_NUMBER;
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by gxq on

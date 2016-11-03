@@ -19,7 +19,7 @@ import com.example.tu4.view.TitleView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.tu4.model.AplicationStatic.account;
+import static com.example.tu4.utils.ApplicationStaticConstants.account;
 
 /**
  * Created by WQJ on 2016/10/20
