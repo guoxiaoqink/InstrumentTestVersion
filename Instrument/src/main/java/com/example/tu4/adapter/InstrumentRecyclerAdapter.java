@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.instrument.InstrumentClassifyActivity;
-import com.example.tu4.model.AplicationStatic;
+import com.example.tu4.utils.ApplicationStaticConstants;
 
 import java.util.List;
 
@@ -59,7 +59,7 @@ public class InstrumentRecyclerAdapter extends
         viewHolder.mTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AplicationStatic.chooseRecycleView = i;
+                ApplicationStaticConstants.chooseRecycleView = i;
                 v.getContext().startActivity(
                         new Intent(v.getContext(), InstrumentClassifyActivity.class));
 

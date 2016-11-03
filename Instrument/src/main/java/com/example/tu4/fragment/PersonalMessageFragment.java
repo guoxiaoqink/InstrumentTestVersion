@@ -31,8 +31,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.tu4.model.AplicationStatic.UserName;
-import static com.example.tu4.model.AplicationStatic.UserTel;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserName;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserTel;
 
 /**
  * Created by gxq

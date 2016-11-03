@@ -1,4 +1,4 @@
-package com.example.tu4.model;
+package com.example.tu4.utils;
 
 import android.content.Context;
 import android.util.Log;
@@ -8,6 +8,7 @@ import com.duanqu.qupai.auth.QupaiAuthListener;
 
 public class Auth {
 
+    private static final String AUTHTAG = "QupaiAuth";
     private static Auth instance;
 
     public static Auth getInstance() {
@@ -16,8 +17,6 @@ public class Auth {
         }
         return instance;
     }
-
-    private static final String AUTHTAG = "QupaiAuth";
 
     /**
      * 鉴权 建议只调用一次,在demo里面为了测试调用了多次 得到accessToken，通常一个用户对应一个token

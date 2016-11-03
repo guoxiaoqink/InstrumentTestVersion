@@ -16,7 +16,7 @@ import com.cjj.MaterialRefreshListener;
 import com.example.tu4.R;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.bean.InstrumentDetails;
-import com.example.tu4.model.AplicationStatic;
+import com.example.tu4.utils.ApplicationStaticConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +130,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
             mTabLayout.addTab(mTabLayout.newTab().setText(mTablayoutClassify.get(i)));
         }
 
-        mTabLayout.getTabAt(AplicationStatic.chooseRecycleView).select();
+        mTabLayout.getTabAt(ApplicationStaticConstants.chooseRecycleView).select();
 
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -160,7 +160,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         mGridviewInstrumentDetail.clear();
         mGridviewAdapter = new InstrumentGridviewAdapter(mGridviewInstrumentDetail, this);
         mGridview.setAdapter(mGridviewAdapter);
-        changeGridviewDate(AplicationStatic.chooseRecycleView);
+        changeGridviewDate(ApplicationStaticConstants.chooseRecycleView);
         mGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

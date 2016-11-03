@@ -21,9 +21,9 @@ import com.duanqu.qupai.sdk.android.QupaiService;
 import com.duanqu.qupai.upload.QupaiUploadListener;
 import com.duanqu.qupai.upload.UploadService;
 import com.example.tu4.R;
-import com.example.tu4.model.Contant;
-import com.example.tu4.model.RequestCode;
+import com.example.tu4.utils.Contant;
 import com.example.tu4.utils.RecordResult;
+import com.example.tu4.utils.RequestCode;
 
 import java.io.File;
 import java.util.UUID;
@@ -35,10 +35,17 @@ import static com.lling.photopicker.Application.getContext;
 public class VideoRecordActivity extends AppCompatActivity {
 
     private static final String TAG = "Upload";
-
+    /**
+     * 在Demo中录制完成后调用了清除草稿的功能，需要存文件的请开发者在删除之前执行move操作。
+     */
+    String videoFile;
+    String[] thum;
     private int mVideoBitrate = Contant.DEFAULT_BITRATE;
     private String waterMarkPath = Contant.WATER_MARK_PATH;
-
+    private ProgressBar progresstest = null;
+    private Button btn_open_video = null;
+    private String videoUrl = null;
+    private String imageUrl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,12 +133,6 @@ public class VideoRecordActivity extends AppCompatActivity {
                 false);
     }
 
-    /**
-     * 在Demo中录制完成后调用了清除草稿的功能，需要存文件的请开发者在删除之前执行move操作。
-     */
-    String videoFile;
-    String[] thum;
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
 
@@ -175,10 +176,6 @@ public class VideoRecordActivity extends AppCompatActivity {
                 accessToken, space, share, tags, description);
     }
 
-    private ProgressBar progresstest = null;
-    private Button btn_open_video = null;
-    private String videoUrl = null;
-    private String imageUrl = null;
     /**
      * 开始上传
      */

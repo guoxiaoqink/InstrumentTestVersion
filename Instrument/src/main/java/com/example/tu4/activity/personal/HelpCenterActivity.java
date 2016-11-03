@@ -24,8 +24,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
-import static com.example.tu4.model.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by hs on
@@ -35,12 +35,11 @@ import static com.example.tu4.model.IUrl.baseUrl;
  */
 public class HelpCenterActivity extends AppCompatActivity {
 
-    private ArrayList<Map<String, String>> listDate;
     @BindView(R.id.lv_help_center)
     ListView lvHelpCenter;
     @BindView(R.id.img_help_center_return)
     ImageView imgHelpCenterReturn;
-
+    private ArrayList<Map<String, String>> listDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,11 +18,11 @@ import com.example.tu4.fragment.SubjectFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
-import static com.example.tu4.model.AplicationStatic.ONE;
-import static com.example.tu4.model.AplicationStatic.THREE;
-import static com.example.tu4.model.AplicationStatic.TWO;
-import static com.example.tu4.model.AplicationStatic.ZERO;
+import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
+import static com.example.tu4.utils.ApplicationStaticConstants.ONE;
+import static com.example.tu4.utils.ApplicationStaticConstants.THREE;
+import static com.example.tu4.utils.ApplicationStaticConstants.TWO;
+import static com.example.tu4.utils.ApplicationStaticConstants.ZERO;
 
 /**
  * Created by gxq on

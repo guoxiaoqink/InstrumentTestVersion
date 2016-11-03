@@ -47,10 +47,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.model.AplicationStatic.UserId;
-import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
-import static com.example.tu4.model.AplicationStatic.instrumentClassify;
-import static com.example.tu4.model.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
+import static com.example.tu4.utils.ApplicationStaticConstants.datalistInstrumentDetail;
+import static com.example.tu4.utils.ApplicationStaticConstants.instrumentClassify;
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by gxq

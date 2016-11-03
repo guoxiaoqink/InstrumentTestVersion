@@ -35,15 +35,15 @@ import cn.bmob.sms.listener.RequestSMSCodeListener;
 import cn.bmob.sms.listener.VerifySMSCodeListener;
 import okhttp3.Call;
 
-import static com.example.tu4.model.AplicationStatic.Introduction;
-import static com.example.tu4.model.AplicationStatic.Location;
-import static com.example.tu4.model.AplicationStatic.LoginResult;
-import static com.example.tu4.model.AplicationStatic.Other;
-import static com.example.tu4.model.AplicationStatic.UserId;
-import static com.example.tu4.model.AplicationStatic.UserName;
-import static com.example.tu4.model.AplicationStatic.UserTel;
-import static com.example.tu4.model.AplicationStatic.account;
-import static com.example.tu4.model.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.Introduction;
+import static com.example.tu4.utils.ApplicationStaticConstants.Location;
+import static com.example.tu4.utils.ApplicationStaticConstants.LoginResult;
+import static com.example.tu4.utils.ApplicationStaticConstants.Other;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserName;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserTel;
+import static com.example.tu4.utils.ApplicationStaticConstants.account;
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by gxq on

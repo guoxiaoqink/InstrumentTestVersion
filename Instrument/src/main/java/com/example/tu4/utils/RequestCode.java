@@ -1,4 +1,4 @@
-package com.example.tu4.model;
+package com.example.tu4.utils;
 
 /**
  * 开发者自定义RequestCode,避免重复

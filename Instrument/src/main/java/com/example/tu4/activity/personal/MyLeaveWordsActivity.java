@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 
 public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnClickListener {
 

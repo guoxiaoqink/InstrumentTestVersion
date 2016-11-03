@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.example.tu4.model.AplicationStatic.instrumentImg;
+import static com.example.tu4.utils.ApplicationStaticConstants.instrumentImg;
 
 /**
  * Created by Adelais on 2016/9/22.

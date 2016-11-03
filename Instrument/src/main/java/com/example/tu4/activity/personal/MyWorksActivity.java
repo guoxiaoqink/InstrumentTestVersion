@@ -28,10 +28,10 @@ import com.duanqu.qupai.upload.QupaiUploadListener;
 import com.duanqu.qupai.upload.UploadService;
 import com.example.tu4.R;
 import com.example.tu4.adapter.MyWorksGridviewAdapter;
-import com.example.tu4.model.Auth;
-import com.example.tu4.model.Contant;
-import com.example.tu4.model.RequestCode;
+import com.example.tu4.utils.Auth;
+import com.example.tu4.utils.Contant;
 import com.example.tu4.utils.RecordResult;
+import com.example.tu4.utils.RequestCode;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
+import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 
 /**
  * Created by hs on
@@ -53,28 +53,31 @@ import static com.example.tu4.model.AplicationStatic.JUMP_MAINACTIVITY;
 public class MyWorksActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "Upload";
+    @BindView(R.id.img_my_works_return)
+    ImageView imgMyWorksReturn;
+    @BindView(R.id.img_my_works_delete)
+    ImageView imgMyWorksDelete;
+    @BindView(R.id.gv_my_works)
+    GridView gvMyWorks;
+    ApplicationInfo ai;
+    String uid;
+    /**
+     * 在Demo中录制完成后调用了清除草稿的功能，需要存文件的请开发者在删除之前执行move操作。
+     */
+    String videoFile;
+    String[] thum;
 //    private ArrayList<Map<String, String>> listData;
     private ArrayList<Map<String, Object>> listData;
     //    private Map<String,String> mapData;
     private Map<String, Object> mapData;
     private ArrayList<Integer> myWorksPisture;
-
     private String[] myWorksTime, myWorksDate;
-
     private int mVideoBitrate = Contant.DEFAULT_BITRATE;
     private String waterMarkPath = Contant.WATER_MARK_PATH;
-
-    @BindView(R.id.img_my_works_return)
-    ImageView imgMyWorksReturn;
-
-    @BindView(R.id.img_my_works_delete)
-    ImageView imgMyWorksDelete;
-
-    @BindView(R.id.gv_my_works)
-    GridView gvMyWorks;
-
-    ApplicationInfo ai;
-    String uid;
+    private ProgressBar progresstest = null;
+    private Button btn_open_video = null;
+    private String videoUrl = null;
+    private String imageUrl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -265,12 +268,6 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
                 false);
     }
 
-    /**
-     * 在Demo中录制完成后调用了清除草稿的功能，需要存文件的请开发者在删除之前执行move操作。
-     */
-    String videoFile;
-    String[] thum;
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
 
@@ -313,11 +310,6 @@ public class MyWorksActivity extends AppCompatActivity implements View.OnClickLi
         return uploadService.createTask(context, uuid, _VideoFile, _Thumbnail,
                 accessToken, space, share, tags, description);
     }
-
-    private ProgressBar progresstest = null;
-    private Button btn_open_video = null;
-    private String videoUrl = null;
-    private String imageUrl = null;
 
     /**
      * 开始上传

@@ -1,4 +1,4 @@
-package com.example.tu4.model;
+package com.example.tu4.utils;
 
 /**
  * Created by MR.WEN on 2016/10/28.

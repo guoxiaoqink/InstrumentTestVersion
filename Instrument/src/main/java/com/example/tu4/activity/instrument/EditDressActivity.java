@@ -24,8 +24,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.model.AplicationStatic.UserId;
-import static com.example.tu4.model.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
+import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by 秦孟飞 on 2016/10/20

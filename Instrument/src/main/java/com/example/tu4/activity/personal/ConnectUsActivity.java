@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.example.tu4.App;
 import com.example.tu4.R;
 import com.example.tu4.adapter.ConnectUsGridviewAdapter;
-import com.example.tu4.model.AplicationStatic;
+import com.example.tu4.utils.ApplicationStaticConstants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +46,7 @@ public class ConnectUsActivity extends AppCompatActivity {
 
 
     public void initGridview() {
-        ConnectUsGridviewAdapter connectUsGridviewAdapter = new ConnectUsGridviewAdapter(AplicationStatic.getCustomServeName(), getBaseContext());
+        ConnectUsGridviewAdapter connectUsGridviewAdapter = new ConnectUsGridviewAdapter(ApplicationStaticConstants.getCustomServeName(), getBaseContext());
         gvService.setAdapter(connectUsGridviewAdapter);
         gvService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

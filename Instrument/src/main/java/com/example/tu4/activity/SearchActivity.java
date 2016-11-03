@@ -18,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.tu4.model.AplicationStatic.datalistInstrumentDetail;
+import static com.example.tu4.utils.ApplicationStaticConstants.datalistInstrumentDetail;
 
 /**
  * Created by gxq on
