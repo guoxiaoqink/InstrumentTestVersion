@@ -45,6 +45,11 @@ public class ApplicationStaticConstants {
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
     public final static String TRANSACTION_RECORDS_URL = CONSTANTS_URL + "/myapi/buyOrder/api_buyInsOrder";
+    public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
+    //趣拍
+    public static final String APP_KEY = "20cffd9799a88e4";
+    public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
+    public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";
@@ -57,11 +62,6 @@ public class ApplicationStaticConstants {
     public static String Location = "";//地址
     public static String Other = "";//其他
     public static String UserTel = "";//电话号码
-
-    //趣拍
-    public static final String APP_KEY = "20cffd9799a88e4";
-    public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
-    public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
     /**
      * 默认时长
      */

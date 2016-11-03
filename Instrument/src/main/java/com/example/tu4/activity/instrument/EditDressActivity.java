@@ -93,6 +93,7 @@ public class EditDressActivity extends AppCompatActivity {
             case R.id.btn_save_dress:
 
                 getAddDress();
+                this.finish();
                 break;
         }
     }
