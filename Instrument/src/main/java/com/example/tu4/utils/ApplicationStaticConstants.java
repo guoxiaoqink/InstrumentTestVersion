@@ -37,13 +37,15 @@ public class ApplicationStaticConstants {
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
     public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";
     public final static String CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
-    public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music/api_insdetail";
+    public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music-stju-test/api_insdetail";
     public final static String STUDENT_FEED_BACK_URL = CONSTANTS_URL + "/music-stju-test/api_feedback";
     public final static String SUBJECT_DETAIL_URL = CONSTANTS_URL + "/music/api_classdetail";
     public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
+    public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
+
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
     public static String account = "";

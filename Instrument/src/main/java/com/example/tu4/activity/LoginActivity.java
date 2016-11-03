@@ -45,7 +45,6 @@ import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserName;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserTel;
 import static com.example.tu4.utils.ApplicationStaticConstants.account;
-import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by gxq on
@@ -273,7 +272,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
         } else {
             if (judgeTelPassword()) {
 
-                String url = baseUrl + "/login/api_login";
                 OkHttpUtils
                         .postString()//
                         .url(LOGIN_URL)//

@@ -17,7 +17,6 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -123,21 +122,23 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String Instrument_name = jsonObject.getString("Instrument_name");
-                            String Instrument_now_price = jsonObject.getString("Instrument_now_price");
-                            String Instrument_pre_price = jsonObject.getString("Instrument_pre_price");
+                            int Instrument_now_price = jsonObject.getInt("Instrument_now_price");
+                            int Instrument_pre_price = jsonObject.getInt("Instrument_pre_price");
                             Double Freight = jsonObject.getDouble("Freight");
                             String Instrument_location = jsonObject.getString("Instrument_location");
-                            JSONArray array = jsonObject.getJSONArray("Product");
-                            JSONObject a = array.getJSONObject(0);
-                            tvCanshu1.setText("参数1：" + a.getString("Product_Parameter"));
-                            JSONObject b = array.getJSONObject(1);
-                            tvCanshu2.setText("参数2：" + b.getString("Product_Parameter"));
+                            String Product_Parameter = jsonObject.getString("Product_Parameter");
+//                            JSONArray array = jsonObject.getJSONArray("Product");
+//                            JSONObject a = array.getJSONObject(0);
+//                            tvCanshu1.setText("参数1：" + a.getString("Product_Parameter"));
+//                            JSONObject b = array.getJSONObject(1);
+//                            tvCanshu2.setText("参数2：" + b.getString("Product_Parameter"));
+                            tvCanshu1.setText(Product_Parameter);
                             tvInstrumentLevel.setText("¥" + Instrument_now_price);
                             tvOldLevel.setText("¥" + Instrument_pre_price);
                             tvInstrumentName.setText(Instrument_name);
                             tvFreight.setText("运费： " + Freight);
                             tvPlace.setText(Instrument_location);
-                            double pNum = Integer.parseInt(Instrument_now_price) + Freight;
+                            double pNum = Instrument_now_price + Freight;
                             tvMoneyNum.setText("" + pNum);
 
 //                            JSONArray Pic_url = jsonObject.getJSONArray("Pic_url");

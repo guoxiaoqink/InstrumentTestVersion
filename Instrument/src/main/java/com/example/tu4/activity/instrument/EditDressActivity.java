@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -24,8 +25,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.EDITDRESS_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
-import static com.example.tu4.utils.IUrl.baseUrl;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -61,15 +62,12 @@ public class EditDressActivity extends AppCompatActivity {
         String name = in.getStringExtra("name");
         String phone = in.getStringExtra("phone");
         String dress = in.getStringExtra("dress");
-        EditText nameEditText = (EditText) findViewById(R.id.et_edit_name);
-        EditText phoneEditText = (EditText) findViewById(R.id.et_edit_phone);
-        EditText dressEditText = (EditText) findViewById(R.id.et_edit_dress);
-        nameEditText.setText(name);
-        nameEditText.setTextColor(mDayColor);
-        phoneEditText.setText(phone);
-        phoneEditText.setTextColor(mDayColor);
-        dressEditText.setText(dress);
-        dressEditText.setTextColor(mDayColor);
+        etEditName.setText(name);
+        etEditName.setTextColor(mDayColor);
+        etEditPhone.setText(phone);
+        etEditPhone.setTextColor(mDayColor);
+        etEditDress.setText(dress);
+        etEditDress.setTextColor(mDayColor);
         Resources res = getResources();
         String title = "编辑地址".toString();
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
@@ -93,17 +91,16 @@ public class EditDressActivity extends AppCompatActivity {
                 Toast.makeText(EditDressActivity.this, "删除", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_save_dress:
-                Toast.makeText(EditDressActivity.this, "保存", Toast.LENGTH_SHORT).show();
+
+                getAddDress();
                 break;
         }
     }
 
     private void getAddDress() {
-        String[] data = {userid, "student", etEditName.getText().toString(), etEditName.getText().toString(), etEditDress.getText().toString()};
-        String url = baseUrl + "";
         OkHttpUtils.postString()
-                .url(url)
-                .content(new Gson().toJson(new putDress("2008", data)))
+                .url(EDITDRESS_URL)
+                .content(new Gson().toJson(new putDress("2008", UserId, etEditName.getText().toString(), etEditPhone.getText().toString(), etEditDress.getText().toString())))
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -113,6 +110,8 @@ public class EditDressActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
+                        Toast.makeText(EditDressActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
+                        Log.d("success", response);
 
                     }
                 });
@@ -120,31 +119,28 @@ public class EditDressActivity extends AppCompatActivity {
 
     private class putDress {
         private String code;
-        private int User_id;
-        private String role;
-        private String consigneeName;
-        private String phoneNumber;
-        private String consigneeAddress;
+        private int user_id;
+        private String receiver;
+        private String address;
+        private String tel;
 
-        public putDress(String code, String[] data) {
+        public putDress(String code, int user_id, String receiver, String tel, String address) {
             this.code = code;
-            this.User_id = Integer.parseInt(data[0]);
-            this.role = data[1];
-            this.consigneeName = data[2];
-            this.phoneNumber = data[3];
-            this.consigneeAddress = data[4];
+            this.user_id = user_id;
+            this.receiver = receiver;
+            this.tel = tel;
+            this.address = address;
         }
 
         @Override
         public String toString() {
             return "putDress{" +
                     "code='" + code + '\'' +
-                    "data[{" + "User_id='" + User_id + '\'' +
-                    "role='" + role + '\'' +
-                    "consigneeName='" + consigneeName + '\'' +
-                    "phoneNumber='" + phoneNumber + '\'' +
-                    "consigneeAddress='" + consigneeAddress + '\'' +
-                    '}' + ']' + '}';
+                    "user_id='" + user_id + '\'' +
+                    "receiver='" + receiver + '\'' +
+                    "tel='" + tel + '\'' +
+                    "address='" + address + '\'' +
+                    '}';
         }
     }
 }
