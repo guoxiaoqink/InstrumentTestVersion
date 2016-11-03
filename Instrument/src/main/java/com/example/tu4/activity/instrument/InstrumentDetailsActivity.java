@@ -126,6 +126,7 @@ public class InstrumentDetailsActivity extends AppCompatActivity {
                             int Instrument_pre_price = jsonObject.getInt("Instrument_pre_price");
                             Double Freight = jsonObject.getDouble("Freight");
                             String Instrument_location = jsonObject.getString("Instrument_location");
+
                             String Product_Parameter = jsonObject.getString("Product_Parameter");
 //                            JSONArray array = jsonObject.getJSONArray("Product");
 //                            JSONObject a = array.getJSONObject(0);

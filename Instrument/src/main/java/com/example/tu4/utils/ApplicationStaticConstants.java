@@ -50,6 +50,7 @@ public class ApplicationStaticConstants {
     public static int chooseRecycleView = 0;
     public static String account = "";
     public static String headPortrait = "";
+
     //用户登录成功的返回值
     public static String UserName = "";   //用户名
     public static int UserId = -1;        //用户id

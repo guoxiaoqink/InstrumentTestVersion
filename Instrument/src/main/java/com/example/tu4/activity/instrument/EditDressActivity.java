@@ -112,7 +112,6 @@ public class EditDressActivity extends AppCompatActivity {
                     public void onResponse(String response, int id) {
                         Toast.makeText(EditDressActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
                         Log.d("success", response);
-
                     }
                 });
     }
