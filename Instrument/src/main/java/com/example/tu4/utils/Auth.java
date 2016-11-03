@@ -6,6 +6,8 @@ import android.util.Log;
 import com.duanqu.qupai.auth.AuthService;
 import com.duanqu.qupai.auth.QupaiAuthListener;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.accessToken;
+
 public class Auth {
 
     private static final String AUTHTAG = "QupaiAuth";
@@ -26,7 +28,7 @@ public class Auth {
      * @param space     space
      */
     public void initAuth(Context context , String appKey, String appsecret, String space){
-        Log.e("Live","accessToken" + Contant.accessToken);
+        Log.e("Live","accessToken" + accessToken);
         Log.e("Live","space" + space);
 
         AuthService service = AuthService.getInstance();
@@ -39,8 +41,8 @@ public class Auth {
             @Override
             public void onAuthComplte(int responseCode, String responseMessage) {
                 Log.e(AUTHTAG, "onAuthComplte" + responseCode + "message" + responseMessage);
-                Contant.accessToken = responseMessage;
-                Log.w(AUTHTAG,"成功成功成功成功成功成功成功成功成功成功成功成功成功成功成功"+Contant.accessToken);
+                accessToken = responseMessage;
+                Log.w(AUTHTAG,"成功成功成功成功成功成功成功成功成功成功成功成功成功成功成功"+accessToken);
             }
         });
         service.startAuth(context,appKey, appsecret, space);

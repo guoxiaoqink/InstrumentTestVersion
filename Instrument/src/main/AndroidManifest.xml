@@ -79,11 +79,7 @@
         <activity
             android:name=".activity.personal.HelpCenterActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.course.feedback.Student_feedbackActivity"
@@ -102,12 +98,15 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.personal.MyWorksActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.personal.MyWorksDeleteActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".activity.personal.VideoRecordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.personal.VideoPlayActivity"

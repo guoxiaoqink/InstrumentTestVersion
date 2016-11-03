@@ -2,7 +2,6 @@ package com.example.tu4.activity.personal;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
@@ -30,7 +29,7 @@ public class VideoPlayActivity extends AppCompatActivity {
     private Uri uri;
     String path2 = "http://112.253.22.157/17/z/z/y/u/zzyuasjwufnqerzvyxgkuigrkcatxr/hc.yinyuetai" +
             ".com/D046015255134077DDB3ACA0D7E68D45.flv";
-    String path1 = Environment.getExternalStorageDirectory() + "/ok.mp4";
+    //String path1 = Environment.getExternalStorageDirectory() + "/ok.mp4";
 
 
     @BindView(R.id.img_video_play_return)
