@@ -15,8 +15,6 @@ import com.example.tu4.R;
  */
 
 public class TitleView extends FrameLayout {
-
-
     //    @BindView(R.id.img_left)
 //    ImageView imgLeft;
 //    @BindView(R.id.tv_title)

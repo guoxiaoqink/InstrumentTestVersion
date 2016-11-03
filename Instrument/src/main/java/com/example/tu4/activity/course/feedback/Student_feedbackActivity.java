@@ -117,7 +117,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(url)//
-                .content(new Gson().toJson(new StudentFeedbackPost(1, "1000")))
+                .content(new Gson().toJson(new StudentFeedbackPost(1, 1, "1000")))
                 .build()//
                 .connTimeOut(2000)
                 .readTimeOut(20000)
