@@ -40,6 +40,7 @@ import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
  * Descripyion:投诉建议界面
  * Version：1
  * Modify Person：gxq
+ *
  */
 public class ComplaintsSuggestionsActivity extends AppCompatActivity implements View
         .OnClickListener {
