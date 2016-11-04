@@ -29,6 +29,8 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -100,26 +102,29 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
                     classTimeType = 2;
                 } else
                     tvComplaintType.setText("课时3");
-                    classTimeType = 3;
+                classTimeType = 3;
                 mPopupWindow.dismiss();
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
             }
         });
-
     }
 
     /**
      * 获取数据
      */
+
     void getData() {
+        //获取当前系统时间
+        SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+        String date = sDateFormat.format(new java.util.Date());
+        Log.w("时间", date);
         String context = edComplaintContext.getText().toString();
         Log.w("context", context);
         String url = baseUrl + "/myapi/feedback/api_feedBack";
         OkHttpUtils
                 .postString()
                 .url(url)
-                .content(new Gson().toJson(new IssiuFeedbascPost("2061", "2016-11-3 9:00",
-                        classTimeType,
+                .content(new Gson().toJson(new IssiuFeedbascPost("2061", date, classTimeType,
                         context, 1, 1)))
                 .build()
                 .connTimeOut(20000)
