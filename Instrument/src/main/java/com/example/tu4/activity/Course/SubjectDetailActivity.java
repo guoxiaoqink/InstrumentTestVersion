@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.feedback.IssiuFeedbackActivity;
+import com.example.tu4.activity.course.feedback.Student_feedbackActivity;
 import com.example.tu4.bean.ClassDetailsPost;
 import com.example.tu4.bean.SubjectDetails;
 import com.example.tu4.bean.SubjectInfo;
@@ -113,6 +115,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
     RelativeLayout reClassmatesNum;
     @BindView(R.id.re_feedback_img)
     RelativeLayout reFeedbackImg;
+    @BindView(R.id.re_num_stu_feedback)
+    RelativeLayout reNumStuFeedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +188,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick({R.id.tv_money_subjectdetail, R.id.tv_money, R.id.btn_choose_class})
+    @OnClick({R.id.tv_money_subjectdetail, R.id.tv_money, R.id.btn_choose_class, R.id.re_classmates_num, R.id.re_num_stu_feedback})
     public void onClick(View view) {
         switch (view.getId()) {
 //            case R.id.iv_topbar_arrow:
@@ -205,6 +209,15 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 intent.setClass(SubjectDetailActivity.this, CourseSubscribeActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.re_classmates_num:
+                Intent intent1 = new Intent(SubjectDetailActivity.this, StudentListActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.re_num_stu_feedback:
+                Intent intent2 = new Intent(SubjectDetailActivity.this, Student_feedbackActivity.class);
+                startActivity(intent2);
+                break;
+
 //            case R.id.tv_money:
 //                Intent intent1 = new Intent();
 //                intent1.putExtra("class_name", tvCourseName.getText());
@@ -236,8 +249,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        Log.d("success", response);
-//                        System.out.println(response);
+                        Log.d("success", response);
+                        System.out.println(response);
                         try {
                             Gson gson = new Gson();
                             SubjectDetails subjectDetails = gson.fromJson(response, SubjectDetails.class);

@@ -444,6 +444,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/re_num_stu_feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"

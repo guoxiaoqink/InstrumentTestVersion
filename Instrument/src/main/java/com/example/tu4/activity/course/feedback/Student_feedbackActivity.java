@@ -27,7 +27,6 @@ import org.json.JSONObject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.vov.vitamio.utils.Log;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.STUDENT_FEED_BACK_URL;
@@ -135,7 +134,8 @@ public class Student_feedbackActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("success", response);
+//                        Toast.makeText(Student_feedbackActivity.this, "连接陈宫", Toast.LENGTH_SHORT).show();
+//                        Log.d("success", response);
 //                        System.out.println(response);
                         try {
                             Gson gson = new Gson();

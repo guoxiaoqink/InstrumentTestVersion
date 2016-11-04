@@ -39,7 +39,7 @@ public class ApplicationStaticConstants {
     public final static String CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
     public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music/api_insdetail";
     public final static String STUDENT_FEED_BACK_URL = CONSTANTS_URL + "/music-stju-test/api_feedback";
-    public final static String SUBJECT_DETAIL_URL = CONSTANTS_URL + "/music/api_classdetail";
+    public final static String SUBJECT_DETAIL_URL = CONSTANTS_URL + "/music-stju-test/api_classdetail";
     public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
