@@ -12,13 +12,13 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.adapter.HelpCenterListviewAdapter;
+import com.example.tu4.utils.CacheServerResponse;
 import com.example.tu4.view.TitleView;
+import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,8 +42,6 @@ public class HelpCenterActivity extends AppCompatActivity {
     ListView lvHelpCenter;
     @BindView(R.id.help_title)
     TitleView helpTitle;
-    //    @BindView(R.id.img_help_center_return)
-//    ImageView imgHelpCenterReturn;
     private ArrayList<Map<String, String>> listDate;
 
     @Override
@@ -53,9 +51,8 @@ public class HelpCenterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help_center);
         ButterKnife.bind(this);
 
-        getDate();
+        getCacheDate();
 
-        lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(this, listDate));
         Resources res = getResources();
         helpTitle.getImgLeft().setVisibility(View.VISIBLE);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
@@ -71,11 +68,47 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * 获取缓存数据
+     */
+    private void getCacheDate() {
+        if (CacheServerResponse.isCacheDataFailure(getApplicationContext(),"HelpCenterGet")){
+            Log.w("读取缓存数据","读取缓存数据失败，重新请求数据");
+            getDate();
+        }else {
+            HelpCenterGet helpCenterGet = (HelpCenterGet)CacheServerResponse.readObject(getApplicationContext(),"HelpCenterGet");
+            initData(helpCenterGet);
+            Log.w("读取缓存数据","读取缓存成功");
+        }
+    }
+
+    /**
+     * 填充数据
+     */
+    private void initData(HelpCenterGet helpCenterGet) {
+        listDate = new ArrayList<>();
+        String Content = helpCenterGet.getContent();
+        String About = helpCenterGet.getAbout();
+        Log.w("onResponse", "Content = " + Content);
+        Log.w("onResponse", "About = " + About);
+        Map<String, String> mapDate = new HashMap<String, String>();
+        mapDate.put("title", "使用文章");
+        mapDate.put("text", Content);
+        listDate.add(mapDate);
+        Map<String, String> mapDate1 = new HashMap<String, String>();
+        mapDate1.put("title", "关于");
+        mapDate1.put("text", About);
+        listDate.add(mapDate1);
+        Log.w("listDate", listDate.toString());
+        lvHelpCenter.setAdapter(new HelpCenterListviewAdapter(HelpCenterActivity.this, listDate));
+
+    }
+
     /**
      * 获取网络数据
      */
     private void getDate() {
-        listDate = new ArrayList<>();
         OkHttpUtils
                 .post()
                 .url(HELP_CENTER_URL)
@@ -91,25 +124,15 @@ public class HelpCenterActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.w("onResponse", "okokokokokokokokokokokokok");
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            String Content = jsonObject.getString("Content");
-                            String About = jsonObject.getString("About");
-                            Log.w("onResponse", "Content = " + Content);
-                            Log.w("onResponse", "About = " + About);
-                            Map<String, String> mapDate = new HashMap<String, String>();
-                            mapDate.put("title", "使用文章");
-                            mapDate.put("text", Content);
-                            listDate.add(mapDate);
-                            Map<String, String> mapDate1 = new HashMap<String, String>();
-                            mapDate1.put("title", "关于");
-                            mapDate1.put("text", About);
-                            listDate.add(mapDate1);
-                            Log.w("listDate", listDate.toString());
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        Log.w("onResponse", "okokokokokokokokokokokokok");
+                        HelpCenterGet helpCenterGet = new Gson().fromJson(response, HelpCenterGet
+                                .class);
+                        initData(helpCenterGet);
+                        if(CacheServerResponse.saveObject(getApplicationContext(),"HelpCenterGet",helpCenterGet)){
+                            Log.w("添加缓存","HelpCenterGet 缓存成功");
+                        }else {
+                            Log.w("添加缓存","HelpCenterGet 缓存失败");
                         }
 
                     }
@@ -117,9 +140,25 @@ public class HelpCenterActivity extends AppCompatActivity {
 
     }
 
-//    @OnClick(R.id.img_help_center_return)
-//    public void onClick() {
-//        this.finish();
-//        JUMP_MAINACTIVITY = 2;
-//    }
+
+    public class HelpCenterGet implements Serializable {
+        private String Content;
+        private String About;
+
+        public String getContent() {
+            return Content;
+        }
+
+        public void setContent(String content) {
+            Content = content;
+        }
+
+        public String getAbout() {
+            return About;
+        }
+
+        public void setAbout(String about) {
+            About = about;
+        }
+    }
 }
