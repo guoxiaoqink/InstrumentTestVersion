@@ -1,4 +1,4 @@
-package com.example.tu4.view;
+package com.example.tu4.utils;
 
 import android.util.Log;
 
