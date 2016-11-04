@@ -22,14 +22,12 @@ import com.example.tu4.activity.course.feedback.Student_feedbackActivity;
 import com.example.tu4.bean.ClassDetailsPost;
 import com.example.tu4.bean.SubjectDetails;
 import com.example.tu4.bean.SubjectInfo;
+import com.example.tu4.utils.CacheServerResponse;
 import com.example.tu4.view.CircleImageView;
 import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,11 +50,9 @@ import static com.example.tu4.utils.ApplicationStaticConstants.SUBJECT_DETAIL_UR
  */
 public class SubjectDetailActivity extends AppCompatActivity {
 
-
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
     private int studentNum;
-
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)
@@ -132,7 +128,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
 //        Intent intent = getIntent();
 //        class_id = Integer.parseInt(intent.getStringExtra("class_id"));
-        getDataByUrl();
+
+        //获取缓存数据
+        getChcheData();
+
         initLinearlayoutImage();
         initLinearlayouFeedback();
         kcxqTitleView.setTitleText(title);
@@ -156,6 +155,48 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * 获取缓存数据
+     */
+    private void getChcheData() {
+        if (CacheServerResponse.isCacheDataFailure(getApplicationContext(),"SubjectDetails")){
+            Log.w("读取缓存数据","读取缓存数据失败，重新请求数据");
+            getDataByUrl();
+        }else {
+            SubjectDetails subjectDetails = (SubjectDetails)CacheServerResponse.readObject(getApplicationContext(),"SubjectDetails");
+            initData(subjectDetails);
+            Log.w("读取缓存数据","读取缓存成功");
+        }
+    }
+
+    /**
+     * 填充数据
+     */
+    private void initData(SubjectDetails subjectDetails) {
+
+        List<SubjectInfo> subjectInfos = new ArrayList<SubjectInfo>();
+        subjectInfos = subjectDetails.getTeacher();
+        tvCourseName.setText(subjectDetails.getClass_name().toString());
+        tvCourseLevel.setText("等级：" + subjectDetails.getClass_level().toString());
+        tvClassTeacher.setText(subjectInfos.get(0).getTeacher_name());
+        tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
+        textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
+        studentNum = subjectInfos.get(0).getStudent_number();
+        Log.w("studentNum",studentNum+"   ffffffffffffffffffffffffffff");
+        int price = subjectDetails.getClass_price();
+        tvMoneySubjectdetail.setText(String.valueOf(price) + ".00");
+        tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));
+        tvSubTime.setText("课时：" + String.valueOf(subjectDetails.getClass_number()));
+        tvNotes.setText("备注：" + subjectDetails.getClass_remark().toString());
+        tvLocation.setText("地点：" + subjectDetails.getClass_location().toString());
+        tvNumofFeedback.setText(subjectDetails.getFeedback_number() + "条学生反馈");
+        addHeadImgToLinearlayout(subjectDetails.getFeedback_number(), MAX_STUDENT_NUMBER_BACK,
+                R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
+//                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
+        //JSONObject jsonObject = new JSONObject(response);
+
     }
 
     private void initLinearlayouFeedback() {
@@ -252,33 +293,16 @@ public class SubjectDetailActivity extends AppCompatActivity {
                     public void onResponse(String response, int id) {
                         Log.d("success", response);
                         System.out.println(response);
-                        try {
+
                             Gson gson = new Gson();
                             SubjectDetails subjectDetails = gson.fromJson(response, SubjectDetails.class);
-                            List<SubjectInfo> subjectInfos = new ArrayList<SubjectInfo>();
-                            subjectInfos = subjectDetails.getTeacher();
-                            tvCourseName.setText(subjectDetails.getClass_name().toString());
-                            tvCourseLevel.setText("等级：" + subjectDetails.getClass_level().toString());
-                            tvClassTeacher.setText(subjectInfos.get(0).getTeacher_name());
-                            tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
-                            textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
-                            studentNum = subjectInfos.get(0).getStudent_number();
-                            Log.w("studentNum",studentNum+"   ffffffffffffffffffffffffffff");
-                            int price = subjectDetails.getClass_price();
-                            tvMoneySubjectdetail.setText(String.valueOf(price) + ".00");
-                            tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));
-                            tvSubTime.setText("课时：" + String.valueOf(subjectDetails.getClass_number()));
-                            tvNotes.setText("备注：" + subjectDetails.getClass_remark().toString());
-                            tvLocation.setText("地点：" + subjectDetails.getClass_location().toString());
-                            tvNumofFeedback.setText(subjectDetails.getFeedback_number() + "条学生反馈");
-                            addHeadImgToLinearlayout(subjectDetails.getFeedback_number(), MAX_STUDENT_NUMBER_BACK,
-                                    R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
-//                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
-                            JSONObject jsonObject = new JSONObject(response);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                            initData(subjectDetails);
+                            if(CacheServerResponse.saveObject(getApplicationContext(),"SubjectDetails",subjectDetails)){
+                                Log.w("添加缓存","SubjectDetails 缓存成功");
+                            }else {
+                                Log.w("添加缓存","SubjectDetails 缓存失败");
+                            }
                     }
                 });
     }
