@@ -55,10 +55,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
-    //    @BindView(R.id.imageview_instrument_show)
-//    ImageView imageviewInstrumentShow;
-//    @BindView(R.id.iv_topbar_arrow)
-//    ImageView ivTopbarArrow;
+    private int studentNum;
+
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)
@@ -210,7 +208,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.re_classmates_num:
-                Intent intent1 = new Intent(SubjectDetailActivity.this, StudentListActivity.class);
+                Intent intent1 = new Intent();
+                intent1.putExtra("studentNum",String.valueOf(studentNum));
+                intent1.setClass(SubjectDetailActivity.this, StudentListActivity.class);
+                Log.w("studentNum",String.valueOf(studentNum));
                 startActivity(intent1);
                 break;
             case R.id.re_num_stu_feedback:
@@ -261,6 +262,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
                             tvClassTeacher.setText(subjectInfos.get(0).getTeacher_name());
                             tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
                             textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
+                            studentNum = subjectInfos.get(0).getStudent_number();
+                            Log.w("studentNum",studentNum+"   ffffffffffffffffffffffffffff");
                             int price = subjectDetails.getClass_price();
                             tvMoneySubjectdetail.setText(String.valueOf(price) + ".00");
                             tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));

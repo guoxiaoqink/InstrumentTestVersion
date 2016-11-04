@@ -1,9 +1,11 @@
 package com.example.tu4.activity.course;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.GridView;
@@ -30,6 +32,7 @@ public class StudentListActivity extends AppCompatActivity {
     TitleView kcxqTitleView;
     private ArrayList<Map<String, String>> listData;
     private Map<String, String> mapData;
+    private int studNum;
 
     @BindView(R.id.gv_student_list)
     GridView gvStudentList;
@@ -41,11 +44,16 @@ public class StudentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_list);
         ButterKnife.bind(this);
 
+        Intent intent=getIntent();
+        String s = intent.getStringExtra("studentNum");
+        studNum = Integer.valueOf(s);
+        Log.w("StudentListActivity",studNum+" ");
+
         setTitleBar();
 
         getData();
 
-        gvStudentList.setAdapter(new StudentListGridviewAdapter(this, listData));
+        gvStudentList.setAdapter(new StudentListGridviewAdapter(this, listData,studNum));
 
     }
 
@@ -53,7 +61,7 @@ public class StudentListActivity extends AppCompatActivity {
      *状态栏
      */
     private void setTitleBar() {
-        String title = "学员列表（12）".toString();
+        String title = "学员列表（" + studNum + ")".toString();
         Resources res = getResources();
         kcxqTitleView.setTitleText(title);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);

@@ -24,17 +24,19 @@ public class StudentListGridviewAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private ArrayList<Map<String, String>> listData;
+    private int studentNum;
 
-    public StudentListGridviewAdapter(Context context, ArrayList<Map<String, String>> listData) {
+    public StudentListGridviewAdapter(Context context, ArrayList<Map<String, String>> listData,int studentNum) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.listData = listData;
+        this.studentNum = studentNum;
 
     }
 
     @Override
     public int getCount() {
-        return 9;
+        return studentNum;
     }
 
     @Override
