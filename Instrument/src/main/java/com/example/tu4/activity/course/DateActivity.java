@@ -3,6 +3,7 @@ package com.example.tu4.activity.course;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -46,9 +47,12 @@ import static com.example.tu4.utils.ApplicationStaticConstants.CALENDAR_URL;
  */
 public class DateActivity extends AppCompatActivity {
     private static List<Map<String, Object>> data_list;
+    private static List<Map<String, Object>> data_list1;
     private static int Num1;
     private static String[] from = {"time", "course", "dress"};
     private static int[] ids = new int[]{R.id.tv_date_li_time, R.id.tv_date_li_course, R.id.tv_date_li_dress};
+    private static String date0;
+    private static String day;
     @BindView(R.id.rl_D)
     TitleView rlD;
     private ImageView iv_left;
@@ -59,39 +63,23 @@ public class DateActivity extends AppCompatActivity {
     private MonthDateView monthDateView;
     private ListView mListView;
     private SimpleAdapter sim_adapter;
-    private int Num;
     private Handler handler = new Handler();
     private Thread thread;
+    private Handler handler2 = new Handler();
+    private Handler handler3 = new Handler();
+    private String time;
+    private String course;
+    private String dress;
+    private int Num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<Integer> list = new ArrayList<Integer>();
-        //10.12.15.16有事物标记
-        list.add(10);
-        list.add(12);
-        list.add(15);
-        list.add(16);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_date);
         ButterKnife.bind(this);
         Resources res = getResources();
         String title = "课程日历".toString();
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_right = (ImageView) findViewById(R.id.iv_right);
-        monthDateView = (MonthDateView) findViewById(R.id.monthDateView);
-        tv_date = (TextView) findViewById(R.id.date_text);
-        monthDateView.setTextView(tv_date, tv_week);
-        monthDateView.setDaysHasThingList(list);
-        monthDateView.setDateClick(new MonthDateView.DateClick() {
-
-            @Override
-            public void onClickOnDate() {
-                Toast.makeText(getApplication(), "点击了：" + monthDateView.getmSelDay(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        setOnlistener();
-
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
         Drawable ic_search = res.getDrawable(R.mipmap.lookup);
         rlD.setImgLeft(ic_return);
@@ -114,10 +102,91 @@ public class DateActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        iv_left = (ImageView) findViewById(R.id.iv_left);
+        iv_right = (ImageView) findViewById(R.id.iv_right);
+        monthDateView = (MonthDateView) findViewById(R.id.monthDateView);
+        tv_date = (TextView) findViewById(R.id.date_text);
+        getData();
+
         //
         mListView = (ListView) findViewById(R.id.lv_date);
         data_list = new ArrayList<Map<String, Object>>();
 
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                    handler2.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Toast.makeText(DateActivity.this,day,Toast.LENGTH_SHORT).show();
+                            //tv_today.getText().toString();
+                            Calendar calendar = Calendar.getInstance();
+                            final int date = calendar.get(Calendar.DAY_OF_MONTH);//当前日期
+                            final String nowdate_str = getDate(date);
+                            monthDateView.setTextView(tv_date, tv_week);
+                            if (nowdate_str.equals(day)) {
+                                Map<String, Object> map = new HashMap<String, Object>();
+                                map.put("time", time);
+                                map.put("course", course + "(第" + Num + "课时）");
+                                map.put("dress", dress);
+                                data_list.clear();
+                                data_list.add(map);
+                                // getData(time1,course1,dress1,Num1);
+                                sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, ids);
+                                mListView.setAdapter(sim_adapter);
+                            }
+                            monthDateView.setDateClick(new MonthDateView.DateClick() {
+
+                                @Override
+                                public void onClickOnDate() {
+                                    //  Toast.makeText(getApplication(), "点击了：" + monthDateView.getmSelDay(), Toast.LENGTH_SHORT).show();
+                                    int day_int = Integer.parseInt(day);
+                                    if (monthDateView.getmSelDay() == day_int) {
+                                        Toast.makeText(DateActivity.this, " " + time + " " + course + " " + dress, Toast.LENGTH_SHORT).show();
+                                        Map<String, Object> map = new HashMap<String, Object>();
+                                        map.put("time", time);
+                                        map.put("course", course + "(第" + Num + "课时）");
+                                        map.put("dress", dress);
+                                        data_list.clear();
+                                        data_list.add(map);
+                                        // getData(time1,course1,dress1,Num1);
+                                        sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, ids);
+                                        mListView.setAdapter(sim_adapter);
+                                    } else {
+                                        Map<String, Object> map = new HashMap<String, Object>();
+                                        data_list.clear();
+                                        // getData(time1,course1,dress1,Num1);
+                                        sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, ids);
+                                        mListView.setAdapter(sim_adapter);
+                                    }
+                                }
+                            });
+                            setOnlistener();
+
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.start();
+
+
+    }
+
+    private String getDate(int date) {
+        String date_str = String.valueOf(date);
+        if (date_str.length() == 1) {
+            date_str = "0" + date_str;
+        }
+        return date_str;
+    }
+
+    private void getData() {
         OkHttpUtils.postString()
                 .url(CALENDAR_URL)
                 .content(new Gson().toJson(new getData(1, "1004")))
@@ -131,44 +200,29 @@ public class DateActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Toast.makeText(DateActivity.this, "成功", Toast.LENGTH_SHORT).show();
+
+                        // Toast.makeText(DateActivity.this, "成功", Toast.LENGTH_SHORT).show();
                         Log.d("success", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String time = jsonObject.getString("Time");
-                            String course = jsonObject.getString("Name");
-                            String dress = jsonObject.getString("Location");
-                            int Num = jsonObject.getInt("Num");
+                            time = jsonObject.getString("Time");
+                            course = jsonObject.getString("Name");
+                            dress = jsonObject.getString("Location");
+                            Num = jsonObject.getInt("Num");
                             String Date = jsonObject.getString("Date");
-                            Map<String, Object> map = new HashMap<String, Object>();
-                            map.put("time", time);
-                            map.put("course", course + "(第" + Num + "课时）");
-                            map.put("dress", dress);
-                            data_list.add(map);
-                            // getData(time1,course1,dress1,Num1);
-                            sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, ids);
-                            mListView.setAdapter(sim_adapter);
+                            date0 = Date;
+                            day = date0.substring(date0.indexOf("-") + 1);
+                            int date_int = Integer.parseInt(day);//服务器日期转化整形
+                            final List<Integer> list = new ArrayList<Integer>();
+                            //date_int有事物标记
+                            list.add(date_int);
+                            monthDateView.setDaysHasThingList(list);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 });
-
-
     }
-
-//    public List<Map<String, Object>> getData(String time,String course,String dress,int num) {
-//        //cion和iconName的长度是相同的，这里任选其一都可以
-//
-//        for (int i = 0; i < 2; i++) {
-//            Map<String, Object> map = new HashMap<String, Object>();
-//            map.put("time", time);
-//            map.put("course", course+"(第"+num+"课时）");
-//            map.put("dress", dress);
-//            data_list.add(map);
-//        }
-//        return data_list;
-//    }
 
     private void setOnlistener() {
         iv_left.setOnClickListener(new View.OnClickListener() {
