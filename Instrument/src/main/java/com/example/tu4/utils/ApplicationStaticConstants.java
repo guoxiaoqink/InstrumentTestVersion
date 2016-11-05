@@ -44,7 +44,7 @@ public class ApplicationStaticConstants {
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
-    public final static String TRANSACTION_RECORDS_URL = CONSTANTS_URL + "/myapi/buyOrder/api_buyInsOrder";
+    public final static String BOOKING_ORDER_URL = CONSTANTS_URL + "/myapi/ReservationOrder/api_showReservationOrder";
     public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
     //趣拍
     public static final String APP_KEY = "20cffd9799a88e4";

@@ -14,13 +14,24 @@ import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.BookingOrderAdapter;
+import com.example.tu4.bean.BookingOrder;
+import com.example.tu4.okhttp.JsonGenericsSerializator;
 import com.example.tu4.view.TitleView;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.GenericsCallback;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+
+import static com.example.tu4.utils.ApplicationStaticConstants.BOOKING_ORDER_URL;
 
 /**
  * Created by scy on
@@ -35,8 +46,9 @@ public class BookingOrderActivity extends AppCompatActivity {
 
     private ListView listView;
     private BookingOrderAdapter adapter;
-    private ArrayList<Map<String,String>> listData;
-    private Map<String,String> mapData;
+    private ArrayList<Map<String, String>> listData;
+    private Map<String, String> mapData;
+    private String situation;
 
 
     @Override
@@ -47,9 +59,12 @@ public class BookingOrderActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Resources res = getResources();
         listView = (ListView) findViewById(R.id.listview);
+
         getDataByUrl();
-        adapter = new BookingOrderAdapter(this);
+
+        adapter = new BookingOrderAdapter(this,listData);
         listView.setAdapter(adapter);
+        //title
         bookingOrderTitle.getImgLeft().setVisibility(View.VISIBLE);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
         Drawable ic_look = res.getDrawable(R.mipmap.lookup);
@@ -74,7 +89,7 @@ public class BookingOrderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent();
-                intent.setClass(BookingOrderActivity.this,SubjectDetailActivity.class);
+                intent.setClass(BookingOrderActivity.this, SubjectDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,8 +99,53 @@ public class BookingOrderActivity extends AppCompatActivity {
      * 从网络获取数据
      */
     private void getDataByUrl() {
+        OkHttpUtils
+                .postString()
+                .content(new Gson().toJson(new BookingOrderPost(1, "2010")))
+                .url(BOOKING_ORDER_URL)
+                .build()
+                .execute(new GenericsCallback<BookingOrder>(new JsonGenericsSerializator()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
 
+                    }
 
+                    @Override
+                    public void onResponse(BookingOrder response, int id) {
+                        listData = new ArrayList<Map<String, String>>();
+                        List<BookingOrder.BookingOrderinfo> list = response.getList();
+                        for (int i = 0; i < list.size(); i++) {
+                            mapData = new HashMap<String, String>();
+                            if (list.get(i).getSituation() == 1) {
+                                situation = "未上课".toString();
+                            } else if (list.get(i).getSituation() == 0) {
+                                situation = "已完成".toString();
+                            } else {
+                                situation = "已上了" + (i - 1) + "课时".toString();
+                            }
+                            mapData.put("situation", situation);
+                            mapData.put("class_name", list.get(i).getClass_name());
+                            mapData.put("class_time", String.valueOf(list.get(i).getClass_time()));
+                            mapData.put("teacher_name", list.get(i).getTeacher_name());
+                            mapData.put("class_price", String.valueOf(list.get(i).getClass_price
+                                    ()));
+                            mapData.put("class_pic_url", list.get(i).getClass_pic_url());
+                            mapData.put("date", list.get(i).getDate());
+                            listData.add(mapData);
+                        }
+                    }
+
+                });
+    }
+
+    public class BookingOrderPost implements Serializable {
+        private int user_id;
+        private String code;
+
+        public BookingOrderPost(int user_id, String code) {
+            this.user_id = user_id;
+            this.code = code;
+        }
     }
 
 }

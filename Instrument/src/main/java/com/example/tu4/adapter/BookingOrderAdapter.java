@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.utils.GetImageByUrl;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,20 +24,22 @@ import butterknife.ButterKnife;
 public class BookingOrderAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
+    private ArrayList<Map<String,String>> listData;
 
-    public BookingOrderAdapter(Context context) {
+    public BookingOrderAdapter(Context context,ArrayList<Map<String,String>> listData) {
+        this.listData = listData;
         this.context = context;
         this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return listData.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return listData.get(position);
     }
 
     @Override
@@ -51,6 +57,16 @@ public class BookingOrderAdapter extends BaseAdapter {
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
+        viewHolder.tvClassName.setText(listData.get(position).get("class_name"));
+        viewHolder.tvClassTime.setText(listData.get(position).get("class_time")+"课时");
+        viewHolder.tvOrderTime.setText("订单时间 "+listData.get(position).get("date"));
+        viewHolder.tvCost.setText("￥"+listData.get(position).get("class_price"));
+        viewHolder.tvRealCost.setText("￥"+listData.get(position).get("class_price"));
+        viewHolder.tvTeacherName.setText(listData.get(position).get("teacher_name"));
+        viewHolder.tvIsclass.setText(listData.get(position).get("situation"));
+        String url = listData.get(position).get("class_pic_url");
+        GetImageByUrl getImageByUrl = new GetImageByUrl();
+        getImageByUrl.setImage(viewHolder.imgClass, url);
 
         return convertView;
     }
