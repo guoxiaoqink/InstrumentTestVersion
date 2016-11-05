@@ -151,7 +151,6 @@ public class DateActivity extends AppCompatActivity {
                                         map.put("dress", dress);
                                         data_list.clear();
                                         data_list.add(map);
-                                        // getData(time1,course1,dress1,Num1);
                                         sim_adapter = new SimpleAdapter(DateActivity.this, data_list, R.layout.date_list_item, from, ids);
                                         mListView.setAdapter(sim_adapter);
                                     } else {
