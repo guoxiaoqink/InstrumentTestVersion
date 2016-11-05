@@ -66,22 +66,23 @@ public class SubjectFragment extends Fragment {
     private List<String> ImageCricleViewList_name = new ArrayList<>();
     private List<List<ClassListDetails>> data = new ArrayList<>();
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    private AutoPlayingViewPager.OnPageItemClickListener onPageItemClickListener = new AutoPlayingViewPager.OnPageItemClickListener() {
+    private AutoPlayingViewPager.OnPageItemClickListener onPageItemClickListener = new
+            AutoPlayingViewPager.OnPageItemClickListener() {
 
-        @Override
-        public void onPageItemClick(int position, String adLink) {
-            // 直接返回链接,使用WebView加载
-            if (!TextUtils.isEmpty(adLink)) {
-                //链接存在时才进行下一步操作,当然，这只是简单判断,这个字符串不是正确链接,则需要加上正则表达式判断。
-                Intent intent = new Intent(getContext(),
-                        AdvertisementActivity.class);
-                intent.putExtra("linkPath", adLink);
-                startActivity(intent);
-                Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
-            }
-        }
+                @Override
+                public void onPageItemClick(int position, String adLink) {
+                    // 直接返回链接,使用WebView加载
+                    if (!TextUtils.isEmpty(adLink)) {
+                        //链接存在时才进行下一步操作,当然，这只是简单判断,这个字符串不是正确链接,则需要加上正则表达式判断。
+                        Intent intent = new Intent(getContext(),
+                                AdvertisementActivity.class);
+                        intent.putExtra("linkPath", adLink);
+                        startActivity(intent);
+                        Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-    };
+            };
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -117,7 +118,8 @@ public class SubjectFragment extends Fragment {
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
-                            ImageCircleView imageCircleView = gson.fromJson(response, ImageCircleView.class);
+                            ImageCircleView imageCircleView = gson.fromJson(response,
+                                    ImageCircleView.class);
                             List<ImageViewInfo> imageViewInfos = new ArrayList<ImageViewInfo>();
                             imageViewInfos = imageCircleView.getTop();
                             if (imageViewInfos == null) {
@@ -172,17 +174,22 @@ public class SubjectFragment extends Fragment {
 
 
                             for (int i = 0; i < classListDetailses.size(); i++) {
-//                                System.out.println(classListDetailses.get(i).getClass_name() + "注意这里啊，，，，，，，，，，，，，，，");
+//                                System.out.println(classListDetailses.get(i).getClass_name() +
+// "注意这里啊，，，，，，，，，，，，，，，");
                                 data.add(classListDetailses);
                             }
-//                            System.out.println(data.size()+"00000000000000000000000000000000000000000000");
+//                            System.out.println(data.size()
+// +"00000000000000000000000000000000000000000000");
                             BaseAdapter adapter = new SubjectListviewAdapter(getContext(), data);
                             listviewSubject.setAdapter(adapter);
-                            listviewSubject.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            listviewSubject.setOnItemClickListener(new AdapterView
+                                    .OnItemClickListener() {
                                 @Override
-                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                public void onItemClick(AdapterView<?> parent, View view, int
+                                        position, long id) {
 
-                                    Intent intent = new Intent(getContext(), SubjectDetailActivity.class);
+                                    Intent intent = new Intent(getContext(),
+                                            SubjectDetailActivity.class);
 //                                        intent.putExtra("class_id", position);
                                     startActivity(intent);
                                 }

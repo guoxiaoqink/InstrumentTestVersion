@@ -1,7 +1,9 @@
 package com.example.tu4.activity.personal;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -40,6 +42,8 @@ public class ConnectUsActivity extends AppCompatActivity {
     GridView gvService;
     @BindView(R.id.connectus_title)
     TitleView connectusTitle;
+    @BindView(R.id.tv_phone_number)
+    TextView tvPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +67,15 @@ public class ConnectUsActivity extends AppCompatActivity {
 
 
     public void initGridview() {
-        ConnectUsGridviewAdapter connectUsGridviewAdapter = new ConnectUsGridviewAdapter(ApplicationStaticConstants.getCustomServeName(), getBaseContext());
+        ConnectUsGridviewAdapter connectUsGridviewAdapter = new ConnectUsGridviewAdapter
+                (ApplicationStaticConstants.getCustomServeName(), getBaseContext());
         gvService.setAdapter(connectUsGridviewAdapter);
         gvService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    connect("PmJOt+9YfUwb3qfQAC/FHTgmoQcIdCxDa4bGqIzVbQQf6xwRu8h2Um5/mP8Qz6F0CeNlClwibT4=");
+                    connect("PmJOt+9YfUwb3qfQAC/FHTgmoQcIdCxDa4bGqIzVbQQf6xwRu8h2Um5" +
+                            "/mP8Qz6F0CeNlClwibT4=");
                 }
             }
         });
@@ -79,10 +85,15 @@ public class ConnectUsActivity extends AppCompatActivity {
     @OnClick({R.id.tv_telephone_call})
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.img_return:
-//                this.finish();
-//                break;
             case R.id.tv_telephone_call:
+                String phoneNum = tvPhoneNumber.getText().toString();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_CALL);
+                //url:统一资源定位符
+                //uri:统一资源标示符（更广）
+                intent.setData(Uri.parse("tel:" + phoneNum));
+                //开启系统拨号器
+                startActivity(intent);
                 break;
         }
     }
@@ -95,7 +106,8 @@ public class ConnectUsActivity extends AppCompatActivity {
          */
     private void connect(String token) {
 
-        if (getApplicationInfo().packageName.equals(App.getCurProcessName(getApplicationContext()))) {
+        if (getApplicationInfo().packageName.equals(App.getCurProcessName(getApplicationContext()
+        ))) {
             RongIM.connect(token, new RongIMClient.ConnectCallback() {
                 @Override
                 public void onTokenIncorrect() {
@@ -119,8 +131,10 @@ public class ConnectUsActivity extends AppCompatActivity {
  * @param title             聊天的标题，如果传入空值，则默认显示与之聊天的客服名称。
  * @param customServiceInfo 当前使用客服者的用户信息。{@link CSCustomServiceInfo}
  */
-                    RongIM.getInstance().startCustomerServiceChat(ConnectUsActivity.this, "KEFU147748161344978", "在线客服", csInfo);
-                    //                 startActivity(new Intent(MainActivity.this, Main2Activity.class));
+                    RongIM.getInstance().startCustomerServiceChat(ConnectUsActivity.this,
+                            "KEFU147748161344978", "在线客服", csInfo);
+                    //                 startActivity(new Intent(MainActivity.this, Main2Activity
+                    // .class));
 
                 }
 

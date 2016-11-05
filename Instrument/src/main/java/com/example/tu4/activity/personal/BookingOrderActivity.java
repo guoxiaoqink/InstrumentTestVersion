@@ -7,16 +7,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
+import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.BookingOrderAdapter;
-import com.example.tu4.bean.User;
 import com.example.tu4.view.TitleView;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,11 +32,12 @@ public class BookingOrderActivity extends AppCompatActivity {
 
     @BindView(R.id.booking_order_title)
     TitleView bookingOrderTitle;
-    //    @BindView(R.id.iv_return)
-//    ImageView ivReturn;
+
     private ListView listView;
     private BookingOrderAdapter adapter;
-    private List<User> users;
+    private ArrayList<Map<String,String>> listData;
+    private Map<String,String> mapData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,8 @@ public class BookingOrderActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Resources res = getResources();
         listView = (ListView) findViewById(R.id.listview);
-        initdata();
-        adapter = new BookingOrderAdapter(this, users);
+        getDataByUrl();
+        adapter = new BookingOrderAdapter(this);
         listView.setAdapter(adapter);
         bookingOrderTitle.getImgLeft().setVisibility(View.VISIBLE);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
@@ -68,18 +70,22 @@ public class BookingOrderActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.setClass(BookingOrderActivity.this,SubjectDetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    //为了测试，特地将不同的布局的数据混乱的添加到list里
-    private void initdata() {
-        users = new ArrayList<User>();
-        users.add(new User("课程XXXXXX", null, null));
-        users.add(new User("课程XXXXXX", null, null));
-        users.add(new User("课程XXXXXX", null, null));
+    /**
+     * 从网络获取数据
+     */
+    private void getDataByUrl() {
+
+
     }
 
-//    @OnClick(R.id.iv_return)
-//    public void onClick() {
-//        this.finish();
-//    }
 }

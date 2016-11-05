@@ -22,8 +22,6 @@ public class GetImageByUrl {
     private PicHandler pic_hdl;
     private ImageView imgView;
     private String url;
-
-
     /**
      * 通过图片url路径获取图片并显示到对应控件上
      *
@@ -38,6 +36,7 @@ public class GetImageByUrl {
 
         t.start();
     }
+
 
     public Bitmap getUrlImage(String url) {
         Bitmap img = null;
@@ -63,6 +62,7 @@ public class GetImageByUrl {
         public void run() {
 
             Bitmap img = getUrlImage(url);
+
             System.out.println(img + "---");
             Message msg = pic_hdl.obtainMessage();
             msg.what = 0;

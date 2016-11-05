@@ -37,7 +37,7 @@
         android:background="@color/color_d1d1d1" />
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/img_class"
         android:layout_width="@dimen/dp_63"
         android:layout_height="@dimen/dp_63"
         android:layout_below="@id/line"
@@ -46,49 +46,49 @@
         android:background="@color/gray" />
 
     <TextView
-        android:id="@+id/tv_insname"
+        android:id="@+id/tv_class_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/img"
+        android:layout_alignTop="@id/img_class"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp5"
-        android:layout_toRightOf="@id/img"
+        android:layout_toRightOf="@id/img_class"
         android:gravity="center"
         android:text="课程XXXXXXXX"
         android:textColor="@color/color_666666"
         android:textSize="@dimen/px26" />
 
     <TextView
-        android:id="@+id/tv_num"
+        android:id="@+id/tv_class_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_insname"
+        android:layout_below="@id/tv_class_name"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp5"
-        android:layout_toRightOf="@+id/img"
+        android:layout_toRightOf="@+id/img_class"
         android:gravity="center"
         android:text="六课时"
         android:textColor="@color/s999999"
         android:textSize="@dimen/px26" />
 
     <TextView
-        android:id="@+id/tv_teacher"
+        android:id="@+id/tv_teacher_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_num"
+        android:layout_below="@id/tv_class_time"
         android:layout_marginLeft="@dimen/dp10"
         android:layout_marginTop="@dimen/dp1"
-        android:layout_toRightOf="@+id/img"
+        android:layout_toRightOf="@+id/img_class"
         android:gravity="center"
         android:text="老师：xxx"
         android:textColor="@color/s999999"
         android:textSize="@dimen/px26" />
 
     <TextView
-        android:id="@+id/tv_money"
+        android:id="@+id/tv_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/img"
+        android:layout_alignBottom="@id/img_class"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dp10"
         android:text="￥5000"
@@ -101,16 +101,17 @@
         android:layout_height="@dimen/dp1"
         android:layout_alignLeft="@id/tv_order_time"
         android:layout_alignRight="@id/tv_isclass"
-        android:layout_below="@id/tv_teacher"
+        android:layout_below="@id/tv_teacher_name"
         android:layout_marginTop="@dimen/dp10"
         android:background="@color/color_d1d1d1" />
 
     <TextView
-        android:id="@+id/tv_realmoney"
+        android:id="@+id/tv_real_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@id/tv_linebottom"
         android:padding="@dimen/dp10"
+        android:textColor="@color/color_666666"
         android:text="实付：￥5000" />
 </RelativeLayout>

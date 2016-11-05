@@ -24,7 +24,7 @@ public class CacheServerResponse {
      * 可以专门把失效时间作为一个参数，供不同失效时间场景定制缓存失效时间
      * 这个是默认缓存有效期的时间
      */
-    private final static int CACHE_TIME_DEFAULT =1000*60*20;
+    private final static int CACHE_TIME_DEFAULT =1000*60*2;
     /**
      * 文件名为键，缓存有效时间为值，可以实现针对每一个缓存文件设置不同的有效时间
      */

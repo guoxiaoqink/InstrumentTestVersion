@@ -12,32 +12,6 @@
         android:id="@+id/leave_word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
-    <!--<RelativeLayout-->
-    <!--android:id="@+id/rl_titl"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/dp_45"-->
-    <!--android:background="@color/color_97c8cd">-->
-
-    <!--<ImageView-->
-    <!--android:id="@+id/img_my_leave_words_return"-->
-    <!--android:layout_width="@dimen/dp_20"-->
-    <!--android:layout_height="@dimen/dp_20"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:layout_marginLeft="@dimen/dp_10"-->
-    <!--android:src="@mipmap/left_arrow_white"/>-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/tv_leave"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_centerVertical="true"-->
-    <!--android:text="@string/my_leave_words"-->
-    <!--android:textColor="@color/color_ffffff"-->
-    <!--android:textSize="@dimen/sp_17"/>-->
-
-    <!--</RelativeLayout>-->
-
     <RelativeLayout
         android:id="@+id/divider"
         android:layout_width="wrap_content"

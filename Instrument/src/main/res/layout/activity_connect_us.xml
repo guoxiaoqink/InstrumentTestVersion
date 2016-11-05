@@ -65,12 +65,13 @@
             android:text="@string/teliphone" />
 
         <TextView
+            android:id="@+id/tv_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_toRightOf="@+id/telephone_tv"
-            android:text="40000000000000000"
+            android:text="10086"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp14" />
 
