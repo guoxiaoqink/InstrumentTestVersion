@@ -142,7 +142,6 @@ public class DateActivity extends AppCompatActivity {
 
                                 @Override
                                 public void onClickOnDate() {
-                                    //  Toast.makeText(getApplication(), "点击了：" + monthDateView.getmSelDay(), Toast.LENGTH_SHORT).show();
                                     int day_int = Integer.parseInt(day);
                                     if (monthDateView.getmSelDay() == day_int) {
                                         Toast.makeText(DateActivity.this, " " + time + " " + course + " " + dress, Toast.LENGTH_SHORT).show();
