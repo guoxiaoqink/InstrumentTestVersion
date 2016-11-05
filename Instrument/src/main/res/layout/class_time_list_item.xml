@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/subject_detail_shape">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5">
+
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="课时1"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/class_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/subject"
+                android:text="(已完成)"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp14" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/class_time_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="2016-05-05"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/sp14" />
+
+                <TextView
+                    android:layout_marginStart="@dimen/dp8"
+                    android:id="@+id/class_time_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="14:00"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/sp14" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/line_subject"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/subject"
+                android:layout_marginTop="@dimen/dp5"
+                android:background="@color/color_999999" />
+
+            <TextView
+                android:id="@+id/textview_cintent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_subject"
+                android:layout_marginTop="@dimen/dp10"
+                android:text="内容："
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/sp14" />
+
+            <TextView
+                android:id="@+id/class_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_subject"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_toRightOf="@+id/textview_cintent"
+                android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/sp14" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

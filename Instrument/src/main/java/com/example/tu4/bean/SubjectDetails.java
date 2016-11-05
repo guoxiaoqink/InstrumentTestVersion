@@ -7,7 +7,7 @@ import java.util.List;
  * Created by MR.WEN on 2016/11/1.
  */
 
-public class SubjectDetails implements Serializable{
+public class SubjectDetails implements Serializable {
     private String Class_time;
     private int Class_id;
     private int Feedback_number;
@@ -18,6 +18,7 @@ public class SubjectDetails implements Serializable{
     private int Class_number;
     private String Class_location;
     private List<SubjectInfo> Teacher;
+    private List<ClassCouInfo> Class_detail;
 
 
     public String getClass_time() {
@@ -100,6 +101,15 @@ public class SubjectDetails implements Serializable{
         Teacher = teacher;
     }
 
+    public List<ClassCouInfo> getClass_detail() {
+        return Class_detail;
+    }
+
+    public void setClass_detail(List<ClassCouInfo> class_detail) {
+        Class_detail = class_detail;
+    }
+
+
     @Override
     public String toString() {
         return "SubjectDetails{" +
@@ -113,6 +123,7 @@ public class SubjectDetails implements Serializable{
                 ", Class_number=" + Class_number +
                 ", Class_location='" + Class_location + '\'' +
                 ", Teacher=" + Teacher +
+                ", Class_detail=" + Class_detail +
                 '}';
     }
 }

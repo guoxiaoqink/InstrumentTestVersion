@@ -8,5 +8,20 @@ import java.util.List;
  */
 
 public class StudentFeedbackInfo implements Serializable {
-    private List<Object> Topic;
+    private List<FeedbackInfo> Topic;
+
+    public List<FeedbackInfo> getTopic() {
+        return Topic;
+    }
+
+    public void setTopic(List<FeedbackInfo> topic) {
+        Topic = topic;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentFeedbackInfo{" +
+                "Topic=" + Topic +
+                '}';
+    }
 }

@@ -113,7 +113,7 @@
             android:orientation="vertical">
 
             <TextView
-               android:id="@+id/tv_control_num"
+                android:id="@+id/tv_control_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -296,6 +296,15 @@
             </RelativeLayout>
         </LinearLayout>
 
+        <com.example.tu4.view.ResolveConflictsScoolviewListview
+            android:divider="@color/color_f0f0f0"
+            android:dividerHeight="@dimen/dp11"
+            android:id="@+id/class_time_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp11">
+
+        </com.example.tu4.view.ResolveConflictsScoolviewListview>
         <!--课时-->
         <!--<ListView
                 android:layout_marginTop="@dimen/dp10"
@@ -303,144 +312,143 @@
                 android:layout_height="@dimen/dp200">
         </ListView>-->
         <!--课时内容-->
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:background="@drawable/subject_detail_shape">-->
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:background="@drawable/subject_detail_shape">
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="@dimen/dp10"-->
+        <!--android:layout_marginLeft="@dimen/dp10"-->
+        <!--android:layout_marginRight="@dimen/dp10"-->
+        <!--android:layout_marginTop="@dimen/dp5">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp10"
-                android:layout_marginLeft="@dimen/dp10"
-                android:layout_marginRight="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp5">
+        <!--<TextView-->
+        <!--android:id="@+id/subject"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="课时1"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:id="@+id/subject"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="课时1"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@+id/subject"-->
+        <!--android:text="(已完成)"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/subject"
-                    android:text="(已完成)"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:text="2016-05-05 14:00"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="2016-05-05 14:00"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:id="@+id/line_subject"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_below="@+id/subject"-->
+        <!--android:layout_marginTop="@dimen/dp5"-->
+        <!--android:background="@color/color_999999" />-->
 
-                <TextView
-                    android:id="@+id/line_subject"
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_below="@+id/subject"
-                    android:layout_marginTop="@dimen/dp5"
-                    android:background="@color/color_999999" />
+        <!--<TextView-->
+        <!--android:id="@+id/textview_cintent"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/line_subject"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:text="内容 "-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:id="@+id/textview_cintent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line_subject"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:text="内容 "
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/line_subject"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:layout_toRightOf="@+id/textview_cintent"-->
+        <!--android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "-->
+        <!--android:textColor="@color/color_999999"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line_subject"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:layout_toRightOf="@+id/textview_cintent"
-                    android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-                    android:textColor="@color/color_999999"
-                    android:textSize="@dimen/sp14" />
+        <!--</RelativeLayout>-->
+        <!--</RelativeLayout>-->
 
-            </RelativeLayout>
-        </RelativeLayout>
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:background="@drawable/subject_detail_shape">-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp10"
-            android:background="@drawable/subject_detail_shape">
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="@dimen/dp10"-->
+        <!--android:layout_marginLeft="@dimen/dp10"-->
+        <!--android:layout_marginRight="@dimen/dp10"-->
+        <!--android:layout_marginTop="@dimen/dp5">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp10"
-                android:layout_marginLeft="@dimen/dp10"
-                android:layout_marginRight="@dimen/dp10"
-                android:layout_marginTop="@dimen/dp5">
+        <!--<TextView-->
+        <!--android:id="@+id/subject1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="课时1"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:id="@+id/subject1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="课时1"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@+id/subject1"-->
+        <!--android:text="(已完成)"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/subject1"
-                    android:text="(已完成)"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:text="2016-05-05 14:00"-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="2016-05-05 14:00"
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:id="@+id/line_subject1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1px"-->
+        <!--android:layout_below="@+id/subject1"-->
+        <!--android:layout_marginTop="@dimen/dp5"-->
+        <!--android:background="@color/color_999999" />-->
 
-                <TextView
-                    android:id="@+id/line_subject1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_below="@+id/subject1"
-                    android:layout_marginTop="@dimen/dp5"
-                    android:background="@color/color_999999" />
+        <!--<TextView-->
+        <!--android:id="@+id/textview_cintent1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/line_subject1"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:text="内容 "-->
+        <!--android:textColor="@color/color_666666"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:id="@+id/textview_cintent1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line_subject1"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:text="内容 "
-                    android:textColor="@color/color_666666"
-                    android:textSize="@dimen/sp14" />
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/line_subject1"-->
+        <!--android:layout_marginTop="@dimen/dp10"-->
+        <!--android:layout_toRightOf="@+id/textview_cintent1"-->
+        <!--android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "-->
+        <!--android:textColor="@color/color_999999"-->
+        <!--android:textSize="@dimen/sp14" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/line_subject1"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:layout_toRightOf="@+id/textview_cintent1"
-                    android:text="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
-                    android:textColor="@color/color_999999"
-                    android:textSize="@dimen/sp14" />
-
-            </RelativeLayout>
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
+        <!--</RelativeLayout>-->
 
 
         <RelativeLayout

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.example.tu4.R;
 import com.example.tu4.adapter.FeedbackListviewAdapter;
 import com.example.tu4.adapter.FeedbackListviewAdapter_1;
 import com.example.tu4.adapter.FeedbackListviewAdapter_2;
+import com.example.tu4.bean.FeedbackInfo;
+import com.example.tu4.bean.StudentFeedbackInfo;
 import com.example.tu4.bean.StudentFeedbackPost;
 import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
@@ -23,6 +26,9 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +57,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
     @BindView(R.id.re_course_order_title)
     TitleView reCourseOrderTitle;
     private int a = 1;
+    private List<List<FeedbackInfo>> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +70,8 @@ public class Student_feedbackActivity extends AppCompatActivity {
         if (courseTimeX.getText().toString().equals("课时1")) {
             preCourse.setImageResource(R.mipmap.stu_feedback_pre_noclick);
             preCourse.setClickable(false);
-            FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
-            stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
+//            FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
+//            stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
         }
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
         reCourseOrderTitle.setImgLeft(ic_return);
@@ -93,8 +100,8 @@ public class Student_feedbackActivity extends AppCompatActivity {
                 FeedbackListviewAdapter_1 feedbackListviewAdapter_1 = new FeedbackListviewAdapter_1(this);
                 stuFeedbackDetails.setAdapter(feedbackListviewAdapter_1);
                 if (courseTimeX.getText().toString().equals("课时1")) {
-                    FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
-                    stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
+//                    FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
+//                    stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
                     preCourse.setImageResource(R.mipmap.stu_feedback_pre_noclick);
                     preCourse.setClickable(false);
                 }
@@ -134,13 +141,23 @@ public class Student_feedbackActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        Toast.makeText(Student_feedbackActivity.this, "连接陈宫", Toast.LENGTH_SHORT).show();
-//                        Log.d("success", response);
-//                        System.out.println(response);
+
+                        System.out.println(response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
-
+                            StudentFeedbackInfo studentFeedbackInfo = gson.fromJson(response, StudentFeedbackInfo.class);
+                            List<FeedbackInfo> feedbackInfos = new ArrayList<FeedbackInfo>();
+                            feedbackInfos = studentFeedbackInfo.getTopic();
+//                            feedbackInfos.get(0).getName();
+                            if (feedbackInfos == null) {
+                                Toast.makeText(Student_feedbackActivity.this, "学员反馈为空", Toast.LENGTH_SHORT).show();
+                            }
+                            for (int i = 0; i < feedbackInfos.size(); i++) {
+                                data.add(feedbackInfos);
+                            }
+                            BaseAdapter feedbackAdapter = new FeedbackListviewAdapter(getApplicationContext(), data);
+                            stuFeedbackDetails.setAdapter(feedbackAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

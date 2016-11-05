@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.example.tu4.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,7 +36,9 @@ public class OrderPaymentActivity extends AppCompatActivity {
     RadioButton wxRadiobutton;
     @BindView(R.id.tv_pay_course_name)
     TextView tvPayCourseName;
-
+    @BindView(R.id.tv_order_num)
+    TextView tvOrderNum;
+    private String time_com ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +52,20 @@ public class OrderPaymentActivity extends AppCompatActivity {
         String pay_preson = intent.getStringExtra("TrueNmae");
         String pay_money = intent.getStringExtra("TotalMoney");
         String pay_name = intent.getStringExtra("name");
+        String pay_tel=intent.getStringExtra("tel");
         tvPayCourseName.setText(pay_name);
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
         payMoney.setText(pay_money);
+        SimpleDateFormat formatter = new SimpleDateFormat ("HH:mm:ss");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String str = formatter.format(curDate);
+        System.out.println(curDate);
+        String time[]= str.split(":");
+        for (int i = 0; i < time.length; i++) {
+            time_com+=time[i];
+        }
+        tvOrderNum.setText(time_com+pay_tel);
 
     }
 
