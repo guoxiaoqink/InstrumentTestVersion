@@ -67,12 +67,12 @@ public class SubjectDetailActivity extends AppCompatActivity {
     LinearLayout linearlayoutStudenimageSubjectdetail;
     @BindView(R.id.jiantou)
     ImageView jiantou;
-    @BindView(R.id.subject)
-    TextView subject;
-    @BindView(R.id.line_subject)
-    TextView lineSubject;
-    @BindView(R.id.textview_cintent)
-    TextView textviewCintent;
+//    @BindView(R.id.subject)
+//    TextView subject;
+//    @BindView(R.id.line_subject)
+//    TextView lineSubject;
+//    @BindView(R.id.textview_cintent)
+//    TextView textviewCintent;
     @BindView(R.id.linearlayout_studentback_subjectdetail)
     LinearLayout linearlayoutStudentbackSubjectdetail;
     @BindView(R.id.image_jiantoufankui)

@@ -5,10 +5,12 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
@@ -62,8 +64,8 @@ public class BookingOrderActivity extends AppCompatActivity {
 
         getDataByUrl();
 
-        adapter = new BookingOrderAdapter(this,listData);
-        listView.setAdapter(adapter);
+//        adapter = new BookingOrderAdapter(this,listData);
+//        listView.setAdapter(adapter);
         //title
         bookingOrderTitle.getImgLeft().setVisibility(View.VISIBLE);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
@@ -101,12 +103,14 @@ public class BookingOrderActivity extends AppCompatActivity {
     private void getDataByUrl() {
         OkHttpUtils
                 .postString()
-                .content(new Gson().toJson(new BookingOrderPost(1, "2010")))
                 .url(BOOKING_ORDER_URL)
+                .content(new Gson().toJson(new BookingOrderPost(1, "2010")))
                 .build()
                 .execute(new GenericsCallback<BookingOrder>(new JsonGenericsSerializator()) {
                     @Override
                     public void onError(Call call, Exception e, int id) {
+                        Log.w("onError","数据加载失败");
+                        Toast.makeText(BookingOrderActivity.this, "数据加载失败", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -132,6 +136,9 @@ public class BookingOrderActivity extends AppCompatActivity {
                             mapData.put("class_pic_url", list.get(i).getClass_pic_url());
                             mapData.put("date", list.get(i).getDate());
                             listData.add(mapData);
+                            Log.w("listData",listData.toString());
+                            adapter = new BookingOrderAdapter(BookingOrderActivity.this,listData);
+                            listView.setAdapter(adapter);
                         }
                     }
 
