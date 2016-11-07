@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -32,6 +33,9 @@ public class ApplicationStaticConstants {
     public final static int ONE = 1;
     public final static int TWO = 2;
     public final static int THREE = 3;
+    public static ArrayList<Map<String,String>> listDataIns = new ArrayList<Map<String, String>>();
+    public static ArrayList<String> listDataclasscify = new ArrayList<String>();
+
     //url
     public final static String CONSTANTS_URL = "http://128.199.137.227:8080";
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
@@ -47,13 +51,16 @@ public class ApplicationStaticConstants {
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
     public final static String BOOKING_ORDER_URL = CONSTANTS_URL + "/myapi/ReservationOrder/api_showReservationOrder";
     public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
+    public final static String INSTRUMENT_ALBUM = CONSTANTS_URL + "/myapi/showalbum/api_showalbum";
+    public final static String INSTRUMENT_ALL_URL = CONSTANTS_URL + "/myapi/showinstrument/api_showinstrument";
+
     //趣拍
     public static final String APP_KEY = "20cffd9799a88e4";
     public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
     public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
-    public static int isDelete = 0;
+
     public static String account = "";
     public static String headPortrait = "";
     //用户登录成功的返回值

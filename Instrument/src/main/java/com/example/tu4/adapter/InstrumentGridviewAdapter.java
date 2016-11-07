@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
-import com.example.tu4.bean.InstrumentDetails;
+import com.example.tu4.utils.GetImageByUrl;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,19 +23,18 @@ import butterknife.ButterKnife;
  */
 public class InstrumentGridviewAdapter extends BaseAdapter {
     private LayoutInflater minflater;
-    private List<InstrumentDetails> mdata;
+    private ArrayList<Map<String,String>> listData;
 
-    public InstrumentGridviewAdapter(List<InstrumentDetails> commo, Context context) {
-        super();
-        mdata = new ArrayList<InstrumentDetails>();
-        minflater = LayoutInflater.from(context);
-        mdata = commo;
+    public InstrumentGridviewAdapter(ArrayList<Map<String,String>> listData, Context context) {
+        this.listData = listData;
+        this.minflater = LayoutInflater.from(context);
+
     }
 
     @Override
     public int getCount() {
-        if (null != mdata) {
-            return mdata.size();
+        if (null != listData) {
+            return listData.size();
         } else {
             return 0;
         }
@@ -43,7 +42,7 @@ public class InstrumentGridviewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return mdata.get(position);
+        return listData.get(position);
     }
 
     @Override
@@ -61,11 +60,14 @@ public class InstrumentGridviewAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.textviewInstrumentname.setText(mdata.get(position).getTextTitle());
-        viewHolder.textviewInstrumentMoney.setText(mdata.get(position).getTextMoney());
-        viewHolder.textviewInstrumentOldmoney.setText(mdata.get(position).getTextOleMoney());
+        viewHolder.textviewInstrumentname.setText(listData.get(position).get("name"));
+        viewHolder.textviewInstrumentMoney.setText(listData.get(position).get("now_price"));
+        viewHolder.textviewInstrumentOldmoney.setText(listData.get(position).get("pre_price"));
         viewHolder.textviewInstrumentOldmoney.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-        viewHolder.imageviewInstrument.setImageResource(mdata.get(position).getImageId());
+        String imgUrl = listData.get(position).get("pic_url");
+        GetImageByUrl getImageByUrl = new GetImageByUrl();
+        getImageByUrl.setImage(viewHolder.imageviewInstrument, imgUrl);
+
         return convertView;
     }
 

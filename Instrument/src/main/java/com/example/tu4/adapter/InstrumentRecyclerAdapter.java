@@ -13,7 +13,7 @@ import com.example.tu4.R;
 import com.example.tu4.activity.instrument.InstrumentClassifyActivity;
 import com.example.tu4.utils.ApplicationStaticConstants;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Adelais on 2016/9/22.
@@ -22,10 +22,10 @@ public class InstrumentRecyclerAdapter extends
         RecyclerView.Adapter<InstrumentRecyclerAdapter.ViewHolder> {
 
     private LayoutInflater mInflater;
-    private List<String> mInstrumentName;
+    private ArrayList<String> mInstrumentName;
     private Context context;
 
-    public InstrumentRecyclerAdapter(Context context, List<String> datas) {
+    public InstrumentRecyclerAdapter(Context context, ArrayList<String> datas) {
         mInflater = LayoutInflater.from(context);
         mInstrumentName = datas;
     }

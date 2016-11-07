@@ -18,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.example.tu4.utils.ApplicationStaticConstants.datalistInstrumentDetail;
+import static com.example.tu4.utils.ApplicationStaticConstants.listDataIns;
 
 /**
  * Created by gxq on
@@ -99,7 +99,7 @@ public class SearchActivity extends AppCompatActivity {
     * */
     public void initGridview() {
         InstrumentGridviewAdapter mGridviewAdapter = new InstrumentGridviewAdapter(
-                datalistInstrumentDetail(), this);
+                listDataIns, this);
         gridviewSerach.setAdapter(mGridviewAdapter);
         gridviewSerach.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

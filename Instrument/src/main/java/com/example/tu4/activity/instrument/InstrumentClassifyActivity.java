@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.listDataIns;
+import static com.example.tu4.utils.ApplicationStaticConstants.listDataclasscify;
+
 /**
  * Created by gxq on
  * Descripyion: 乐器分类界面
@@ -125,9 +128,9 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
     public void initTabLayout() {
 
 
-        for (int i = 0; i < mTablayoutClassify.size(); i++) {
+        for (int i = 0; i < listDataclasscify.size(); i++) {
             //添加tab
-            mTabLayout.addTab(mTabLayout.newTab().setText(mTablayoutClassify.get(i)));
+            mTabLayout.addTab(mTabLayout.newTab().setText(listDataclasscify.get(i)));
         }
 
         mTabLayout.getTabAt(ApplicationStaticConstants.chooseRecycleView).select();
@@ -158,13 +161,12 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
     public void initGridview() {
         mGridviewInstrumentDetail = new ArrayList<InstrumentDetails>();
         mGridviewInstrumentDetail.clear();
-        mGridviewAdapter = new InstrumentGridviewAdapter(mGridviewInstrumentDetail, this);
+        mGridviewAdapter = new InstrumentGridviewAdapter(listDataIns, this);
         mGridview.setAdapter(mGridviewAdapter);
         changeGridviewDate(ApplicationStaticConstants.chooseRecycleView);
         mGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
             }
         });
     }

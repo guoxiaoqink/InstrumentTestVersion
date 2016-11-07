@@ -24,23 +24,30 @@ import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
 import com.example.tu4.adapter.InstrumentListViewInstruDetialAdapter;
 import com.example.tu4.adapter.InstrumentRecyclerAdapter;
+import com.example.tu4.bean.AlbumGet;
+import com.example.tu4.bean.AllInstrumentGet;
+import com.example.tu4.bean.AllInstrumentPost;
 import com.example.tu4.bean.AutoPlayInfo;
 import com.example.tu4.bean.ImageCircleView;
 import com.example.tu4.bean.ImageViewInfo;
 import com.example.tu4.bean.SlideView;
+import com.example.tu4.okhttp.JsonGenericsSerializator;
 import com.example.tu4.view.AutoPlayingViewPager;
 import com.example.tu4.view.ResolveConflictsScoolviewGridview;
 import com.example.tu4.view.ResolveConflictsScoolviewListview;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.GenericsCallback;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,10 +55,11 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.IMAGE_BY_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.INSTRUMENT_ALBUM;
+import static com.example.tu4.utils.ApplicationStaticConstants.INSTRUMENT_ALL_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
-import static com.example.tu4.utils.ApplicationStaticConstants.datalistInstrumentDetail;
-import static com.example.tu4.utils.ApplicationStaticConstants.instrumentClassify;
-import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.listDataIns;
+import static com.example.tu4.utils.ApplicationStaticConstants.listDataclasscify;
 
 /**
  * Created by gxq
@@ -80,24 +88,27 @@ public class InstrumentFragment extends Fragment {
     AutoPlayingViewPager autoPlayViewpager;
     private List<String> ImageCricleViewList_image = new ArrayList<>();
     private List<String> ImageCricleViewList_name = new ArrayList<>();
+    private ArrayList<Map<String,String>> listData;
+    private Map<String,String> mapData;
 
     private List<AutoPlayInfo> mAutoPlayInfoList;
-    private AutoPlayingViewPager.OnPageItemClickListener onPageItemClickListener = new AutoPlayingViewPager.OnPageItemClickListener() {
+    private AutoPlayingViewPager.OnPageItemClickListener onPageItemClickListener = new
+            AutoPlayingViewPager.OnPageItemClickListener() {
 
-        @Override
-        public void onPageItemClick(int position, String adLink) {
-            // 直接返回链接,使用WebView加载
-            if (!TextUtils.isEmpty(adLink)) {
-                //链接存在时才进行下一步操作,当然，这只是简单判断,这个字符串不是正确链接,则需要加上正则表达式判断。
-                Intent intent = new Intent(getContext(),
-                        AdvertisementActivity.class);
-                intent.putExtra("linkPath", adLink);
-                startActivity(intent);
-                Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
-            }
-        }
+                @Override
+                public void onPageItemClick(int position, String adLink) {
+                    // 直接返回链接,使用WebView加载
+                    if (!TextUtils.isEmpty(adLink)) {
+                        //链接存在时才进行下一步操作,当然，这只是简单判断,这个字符串不是正确链接,则需要加上正则表达式判断。
+                        Intent intent = new Intent(getContext(),
+                                AdvertisementActivity.class);
+                        intent.putExtra("linkPath", adLink);
+                        startActivity(intent);
+                        Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
-    };
+            };
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -107,11 +118,89 @@ public class InstrumentFragment extends Fragment {
 
 //        initImageCyclePlayView();
         getImageByUrl();
-        initRecyclerView();
-        initGridview();
+        getAlbumByUrl();
+        getAllInstrumentByUrl();
+//        initRecyclerView();
+//        initGridview();
         initlistviewInstumentMoney();
         initlistviewInstumentAlbum();
         return view;
+    }
+
+    /**
+     * 获取所有乐器的信息
+     */
+    private void getAllInstrumentByUrl() {
+        OkHttpUtils
+                .postString()
+                .url(INSTRUMENT_ALL_URL)
+                .content(new Gson().toJson(new AllInstrumentPost("2005", 1, "student")))
+                .build()
+                .execute(new GenericsCallback<AllInstrumentGet>(new JsonGenericsSerializator()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.w("失败", "获取失败");
+                        Toast.makeText(getContext(), "数据获取失败", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onResponse(AllInstrumentGet response, int id) {
+                        listData = new ArrayList<Map<String, String>>();
+                        ArrayList<String> typeList = response.getTypeList();
+                        listDataclasscify = typeList;
+                        Log.w("这里是静态的type",listDataclasscify.toString());
+                        initRecyclerView(typeList);//填充分类栏
+                        ArrayList<AllInstrumentGet.InsArr> insArr = response.getInsArr();
+                        for (int i = 0;i<insArr.size();i++){
+                            mapData = new HashMap<String, String>();
+                            mapData.put("name",insArr.get(i).getName());
+                            mapData.put("pre_price",insArr.get(i).getPre_price()+"");
+                            mapData.put("now_price",insArr.get(i).getNow_price()+"");
+                            mapData.put("pic_url",insArr.get(i).getPic_url());
+                            listData.add(mapData);
+                        }
+                        listDataIns = listData;
+                        Log.w("这里是静态的list",listDataIns.toString());
+                        initGridview(listData);//填充乐器信息
+                        Log.w("成功", typeList.toString());
+                    }
+
+                });
+
+    }
+
+    /**
+     * 获得专辑图片
+     */
+    private void getAlbumByUrl() {
+        Log.w("getAlbumByUrl", "看这里看这里看这里看这里看这里看这里");
+        OkHttpUtils
+                .postString()
+                .url(INSTRUMENT_ALBUM)
+                .content(new Gson().toJson(new albumPost("2000")))
+                .build()
+                .execute(new GenericsCallback<AlbumGet>(new JsonGenericsSerializator()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.w("onError", "数据请求失败");
+                        Toast.makeText(getContext(), "数据请求失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(AlbumGet respone, int id) {
+                        ArrayList<String> albumImg = new ArrayList<String>();
+                        ArrayList<AlbumGet.AlbumPicEntity> albums = respone.getAlbums();
+                        for (int i = 0; i < albums.size(); i++) {
+                            String imgurl = albums.get(i).getAlbum_url();
+                            albumImg.add(imgurl);
+                        }
+                        Log.w("啊啊啊啊啊啊啊啊啊啊啊啊", albumImg.toString());
+                    }
+
+                });
+
+
     }
 
     /**
@@ -134,13 +223,13 @@ public class InstrumentFragment extends Fragment {
     /*
     * 乐器展示的gridview
     * */
-    private void initGridview() {
-        InstrumentGridviewAdapter adapter = new InstrumentGridviewAdapter(
-                datalistInstrumentDetail(), getContext());
+    private void initGridview(ArrayList<Map<String,String>> listData) {
+        InstrumentGridviewAdapter adapter = new InstrumentGridviewAdapter(listData,getContext());
         gridviewInstrumentInstrument.setAdapter(adapter);
         gridviewInstrumentInstrument.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Intent intentToInstrument = new Intent(getActivity(), InstrumentDetailsActivity.class);
+                Intent intentToInstrument = new Intent(getActivity(), InstrumentDetailsActivity
+                        .class);
                 startActivity(intentToInstrument);
 
             }
@@ -150,14 +239,14 @@ public class InstrumentFragment extends Fragment {
     /*
     * RecyclerView的一系列操作。分类栏
     * */
-    private void initRecyclerView() {
+    private void initRecyclerView(ArrayList<String> typeList) {
         //设置布局管理器
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recycleViewInstrumentInstrument.setLayoutManager(linearLayoutManager);
         //设置适配器
         InstrumentRecyclerAdapter RecyclerAdapter = new InstrumentRecyclerAdapter(getContext(),
-                instrumentClassify());
+                typeList);
         recycleViewInstrumentInstrument.setAdapter(RecyclerAdapter);
     }
 
@@ -188,7 +277,8 @@ public class InstrumentFragment extends Fragment {
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
-                            ImageCircleView imageCircleView = gson.fromJson(response, ImageCircleView.class);
+                            ImageCircleView imageCircleView = gson.fromJson(response,
+                                    ImageCircleView.class);
                             List<ImageViewInfo> imageViewInfos = new ArrayList<ImageViewInfo>();
                             imageViewInfos = imageCircleView.getTop();
                             if (imageViewInfos == null) {
@@ -242,40 +332,6 @@ public class InstrumentFragment extends Fragment {
         super.onPause();
     }
 
-    public void getIns() {
-        String url = baseUrl + "www.baidu.com";
-        String code = "2017";
-        int maxtime = 638;
-        OkHttpUtils.postString()
-                .url(url)
-                .content(new Gson().toJson(new Ins(code, maxtime)))
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        Log.d("Error", e.getMessage());
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.d("success", response);
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray array = jsonObject.getJSONArray("top");
-                            JSONObject top1 = array.getJSONObject(0);
-                            String instrument_main_image = top1.getString("instrument_main_image");
-                            //.........
-                            JSONArray array1 = jsonObject.getJSONArray("list");
-                            JSONObject list1 = array1.getJSONObject(0);
-                            String instrument_image = list1.getString("instrument_image");
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-    }
-
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -300,21 +356,11 @@ public class InstrumentFragment extends Fragment {
         }
     }
 
-    private class Ins {
+    private class albumPost implements Serializable {
         private String code;
-        private int maxtime;
 
-        public Ins(String code, int maxtime) {
+        public albumPost(String code) {
             this.code = code;
-            this.maxtime = maxtime;
-        }
-
-        @Override
-        public String toString() {
-            return "Ins{" +
-                    "username='" + code + '\'' +
-                    ", password='" + maxtime + '\'' +
-                    '}';
         }
     }
 
