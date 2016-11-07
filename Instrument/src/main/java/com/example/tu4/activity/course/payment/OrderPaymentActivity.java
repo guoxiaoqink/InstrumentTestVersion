@@ -51,6 +51,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
     private String pay_tel = "";
     private String pay_money = "";
     private String pay_name = "";
+    private String true_name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         pay_money = intent.getStringExtra("TotalMoney");
         pay_name = intent.getStringExtra("name");
         pay_tel = intent.getStringExtra("tel");
+        true_name=intent.getStringExtra("Name");
         tvPayCourseName.setText(pay_name);
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
@@ -111,7 +113,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
 
     //从网上获取列表内容并显示在当前页面中
     public void postDataByUrl() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
         String str = formatter.format(curDate);
         String num = tvOrderNum.getText().toString();
@@ -120,7 +122,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(ORDER_PAYMENT_URL)//
-                .content(new Gson().toJson(new PayOrderPost("1",pay_tel,pay_name,str,1,ordernum,pay_money,1)))
+                .content(new Gson().toJson(new PayOrderPost("1",pay_tel,true_name,str,1,ordernum,pay_money,1)))
                 .build()//
                 .connTimeOut(20000)
                 .readTimeOut(20000)
