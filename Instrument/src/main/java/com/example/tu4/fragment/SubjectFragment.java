@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.AdvertisementActivity;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.course.DateActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
@@ -62,6 +63,8 @@ public class SubjectFragment extends Fragment {
     AutoPlayingViewPager autoPlayViewpager;
     @BindView(R.id.couse_)
     ImageView couse;
+    @BindView(R.id.subject_titlt_find)
+    ImageView subjectTitltFind;
     private List<String> ImageCricleViewList_image = new ArrayList<>();
     private List<String> ImageCricleViewList_name = new ArrayList<>();
     private List<List<ClassListDetails>> data = new ArrayList<>();
@@ -232,12 +235,22 @@ public class SubjectFragment extends Fragment {
         super.onPause();
     }
 
-    @OnClick(R.id.couse_)
-    public void onClick() {
-        Intent intent = new Intent();
-        intent.setClass(getContext(), DateActivity.class);
-        startActivity(intent);
+    @OnClick({R.id.couse_, R.id.subject_titlt_find})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.couse_:
+                Intent intent = new Intent();
+                intent.setClass(getContext(), DateActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.subject_titlt_find:
+                Intent intent1 = new Intent();
+                intent1.setClass(getContext(), SearchActivity.class);
+                startActivity(intent1);
+                break;
+        }
     }
+
 
     private class MyAsyncTask extends AsyncTask<Void, Void, Void> {
 

@@ -44,15 +44,22 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleTask">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
         <activity
             android:name=".activity.instrument.InstrumentClassifyActivity"
             android:label="@string/title_activity_inatrument_classify_activity"
