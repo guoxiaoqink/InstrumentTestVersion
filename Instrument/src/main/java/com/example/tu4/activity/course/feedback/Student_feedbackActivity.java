@@ -70,6 +70,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
         if (courseTimeX.getText().toString().equals("课时1")) {
             preCourse.setImageResource(R.mipmap.stu_feedback_pre_noclick);
             preCourse.setClickable(false);
+
 //            FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
 //            stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
         }
@@ -100,6 +101,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
                 FeedbackListviewAdapter_1 feedbackListviewAdapter_1 = new FeedbackListviewAdapter_1(this);
                 stuFeedbackDetails.setAdapter(feedbackListviewAdapter_1);
                 if (courseTimeX.getText().toString().equals("课时1")) {
+                    getInfoFromUrl();
 //                    FeedbackListviewAdapter feedbackListviewAdapter = new FeedbackListviewAdapter(this);
 //                    stuFeedbackDetails.setAdapter(feedbackListviewAdapter);
                     preCourse.setImageResource(R.mipmap.stu_feedback_pre_noclick);

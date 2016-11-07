@@ -229,6 +229,7 @@
             android:textSize="@dimen/sp14" />
         <!--姓名输入框-->
         <EditText
+            android:inputType="text"
             android:id="@+id/et_account_name"
             android:layout_width="230dp"
             android:layout_height="@dimen/dp37"
@@ -264,6 +265,7 @@
             android:textSize="@dimen/sp14" />
         <!--手机号码输入框-->
         <EditText
+            android:inputType="phone"
             android:id="@+id/et_account_tel"
             android:layout_width="@dimen/dp230"
             android:layout_height="@dimen/dp37"

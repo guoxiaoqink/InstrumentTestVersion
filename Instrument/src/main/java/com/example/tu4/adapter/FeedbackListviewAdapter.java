@@ -58,6 +58,7 @@ public class FeedbackListviewAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         List<FeedbackInfo> list = data.get(position);
+//        list.clear();
         String name = list.get(position).getName();
         String time = list.get(position).getDate();
         String content =list.get(position).getContent();

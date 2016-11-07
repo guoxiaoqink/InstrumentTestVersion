@@ -3,12 +3,18 @@ package com.example.tu4.activity.course.payment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.bean.PayOrderPost;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +22,9 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+
+import static com.example.tu4.utils.ApplicationStaticConstants.ORDER_PAYMENT_URL;
 
 /**
  * Created by WQJ on 2016/10/20
@@ -38,7 +47,11 @@ public class OrderPaymentActivity extends AppCompatActivity {
     TextView tvPayCourseName;
     @BindView(R.id.tv_order_num)
     TextView tvOrderNum;
-    private String time_com ="";
+    private String time_com = "";
+    private String pay_tel = "";
+    private String pay_money = "";
+    private String pay_name = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,22 +63,23 @@ public class OrderPaymentActivity extends AppCompatActivity {
         //读取数据
         String pay_account = intent.getStringExtra("account");
         String pay_preson = intent.getStringExtra("TrueNmae");
-        String pay_money = intent.getStringExtra("TotalMoney");
-        String pay_name = intent.getStringExtra("name");
-        String pay_tel=intent.getStringExtra("tel");
+        pay_money = intent.getStringExtra("TotalMoney");
+        pay_name = intent.getStringExtra("name");
+        pay_tel = intent.getStringExtra("tel");
         tvPayCourseName.setText(pay_name);
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
         payMoney.setText(pay_money);
-        SimpleDateFormat formatter = new SimpleDateFormat ("HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
         String str = formatter.format(curDate);
         System.out.println(curDate);
-        String time[]= str.split(":");
+        String time[] = str.split(":");
         for (int i = 0; i < time.length; i++) {
-            time_com+=time[i];
+            time_com += time[i];
         }
-        tvOrderNum.setText(time_com+pay_tel);
+        tvOrderNum.setText(time_com + 123);
+//        getDataByUrl();
 
     }
 
@@ -76,9 +90,8 @@ public class OrderPaymentActivity extends AppCompatActivity {
 
     //去支付文字点击事件
     public void gotopay(View v) {
-        Intent intent = new Intent();
-        intent.setClass(OrderPaymentActivity.this, PaySuccessActivity.class);
-        startActivity(intent);
+        postDataByUrl();
+        Toast.makeText(this, "支付测试", Toast.LENGTH_SHORT).show();
     }
 
     //不同支付事件的切换
@@ -94,5 +107,36 @@ public class OrderPaymentActivity extends AppCompatActivity {
                 zfbRadiobutton.setChecked(false);
                 break;
         }
+    }
+
+    //从网上获取列表内容并显示在当前页面中
+    public void postDataByUrl() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String str = formatter.format(curDate);
+        String num = tvOrderNum.getText().toString();
+        int ordernum = Integer.parseInt(num);
+//        double price= Integer.parseInt(pay_money);
+        OkHttpUtils
+                .postString()
+                .url(ORDER_PAYMENT_URL)//
+                .content(new Gson().toJson(new PayOrderPost("1",pay_tel,pay_name,str,1,ordernum,pay_money,1)))
+                .build()//
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(OrderPaymentActivity.this, "内容获取失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.d("注意这里啊。。。。。。。", response);
+                        System.out.println(response);
+                        Gson gson = new Gson();
+                    }
+                });
     }
 }

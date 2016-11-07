@@ -9,27 +9,34 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.feedback.IssiuFeedbackActivity;
 import com.example.tu4.activity.course.feedback.Student_feedbackActivity;
+import com.example.tu4.adapter.ClassTimeListAdapter;
+import com.example.tu4.bean.ClassCouInfo;
 import com.example.tu4.bean.ClassDetailsPost;
 import com.example.tu4.bean.SubjectDetails;
 import com.example.tu4.bean.SubjectInfo;
 import com.example.tu4.utils.CacheServerResponse;
 import com.example.tu4.view.CircleImageView;
+import com.example.tu4.view.ResolveConflictsScoolviewListview;
 import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,6 +59,10 @@ public class SubjectDetailActivity extends AppCompatActivity {
 
     LinearLayout mLinearLayout, mLinearLayoutFeedback;
     LayoutInflater mInflater = null;
+    @BindView(R.id.class_time_list)
+    ResolveConflictsScoolviewListview classTimeList;
+    @BindView(R.id.scrollview_subject_detail)
+    ScrollView scrollviewClassDetail;
     private int studentNum;
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
@@ -67,7 +78,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     LinearLayout linearlayoutStudenimageSubjectdetail;
     @BindView(R.id.jiantou)
     ImageView jiantou;
-//    @BindView(R.id.subject)
+    //    @BindView(R.id.subject)
 //    TextView subject;
 //    @BindView(R.id.line_subject)
 //    TextView lineSubject;
@@ -105,6 +116,9 @@ public class SubjectDetailActivity extends AppCompatActivity {
     RelativeLayout reFeedbackImg;
     @BindView(R.id.re_num_stu_feedback)
     RelativeLayout reNumStuFeedback;
+    private List<List<ClassCouInfo>> data = new ArrayList<>();
+    private List<SubjectInfo> subjectInfos;
+    private List<ClassCouInfo> classCouInfos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +126,8 @@ public class SubjectDetailActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_subject_detail);
         ButterKnife.bind(this);
+        classTimeList.setFocusable(false);
+        scrollviewClassDetail.smoothScrollTo(0, 0);
         String title = "课程详情".toString();
         Resources res = getResources();
         mInflater = LayoutInflater.from(this);
@@ -141,27 +157,27 @@ public class SubjectDetailActivity extends AppCompatActivity {
         Drawable stu_feedback = res.getDrawable(R.mipmap.subjectdetail_more);
         kcxqTitleView.setImgRight2(stu_feedback);
         kcxqTitleView.getImgRight2().setVisibility(View.VISIBLE);
-        kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
-                startActivity(intent);
-            }
-        });
+//        kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
     /**
      * 获取缓存数据
      */
     private void getChcheData() {
-        if (CacheServerResponse.isCacheDataFailure(getApplicationContext(),"SubjectDetails")){
-            Log.w("读取缓存数据","读取缓存数据失败，重新请求数据");
+        if (CacheServerResponse.isCacheDataFailure(getApplicationContext(), "SubjectDetails")) {
+            Log.w("读取缓存数据", "读取缓存数据失败，重新请求数据");
             getDataByUrl();
-        }else {
-            SubjectDetails subjectDetails = (SubjectDetails)CacheServerResponse.readObject(getApplicationContext(),"SubjectDetails");
+        } else {
+            SubjectDetails subjectDetails = (SubjectDetails) CacheServerResponse.readObject(getApplicationContext(), "SubjectDetails");
             initData(subjectDetails);
-            Log.w("读取缓存数据","读取缓存成功");
+            Log.w("读取缓存数据", "读取缓存成功");
         }
     }
 
@@ -169,16 +185,17 @@ public class SubjectDetailActivity extends AppCompatActivity {
      * 填充数据
      */
     private void initData(SubjectDetails subjectDetails) {
-
-        List<SubjectInfo> subjectInfos = new ArrayList<SubjectInfo>();
+        classCouInfos = new ArrayList<>();
+        subjectInfos = new ArrayList<SubjectInfo>();
         subjectInfos = subjectDetails.getTeacher();
+        classCouInfos = subjectDetails.getClass_detail();
         tvCourseName.setText(subjectDetails.getClass_name().toString());
         tvCourseLevel.setText("等级：" + subjectDetails.getClass_level().toString());
         tvClassTeacher.setText(subjectInfos.get(0).getTeacher_name());
         tvTeacherTel.setText(subjectInfos.get(0).getTeacher_telephone());
         textviewStudentnumberSubjectdetail.setText("共" + subjectInfos.get(0).getStudent_number() + "名学员");
         studentNum = subjectInfos.get(0).getStudent_number();
-        Log.w("studentNum",studentNum+"   ffffffffffffffffffffffffffff");
+        Log.w("studentNum", studentNum + "   ffffffffffffffffffffffffffff");
         int price = subjectDetails.getClass_price();
         tvMoneySubjectdetail.setText(String.valueOf(price) + ".00");
         tvControlNum.setText("编号：" + String.valueOf(subjectDetails.getClass_id()));
@@ -190,7 +207,27 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
 //                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
         //JSONObject jsonObject = new JSONObject(response);
-
+        for (int i = 0; i < classCouInfos.size(); i++) {
+            data.add(classCouInfos);
+        }
+        BaseAdapter classlistadapter = new ClassTimeListAdapter(getApplicationContext(), data);
+        classTimeList.setAdapter(classlistadapter);
+        kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+                Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+                String str = formatter.format(curDate);
+                if (!(classCouInfos.get(0).getDate().equals(str))) {
+                    Toast.makeText(SubjectDetailActivity.this, "未到上课时间，无法反馈", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SubjectDetailActivity.this, "ceshi", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent();
+                    intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void initLinearlayouFeedback() {
@@ -244,9 +281,9 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 break;
             case R.id.re_classmates_num:
                 Intent intent1 = new Intent();
-                intent1.putExtra("studentNum",String.valueOf(studentNum));
+                intent1.putExtra("studentNum", String.valueOf(studentNum));
                 intent1.setClass(SubjectDetailActivity.this, StudentListActivity.class);
-                Log.w("studentNum",String.valueOf(studentNum));
+                Log.w("studentNum", String.valueOf(studentNum));
                 startActivity(intent1);
                 break;
             case R.id.re_num_stu_feedback:
@@ -288,15 +325,15 @@ public class SubjectDetailActivity extends AppCompatActivity {
                         Log.d("success", response);
                         System.out.println(response);
 
-                            Gson gson = new Gson();
-                            SubjectDetails subjectDetails = gson.fromJson(response, SubjectDetails.class);
+                        Gson gson = new Gson();
+                        SubjectDetails subjectDetails = gson.fromJson(response, SubjectDetails.class);
 
-                            initData(subjectDetails);
-                            if(CacheServerResponse.saveObject(getApplicationContext(),"SubjectDetails",subjectDetails)){
-                                Log.w("添加缓存","SubjectDetails 缓存成功");
-                            }else {
-                                Log.w("添加缓存","SubjectDetails 缓存失败");
-                            }
+                        initData(subjectDetails);
+                        if (CacheServerResponse.saveObject(getApplicationContext(), "SubjectDetails", subjectDetails)) {
+                            Log.w("添加缓存", "SubjectDetails 缓存成功");
+                        } else {
+                            Log.w("添加缓存", "SubjectDetails 缓存失败");
+                        }
                     }
                 });
     }
