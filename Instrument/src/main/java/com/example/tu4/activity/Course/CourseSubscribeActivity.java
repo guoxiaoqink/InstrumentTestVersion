@@ -105,6 +105,7 @@ public class CourseSubscribeActivity extends AppCompatActivity {
             intent.putExtra("account", account);
             intent.putExtra("TrueNmae", accountName.getText().toString().trim() + "  " + accountTel.getText().toString().trim());
             intent.putExtra("TotalMoney", totalMoney.getText().toString().trim());
+            intent.putExtra("tel",accountTel.getText().toString().trim());
             intent.putExtra("name", tvSujectName.getText());
             intent.setClass(CourseSubscribeActivity.this, OrderPaymentActivity.class);
             startActivity(intent);
