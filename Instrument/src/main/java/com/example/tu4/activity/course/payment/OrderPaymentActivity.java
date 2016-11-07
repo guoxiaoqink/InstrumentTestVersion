@@ -93,7 +93,9 @@ public class OrderPaymentActivity extends AppCompatActivity {
     //去支付文字点击事件
     public void gotopay(View v) {
         postDataByUrl();
-        Toast.makeText(this, "支付测试", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this,PaySuccessActivity.class);
+        startActivity(intent);
+        //Toast.makeText(this, "支付测试", Toast.LENGTH_SHORT).show();
     }
 
     //不同支付事件的切换

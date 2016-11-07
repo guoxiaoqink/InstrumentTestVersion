@@ -110,9 +110,9 @@ public class HelpCenterActivity extends AppCompatActivity {
      */
     private void getDate() {
         OkHttpUtils
-                .post()
+                .postString()
                 .url(HELP_CENTER_URL)
-                .addParams("code", "1020")
+                .content(new Gson().toJson(new HelpCenterPost("1020")))
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -138,6 +138,14 @@ public class HelpCenterActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public class HelpCenterPost implements Serializable{
+        private String code;
+
+        public HelpCenterPost(String code) {
+            this.code = code;
+        }
     }
 
 

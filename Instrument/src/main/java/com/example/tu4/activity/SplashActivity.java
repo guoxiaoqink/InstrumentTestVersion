@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.tu4.R;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
+
 /**
  * Created by hs
  * Descripyion: 刚进入软件的界面，软件介绍页面
@@ -20,6 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        JUMP_MAINACTIVITY = 1;
         new MyAsyncTask().execute();
     }
 

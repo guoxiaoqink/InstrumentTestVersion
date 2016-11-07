@@ -309,7 +309,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                                         Intent intent = new Intent();
                                         intent.setClass(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
-                                        //saveDate();//
+                                        saveDate();//
                                         finish();
                                     } else if (type == 1) {
                                         Toast.makeText(LoginActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
