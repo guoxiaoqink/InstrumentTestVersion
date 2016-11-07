@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.tu4.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -22,13 +21,13 @@ import butterknife.ButterKnife;
 public class MyWorksSelectGridviewAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList<Map<String,Object>> listData;
+    private ArrayList<Map<String,String>> listData;
 
     public List<String> indexList = new ArrayList<String>();
     // 定义一个向量作为选中与否容器
     private Vector<Boolean> mImage_bs = new Vector<Boolean>();
 
-    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Map<String,Object>> listData) {
+    public MyWorksSelectGridviewAdapter(Context context, ArrayList<Map<String,String>> listData) {
         this.context = context;
         this.listData = listData;
         this.layoutInflater = LayoutInflater.from(context);
@@ -65,9 +64,10 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.imgMyWorksItem.setImageResource((Integer) listData.get(position).get("img"));
-        viewHolder.tvMyWorksTime.setText((String)listData.get(position).get("time"));
-        viewHolder.tvMyWorksDate.setText((String)listData.get(position).get("date"));
+        int img = Integer.valueOf(listData.get(position).get("img"));
+        viewHolder.imgMyWorksItem.setImageResource(img);
+        viewHolder.tvMyWorksTime.setText(listData.get(position).get("time"));
+        viewHolder.tvMyWorksDate.setText(listData.get(position).get("date"));
 
         if (mImage_bs.elementAt(position))
             viewHolder.imgMyWorksSelectItem.setImageResource(R.mipmap.ic_mywork_check);
@@ -82,16 +82,11 @@ public class MyWorksSelectGridviewAdapter extends BaseAdapter {
      * 得到选中的item的内容
      * @return
      */
-    public ArrayList<Map> getNameList() {
-        ArrayList<Map> daleteList = null;
-        Map<String, Object> deleteDate = new HashMap<>();
+    public ArrayList<String> getNameList() {
+        ArrayList<String> daleteList = new ArrayList<>();
         for (int i = 0; i < indexList.size(); i++) {
-            daleteList = new ArrayList<>();
             int temp = Integer.parseInt(indexList.get(i));
-            deleteDate.put("picture", listData.get(temp).get("img"));
-            deleteDate.put("date",listData.get(temp).get("date"));
-            deleteDate.put("time",listData.get(temp).get("time"));
-            daleteList.add(deleteDate);
+            daleteList.add(listData.get(temp).get("date"));
         }
         return daleteList;
     }

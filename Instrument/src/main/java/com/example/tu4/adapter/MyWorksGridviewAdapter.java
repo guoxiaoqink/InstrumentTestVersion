@@ -22,11 +22,11 @@ import butterknife.ButterKnife;
  */
 
 public class MyWorksGridviewAdapter extends BaseAdapter {
-    private ArrayList<Map<String,Object>> listdata;
+    private ArrayList<Map<String,String>> listdata;
     private Context context;
     private LayoutInflater layoutInflater;
 
-    public MyWorksGridviewAdapter(Context context, ArrayList<Map<String,Object>> listdata) {
+    public MyWorksGridviewAdapter(Context context, ArrayList<Map<String,String>> listdata) {
         this.context = context;
        this.listdata = listdata;
         this.layoutInflater = LayoutInflater.from(context);
@@ -65,9 +65,10 @@ public class MyWorksGridviewAdapter extends BaseAdapter {
             viewHolder.imgMyWorksItem.setImageResource(R.mipmap.image1);
 
         }else {
-            viewHolder.imgMyWorksItem.setImageResource((Integer)listdata.get(position).get("img"));
-            viewHolder.tvMyWorksTime.setText((String)listdata.get(position).get("time"));
-            viewHolder.tvMyWorksDate.setText((String)listdata.get(position).get("date"));
+            int img = Integer.valueOf(listdata.get(position).get("img"));
+            viewHolder.imgMyWorksItem.setImageResource(img);
+            viewHolder.tvMyWorksTime.setText(listdata.get(position).get("time"));
+            viewHolder.tvMyWorksDate.setText(listdata.get(position).get("date"));
         }
 
         return convertView;

@@ -55,7 +55,6 @@ import static com.example.tu4.utils.ApplicationStaticConstants.description;
 import static com.example.tu4.utils.ApplicationStaticConstants.domain;
 import static com.example.tu4.utils.ApplicationStaticConstants.shareType;
 import static com.example.tu4.utils.ApplicationStaticConstants.tags;
-
 /**
  * Created by hs on
  * Descripyion: 我的作品界面
@@ -81,9 +80,9 @@ public class MyWorksActivity extends AppCompatActivity {
     @BindView(R.id.my_work_title)
     TitleView myWorkTitle;
     //    private ArrayList<Map<String, String>> listData;
-    private ArrayList<Map<String, Object>> listData;
+    private ArrayList<Map<String, String>> listData;
     //    private Map<String,String> mapData;
-    private Map<String, Object> mapData;
+    private Map<String, String> mapData;
     private ArrayList<Integer> myWorksPisture;
     private String[] myWorksTime, myWorksDate;
     private int mVideoBitrate = DEFAULT_BITRATE;
@@ -92,6 +91,7 @@ public class MyWorksActivity extends AppCompatActivity {
     private Button btn_open_video = null;
     private String videoUrl = null;
     private String imageUrl = null;
+    private ArrayList<String> deleteList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,13 +105,14 @@ public class MyWorksActivity extends AppCompatActivity {
             ai = pm.getApplicationInfo("com.example.tu4", 0);
             uid = String.valueOf(ai.uid);
             Contant.space = uid;
-            Log.w("应用的UID", "!!!!!!!!!!!!!!!" + Contant.space);
+           Log.w("应用的UID", "!!!!!!!!!!!!!!!" + Contant.space);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
         Auth.getInstance().initAuth(this, APP_KEY,
                 APP_SECRET, Contant.space);
+
 
         MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, listData);
         gvMyWorks.setAdapter(workAdapter);
@@ -150,12 +151,13 @@ public class MyWorksActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyWorksActivity.this, MyWorksDeleteActivity.class);
-                intent.putExtra("listData", listData);
                 startActivity(intent);
             }
         });
 
     }
+
+
 
     /**
      * 获取数据
@@ -200,7 +202,7 @@ public class MyWorksActivity extends AppCompatActivity {
         listData = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             mapData = new HashMap<>();
-            mapData.put("img", R.mipmap.a);
+            mapData.put("img", R.mipmap.a + "");
             mapData.put("time", i + "0s");
             mapData.put("date", "2016-05-06 " + "1" + i + ":00");
             listData.add(mapData);
@@ -379,7 +381,7 @@ public class MyWorksActivity extends AppCompatActivity {
                 videoUrl = domain + "/v/" + responseMessage + ".mp4" + "?token=" +
                         accessToken;
                 imageUrl = domain + "/v/" + responseMessage + ".jpg" + "?token=" +
-                       accessToken;
+                        accessToken;
 
 //                videoUrl = ContantTest.domain1 + "/v/" + responseMessage + ".mp4" + "?token=" +
 //                        ContantTest.accessToken;

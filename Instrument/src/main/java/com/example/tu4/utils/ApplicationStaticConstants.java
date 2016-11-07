@@ -53,6 +53,7 @@ public class ApplicationStaticConstants {
     public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
+    public static int isDelete = 0;
     public static String account = "";
     public static String headPortrait = "";
     //用户登录成功的返回值

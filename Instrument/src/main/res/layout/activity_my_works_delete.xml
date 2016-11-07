@@ -5,6 +5,7 @@
     android:id="@+id/activity_my_works_delete"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/sffffff"
     android:orientation="vertical"
     tools:context="com.example.tu4.activity.MyWorksDeleteActivity">
 
