@@ -117,14 +117,10 @@ public class InstrumentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_instruments, container, false);
         ButterKnife.bind(this, view);
 
-//        initImageCyclePlayView();
         getImageByUrl();
         getAlbumByUrl();
         getAllInstrumentByUrl();
-//        initRecyclerView();
-//        initGridview();
         initlistviewInstumentMoney();
-        initlistviewInstumentAlbum();
         return view;
     }
 
@@ -196,6 +192,8 @@ public class InstrumentFragment extends Fragment {
                             String imgurl = albums.get(i).getAlbum_url();
                             albumImg.add(imgurl);
                         }
+                        InstrumentListViewAlbumAdapter list1 = new InstrumentListViewAlbumAdapter(getContext(),albumImg);
+                        listviewInstumentAlbum.setAdapter(list1);
                         Log.w("啊啊啊啊啊啊啊啊啊啊啊啊", albumImg.toString());
                     }
 
@@ -211,14 +209,6 @@ public class InstrumentFragment extends Fragment {
         InstrumentListViewInstruDetialAdapter list2 = new InstrumentListViewInstruDetialAdapter(
                 getContext());
         listviewInstumentMoney.setAdapter(list2);
-    }
-
-    /**
-     * 专辑栏的listview
-     */
-    private void initlistviewInstumentAlbum() {
-        InstrumentListViewAlbumAdapter list1 = new InstrumentListViewAlbumAdapter(getContext());
-        listviewInstumentAlbum.setAdapter(list1);
     }
 
     /*

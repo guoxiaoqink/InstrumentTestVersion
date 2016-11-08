@@ -49,7 +49,7 @@ public class SystemInformationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_system_information);
         ButterKnife.bind(this);
         getDate();
-        lvSystemInformation.setAdapter(new SystemInformationListviewAdapter(this,dataList));
+
 
     }
 
@@ -67,7 +67,6 @@ public class SystemInformationActivity extends AppCompatActivity {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e("onError",e.getMessage());
-
                     }
 
                     @Override
@@ -80,6 +79,8 @@ public class SystemInformationActivity extends AppCompatActivity {
                             dataMap.put("date",response.getList().get(i).getDate());
                             dataList.add(dataMap);
                         }
+                        Log.w("成功",dataList.toString());
+                        lvSystemInformation.setAdapter(new SystemInformationListviewAdapter(SystemInformationActivity.this,dataList));
                     }
                 });
     }

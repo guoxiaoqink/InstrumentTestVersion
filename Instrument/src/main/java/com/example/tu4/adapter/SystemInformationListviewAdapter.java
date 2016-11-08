@@ -58,9 +58,9 @@ public class SystemInformationListviewAdapter extends BaseAdapter {
 
         }
 
-        viewHolder.tvSystemInformationName.setText(dataList.get(position).get("system_title"));
-        viewHolder.tvSystemInformationContext.setText(dataList.get(position).get("system_content"));
-        viewHolder.tvSystemInformationTime.setText(dataList.get(position).get("system_time"));
+        viewHolder.tvSystemInformationName.setText(dataList.get(position).get("title"));
+        viewHolder.tvSystemInformationContext.setText(dataList.get(position).get("content"));
+        viewHolder.tvSystemInformationTime.setText(dataList.get(position).get("date"));
 
         return convertView;
     }
