@@ -86,12 +86,10 @@ public class EditDressActivity extends AppCompatActivity {
     @OnClick({R.id.rl_edit_del, R.id.btn_save_dress})
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.rl_edit_del:
                 Toast.makeText(EditDressActivity.this, "删除", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_save_dress:
-
                 getAddDress();
                 this.finish();
                 break;
@@ -111,6 +109,7 @@ public class EditDressActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
+
                         Toast.makeText(EditDressActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
                         Log.d("success", response);
                     }

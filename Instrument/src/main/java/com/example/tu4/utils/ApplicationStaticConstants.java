@@ -47,10 +47,25 @@ public class ApplicationStaticConstants {
     public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String ORDER_PAYMENT_URL = CONSTANTS_URL + "/music-stju-test/api_payorder";
+    public final static String CHOOSE_DERSS_URL = "http://128.199.137.227:8080/music-stju-test/api_selectadd";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";
     public final static String BOOKING_ORDER_URL = CONSTANTS_URL + "/myapi/ReservationOrder/api_showReservationOrder";
     public final static String EDITDRESS_URL = CONSTANTS_URL + "/myapi/receiverAddress/api_edictAddress";
+    public static final String RSA_PRIVATE = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJqv8DsgJULMOI6G\n" +
+            "MocoeujqQKzQ6/hH2AKsDueUEhdVu2fTIg6gbxxwWC4MNaSBkVqeSfBUVW63XACI\n" +
+            "JBIk4N+VYvwFPgZt9TNf3UrOb00A9rYH3nxH38YObR45fDtJi0cYy547gNv5YwLF\n" +
+            "ioyKGTrthpatvlVRINwt7G+1crejAgMBAAECgYAZYClZmbFjHttcThl14KchFGSd\n" +
+            "tPww06BU9+LODJVXLKI8qv8YRStVD/z3ONuH7BVrNzJL8Zm+Ougl0i+QpmoZIjuB\n" +
+            "PUdu7MhP93AoXoYeUVjypwdjH1LaWMWVvdVu6RH9aquZqk1YLMqUcBEAJJ38Z1JQ\n" +
+            "O3sJXE7fnRf/a9dnMQJBAMtIt6Gw+M+s//oHxSTEvrot0zNXLvWf3lpoKVMZFTkz\n" +
+            "2vaYoumEaPqd5MDpZfRzNVFpVve7n2KJSNEWGKs0cUkCQQDCzQ7psLfkEY8OG9Gn\n" +
+            "UjG1jPOwgBt3ZYL9DTUD1pgWFR5xqJR0tBLvdwJhjmfoxbDndhnhCDDva4CBKM/E\n" +
+            "9I2LAkAnYkI5cEj0K0c4kLLQKdHtzh0B8F0ntz5j85Q2BkEHYRWF+xJs/Xs9OsPr\n" +
+            "4AwhrQRibm8r9cyuUXyrDYXf/XwJAkA5IdUO2uKEBFZVh/ksPqIPoiBSkq/7i40o\n" +
+            "VHhJAOYoC9ea9BteQvYOv3O2UwLMtTZWHEAozLM1dO0CdIrDNApTAkEAsiNrjQSi\n" +
+            "SlKhW9b4dLg9xukHLrZl9EpzFwsgr6/5pE/w/QIG0n6NlGTFwEWuiGxEvSWSXSFp\n" +
+            "DmeyygSLiVeWFw==";
     public final static String INSTRUMENT_ALBUM = CONSTANTS_URL + "/myapi/showalbum/api_showalbum";
     public final static String INSTRUMENT_ALL_URL = CONSTANTS_URL + "/myapi/showinstrument/api_showinstrument";
 

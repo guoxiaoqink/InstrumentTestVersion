@@ -93,7 +93,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp11"
-                            android:hint="XXX"
+                            android:hint="qmf"
+                            android:text="qmf"
+                            android:textColor="@color/color_666666"
                             android:textColorHint="@color/color_666666"
                             android:textSize="@dimen/sp13" />
 
@@ -104,6 +106,8 @@
                             android:layout_marginStart="@dimen/dp16"
                             android:layout_marginTop="@dimen/dp11"
                             android:hint="@string/tel_num"
+                            android:text="15734612330"
+                            android:textColor="@color/color_666666"
                             android:textColorHint="@color/color_666666"
                             android:textSize="@dimen/sp13" />
                     </LinearLayout>
@@ -118,6 +122,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="@string/position"
+                            android:textColor="@color/color_666666"
                             android:textColorHint="@color/color_666666"
                             android:textSize="@dimen/sp13" />
 
@@ -127,6 +132,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/dp25"
                             android:hint="@string/position_hint"
+                            android:text="jiaofao"
+                            android:textColor="@color/color_666666"
                             android:textColorHint="@color/color_666666"
                             android:textSize="@dimen/sp13" />
                     </LinearLayout>
@@ -231,6 +238,7 @@
                         android:layout_marginStart="@dimen/dp08"
                         android:hint="@string/money_sign" />
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/tv_line2"
                     android:layout_width="match_parent"

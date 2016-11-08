@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_select_dress"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_ffffff"
+    android:orientation="vertical"
     tools:context=".activity.instrument.SelectDressActivity">
 
     <com.example.tu4.view.TitleView
         android:id="@+id/rl_S_D"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
-    <!--<RelativeLayout-->
-    <!--android:id="@+id/rl_S_D"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="@dimen/dp44"-->
-    <!--android:background="@color/s97c8cd">-->
-
-    <!--<ImageView-->
-    <!--android:id="@+id/imgbtn_select_left"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_marginLeft="@dimen/dp10"-->
-    <!--android:src="@mipmap/left_arrow_white" />-->
-
-    <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_alignParentTop="true"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:gravity="center"-->
-    <!--android:text="@string/select_address"-->
-    <!--android:textColor="@color/sffffff"-->
-    <!--android:textSize="@dimen/px34" />-->
-
-    <!--</RelativeLayout>-->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.example.tu4.view.ResolveConflictsScoolviewListview
+            android:clickable="true"
+            android:id="@+id/lv_select_dress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/color_d1d1d1"
+            android:dividerHeight="@dimen/px1">
+        </com.example.tu4.view.ResolveConflictsScoolviewListview>
 
     <Button
+        android:layout_marginTop="@dimen/dp11"
         android:id="@+id/btn_add_dress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,20 +41,6 @@
         android:text="@string/add_address"
         android:textColor="@color/color_ffffff"
         android:textSize="@dimen/sp15" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rl_S_D">
-
-        <ListView
-            android:id="@+id/lv_select_dress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/btn_add_dress"
-            android:divider="@color/color_d1d1d1"
-            android:dividerHeight="@dimen/px1"></ListView>
-    </RadioGroup>
-
-
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>
