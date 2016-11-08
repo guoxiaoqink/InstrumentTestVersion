@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.AdvertisementActivity;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.instrument.InstrumentDetailsActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.InstrumentListViewAlbumAdapter;
@@ -252,8 +253,8 @@ public class InstrumentFragment extends Fragment {
 
     @OnClick(R.id.imageview_instrument_show)
     public void onClick() {
-        /*Intent intentToSearch = new Intent(getActivity(), OrderDetailsMainActivity.class);
-        startActivity(intentToSearch);*/
+        Intent intentToSearch = new Intent(getActivity(), SearchActivity.class);
+        startActivity(intentToSearch);
     }
 
     public void getImageByUrl() {

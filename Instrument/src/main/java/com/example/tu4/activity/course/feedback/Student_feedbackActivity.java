@@ -58,6 +58,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
     TitleView reCourseOrderTitle;
     private int a = 1;
     private List<List<FeedbackInfo>> data = new ArrayList<>();
+    List<FeedbackInfo> feedbackInfos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,15 +144,12 @@ public class Student_feedbackActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response, int id) {
-
                         System.out.println(response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
                             StudentFeedbackInfo studentFeedbackInfo = gson.fromJson(response, StudentFeedbackInfo.class);
-                            List<FeedbackInfo> feedbackInfos = new ArrayList<FeedbackInfo>();
                             feedbackInfos = studentFeedbackInfo.getTopic();
-//                            feedbackInfos.get(0).getName();
                             if (feedbackInfos == null) {
                                 Toast.makeText(Student_feedbackActivity.this, "学员反馈为空", Toast.LENGTH_SHORT).show();
                             }
@@ -159,6 +157,7 @@ public class Student_feedbackActivity extends AppCompatActivity {
                                 data.add(feedbackInfos);
                             }
                             BaseAdapter feedbackAdapter = new FeedbackListviewAdapter(getApplicationContext(), data);
+                            feedbackAdapter.notifyDataSetChanged();
                             stuFeedbackDetails.setAdapter(feedbackAdapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

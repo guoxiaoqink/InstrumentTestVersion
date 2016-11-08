@@ -24,12 +24,12 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +37,6 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.ENSURE_ORDER_URL;
-import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
-import static com.example.tu4.utils.IUrl.baseUrl;
-import static com.zhy.http.okhttp.OkHttpUtils.postString;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -77,7 +74,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
     RadioButton radiobuttonWx;
     @BindView(R.id.re_payment)
     RelativeLayout rePayment;
-    @BindView(R.id.tv_total_money)
+    @BindView(R.id.tv_total_money_order)
     TextView tvTotalMoney;
     @BindView(R.id.tv_message_board_buyer)
     TextView tvMessageBoardBuyer;
@@ -120,9 +117,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
 
 
     public static void scrollToBottom(final ScrollView scrollView) {//滚动到底部
-
         Handler mHandler = new Handler();
-
         mHandler.post(new Runnable() {
             public void run() {
                 scrollView.fullScroll(ScrollView.FOCUS_DOWN);
@@ -131,9 +126,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
     }
 
     public static void scrollToTop(final ScrollView scrollView) {//滚动到顶部
-
         Handler mHandler = new Handler();
-
         mHandler.post(new Runnable() {
             public void run() {
                 scrollView.fullScroll(ScrollView.FOCUS_UP);
@@ -257,16 +250,13 @@ public class EnsureOrderActivity extends AppCompatActivity {
         String date = sDateFormat.format(new java.util.Date());
         Log.w("时间是啊金时间时间时间", date);
 
-        ArrayList<EnsureOrderPost.Orderslist> orderslist = new ArrayList<EnsureOrderPost
-                .Orderslist>();
+        List<EnsureOrderPost.Orderslist> orderslist = new ArrayList<>();
         EnsureOrderPost.Orderslist orders = new EnsureOrderPost.Orderslist(1, tvPropertyEO
                 .getText().toString());
         orderslist.add(orders);
-        //int user_id, String code, Double price, Double method, String
-        // situation, String message, int date, int order_num, int receiverAddressID,
         Double price = Double.valueOf(tvTotalMoney.getText().toString().trim());
         String method = "alipay".toString();
-        String situation = "未支付".toString();
+        String situation = "已支付".toString();
         String message = tvClickToLeaveMessage.getText().toString().trim();
         Log.w("提交的信息", price + method + situation + message);
         int ordernum = 1;
@@ -304,57 +294,57 @@ public class EnsureOrderActivity extends AppCompatActivity {
 
     }
 
-    private void getOrder() {
-        String url = baseUrl + "";
-        postString()
-                .url(url)
-                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
+//    private void getOrder() {
+//        String url = baseUrl + "";
+//        postString()
+//                .url(url)
+//                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
+//                .build()
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response, int id) {
+//                        Log.d("SUCCESS", response);
+//                        try {
+//                            JSONObject jsonObject = new JSONObject(response);
+//                            JSONArray jsonArray1 = jsonObject.getJSONArray("Content");
+//                            JSONObject order1 = jsonArray1.getJSONObject(0);
+//                            String Recipient = order1.getString("Recipient");
+//                            tvConsigneeName.setText(Recipient);
+//                            String Telephone = order1.getString("Telephone");
+//                            tvConsigneePhone.setText(Telephone);
+//                            String Address = order1.getString("Address");
+//                            tvConsigneeDress.setText(Address);
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//
+//                    }
+//                });
+//    }
 
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        Log.d("SUCCESS", response);
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            JSONArray jsonArray1 = jsonObject.getJSONArray("Content");
-                            JSONObject order1 = jsonArray1.getJSONObject(0);
-                            String Recipient = order1.getString("Recipient");
-                            tvConsigneeName.setText(Recipient);
-                            String Telephone = order1.getString("Telephone");
-                            tvConsigneePhone.setText(Telephone);
-                            String Address = order1.getString("Address");
-                            tvConsigneeDress.setText(Address);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                });
-    }
-
-    private class OrderDetails {
-        private String code;
-        private int userId;
-
-        public OrderDetails(int userId, String code) {
-            this.code = code;
-            this.userId = userId;
-        }
-
-        @Override
-        public String toString() {
-            return "InsDetails{" +
-                    "User_id='" + userId + '\'' +
-                    ", code='" + code + '\'' +
-                    '}';
-        }
-    }
+//    private class OrderDetails {
+//        private String code;
+//        private int userId;
+//
+//        public OrderDetails(int userId, String code) {
+//            this.code = code;
+//            this.userId = userId;
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return "InsDetails{" +
+//                    "User_id='" + userId + '\'' +
+//                    ", code='" + code + '\'' +
+//                    '}';
+//        }
+//    }
 
 
 }

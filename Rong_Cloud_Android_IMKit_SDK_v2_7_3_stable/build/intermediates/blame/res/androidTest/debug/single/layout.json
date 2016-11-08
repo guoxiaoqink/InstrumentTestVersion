@@ -108,12 +108,12 @@
         "source": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_input_pager_layout.xml"
     },
     {
-        "merged": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\rc_ac_camera.xml",
-        "source": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_ac_camera.xml"
-    },
-    {
         "merged": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\rc_picsel_activity.xml",
         "source": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_picsel_activity.xml"
+    },
+    {
+        "merged": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\rc_ac_camera.xml",
+        "source": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\bundles\\debug\\res\\layout\\rc_ac_camera.xml"
     },
     {
         "merged": "E:\\GitHub\\InstrumentTestVersion\\Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\rc_wi_block_popup.xml",

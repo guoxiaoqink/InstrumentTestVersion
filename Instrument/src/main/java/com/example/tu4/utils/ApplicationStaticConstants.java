@@ -39,6 +39,7 @@ public class ApplicationStaticConstants {
     //url
     public final static String CONSTANTS_URL = "http://128.199.137.227:8080";
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
+    public final static String FEEDBACK = CONSTANTS_URL + "/myapi/feedback/api_feedBack";
     public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";
     public final static String CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
     public final static String INS_DETAILS_URL = CONSTANTS_URL + "/music/api_insdetail";

@@ -327,7 +327,8 @@
                     android:layout_below="@id/freight"
                     android:layout_marginStart="@dimen/dp11"
                     android:layout_marginTop="@dimen/dp11"
-                    android:text="@string/real_pay" />
+                    android:text="@string/real_pay"
+                    android:textColor="@color/color_666666"/>
 
                 <TextView
                     android:id="@+id/tv_instrument_total_money"
@@ -481,7 +482,7 @@
                     android:textColor="@color/color_f49c41" />
                 <!--总金额-->
                 <TextView
-                    android:id="@+id/tv_total_money"
+                    android:id="@+id/tv_total_money_order"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

@@ -60,7 +60,12 @@ public class SelectDressActivity extends AppCompatActivity {
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
         rlSD.setImgLeft(ic_return);
         rlSD.getImgLeft().setVisibility(View.VISIBLE);
-        rlSD.setTitleText(title);
+        rlSD.setTitleText(title);rlSD.setImgLeftOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectDressActivity.this.finish();
+            }
+        });
 
     }
     private void getOrder() {

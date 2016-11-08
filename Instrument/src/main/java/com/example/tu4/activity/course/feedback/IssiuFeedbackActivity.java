@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
-import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.example.tu4.utils.ApplicationStaticConstants.FEEDBACK;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -100,9 +100,10 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
                 } else if (position == 1) {
                     tvComplaintType.setText("课时2");
                     classTimeType = 2;
-                } else
+                } else {
                     tvComplaintType.setText("课时3");
-                classTimeType = 3;
+                    classTimeType = 3;
+                }
                 mPopupWindow.dismiss();
                 imgbtComplaintType.setImageResource(R.mipmap.ic_arrow_bottom);
             }
@@ -120,12 +121,11 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         Log.w("时间", date);
         String context = edComplaintContext.getText().toString();
         Log.w("context", context);
-        String url = baseUrl + "/myapi/feedback/api_feedBack";
+//        String url =  "http://128.199.137.227:8080/myapi/feedback/api_feedBack";
         OkHttpUtils
                 .postString()
-                .url(url)
-                .content(new Gson().toJson(new IssiuFeedbascPost("2061", 1, 1,
-                        context, classTimeType, date)))
+                .url(FEEDBACK)
+                .content(new Gson().toJson(new IssiuFeedbascPost("2061", "20161108", classTimeType,context, 1   , 1)))
                 .build()
                 .connTimeOut(20000)
                 .readTimeOut(20000)
@@ -146,8 +146,7 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
                             String result = jsonobject.getString("result");
                             Log.w("result", result);
                             if (result.equals("ok")) {
-                                Toast.makeText(IssiuFeedbackActivity.this, "发布成功", Toast
-                                        .LENGTH_SHORT).show();
+                                Toast.makeText(IssiuFeedbackActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {

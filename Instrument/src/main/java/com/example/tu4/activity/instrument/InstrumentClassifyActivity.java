@@ -1,5 +1,6 @@
 package com.example.tu4.activity.instrument;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -9,11 +10,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.example.tu4.R;
+import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.bean.InstrumentDetails;
 import com.example.tu4.utils.ApplicationStaticConstants;
@@ -21,6 +24,10 @@ import com.example.tu4.utils.ApplicationStaticConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.listDataIns;
 import static com.example.tu4.utils.ApplicationStaticConstants.listDataclasscify;
@@ -38,18 +45,21 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     MaterialRefreshLayout mMaterlayout;
     InstrumentGridviewAdapter mGridviewAdapter;
-
     List<String> mTablayoutClassify;
     List<InstrumentDetails> mGridviewInstrumentDetail = new ArrayList<InstrumentDetails>();
     List<List<InstrumentDetails>> listInstrument = new ArrayList<List<InstrumentDetails>>();
     Boolean isLoadMore = true;
+    @BindView(R.id.imageview_instrument_show)
+    ImageView imageviewInstrumentShow;
+    @BindView(R.id.imv_instrument_return)
+    ImageView imvInstrumentReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_inatrument_classify);
-
+        ButterKnife.bind(this);
         mGridview = (GridView) findViewById(R.id.gridview_instrument_classifyActivity);
         mTabLayout = (TabLayout) findViewById(R.id.tabLayout_instrument_classify);
         mMaterlayout = (MaterialRefreshLayout) findViewById(R.id.materialrefresh_classfific);
@@ -201,4 +211,16 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
         mGridviewAdapter.notifyDataSetChanged();
     }
 
+    @OnClick({R.id.imv_instrument_return, R.id.imageview_instrument_show})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.imv_instrument_return:
+                this.finish();
+                break;
+            case R.id.imageview_instrument_show:
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
 }
