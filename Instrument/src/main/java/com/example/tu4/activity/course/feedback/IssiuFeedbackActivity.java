@@ -124,8 +124,8 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(url)
-                .content(new Gson().toJson(new IssiuFeedbascPost("2061", date, classTimeType,
-                        context, 1, 1)))
+                .content(new Gson().toJson(new IssiuFeedbascPost("2061", 1, 1,
+                        context, classTimeType, date)))
                 .build()
                 .connTimeOut(20000)
                 .readTimeOut(20000)
