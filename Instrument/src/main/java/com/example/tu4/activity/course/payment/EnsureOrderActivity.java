@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.instrument.SelectDressActivity;
+import com.example.tu4.bean.EnsureOrderPost;
 import com.example.tu4.utils.AliPay;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -28,13 +29,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.Call;
 
+import static com.example.tu4.utils.ApplicationStaticConstants.ENSURE_ORDER_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 import static com.example.tu4.utils.IUrl.baseUrl;
+import static com.zhy.http.okhttp.OkHttpUtils.postString;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -215,9 +220,57 @@ public class EnsureOrderActivity extends AppCompatActivity {
 //        startActivity(intent);
     }
 
+    /**
+     * 提交购买乐器信息，确认支付
+     */
+    private void postOrder(){
+        ArrayList<EnsureOrderPost.OrdersList> ordersList = new ArrayList<EnsureOrderPost.OrdersList>();
+        EnsureOrderPost.OrdersList orders = new EnsureOrderPost.OrdersList(1,tvPropertyEO.getText().toString());
+        ordersList.add(orders);
+        //int user_id, String code, Double price, Double method, String
+       // situation, String message, int date, int order_num, int receiverAddressID,
+        Double price = Double.valueOf(tvTotalMoney.getText().toString().trim());
+        Double method = Double.valueOf("1");
+        String situation = "未支付".toString();
+        String message = tvClickToLeaveMessage.getText().toString().trim();
+        int date = 1;
+        int order_num = 1;
+        int receiverAddressID = 1;
+
+        OkHttpUtils
+                .postString()
+                .url(ENSURE_ORDER_URL)
+                .content(new Gson().toJson(new EnsureOrderPost(1,"2070",price,method,situation,message,date,order_num,receiverAddressID,ordersList)))
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.w("失败","提交失败");
+                        Toast.makeText(EnsureOrderActivity.this, "提交失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try {
+                            JSONObject jsonobject = new JSONObject(response);
+                            String result = jsonobject.getString("result");
+                            Log.w("看这里onResponse","   "+result);
+                            if (result.equals("yes")){
+                                Toast.makeText(EnsureOrderActivity.this, "提交成功", Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+    }
+
     private void getOrder() {
         String url = baseUrl + "";
-        OkHttpUtils.postString()
+        postString()
                 .url(url)
                 .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
                 .build()

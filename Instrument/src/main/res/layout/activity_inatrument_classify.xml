@@ -41,7 +41,7 @@
     </RelativeLayout>
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout_instrument_classify"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/instrument_instrument_recycleviewHeight"
         android:layout_centerVertical="true"
         android:background="@color/color_ffffff"
@@ -81,7 +81,6 @@
                 android:layout_marginLeft="@dimen/instrument_instrument_gridviewToleft"
                 android:layout_marginRight="@dimen/instrument_instrument_gridviewToright"
                 android:layout_marginTop="@dimen/instrument_instrument_gridviewTotop"
-                android:background="@color/color_ffffff"
                 android:gravity="center"
                 android:horizontalSpacing="@dimen/instrument_instrument_griview_horizontal"
                 android:numColumns="2"

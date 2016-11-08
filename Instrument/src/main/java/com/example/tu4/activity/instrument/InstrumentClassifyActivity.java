@@ -127,6 +127,7 @@ public class InstrumentClassifyActivity extends AppCompatActivity {
     * */
     public void initTabLayout() {
 
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
         for (int i = 0; i < listDataclasscify.size(); i++) {
             //添加tab

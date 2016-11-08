@@ -16,6 +16,9 @@ import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -67,7 +70,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         pay_money = intent.getStringExtra("TotalMoney");
         pay_name = intent.getStringExtra("name");
         pay_tel = intent.getStringExtra("tel");
-        true_name=intent.getStringExtra("Name");
+        true_name = intent.getStringExtra("Name");
         tvPayCourseName.setText(pay_name);
         payPerson.setText(pay_preson);
         payAccount.setText(pay_account);
@@ -93,9 +96,8 @@ public class OrderPaymentActivity extends AppCompatActivity {
     //去支付文字点击事件
     public void gotopay(View v) {
         postDataByUrl();
-        Intent intent = new Intent(this,PaySuccessActivity.class);
+        Intent intent = new Intent(this, PaySuccessActivity.class);
         startActivity(intent);
-        //Toast.makeText(this, "支付测试", Toast.LENGTH_SHORT).show();
     }
 
     //不同支付事件的切换
@@ -118,13 +120,14 @@ public class OrderPaymentActivity extends AppCompatActivity {
         SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());//获取当前时间
         String str = formatter.format(curDate);
-        String num = tvOrderNum.getText().toString();
+        final String num = tvOrderNum.getText().toString();
         int ordernum = Integer.parseInt(num);
 //        double price= Integer.parseInt(pay_money);
         OkHttpUtils
                 .postString()
                 .url(ORDER_PAYMENT_URL)//
-                .content(new Gson().toJson(new PayOrderPost("1",pay_tel,true_name,str,1,ordernum,pay_money,1)))
+                .content(new Gson().toJson(new PayOrderPost("1", pay_tel, true_name, str, 1,
+                        ordernum, pay_money, 1)))
                 .build()//
                 .connTimeOut(20000)
                 .readTimeOut(20000)
@@ -132,14 +135,24 @@ public class OrderPaymentActivity extends AppCompatActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Toast.makeText(OrderPaymentActivity.this, "内容获取失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(OrderPaymentActivity.this, "内容获取失败", Toast.LENGTH_SHORT)
+                                .show();
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("注意这里啊。。。。。。。", response);
-                        System.out.println(response);
-                        Gson gson = new Gson();
+                        Log.w("注意这里啊。。。。。。。", response);
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("Result").toString();
+                            if (result.equals("true")) {
+                                Toast.makeText(OrderPaymentActivity.this, "支付成功", Toast
+                                        .LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }
