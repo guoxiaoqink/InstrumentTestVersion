@@ -19,17 +19,16 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 
-public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyLeaveWordsActivity extends AppCompatActivity {
 
 
     @BindView(R.id.lv_my_leave_words)
     ListView lvMyLeaveWords;
-    @BindView(R.id.rl_system_information)
-    RelativeLayout rlSystemInformation;
+    //    @BindView(R.id.rl_system_information)
+//    RelativeLayout rlSystemInformation;
     //    @BindView(R.id.img_my_leave_words_return)
 //    ImageView imgMyLeaveWordsReturn;
     @BindView(R.id.tv_sys_infor_num)
@@ -40,6 +39,8 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
     TextView tvSysInforTime;
     @BindView(R.id.leave_word_title)
     TitleView leaveWordTitle;
+    @BindView(R.id.rl_system_information)
+    RelativeLayout rlSystemInformation;
     private MyLeaveWordsListviewAdapter myLeaveWordsListviewAdapter;
 
     private int[] leaveWordsPhoto = new int[]{R.mipmap.a, R.mipmap.a, R.mipmap.a,};
@@ -65,6 +66,16 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_my_leave_words);
         ButterKnife.bind(this);
+        RelativeLayout rlSystemInformation = (RelativeLayout)findViewById(R.id.rl_system_information);
+        rlSystemInformation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyLeaveWordsActivity.this, SystemInformationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         initInformationDate();
         tvSysInforTime.setText(systemInforTime.get(6));
         tvSysInforNum.setText(systemInforNumber.get(11));
@@ -77,7 +88,7 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
         lvMyLeaveWords.setAdapter(myLeaveWordsListviewAdapter);
 
 //        imgMyLeaveWordsReturn.setOnClickListener(this);
-        rlSystemInformation.setOnClickListener(this);
+//        rlSystemInformation.setOnClickListener(this);
         leaveWordTitle.getImgLeft().setVisibility(View.VISIBLE);
         Resources res = getResources();
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
@@ -104,15 +115,14 @@ public class MyLeaveWordsActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    @OnClick(R.id.rl_system_information)
-    public void onClick() {
-        Intent intent = new Intent();
-        intent.setClass(MyLeaveWordsActivity.this, SystemInformationActivity.class);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onClick(View v) {
+//
+//    }
 
-    @Override
-    public void onClick(View v) {
-
-    }
+//    @OnClick(R.id.rl_system_information)
+//    public void onClick() {
+//        Intent intent = new Intent(MyLeaveWordsActivity.this, SystemInformationActivity.class);
+//        startActivity(intent);
+//    }
 }

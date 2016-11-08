@@ -148,7 +148,7 @@
     <string name="add_address">增加新地址</string>
     <string name="money_5000_00">5000.00</string>
     <string name="ensure_order">确认订单</string>
-    <string name="receiver">收货人</string>
+    <string name="receiver">收货人: </string>
     <string name="tel_num">131313212131</string>
     <string name="position">地点：</string>
     <string name="position_hint">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</string>

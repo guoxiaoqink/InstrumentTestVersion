@@ -100,7 +100,9 @@ public class SelectDressActivity extends AppCompatActivity {
                                     in.putExtra("tel",addressDetailses.get(position).getTelephone());
                                     in.putExtra("address",addressDetailses.get(position).getAddress());
                                     in.setClass(getApplicationContext(), EnsureOrderActivity.class);
-                                    startActivity(in);
+                                    SelectDressActivity.this.setResult(0, in);
+                                    finish();
+                                    //startActivity(in);
                                 }
                             });
 

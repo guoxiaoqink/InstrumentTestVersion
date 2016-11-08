@@ -33,7 +33,7 @@ public class SystemInformationActivity extends AppCompatActivity {
     @BindView(R.id.img_system_information_return)
     ImageView imgSystemInformationReturn;
 
-    private ArrayList<Map<String,String>> dataList;
+    private ArrayList<Map<String,String>> dataList = new ArrayList<>();
     private Map<String,String> dataMap;
 
     @BindView(R.id.lv_system_information)
