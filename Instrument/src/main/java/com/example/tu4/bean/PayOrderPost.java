@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 
 public class PayOrderPost implements Serializable{
-    private String User_id;
+    private int User_id;
     private String Telephone;
     private String Name;
     private String Date;
@@ -16,11 +16,11 @@ public class PayOrderPost implements Serializable{
     private String Price;
     private int Method;
 
-    public String getUser_id() {
+    public int getUser_id() {
         return User_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         User_id = user_id;
     }
 
@@ -80,7 +80,7 @@ public class PayOrderPost implements Serializable{
         Method = method;
     }
 
-    public PayOrderPost(String User_id,String Telephone,String Name,String Date,int Class_id,int Ordernum,String  Price,int Method) {
+    public PayOrderPost(int User_id,String Telephone,String Name,String Date,int Class_id,int Ordernum,String  Price,int Method) {
         this.User_id=User_id;
         this.Telephone=Telephone;
         this.Name=Name;

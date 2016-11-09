@@ -37,6 +37,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.FEEDBACK;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -125,7 +126,7 @@ public class IssiuFeedbackActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(FEEDBACK)
-                .content(new Gson().toJson(new IssiuFeedbascPost("2061", "20161108", classTimeType,context, 1   , 1)))
+                .content(new Gson().toJson(new IssiuFeedbascPost("2061", "20161108", classTimeType,context, 1   , UserId)))
                 .build()
                 .connTimeOut(20000)
                 .readTimeOut(20000)

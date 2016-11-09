@@ -37,6 +37,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.ENSURE_ORDER_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by WQJ on 2016/10/21
@@ -265,7 +266,7 @@ public class EnsureOrderActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(ENSURE_ORDER_URL)
-                .content(new Gson().toJson(new EnsureOrderPost(1, "2071", price, method,
+                .content(new Gson().toJson(new EnsureOrderPost(UserId, "2071", price, method,
                         situation, message, date, ordernum, receiverAddressID, orderslist)))
                 .build()
                 .execute(new StringCallback() {
@@ -293,58 +294,4 @@ public class EnsureOrderActivity extends AppCompatActivity {
                 });
 
     }
-
-//    private void getOrder() {
-//        String url = baseUrl + "";
-//        postString()
-//                .url(url)
-//                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
-//                .build()
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onResponse(String response, int id) {
-//                        Log.d("SUCCESS", response);
-//                        try {
-//                            JSONObject jsonObject = new JSONObject(response);
-//                            JSONArray jsonArray1 = jsonObject.getJSONArray("Content");
-//                            JSONObject order1 = jsonArray1.getJSONObject(0);
-//                            String Recipient = order1.getString("Recipient");
-//                            tvConsigneeName.setText(Recipient);
-//                            String Telephone = order1.getString("Telephone");
-//                            tvConsigneePhone.setText(Telephone);
-//                            String Address = order1.getString("Address");
-//                            tvConsigneeDress.setText(Address);
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//
-//                    }
-//                });
-//    }
-
-//    private class OrderDetails {
-//        private String code;
-//        private int userId;
-//
-//        public OrderDetails(int userId, String code) {
-//            this.code = code;
-//            this.userId = userId;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "InsDetails{" +
-//                    "User_id='" + userId + '\'' +
-//                    ", code='" + code + '\'' +
-//                    '}';
-//        }
-//    }
-
-
 }

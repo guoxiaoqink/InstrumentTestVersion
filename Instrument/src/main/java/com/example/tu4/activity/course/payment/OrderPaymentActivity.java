@@ -28,6 +28,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.ORDER_PAYMENT_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by WQJ on 2016/10/20
@@ -126,7 +127,7 @@ public class OrderPaymentActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(ORDER_PAYMENT_URL)//
-                .content(new Gson().toJson(new PayOrderPost("1", pay_tel, true_name, str, 1,
+                .content(new Gson().toJson(new PayOrderPost(UserId, pay_tel, true_name, str, 1,
                         ordernum, pay_money, 1)))
                 .build()//
                 .connTimeOut(20000)

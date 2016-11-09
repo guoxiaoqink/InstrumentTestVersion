@@ -32,6 +32,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.CHOOSE_DERSS_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -72,7 +73,7 @@ public class SelectDressActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(CHOOSE_DERSS_URL)
-                .content(new Gson().toJson(new OrderDetails(1, "1008")))
+                .content(new Gson().toJson(new OrderDetails(UserId, "1008")))
                 .build()
                 .connTimeOut(20000)
                 .readTimeOut(20000)

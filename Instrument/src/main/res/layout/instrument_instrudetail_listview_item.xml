@@ -9,7 +9,7 @@
         android:background="@color/color_ffffff">
 
         <TextView
-            android:id="@+id/textview1_instrument_listview1Item"
+            android:id="@+id/tv_ins_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -22,7 +22,7 @@
             android:id="@+id/linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview1_instrument_listview1Item"
+            android:layout_below="@id/tv_ins_name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/textview1Top_instrument_listview1Item"
             android:orientation="horizontal">
@@ -36,7 +36,7 @@
                 android:textSize="@dimen/moneySize" />
 
             <TextView
-                android:id="@+id/textview2_instrument_listview1Item"
+                android:id="@+id/tv_ins_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 318.00"
@@ -45,7 +45,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textview3_instrument_listview1Item"
+            android:id="@+id/tv_ins_context"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearlayout"
@@ -75,7 +75,7 @@
             android:id="@+id/gridview_listview_instrDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview3_instrument_listview1Item"
+            android:layout_below="@id/tv_ins_context"
             android:layout_marginBottom="15dp"
             android:layout_marginLeft="@dimen/instrument_instrument_gridviewToleft"
             android:layout_marginRight="@dimen/instrument_instrument_gridviewToright"

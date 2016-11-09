@@ -25,6 +25,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.SYSTEM_INFORMATION_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by hs on
@@ -61,7 +62,7 @@ public class SystemInformationActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(SYSTEM_INFORMATION_URL)
-                .content(new Gson().toJson(new SystemInformationPost(1,"2000","student")))
+                .content(new Gson().toJson(new SystemInformationPost(UserId,"2000","student")))
                 .build()
                 .execute(new GenericsCallback<SystemInformation>(new JsonGenericsSerializator()) {
                     @Override

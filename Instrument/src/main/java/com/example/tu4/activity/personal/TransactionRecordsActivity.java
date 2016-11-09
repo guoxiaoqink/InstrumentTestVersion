@@ -32,6 +32,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.TRANSACTION_RECORDS_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -86,7 +87,7 @@ public class TransactionRecordsActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(TRANSACTION_RECORDS_URL)
-                .content(new Gson().toJson(new SystemInformationPost(1, "2009", "student")))
+                .content(new Gson().toJson(new SystemInformationPost(UserId, "2009", "student")))
                 .build()
                 .execute(new GenericsCallback<TransactionRecords>(new JsonGenericsSerializator()) {
                     @Override

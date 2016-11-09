@@ -84,7 +84,7 @@ public class ApplicationStaticConstants {
     public static String headPortrait = "";
     //用户登录成功的返回值
     public static String UserName = "";   //用户名
-    public static int UserId = -1;        //用户id
+    public static int UserId = 1;        //用户id
     public static String LoginResult = "";//返回成功是否
     public static String Introduction = "";//自我介绍
     public static String Location = "";//地址

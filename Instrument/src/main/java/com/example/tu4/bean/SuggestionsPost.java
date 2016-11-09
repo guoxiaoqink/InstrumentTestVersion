@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class SuggestionsPost implements Serializable{
     private int Type;
     private String Content;
-    private String User_id;
+    private int User_id;
     private String code;
 
     public int getType() {
@@ -28,11 +28,11 @@ public class SuggestionsPost implements Serializable{
         this.code = code;
     }
 
-    public String getUser_id() {
+    public int getUser_id() {
         return User_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(int user_id) {
         User_id = user_id;
     }
 
@@ -44,7 +44,7 @@ public class SuggestionsPost implements Serializable{
         Content = content;
     }
 
-    public SuggestionsPost(int type, String content, String user_id, String code) {
+    public SuggestionsPost(int type, String content, int user_id, String code) {
         Type = type;
         Content = content;
         User_id = user_id;

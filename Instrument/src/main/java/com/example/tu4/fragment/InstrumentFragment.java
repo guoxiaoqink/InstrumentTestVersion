@@ -120,7 +120,6 @@ public class InstrumentFragment extends Fragment {
         getImageByUrl();
         getAlbumByUrl();
         getAllInstrumentByUrl();
-        initlistviewInstumentMoney();
         return view;
     }
 
@@ -146,7 +145,6 @@ public class InstrumentFragment extends Fragment {
                         listData = new ArrayList<Map<String, String>>();
                         ArrayList<String> typeList = response.getTypeList();
                         listDataclasscify = typeList;
-                        Log.w("这里是静态的type",listDataclasscify.toString());
                         initRecyclerView(typeList);//填充分类栏
                         ArrayList<AllInstrumentGet.InsArr> insArr = response.getInsArr();
                         for (int i = 0;i<insArr.size();i++){
@@ -155,10 +153,11 @@ public class InstrumentFragment extends Fragment {
                             mapData.put("pre_price",insArr.get(i).getPre_price()+"");
                             mapData.put("now_price",insArr.get(i).getNow_price()+"");
                             mapData.put("pic_url",insArr.get(i).getPic_url());
+                            mapData.put("des",insArr.get(i).getDes());
                             listData.add(mapData);
                         }
                         listDataIns = listData;
-                        Log.w("这里是静态的list",listDataIns.toString());
+                        initlistviewInstumentMoney();
                         initGridview(listData);//填充乐器信息
                         Log.w("成功", typeList.toString());
                     }
@@ -206,8 +205,9 @@ public class InstrumentFragment extends Fragment {
      * 乐器介绍lstview
      */
     private void initlistviewInstumentMoney() {
+        Log.w("这里是静态的list",listDataIns.toString());
         InstrumentListViewInstruDetialAdapter list2 = new InstrumentListViewInstruDetialAdapter(
-                getContext());
+                getContext(),listDataIns);
         listviewInstumentMoney.setAdapter(list2);
     }
 

@@ -175,7 +175,7 @@ public class ComplaintsSuggestionsActivity extends AppCompatActivity implements 
         OkHttpUtils
                 .postString()
                 .url(COMP_SUGGESTION_URL)
-                .content(new Gson().toJson(new SuggestionsPost(type, content, String.valueOf(UserId),
+                .content(new Gson().toJson(new SuggestionsPost(type, content, UserId,
                         "1002")))
                 .build()
                 .execute(new StringCallback() {

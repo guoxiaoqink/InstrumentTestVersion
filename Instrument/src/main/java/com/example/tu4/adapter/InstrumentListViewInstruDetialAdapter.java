@@ -12,14 +12,15 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.example.tu4.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
-import static com.example.tu4.utils.ApplicationStaticConstants.instrumentImg;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by Adelais on 2016/9/22.
@@ -28,18 +29,14 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
         AdapterView.OnItemClickListener {
     Dialog dialogImage;
     Context mContext;
-    InstrumentClassifyActivityGridviewAdapter mAdapter;
-    List<HashMap<String, Object>> InstrumenImg = new ArrayList<HashMap<String, Object>>();
-    View hehe;
-    ImageView tr;
-    private viewHolder viewHolder;
+    ArrayList<Map<String, String>> listDataIns;
     private LayoutInflater mInflater = null;
-    private LayoutInflater inflater = null;
 
-    public InstrumentListViewInstruDetialAdapter(Context context) {
+    public InstrumentListViewInstruDetialAdapter(Context context, ArrayList<Map<String, String>>
+            listDataIns) {
         this.mInflater = LayoutInflater.from(context);
         mContext = context;
-        InstrumenImg = instrumentImg();
+        this.listDataIns = listDataIns;
         inintDialog();
     }
 
@@ -54,7 +51,7 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
 
     @Override
     public int getCount() {
-        return InstrumenImg.size();
+        return listDataIns.size();
     }
 
     @Override
@@ -69,20 +66,26 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+
+        ViewHolder viewHolder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.instrument_instrudetail_listview_item, null);
             GridView gridView = (GridView) convertView.findViewById(
                     R.id.gridview_listview_instrDetail);
-            SimpleAdapter simpleAdapter = new SimpleAdapter(mContext, InstrumenImg,
+            SimpleAdapter simpleAdapter = new SimpleAdapter(mContext, listDataIns,
                     R.layout.instrument_listviewinstrudetial_gridview_item, new String[]{"image"},
                     new int[]{
                             R.id.imageview});
-            viewHolder = new viewHolder();
+            viewHolder = new ViewHolder(convertView);
             viewHolder.gridView = gridView;
             viewHolder.adapter = simpleAdapter;
             convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder = (InstrumentListViewInstruDetialAdapter.viewHolder) convertView.getTag();
+        viewHolder.tvInsName.setText(listDataIns.get(position).get("name"));
+        viewHolder.tvInsContext.setText(listDataIns.get(position).get("des"));
+        viewHolder.tvInsPrice.setText(listDataIns.get(position).get("now_price"));
         viewHolder.gridView.setAdapter(viewHolder.adapter);
         viewHolder.gridView.setOnItemClickListener(this);
 
@@ -100,12 +103,21 @@ public class InstrumentListViewInstruDetialAdapter extends BaseAdapter implement
         dialogImage.show();
     }
 
-    class viewHolder {
+    static class ViewHolder {
+        @BindView(R.id.tv_ins_name)
+        TextView tvInsName;
+        @BindView(R.id.tv_ins_price)
+        TextView tvInsPrice;
+        @BindView(R.id.tv_ins_context)
+        TextView tvInsContext;
         GridView gridView;
         SimpleAdapter adapter;
+
+
+        ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
-
-
 }
 
 

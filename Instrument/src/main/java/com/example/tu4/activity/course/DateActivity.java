@@ -38,6 +38,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.CALENDAR_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -187,7 +188,7 @@ public class DateActivity extends AppCompatActivity {
     private void getData() {
         OkHttpUtils.postString()
                 .url(CALENDAR_URL)
-                .content(new Gson().toJson(new getData(1, "1004")))
+                .content(new Gson().toJson(new getData(UserId, "1004")))
                 .build()
                 .execute(new StringCallback() {
                     @Override

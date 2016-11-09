@@ -34,6 +34,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.BOOKING_ORDER_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 
 /**
  * Created by scy on
@@ -104,7 +105,7 @@ public class BookingOrderActivity extends AppCompatActivity {
         OkHttpUtils
                 .postString()
                 .url(BOOKING_ORDER_URL)
-                .content(new Gson().toJson(new BookingOrderPost(1, "2010")))
+                .content(new Gson().toJson(new BookingOrderPost(UserId, "2010")))
                 .build()
                 .execute(new GenericsCallback<BookingOrder>(new JsonGenericsSerializator()) {
                     @Override
