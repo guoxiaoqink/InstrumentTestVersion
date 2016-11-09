@@ -5,21 +5,33 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.SearchActivity;
+import com.example.tu4.adapter.TransactionRecordsAdapter;
+import com.example.tu4.bean.SystemInformationPost;
+import com.example.tu4.bean.TransactionRecords;
+import com.example.tu4.okhttp.JsonGenericsSerializator;
 import com.example.tu4.view.TitleView;
+import com.google.gson.Gson;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.GenericsCallback;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+
+import static com.example.tu4.utils.ApplicationStaticConstants.TRANSACTION_RECORDS_URL;
 
 /**
  * Created by 秦孟飞 on 2016/10/20
@@ -32,14 +44,8 @@ public class TransactionRecordsActivity extends AppCompatActivity {
     @BindView(R.id.rl_TR)
     TitleView rlTR;
     private ListView mListView;
-    private DataBaseForParent dataBaseForParent;
-    private LayoutInflater inflater;
-    private String[] time = new String[]{"订单时间 2016-05-05 14:00", "订单时间 2016-05-05 14:00"};
-    private String[] mode = new String[]{"已付款", "已完成"};
-    private String[] details = new String[]{"共1件商品（含运费0.0）实付¥5000.00", "共2件商品（含运费0.0）实付¥6000.00"};
-    private String[] name = new String[]{"乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX", "乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX乐器XXX"};
-    private String[] attribute = new String[]{"属性XXX", "属性XXX"};
-    private String[] piece = new String[]{"¥5000.00", "¥1000.00"};
+    private ArrayList<Map<String, String>> listData;
+    private Map<String, String> mapData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,102 +78,46 @@ public class TransactionRecordsActivity extends AppCompatActivity {
             }
         });
         mListView = (ListView) findViewById(R.id.lv_TR_parent);
-        dataBaseForParent = new DataBaseForParent();
-        mListView.setAdapter(dataBaseForParent);
+        getDataByUrl();
     }
 
-    private class DataBaseForParent extends BaseAdapter {
-
-        public DataBaseForParent() {
-            super();
-            inflater = LayoutInflater.from(TransactionRecordsActivity.this);
-        }
-
-        @Override
-        public int getCount() {
-            return time.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = convertView;
-            if (view == null) {
-                view = inflater.inflate(R.layout.transaction_parent_list_item, parent, false);
-                ViewHodlerForParent viewHolder = new ViewHodlerForParent();
-
-                viewHolder.time = (TextView) view
-                        .findViewById(R.id.tv_TR_time);
-                viewHolder.mode = (TextView) view
-                        .findViewById(R.id.tv_TR_mode);
-                viewHolder.child = (ListView) view
-                        .findViewById(R.id.lv_TR_child);
-                viewHolder.details = (TextView) view
-                        .findViewById(R.id.tv_TR_information);
-                view.setTag(viewHolder);
-            }
-            final ViewHodlerForParent viewHolder = (ViewHodlerForParent) view.getTag();
-            viewHolder.time.setText(time[position]);
-            viewHolder.mode.setText(mode[position]);
-            viewHolder.details.setText(details[position]);
-            viewHolder.child.setAdapter(new BaseAdapter() {
-                @Override
-                public int getCount() {
-                    return name.length;
-                }
-
-                @Override
-                public Object getItem(int position) {
-                    return null;
-                }
-
-                @Override
-                public long getItemId(int position) {
-                    return 0;
-                }
-
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    if (convertView == null) {
-                        convertView = inflater.inflate(R.layout.transaction_child_list_item, parent, false);
-                        ViewHodlerForChild viewHodlerForChild = new ViewHodlerForChild();
-                        viewHodlerForChild.imageView = (ImageView) convertView.findViewById(R.id.iv_TD_child);
-                        viewHodlerForChild.name = (TextView) convertView.findViewById(R.id.tv_TR_C_name);
-                        viewHodlerForChild.attribute = (TextView) convertView.findViewById(R.id.tv_TR_C_attribute);
-                        viewHodlerForChild.piece = (TextView) convertView.findViewById(R.id.tv_TR_C_piece);
-                        convertView.setTag(viewHodlerForChild);
+    private void getDataByUrl() {
+        listData = new ArrayList<>();
+        OkHttpUtils
+                .postString()
+                .url(TRANSACTION_RECORDS_URL)
+                .content(new Gson().toJson(new SystemInformationPost(1, "2009", "student")))
+                .build()
+                .execute(new GenericsCallback<TransactionRecords>(new JsonGenericsSerializator()) {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.w("失败", e.getMessage());
+                        Toast.makeText(TransactionRecordsActivity.this, "获取数据失败", Toast
+                                .LENGTH_SHORT)
+                                .show();
                     }
-                    final ViewHodlerForChild viewHodlerForChild = (ViewHodlerForChild) convertView.getTag();
-                    viewHodlerForChild.name.setText(name[position]);
-                    viewHodlerForChild.attribute.setText(attribute[position]);
-                    viewHodlerForChild.piece.setText(piece[position]);
-                    return convertView;
-                }
-            });
-            return view;
-        }
+
+                    @Override
+                    public void onResponse(TransactionRecords response, int id) {
+                        List<TransactionRecords.OrderList> order_list = response.getOrder_list();
+                        for (int i = 0; i < order_list.size(); i++) {
+                            List<TransactionRecords.TransList> list = order_list.get(i).getList();
+                            mapData = new HashMap<String, String>();
+                            mapData.put("date", order_list.get(i).getDate());
+                            mapData.put("price", order_list.get(i).getPrice() + "");
+                            mapData.put("situation", order_list.get(i).getSituation());
+                            mapData.put("freigh", order_list.get(i).getFreigh() + "");
+                            mapData.put("pic_url", list.get(0).getPic_url());
+                            mapData.put("now_price", list.get(0).getNow_price() + "");
+                            mapData.put("name", list.get(0).getName());
+                            mapData.put("type", list.get(0).getType());
+                            listData.add(mapData);
+                        }
+                        mListView.setAdapter(new TransactionRecordsAdapter(TransactionRecordsActivity.this,listData));
+                        Log.w("成功", "这是listDate = " + listData.toString());
+                    }
+
+                });
     }
 
-    private class ViewHodlerForParent {
-        private TextView time;
-        private TextView mode;
-        private ListView child;
-        private TextView details;
-    }
-
-    private class ViewHodlerForChild {
-        private ImageView imageView;
-        private TextView name;
-        private TextView attribute;
-        private TextView piece;
-    }
 }

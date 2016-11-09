@@ -71,6 +71,7 @@ public class ApplicationStaticConstants {
     public final static String INSTRUMENT_ALL_URL = CONSTANTS_URL + "/myapi/showinstrument/api_showinstrument";
     public final static String ENSURE_ORDER_URL = CONSTANTS_URL + "/myapi/buyInstrument/api_buyinstrument";
     public final static String SYSTEM_INFORMATION_URL = CONSTANTS_URL + "/myapi/showSystemMessage/api_showSystemMessage";
+    public final static String TRANSACTION_RECORDS_URL = CONSTANTS_URL + "/myapi/buyOrder/api_buyInsOrder";
 
     //趣拍
     public static final String APP_KEY = "20cffd9799a88e4";

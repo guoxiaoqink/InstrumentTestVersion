@@ -21,41 +21,79 @@
         android:layout_marginTop="@dimen/dp11">
 
         <TextView
-            android:id="@+id/tv_TR_time"
+            android:id="@+id/tv_trans_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:text="订单时间：2016"
             android:textColor="@color/color_cccccc"
             android:textSize="@dimen/sp12" />
 
         <TextView
-            android:id="@+id/tv_TR_mode"
+            android:id="@+id/tv_trans_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:text="已付款"
             android:textColor="@color/color_f49c41"
             android:textSize="@dimen/sp13" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
-            android:layout_below="@id/tv_TR_time"
+            android:layout_below="@id/tv_trans_time"
             android:layout_marginTop="@dimen/dp11"
             android:background="@color/color_d1d1d1"></View>
     </RelativeLayout>
 
-    <com.example.tu4.view.ExpandedListView
-        android:id="@+id/lv_TR_child"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp11"
-        android:layout_marginTop="@dimen/dp11"
-        android:divider="@color/color_ffffff"></com.example.tu4.view.ExpandedListView>
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:layout_marginLeft="@dimen/dp11"
+        android:layout_marginRight="@dimen/dp11">
+
+        <ImageView
+            android:id="@+id/img_trans_pic"
+            android:layout_width="@dimen/dp_62"
+            android:layout_height="@dimen/dp_62"
+            android:background="@color/color_d1d1d1" />
+
+        <TextView
+            android:id="@+id/tv_trans_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="乐器名称：ssssss"
+            android:layout_toRightOf="@id/img_trans_pic"
+            android:layout_alignTop="@id/img_trans_pic"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp14" />
+
+        <TextView
+            android:id="@+id/tv_trans_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性：***"
+            android:textColor="@color/color_666666"
+            android:layout_below="@id/tv_trans_name"
+            android:layout_alignLeft="@id/tv_trans_name"
+            android:layout_marginTop="@dimen/dp10" />
+
+        <TextView
+            android:id="@+id/tv_trans_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥5000"
+            android:layout_alignBottom="@id/img_trans_pic"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_TR_C_attribute" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/px1"
-        android:layout_below="@id/tv_TR_time"
         android:layout_marginLeft="@dimen/dp11"
         android:layout_marginRight="@dimen/dp11"
         android:background="@color/color_d1d1d1"></View>
@@ -66,11 +104,22 @@
         android:layout_marginRight="@dimen/dp11">
 
         <TextView
-            android:id="@+id/tv_TR_information"
+            android:id="@+id/tv_trans_real_pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/dp10"
+            android:text="实付：￥5000"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp16" />
+        <TextView
+            android:id="@+id/tv_trans_freigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_trans_real_pay"
+            android:layout_toLeftOf="@id/tv_trans_real_pay"
+            android:layout_marginRight="@dimen/dp_5"
+            android:text="(含运费：3)"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp16" />
     </RelativeLayout>

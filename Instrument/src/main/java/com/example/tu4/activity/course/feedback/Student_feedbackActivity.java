@@ -46,8 +46,6 @@ import static com.example.tu4.utils.ApplicationStaticConstants.STUDENT_FEED_BACK
 public class Student_feedbackActivity extends AppCompatActivity {
     @BindView(R.id.list_stu_feedback_details)
     ListView stuFeedbackDetails;
-    //    @BindView(R.id.btn_course_return)
-//    ImageButton courseReturn;
     @BindView(R.id.btn_pre_course)
     ImageButton preCourse;
     @BindView(R.id.tv_course_time_x)
