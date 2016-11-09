@@ -78,9 +78,9 @@ public class SearchActivity extends AppCompatActivity {
         initListviewOrder();
     }
 
-    /*
-    *
-    * */
+//    /*
+//    *
+//    * */
 //    public void initListviewSubject() {
 //        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getBaseContext(),);
 //        listviewSubjectSerach.setAdapter(adapter);

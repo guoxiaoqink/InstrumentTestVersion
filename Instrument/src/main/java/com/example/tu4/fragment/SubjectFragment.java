@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.example.tu4.R;
 import com.example.tu4.activity.AdvertisementActivity;
 import com.example.tu4.activity.SearchActivity;
-import com.example.tu4.activity.course.DateActivity;
+import com.example.tu4.activity.course.CourseCalendarActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.bean.AutoPlayInfo;
@@ -240,7 +240,7 @@ public class SubjectFragment extends Fragment {
         switch (view.getId()) {
             case R.id.couse_:
                 Intent intent = new Intent();
-                intent.setClass(getContext(), DateActivity.class);
+                intent.setClass(getContext(), CourseCalendarActivity.class);
                 startActivity(intent);
                 break;
             case R.id.subject_titlt_find:

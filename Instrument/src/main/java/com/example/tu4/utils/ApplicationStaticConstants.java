@@ -48,6 +48,7 @@ public class ApplicationStaticConstants {
     public final static String COMP_SUGGESTION_URL = CONSTANTS_URL + "/music-stju-test/api_complaint";
     public final static String HELP_CENTER_URL = CONSTANTS_URL + "/music-stju-test/api_helpcenter";
     public final static String ORDER_PAYMENT_URL = CONSTANTS_URL + "/music-stju-test/api_payorder";
+    public final static String COURSE_CALENDAR_URL = CONSTANTS_URL + "/music-stju-test/api_calendar";
     public final static String CHOOSE_DERSS_URL = "http://128.199.137.227:8080/music-stju-test/api_selectadd";
     public final static String IMAGE_BY_URL = CONSTANTS_URL + "/regist/ss";
     public final static String SUBJECT_FRAGMENT_URL = CONSTANTS_URL + "/regist/sc";

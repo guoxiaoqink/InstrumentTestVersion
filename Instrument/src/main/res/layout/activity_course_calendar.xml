@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_course_calendar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.example.tu4.activity.course.CourseCalendarActivity">
+    <com.example.tu4.view.TitleView
+        android:id="@+id/course_calendar_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.example.tu4.view.TitleView>
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mv_calendar"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="#000000"
+        app:mcv_dateTextAppearance="@color/color_666666"
+        app:mcv_weekDayLabels="@array/custom_weekdays"
+        app:mcv_monthLabels="@array/custom_months"
+        app:mcv_leftArrowMask="@mipmap/ic_calendar_back"
+        app:mcv_rightArrowMask="@mipmap/ic_calendar_forword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <View
+        android:layout_marginTop="30dp"
+        android:background="#d1d1d1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <com.example.tu4.view.ResolveConflictsScoolviewListview
+        android:id="@+id/cmlv_course_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.tu4.view.ResolveConflictsScoolviewListview>
+
+
+
+</LinearLayout>
