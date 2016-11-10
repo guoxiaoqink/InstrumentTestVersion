@@ -31,6 +31,7 @@ public class HttpsUtils {
             TrustManager[] trustManagers = prepareTrustManager(certificates);
             KeyManager[] keyManagers = prepareKeyManager(bksFile, password);
             SSLContext sslContext = SSLContext.getInstance("TLS");
+
             X509TrustManager trustManager = null;
             if (trustManagers != null) {
                 trustManager = new MyTrustManager(chooseTrustManager(trustManagers));
@@ -50,7 +51,7 @@ public class HttpsUtils {
         }
     }
 
-    private static TrustManager[] prepareTrustManager(InputStream... certificates) {
+    public static TrustManager[] prepareTrustManager(InputStream... certificates) {
         if (certificates == null || certificates.length <= 0) return null;
         try {
 
@@ -70,11 +71,10 @@ public class HttpsUtils {
                 }
             }
             TrustManagerFactory trustManagerFactory = null;
-
+//            SSLContext sslContext = SSLContext.getInstance("TLS");
             trustManagerFactory = TrustManagerFactory.
                     getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
-
             TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
 
             return trustManagers;
@@ -91,7 +91,7 @@ public class HttpsUtils {
 
     }
 
-    private static KeyManager[] prepareKeyManager(InputStream bksFile, String password) {
+    public static KeyManager[] prepareKeyManager(InputStream bksFile, String password) {
         try {
             if (bksFile == null || password == null) return null;
 
@@ -117,7 +117,7 @@ public class HttpsUtils {
         return null;
     }
 
-    private static X509TrustManager chooseTrustManager(TrustManager[] trustManagers) {
+    public static X509TrustManager chooseTrustManager(TrustManager[] trustManagers) {
         for (TrustManager trustManager : trustManagers) {
             if (trustManager instanceof X509TrustManager) {
                 return (X509TrustManager) trustManager;

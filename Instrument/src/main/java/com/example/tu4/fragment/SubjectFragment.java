@@ -164,7 +164,6 @@ public class SubjectFragment extends Fragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        Log.d("success", response);
                         try {
                             Gson gson = new Gson();
                             JSONObject jsonObject = new JSONObject(response);
@@ -174,15 +173,10 @@ public class SubjectFragment extends Fragment {
                             if (classListDetailses == null) {
                                 Toast.makeText(getContext(), "列表内容为空", Toast.LENGTH_SHORT).show();
                             }
-
-
                             for (int i = 0; i < classListDetailses.size(); i++) {
-//                                System.out.println(classListDetailses.get(i).getClass_name() +
-// "注意这里啊，，，，，，，，，，，，，，，");
+
                                 data.add(classListDetailses);
                             }
-//                            System.out.println(data.size()
-// +"00000000000000000000000000000000000000000000");
                             BaseAdapter adapter = new SubjectListviewAdapter(getContext(), data);
                             listviewSubject.setAdapter(adapter);
                             listviewSubject.setOnItemClickListener(new AdapterView
@@ -193,11 +187,9 @@ public class SubjectFragment extends Fragment {
 
                                     Intent intent = new Intent(getContext(),
                                             SubjectDetailActivity.class);
-//                                        intent.putExtra("class_id", position);
                                     startActivity(intent);
                                 }
                             });
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
