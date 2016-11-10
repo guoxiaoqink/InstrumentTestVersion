@@ -115,7 +115,6 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
-
         getListDataByUrl();
         getOrderDataByUrl();
         getDataRecordByUrl();
@@ -187,8 +186,6 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-//        initListviewOrder();
     }
 
     private void getOrderDataByUrl() {
