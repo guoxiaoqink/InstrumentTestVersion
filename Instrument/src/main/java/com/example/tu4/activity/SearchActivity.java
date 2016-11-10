@@ -1,6 +1,5 @@
 package com.example.tu4.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,11 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
-import com.example.tu4.activity.personal.BookingOrderActivity;
-import com.example.tu4.activity.personal.TransactionRecordsActivity;
 import com.example.tu4.adapter.BookingOrderAdapter;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
-import com.example.tu4.adapter.SerachOrderListviewAdapter;
 import com.example.tu4.adapter.TransactionRecordsAdapter;
 import com.example.tu4.bean.BookingOrder;
 import com.example.tu4.bean.BookingOrderPost;
@@ -88,10 +84,11 @@ public class SearchActivity extends AppCompatActivity {
     LinearLayout linearlayoutTopmenuOrder;
     @BindView(R.id.linearlayout_topmenu_record)
     LinearLayout linearlayoutTopmenuRecord;
-    @BindView(R.id.listview_order_serach)
-    ResolveConflictsScoolviewListview listviewOrderSerach;
     @BindView(R.id.listview_record_serach)
     ResolveConflictsScoolviewListview listviewRecordSerach;
+    @BindView(R.id.listview_order_serach)
+    ResolveConflictsScoolviewListview listviewOrderSerach;
+
 
     private ArrayList<Map<String, String>> listData;
     private Map<String, String> mapData;
@@ -107,7 +104,7 @@ public class SearchActivity extends AppCompatActivity {
         getOrderDataByUrl();
         getDataRecordByUrl();
         initGridview();
-        initListviewOrder();
+//        initListviewOrder();
     }
 
     private void getOrderDataByUrl() {
@@ -188,7 +185,8 @@ public class SearchActivity extends AppCompatActivity {
                             mapData.put("type", list.get(0).getType());
                             listData.add(mapData);
                         }
-                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter(SearchActivity.this,listData));
+                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter
+                                (SearchActivity.this, listData));
                         Log.w("成功", "这是listDate = " + listData.toString());
                     }
 
@@ -206,10 +204,10 @@ public class SearchActivity extends AppCompatActivity {
     /*
     * 初始化订单信息
     * */
-    public void initListviewOrder() {
-        SerachOrderListviewAdapter adapter = new SerachOrderListviewAdapter(getBaseContext());
-        listviewOrderSerach.setAdapter(adapter);
-    }
+//    public void initListviewOrder() {
+//        SerachOrderListviewAdapter adapter = new SerachOrderListviewAdapter(getBaseContext());
+//        listviewOrderSerach.setAdapter(adapter);
+//    }
 
     /*
     *
@@ -234,12 +232,14 @@ public class SearchActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linearlayout_topmenu_order:
-                Intent intent = new Intent(this, BookingOrderActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(this, BookingOrderActivity.class);
+//                startActivity(intent);
+                listviewOrderSerach.scrollTo(0, 20);
                 break;
             case R.id.linearlayout_topmenu_record:
-                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
-                startActivity(intent1);
+//                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
+//                startActivity(intent1);
+                listviewRecordSerach.scrollTo(0, 20);
                 break;
         }
     }

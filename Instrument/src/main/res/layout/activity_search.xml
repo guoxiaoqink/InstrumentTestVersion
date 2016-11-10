@@ -269,7 +269,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:divider="@drawable/serach_subject_listitem_divider"
-                    android:dividerHeight="@dimen/px1"></com.example.tu4.view.ResolveConflictsScoolviewListview>
+                    android:dividerHeight="@dimen/px1">
+
+                </com.example.tu4.view.ResolveConflictsScoolviewListview>
             </LinearLayout>
 
             <TextView
