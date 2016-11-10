@@ -37,7 +37,7 @@ public class ApplicationStaticConstants {
     public static ArrayList<String> listDataclasscify = new ArrayList<String>();
 
     //url
-    public final static String CONSTANTS_URL = "http://128.199.137.227:8080";
+    public final static String CONSTANTS_URL = "https://128.199.137.227:443";
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
     public final static String FEEDBACK = CONSTANTS_URL + "/myapi/feedback/api_feedBack";
     public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";

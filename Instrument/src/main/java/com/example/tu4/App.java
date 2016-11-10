@@ -6,6 +6,14 @@ import android.content.Context;
 
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.https.HttpsUtils;
+import com.zhy.http.okhttp.log.LoggerInterceptor;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 import io.rong.imkit.RongIM;
 import okhttp3.OkHttpClient;
@@ -32,16 +40,43 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RongIM.init(this);
+//        String certPath = "F:\\MyFiles\\1834497859\\FileRecv\\server.crt";
+//        String jksPath = "F:\\MyFiles\\1834497859\\FileRecv\\TestKeygen.jks";
+        try {
+           // InputStream in2 = new FileInputStream(jksPath);
+           //getAssets().open("srca.cer")
+            HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(getAssets().open("server.crt"), getAssets().open("app.bks"), "123456");
+//        CookieJarImpl cookieJar1 = new CookieJarImpl(new MemoryCookieStore());
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .connectTimeout(10000L, TimeUnit.MILLISECONDS)
+                    .readTimeout(10000L, TimeUnit.MILLISECONDS)
+                    .addInterceptor(new LoggerInterceptor("TAG"))
+                    //.cookieJar(cookieJar1)
+                    .hostnameVerifier(new HostnameVerifier()
+                    {
+                        @Override
+                        public boolean verify(String hostname, SSLSession session)
+                        {
+                            return true;
+                        }
+                    })
+                    .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                    .build();
+            OkHttpUtils.initClient(okHttpClient);
 
-        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-                //其他配置
-                .build();
-        OkHttpUtils.initClient(okHttpClient);
 
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    public void onTerminate() {
+        super.onTerminate();//应用程序退出时调用
+
+    }
 }
 
 /**

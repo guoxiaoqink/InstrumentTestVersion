@@ -54,6 +54,7 @@ import static com.example.tu4.utils.ApplicationStaticConstants.accessToken;
 import static com.example.tu4.utils.ApplicationStaticConstants.description;
 import static com.example.tu4.utils.ApplicationStaticConstants.domain;
 import static com.example.tu4.utils.ApplicationStaticConstants.shareType;
+import static com.example.tu4.utils.ApplicationStaticConstants.space;
 import static com.example.tu4.utils.ApplicationStaticConstants.tags;
 /**
  * Created by hs on
@@ -104,15 +105,14 @@ public class MyWorksActivity extends AppCompatActivity {
             PackageManager pm = getPackageManager();
             ai = pm.getApplicationInfo("com.example.tu4", 0);
             uid = String.valueOf(ai.uid);
-            Contant.space = uid;
-           Log.w("应用的UID", "!!!!!!!!!!!!!!!" + Contant.space);
+            space = uid;
+           Log.w("应用的UID", "!!!!!!!!!!!!!!!" +space);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
         Auth.getInstance().initAuth(this, APP_KEY,
-                APP_SECRET, Contant.space);
-
+                APP_SECRET,space);
 
         MyWorksGridviewAdapter workAdapter = new MyWorksGridviewAdapter(this, listData);
         gvMyWorks.setAdapter(workAdapter);
