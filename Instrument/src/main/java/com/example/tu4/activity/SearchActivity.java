@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -98,8 +99,14 @@ public class SearchActivity extends AppCompatActivity {
     EditText edtTopbarSerach;
     @BindView(R.id.listview_subject_serach)
     ResolveConflictsScoolviewListview listviewSubjectSerach;
-    private ArrayList<Map<String, String>> listData;
-    private Map<String, String> mapData;
+    @BindView(R.id.scrollview_search)
+    ScrollView scrollviewSearch;
+
+
+    private ArrayList<Map<String, String>> OrderlistData;
+    private Map<String, String> OrdermapData;
+    private ArrayList<Map<String, String>> RecordlistData;
+    private Map<String, String> RecordmapData;
     private String situation;
     private List<List<ClassListDetails>> data = new ArrayList<>();
 
@@ -108,6 +115,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
+
         getListDataByUrl();
         getOrderDataByUrl();
         getDataRecordByUrl();
@@ -179,6 +187,8 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+//        initListviewOrder();
     }
 
     private void getOrderDataByUrl() {
@@ -197,10 +207,10 @@ public class SearchActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(BookingOrder response, int id) {
-                        listData = new ArrayList<Map<String, String>>();
+                        OrderlistData = new ArrayList<Map<String, String>>();
                         List<BookingOrder.BookingOrderinfo> list = response.getList();
                         for (int i = 0; i < list.size(); i++) {
-                            mapData = new HashMap<String, String>();
+                            OrdermapData = new HashMap<String, String>();
                             if (list.get(i).getSituation() == 1) {
                                 situation = "未上课".toString();
                             } else if (list.get(i).getSituation() == 0) {
@@ -208,18 +218,18 @@ public class SearchActivity extends AppCompatActivity {
                             } else {
                                 situation = "已上了" + (i - 1) + "课时".toString();
                             }
-                            mapData.put("situation", situation);
-                            mapData.put("class_name", list.get(i).getClass_name());
-                            mapData.put("class_time", String.valueOf(list.get(i).getClass_time()));
-                            mapData.put("teacher_name", list.get(i).getTeacher_name());
-                            mapData.put("class_price", String.valueOf(list.get(i).getClass_price
+                            OrdermapData.put("situation", situation);
+                            OrdermapData.put("class_name", list.get(i).getClass_name());
+                            OrdermapData.put("class_time", String.valueOf(list.get(i).getClass_time()));
+                            OrdermapData.put("teacher_name", list.get(i).getTeacher_name());
+                            OrdermapData.put("class_price", String.valueOf(list.get(i).getClass_price
                                     ()));
-                            mapData.put("class_pic_url", list.get(i).getClass_pic_url());
-                            mapData.put("date", list.get(i).getDate());
-                            listData.add(mapData);
-                            Log.w("listData", listData.toString());
+                            OrdermapData.put("class_pic_url", list.get(i).getClass_pic_url());
+                            OrdermapData.put("date", list.get(i).getDate());
+                            OrderlistData.add(OrdermapData);
+                            Log.w("listData----->order", OrdermapData.toString());
                             BookingOrderAdapter adapter = new BookingOrderAdapter(SearchActivity
-                                    .this, listData);
+                                    .this, OrderlistData);
                             listviewOrderSerach.setAdapter(adapter);
                         }
                     }
@@ -228,7 +238,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void getDataRecordByUrl() {
-        listData = new ArrayList<>();
+        RecordlistData = new ArrayList<>();
         OkHttpUtils
                 .postString()
                 .url(TRANSACTION_RECORDS_URL)
@@ -248,21 +258,19 @@ public class SearchActivity extends AppCompatActivity {
                         List<TransactionRecords.OrderList> order_list = response.getOrder_list();
                         for (int i = 0; i < order_list.size(); i++) {
                             List<TransactionRecords.TransList> list = order_list.get(i).getList();
-                            mapData = new HashMap<String, String>();
-                            mapData.put("date", order_list.get(i).getDate());
-                            mapData.put("price", order_list.get(i).getPrice() + "");
-                            mapData.put("situation", order_list.get(i).getSituation());
-                            mapData.put("freigh", order_list.get(i).getFreigh() + "");
-                            mapData.put("pic_url", list.get(0).getPic_url());
-                            mapData.put("now_price", list.get(0).getNow_price() + "");
-                            mapData.put("name", list.get(0).getName());
-                            mapData.put("type", list.get(0).getType());
-                            listData.add(mapData);
+                            RecordmapData = new HashMap<String, String>();
+                            RecordmapData.put("date", order_list.get(i).getDate());
+                            RecordmapData.put("price", order_list.get(i).getPrice() + "");
+                            RecordmapData.put("situation", order_list.get(i).getSituation());
+                            RecordmapData.put("freigh", order_list.get(i).getFreigh() + "");
+                            RecordmapData.put("pic_url", list.get(0).getPic_url());
+                            RecordmapData.put("now_price", list.get(0).getNow_price() + "");
+                            RecordmapData.put("name", list.get(0).getName());
+                            RecordmapData.put("type", list.get(0).getType());
+                            RecordlistData.add(RecordmapData);
                         }
-                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter(SearchActivity.this, listData));
-                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter
-                                (SearchActivity.this, listData));
-                        Log.w("成功", "这是listDate = " + listData.toString());
+                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter(SearchActivity.this, RecordlistData));
+                        Log.w("成功", "这是listDate = " + RecordlistData.toString());
                     }
 
                 });
@@ -294,7 +302,10 @@ public class SearchActivity extends AppCompatActivity {
             case R.id.linearlayout_topmenu_order:
 //                Intent intent = new Intent(this, BookingOrderActivity.class);
 //                startActivity(intent);
-                listviewOrderSerach.scrollTo(0, 20);
+
+                int[] orderLocation = new int[2];
+                listviewOrderSerach.getLocationOnScreen(orderLocation);
+                scrollviewSearch.scrollTo(0,orderLocation[1]);
                 break;
             case R.id.linearlayout_topmenu_record:
 //                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
