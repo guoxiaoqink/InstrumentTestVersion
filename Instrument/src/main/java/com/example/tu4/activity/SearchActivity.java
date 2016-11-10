@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.activity.course.SubjectDetailActivity;
+import com.example.tu4.activity.personal.BookingOrderActivity;
+import com.example.tu4.activity.personal.TransactionRecordsActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.SerachOrderListviewAdapter;
 import com.example.tu4.adapter.SubjectListviewAdapter;
@@ -66,12 +68,14 @@ public class SearchActivity extends AppCompatActivity {
     TextView textviewTopmenuOrder;
     @BindView(R.id.linearlayout_topmenu_order)
     LinearLayout linearlayoutTopmenuOrder;
+
     @BindView(R.id.img_topmenu_record)
     ImageView imgTopmenuRecord;
     @BindView(R.id.textview_topmenu_record)
     TextView textviewTopmenuRecord;
     @BindView(R.id.linearlayout_topmenu_record)
     LinearLayout linearlayoutTopmenuRecord;
+
     @BindView(R.id.listview_subject_serach)
     ListView listviewSubjectSerach;
     @BindView(R.id.listview_order_serach)
@@ -82,6 +86,11 @@ public class SearchActivity extends AppCompatActivity {
     ResolveConflictsScoolviewGridview gridviewSerach;
     @BindView(R.id.img_actionbar_serach)
     ImageView imgActionbarSerach;
+    @BindView(R.id.linearlayout_topmenu_order)
+    LinearLayout linearlayoutTopmenuOrder;
+    @BindView(R.id.linearlayout_topmenu_record)
+    LinearLayout linearlayoutTopmenuRecord;
+
     //    private List<String> ImageCricleViewList_image = new ArrayList<>();
 //    private List<String> ImageCricleViewList_name = new ArrayList<>();
     private List<List<ClassListDetails>> data = new ArrayList<>();
@@ -181,5 +190,19 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    @OnClick({R.id.linearlayout_topmenu_order, R.id.linearlayout_topmenu_record})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.linearlayout_topmenu_order:
+                Intent intent = new Intent(this, BookingOrderActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.linearlayout_topmenu_record:
+                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
+                startActivity(intent1);
+                break;
+        }
     }
 }
