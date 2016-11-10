@@ -91,6 +91,7 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
         getListDataByUrl();
+//        Toast.makeText(this, "ceshi", Toast.LENGTH_SHORT).show();
 //        initListviewSubject();
         initGridview();
         initListviewOrder();
