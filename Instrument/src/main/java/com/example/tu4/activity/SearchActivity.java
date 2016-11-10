@@ -1,5 +1,6 @@
 package com.example.tu4.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.personal.BookingOrderActivity;
+import com.example.tu4.activity.personal.TransactionRecordsActivity;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
 import com.example.tu4.adapter.SerachOrderListviewAdapter;
 import com.example.tu4.view.ResolveConflictsScoolviewGridview;
@@ -46,15 +49,11 @@ public class SearchActivity extends AppCompatActivity {
     ImageView imgTopmenuOrder;
     @BindView(R.id.textview_topmenu_order)
     TextView textviewTopmenuOrder;
-    @BindView(R.id.linearlayout_topmenu_order)
-    LinearLayout linearlayoutTopmenuOrder;
 
     @BindView(R.id.img_topmenu_record)
     ImageView imgTopmenuRecord;
     @BindView(R.id.textview_topmenu_record)
     TextView textviewTopmenuRecord;
-    @BindView(R.id.linearlayout_topmenu_record)
-    LinearLayout linearlayoutTopmenuRecord;
 
     @BindView(R.id.listview_subject_serach)
     ListView listviewSubjectSerach;
@@ -66,6 +65,10 @@ public class SearchActivity extends AppCompatActivity {
     ResolveConflictsScoolviewGridview gridviewSerach;
     @BindView(R.id.img_actionbar_serach)
     ImageView imgActionbarSerach;
+    @BindView(R.id.linearlayout_topmenu_order)
+    LinearLayout linearlayoutTopmenuOrder;
+    @BindView(R.id.linearlayout_topmenu_record)
+    LinearLayout linearlayoutTopmenuRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,5 +114,19 @@ public class SearchActivity extends AppCompatActivity {
     @OnClick(R.id.img_actionbar_serach)
     public void onClick() {
         this.finish();
+    }
+
+    @OnClick({R.id.linearlayout_topmenu_order, R.id.linearlayout_topmenu_record})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.linearlayout_topmenu_order:
+                Intent intent = new Intent(this, BookingOrderActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.linearlayout_topmenu_record:
+                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
+                startActivity(intent1);
+                break;
+        }
     }
 }
