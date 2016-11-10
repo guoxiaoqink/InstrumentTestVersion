@@ -1,22 +1,30 @@
 package com.example.tu4.activity;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.BookingOrderAdapter;
 import com.example.tu4.adapter.InstrumentGridviewAdapter;
+import com.example.tu4.adapter.SubjectListviewAdapter;
 import com.example.tu4.adapter.TransactionRecordsAdapter;
 import com.example.tu4.bean.BookingOrder;
 import com.example.tu4.bean.BookingOrderPost;
+import com.example.tu4.bean.CalssList;
+import com.example.tu4.bean.ClassListDetails;
+import com.example.tu4.bean.ClassShowPost;
 import com.example.tu4.bean.SystemInformationPost;
 import com.example.tu4.bean.TransactionRecords;
 import com.example.tu4.okhttp.JsonGenericsSerializator;
@@ -25,6 +33,10 @@ import com.example.tu4.view.ResolveConflictsScoolviewListview;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.GenericsCallback;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +49,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.BOOKING_ORDER_URL;
+import static com.example.tu4.utils.ApplicationStaticConstants.SUBJECT_FRAGMENT_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.TRANSACTION_RECORDS_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
 import static com.example.tu4.utils.ApplicationStaticConstants.listDataIns;
@@ -55,27 +68,20 @@ public class SearchActivity extends AppCompatActivity {
     TextView textviewTopmenuSubject;
     @BindView(R.id.linearlayout_topmenu_subject)
     LinearLayout linearlayoutTopmenuSubject;
-
     @BindView(R.id.img_topmenu_instrument)
     ImageView imgTopmenuInstrument;
     @BindView(R.id.textview_topmenu_instrument)
     TextView textviewTopmenuInstrument;
     @BindView(R.id.linearlayout_topmenu_instrument)
     LinearLayout linearlayoutTopmenuInstrument;
-
     @BindView(R.id.img_topmenu_order)
     ImageView imgTopmenuOrder;
     @BindView(R.id.textview_topmenu_order)
     TextView textviewTopmenuOrder;
-
     @BindView(R.id.img_topmenu_record)
     ImageView imgTopmenuRecord;
     @BindView(R.id.textview_topmenu_record)
     TextView textviewTopmenuRecord;
-
-    @BindView(R.id.listview_subject_serach)
-    ListView listviewSubjectSerach;
-
     @BindView(R.id.gridview_serach)
     ResolveConflictsScoolviewGridview gridviewSerach;
     @BindView(R.id.img_actionbar_serach)
@@ -84,27 +90,95 @@ public class SearchActivity extends AppCompatActivity {
     LinearLayout linearlayoutTopmenuOrder;
     @BindView(R.id.linearlayout_topmenu_record)
     LinearLayout linearlayoutTopmenuRecord;
-    @BindView(R.id.listview_record_serach)
-    ResolveConflictsScoolviewListview listviewRecordSerach;
     @BindView(R.id.listview_order_serach)
     ResolveConflictsScoolviewListview listviewOrderSerach;
-
-
+    @BindView(R.id.listview_record_serach)
+    ResolveConflictsScoolviewListview listviewRecordSerach;
+    @BindView(R.id.edt_topbar_serach)
+    EditText edtTopbarSerach;
+    @BindView(R.id.listview_subject_serach)
+    ResolveConflictsScoolviewListview listviewSubjectSerach;
     private ArrayList<Map<String, String>> listData;
     private Map<String, String> mapData;
     private String situation;
+    private List<List<ClassListDetails>> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ButterKnife.bind(this);
-
-//        initListviewSubject();
+        getListDataByUrl();
         getOrderDataByUrl();
         getDataRecordByUrl();
         initGridview();
-//        initListviewOrder();
+        Intent intent = getIntent();
+        //判断是否是搜索请求
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            //获取搜索的查询内容（关键字）
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //执行相应的查询动作
+//            doMySearch(query);
+        }
+    }
+
+    @Override
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+        appData.putBoolean(edtTopbarSerach.getText().toString(), true);
+        startSearch(null, false, appData, false);
+        return true;
+    }
+
+    //从网上获取列表内容并显示在列表中
+    public void getListDataByUrl() {
+        OkHttpUtils
+                .postString()
+                .url(SUBJECT_FRAGMENT_URL)//
+                .content(new Gson().toJson(new ClassShowPost(UserId, "student", "9527", 0)))
+                .build()//
+                .connTimeOut(20000)
+                .readTimeOut(20000)
+                .writeTimeOut(20000)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Toast.makeText(getApplicationContext(), "列表内容获取失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try {
+                            Gson gson = new Gson();
+                            JSONObject jsonObject = new JSONObject(response);
+                            CalssList calssList = gson.fromJson(response, CalssList.class);
+                            List<ClassListDetails> classListDetailses = new ArrayList<>();
+                            classListDetailses = calssList.getList();
+                            if (classListDetailses == null) {
+                                Toast.makeText(getApplicationContext(), "列表内容为空", Toast.LENGTH_SHORT).show();
+                            }
+                            for (int i = 0; i < classListDetailses.size(); i++) {
+
+                                data.add(classListDetailses);
+                            }
+                            BaseAdapter adapter = new SubjectListviewAdapter(getApplicationContext(), data);
+                            listviewSubjectSerach.setAdapter(adapter);
+                            listviewSubjectSerach.setOnItemClickListener(new AdapterView
+                                    .OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int
+                                        position, long id) {
+
+                                    Intent intent = new Intent(getApplicationContext(),
+                                            SubjectDetailActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
     }
 
     private void getOrderDataByUrl() {
@@ -185,6 +259,7 @@ public class SearchActivity extends AppCompatActivity {
                             mapData.put("type", list.get(0).getType());
                             listData.add(mapData);
                         }
+                        listviewRecordSerach.setAdapter(new TransactionRecordsAdapter(SearchActivity.this, listData));
                         listviewRecordSerach.setAdapter(new TransactionRecordsAdapter
                                 (SearchActivity.this, listData));
                         Log.w("成功", "这是listDate = " + listData.toString());
@@ -193,21 +268,6 @@ public class SearchActivity extends AppCompatActivity {
                 });
     }
 
-//    /*
-//    *
-//    * */
-//    public void initListviewSubject() {
-//        SubjectListviewAdapter adapter = new SubjectListviewAdapter(getBaseContext(),);
-//        listviewSubjectSerach.setAdapter(adapter);
-//    }
-
-    /*
-    * 初始化订单信息
-    * */
-//    public void initListviewOrder() {
-//        SerachOrderListviewAdapter adapter = new SerachOrderListviewAdapter(getBaseContext());
-//        listviewOrderSerach.setAdapter(adapter);
-//    }
 
     /*
     *
