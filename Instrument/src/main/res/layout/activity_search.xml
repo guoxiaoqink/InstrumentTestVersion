@@ -298,12 +298,12 @@
                     android:layout_height="@dimen/px1"
                     android:background="@color/color_d1d1d1" />
 
-                <ListView
+                <com.example.tu4.view.ResolveConflictsScoolviewListview
                     android:id="@+id/listview_record_serach"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:divider="@drawable/serach_subject_listitem_divider"
-                    android:dividerHeight="@dimen/px1"></ListView>
+                    android:dividerHeight="@dimen/px1"></com.example.tu4.view.ResolveConflictsScoolviewListview>
             </LinearLayout>
 
             <TextView

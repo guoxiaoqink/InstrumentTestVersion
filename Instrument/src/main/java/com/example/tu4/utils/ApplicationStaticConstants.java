@@ -35,6 +35,8 @@ public class ApplicationStaticConstants {
     public final static int THREE = 3;
     public static ArrayList<Map<String,String>> listDataIns = new ArrayList<Map<String, String>>();
     public static ArrayList<String> listDataclasscify = new ArrayList<String>();
+    public static ArrayList<Map<String,String>> listOrderSearch = new ArrayList<Map<String, String>>();
+
 
     //url
     public final static String CONSTANTS_URL = "https://128.199.137.227:443";

@@ -17,13 +17,13 @@ import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.course.SubjectDetailActivity;
 import com.example.tu4.adapter.BookingOrderAdapter;
 import com.example.tu4.bean.BookingOrder;
+import com.example.tu4.bean.BookingOrderPost;
 import com.example.tu4.okhttp.JsonGenericsSerializator;
 import com.example.tu4.view.TitleView;
 import com.google.gson.Gson;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.GenericsCallback;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +35,7 @@ import okhttp3.Call;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.BOOKING_ORDER_URL;
 import static com.example.tu4.utils.ApplicationStaticConstants.UserId;
+import static com.example.tu4.utils.ApplicationStaticConstants.listOrderSearch;
 
 /**
  * Created by scy on
@@ -138,6 +139,7 @@ public class BookingOrderActivity extends AppCompatActivity {
                             mapData.put("date", list.get(i).getDate());
                             listData.add(mapData);
                             Log.w("listData",listData.toString());
+                            listOrderSearch = listData;
                             adapter = new BookingOrderAdapter(BookingOrderActivity.this,listData);
                             listView.setAdapter(adapter);
                         }
@@ -146,14 +148,6 @@ public class BookingOrderActivity extends AppCompatActivity {
                 });
     }
 
-    public class BookingOrderPost implements Serializable {
-        private int user_id;
-        private String code;
 
-        public BookingOrderPost(int user_id, String code) {
-            this.user_id = user_id;
-            this.code = code;
-        }
-    }
 
 }
