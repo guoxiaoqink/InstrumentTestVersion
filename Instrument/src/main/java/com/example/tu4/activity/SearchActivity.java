@@ -66,15 +66,15 @@ public class SearchActivity extends AppCompatActivity {
     ImageView imgTopmenuOrder;
     @BindView(R.id.textview_topmenu_order)
     TextView textviewTopmenuOrder;
-    @BindView(R.id.linearlayout_topmenu_order)
-    LinearLayout linearlayoutTopmenuOrder;
+//    @BindView(R.id.linearlayout_topmenu_order)
+//    LinearLayout linearlayoutTopmenuOrder;
 
     @BindView(R.id.img_topmenu_record)
     ImageView imgTopmenuRecord;
     @BindView(R.id.textview_topmenu_record)
     TextView textviewTopmenuRecord;
-    @BindView(R.id.linearlayout_topmenu_record)
-    LinearLayout linearlayoutTopmenuRecord;
+//    @BindView(R.id.linearlayout_topmenu_record)
+//    LinearLayout linearlayoutTopmenuRecord;
 
     @BindView(R.id.listview_subject_serach)
     ListView listviewSubjectSerach;
