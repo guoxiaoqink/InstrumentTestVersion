@@ -4,7 +4,11 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.https.HttpsUtils;
+
 import io.rong.imkit.RongIM;
+import okhttp3.OkHttpClient;
 
 public class App extends Application {
     public static String getCurProcessName(Context context) {
@@ -28,6 +32,13 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RongIM.init(this);
+
+        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+                //其他配置
+                .build();
+        OkHttpUtils.initClient(okHttpClient);
 
     }
 
