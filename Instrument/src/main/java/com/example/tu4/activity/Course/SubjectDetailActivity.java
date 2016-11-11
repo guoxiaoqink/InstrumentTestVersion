@@ -63,7 +63,6 @@ public class SubjectDetailActivity extends AppCompatActivity {
     ResolveConflictsScoolviewListview classTimeList;
     @BindView(R.id.scrollview_subject_detail)
     ScrollView scrollviewClassDetail;
-    private int studentNum;
     @BindView(R.id.tv_course_name)
     TextView tvCourseName;
     @BindView(R.id.tv_course_level)
@@ -116,6 +115,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
     RelativeLayout reFeedbackImg;
     @BindView(R.id.re_num_stu_feedback)
     RelativeLayout reNumStuFeedback;
+    private int studentNum;
     private List<List<ClassCouInfo>> data = new ArrayList<>();
     private List<SubjectInfo> subjectInfos;
     private List<ClassCouInfo> classCouInfos;
@@ -220,7 +220,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 String str = formatter.format(curDate);
                 if (!(classCouInfos.get(0).getDate().equals(str))) {
                     Toast.makeText(SubjectDetailActivity.this, "未到上课时间，无法反馈", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(SubjectDetailActivity.this, "ceshi", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(SubjectDetailActivity.this, "ceshi", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
                     intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);

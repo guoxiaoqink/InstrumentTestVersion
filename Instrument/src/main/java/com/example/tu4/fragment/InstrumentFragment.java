@@ -319,7 +319,7 @@ public class InstrumentFragment extends Fragment {
 
     @Override
     public void onPause() {
-//        autoPlayViewpager.stopPlaying();
+        autoPlayViewpager.stopPlaying();
         super.onPause();
     }
 
@@ -329,7 +329,7 @@ public class InstrumentFragment extends Fragment {
         protected Void doInBackground(Void... params) {
             //模拟网络请求获取数据
             try {
-                Thread.sleep(4000);//模拟休眠4秒
+                Thread.sleep(4000);//休眠4秒
                 mAutoPlayInfoList = changeAutoPlayInfoList();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -349,7 +349,6 @@ public class InstrumentFragment extends Fragment {
 
     private class albumPost implements Serializable {
         private String code;
-
         public albumPost(String code) {
             this.code = code;
         }
