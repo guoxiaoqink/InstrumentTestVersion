@@ -120,6 +120,7 @@ public class InstrumentFragment extends Fragment {
         getImageByUrl();
         getAlbumByUrl();
         getAllInstrumentByUrl();
+        Toast.makeText(getContext(), "shangchuan", Toast.LENGTH_SHORT).show();
         return view;
     }
 
