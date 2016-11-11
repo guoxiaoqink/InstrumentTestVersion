@@ -40,7 +40,6 @@
                 android:src="@mipmap/lookup_serach" />
 
             <EditText
-                android:textColor="@color/color_333333"
                 android:id="@+id/edt_topbar_serach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,6 +48,7 @@
                 android:layout_toRightOf="@+id/find"
                 android:background="@null"
                 android:hint="@string/importdouble"
+                android:textColor="@color/color_333333"
                 android:textColorHint="@color/color_333333"
                 android:textSize="@dimen/sp14" />
         </RelativeLayout>
@@ -245,6 +245,7 @@
                 android:background="@drawable/dividebg" />
             <!--预约订单-->
             <LinearLayout
+                android:id="@+id/li_book_order"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_ffffff"
@@ -281,6 +282,7 @@
                 android:background="@drawable/dividebg" />
             <!--交易记录-->
             <LinearLayout
+                android:id="@+id/li_tread_recoder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_ffffff"
@@ -315,6 +317,7 @@
                 android:background="@drawable/dividebg" />
             <!--乐器-->
             <LinearLayout
+                android:id="@+id/li_instrument"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/color_ffffff"

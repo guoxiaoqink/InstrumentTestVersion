@@ -1,7 +1,9 @@
 package com.example.tu4.activity;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -101,6 +103,12 @@ public class SearchActivity extends AppCompatActivity {
     ResolveConflictsScoolviewListview listviewSubjectSerach;
     @BindView(R.id.scrollview_search)
     ScrollView scrollviewSearch;
+    @BindView(R.id.li_book_order)
+    LinearLayout liBookOrder;
+    @BindView(R.id.li_tread_recoder)
+    LinearLayout liTreadRecoder;
+    @BindView(R.id.li_instrument)
+    LinearLayout liInstrument;
 
 
     private ArrayList<Map<String, String>> OrderlistData;
@@ -109,6 +117,41 @@ public class SearchActivity extends AppCompatActivity {
     private Map<String, String> RecordmapData;
     private String situation;
     private List<List<ClassListDetails>> data = new ArrayList<>();
+
+    /**
+     * @param activity
+     * @return > 0 success; <= 0 fail
+     */
+    public static int getStatusHeight(Activity activity) {
+        int statusHeight = 0;
+        Rect localRect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(localRect);
+        statusHeight = localRect.top;
+        if (0 == statusHeight) {
+            Class<?> localClass;
+            try {
+                localClass = Class.forName("com.android.internal.R$dimen");
+                Object localObject = localClass.newInstance();
+                int i5 = Integer.parseInt(localClass.getField("status_bar_height").get(localObject).toString());
+                statusHeight = activity.getResources().getDimensionPixelSize(i5);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+        }
+        return statusHeight;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,7 +316,6 @@ public class SearchActivity extends AppCompatActivity {
                 });
     }
 
-
     /*
     *
     * */
@@ -293,22 +335,31 @@ public class SearchActivity extends AppCompatActivity {
         this.finish();
     }
 
-    @OnClick({R.id.linearlayout_topmenu_order, R.id.linearlayout_topmenu_record})
+    @OnClick({R.id.linearlayout_topmenu_order, R.id.linearlayout_topmenu_record, R.id.linearlayout_topmenu_instrument})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.linearlayout_topmenu_order:
-//                Intent intent = new Intent(this, BookingOrderActivity.class);
-//                startActivity(intent);
-
+                int StatusHeight = getStatusHeight(SearchActivity.this);
+                int subtraction = StatusHeight + 80;
                 int[] orderLocation = new int[2];
-                listviewOrderSerach.getLocationOnScreen(orderLocation);
-                scrollviewSearch.scrollTo(0,orderLocation[1]);
+                liBookOrder.getLocationOnScreen(orderLocation);
+                scrollviewSearch.scrollTo(0, orderLocation[1] - subtraction);
                 break;
             case R.id.linearlayout_topmenu_record:
-//                Intent intent1 = new Intent(this, TransactionRecordsActivity.class);
-//                startActivity(intent1);
-                listviewRecordSerach.scrollTo(0, 20);
+                int StatusHeight1 = getStatusHeight(SearchActivity.this);
+                int subtraction1 = StatusHeight1 + 80;
+                int[] orderLocation1 = new int[2];
+                liTreadRecoder.getLocationOnScreen(orderLocation1);
+                scrollviewSearch.scrollTo(0, orderLocation1[1] - subtraction1);
                 break;
+            case R.id.linearlayout_topmenu_instrument:
+                int StatusHeight2 = getStatusHeight(SearchActivity.this);
+                int subtraction2 = StatusHeight2 + 50;
+                int[] orderLocation2 = new int[2];
+                liInstrument.getLocationOnScreen(orderLocation2);
+                scrollviewSearch.scrollTo(0, orderLocation2[1] - subtraction2);
+                break;
+
         }
     }
 }

@@ -33,13 +33,8 @@ public class ApplicationStaticConstants {
     public final static int ONE = 1;
     public final static int TWO = 2;
     public final static int THREE = 3;
-    public static ArrayList<Map<String,String>> listDataIns = new ArrayList<Map<String, String>>();
-    public static ArrayList<String> listDataclasscify = new ArrayList<String>();
-    public static ArrayList<Map<String,String>> listOrderSearch = new ArrayList<Map<String, String>>();
-
-
     //url
-    public final static String CONSTANTS_URL = "https://128.199.137.227:443";
+    public final static String CONSTANTS_URL = "https://128.199.74.192:443";
     public final static String LOGIN_URL = CONSTANTS_URL + "/login/api_login";
     public final static String FEEDBACK = CONSTANTS_URL + "/myapi/feedback/api_feedBack";
     public final static String REGISTER_URL = CONSTANTS_URL + "/regist/getdata";
@@ -75,11 +70,13 @@ public class ApplicationStaticConstants {
     public final static String ENSURE_ORDER_URL = CONSTANTS_URL + "/myapi/buyInstrument/api_buyinstrument";
     public final static String SYSTEM_INFORMATION_URL = CONSTANTS_URL + "/myapi/showSystemMessage/api_showSystemMessage";
     public final static String TRANSACTION_RECORDS_URL = CONSTANTS_URL + "/myapi/buyOrder/api_buyInsOrder";
-
     //趣拍
     public static final String APP_KEY = "20cffd9799a88e4";
     public static final String APP_SECRET = "14e418ad663f445e886f614ae0ea2f83";
     public static final String domain = "http://instrument.s.qupai.me";//当前TEST应用的域名。该地址每个应用都不同
+    public static ArrayList<Map<String, String>> listDataIns = new ArrayList<Map<String, String>>();
+    public static ArrayList<String> listDataclasscify = new ArrayList<String>();
+    public static ArrayList<Map<String, String>> listOrderSearch = new ArrayList<Map<String, String>>();
     public static int JUMP_MAINACTIVITY = 1;
     public static int chooseRecycleView = 0;
 
