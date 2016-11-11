@@ -229,6 +229,8 @@ public class SearchActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+//        initListviewOrder();
     }
 
     private void getOrderDataByUrl() {
