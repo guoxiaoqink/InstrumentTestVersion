@@ -134,16 +134,9 @@ public class SubjectDetailActivity extends AppCompatActivity {
         mLinearLayout = (LinearLayout) findViewById(R.id.linearlayout_studenimage_subjectdetail);
         mLinearLayoutFeedback = (LinearLayout) findViewById(
                 R.id.linearlayout_studentback_subjectdetail);
-
-
-//        Intent intent = getIntent();
-//        class_id = Integer.parseInt(intent.getStringExtra("class_id"));
-
         //获取缓存数据
         getChcheData();
-
         initLinearlayoutImage();
-        initLinearlayouFeedback();
         kcxqTitleView.setTitleText(title);
         Drawable ic_return = res.getDrawable(R.mipmap.left_arrow_white);
         kcxqTitleView.setImgLeft(ic_return);
@@ -157,14 +150,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
         Drawable stu_feedback = res.getDrawable(R.mipmap.subjectdetail_more);
         kcxqTitleView.setImgRight2(stu_feedback);
         kcxqTitleView.getImgRight2().setVisibility(View.VISIBLE);
-//        kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+
     }
 
     /**
@@ -220,7 +206,6 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 String str = formatter.format(curDate);
                 if (!(classCouInfos.get(0).getDate().equals(str))) {
                     Toast.makeText(SubjectDetailActivity.this, "未到上课时间，无法反馈", Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(SubjectDetailActivity.this, "ceshi", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
                     intent.setClass(SubjectDetailActivity.this, IssiuFeedbackActivity.class);
@@ -230,9 +215,9 @@ public class SubjectDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void initLinearlayouFeedback() {
-
-    }
+//    private void initLinearlayouFeedback() {
+//
+//    }
 
     public void initLinearlayoutImage() {
         addHeadImgToLinearlayout(STUDENT_NUMBER, MAX_STUDENT_NUMBER,
