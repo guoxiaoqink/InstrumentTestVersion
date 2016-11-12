@@ -51,12 +51,12 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
-            if (result == 0){
+            if (result == 0) {
                 Intent intent = new Intent();
                 intent.setClass(SplashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-            }else {
+            } else {
                 Intent intent = new Intent();
                 intent.setClass(SplashActivity.this, MainActivity.class);
                 startActivity(intent);

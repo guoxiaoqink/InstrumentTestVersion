@@ -201,10 +201,23 @@ public class SubjectDetailActivity extends AppCompatActivity {
         kcxqTitleView.setImgRight2OnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SimpleDateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 Date curDate = new Date(System.currentTimeMillis());//获取当前时间
                 String str = formatter.format(curDate);
-                if (!(classCouInfos.get(0).getDate().equals(str))) {
+                String date[] = str.split("-");
+                String date3[] = classCouInfos.get(0).getDate().split("-");
+                String date1 = "";
+                String date4 = "";
+                for (int i = 0; i < date.length; i++) {
+                    date1 = date1 + date[i];
+                    date4 = date4 + date3[i];
+                }
+                int date2 = Integer.parseInt(date1);
+                int date5 = Integer.parseInt(date4);
+                if (date2 < date5) {
+//                    Toast.makeText(SubjectDetailActivity.this, date5, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SubjectDetailActivity.this, classCouInfos.get(0).getDate(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(SubjectDetailActivity.this, str, Toast.LENGTH_SHORT).show();
                     Toast.makeText(SubjectDetailActivity.this, "未到上课时间，无法反馈", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
