@@ -1,7 +1,9 @@
 package com.example.tu4.fragment;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -30,9 +32,6 @@ import com.example.tu4.view.CircleImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static com.example.tu4.utils.ApplicationStaticConstants.UserName;
-import static com.example.tu4.utils.ApplicationStaticConstants.UserTel;
 
 /**
  * Created by gxq
@@ -68,7 +67,13 @@ public class PersonalMessageFragment extends Fragment {
     }
 
     private void initViewData() {
+
+        SharedPreferences sharedPreferences =getActivity().getSharedPreferences("test",
+                Activity.MODE_PRIVATE);
+        String UserName = sharedPreferences.getString("UserName", "0");
+        String UserTel = sharedPreferences.getString("UserTel", "0");
         //   civPersonImage.setImageResource();头像还没有，没有传过来的值
+
         tvUsername.setText(UserName);
         tvTelnumber.setText(UserTel);
     }

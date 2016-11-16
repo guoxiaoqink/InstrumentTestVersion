@@ -335,6 +335,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
 
         editor.putString("name", edtTel.getText().toString());
         editor.putString("password", edtPassword.getText().toString());
+        editor.putString("UserName",UserName);//用户名
+        editor.putString("UserTel",UserTel);//手机号
+        editor.putString("Introduction",Introduction);//介绍
+        editor.putString("Other",Other);//其他
+        editor.putString("Location",Location);//地区
+
 
         editor.commit();
     }

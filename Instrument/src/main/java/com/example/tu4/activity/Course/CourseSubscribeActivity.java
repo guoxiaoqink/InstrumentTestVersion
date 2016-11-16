@@ -1,7 +1,9 @@
 package com.example.tu4.activity.course;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -55,7 +57,10 @@ public class CourseSubscribeActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//沉浸式状态栏
         setContentView(R.layout.activity_course_subscribe);
         ButterKnife.bind(this);
-        accountDetails.setText(account);
+        SharedPreferences sharedPreferences =getSharedPreferences("test",
+                Activity.MODE_PRIVATE);
+        String UserName = sharedPreferences.getString("UserName", "0");
+        accountDetails.setText(UserName);
         accountName.setFocusable(true);
         initview();
     }
