@@ -50,14 +50,14 @@ import static com.example.tu4.utils.ApplicationStaticConstants.account;
  * Created by gxq on
  * Descripyion: 登陆，注册，界面
  * Version：1
- * Modify Person：gxq
+ * Modify Person：wqj and hs
  */
 public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     /*
-    * 判断是登录还是注册，默认的是注册，就是注册时true，登录时false
+    * 判断是登录还是注册，默认的是登录，就是注册时false，登录时true
     * */
-    Boolean judgeLoginOrRegister = true;
+    Boolean judgeLoginOrRegister = false;
     Boolean judgePasswordShow = true;
     @BindView(R.id.btnLogin)
     Button btnLogin;
@@ -107,6 +107,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnFocusChan
                         R.string.login, false);
                 break;
             case R.id.btnRegister:
+                judgeLoginOrRegister = true;
+                edtVerification.setVisibility(View.VISIBLE);
+                btnGetVertification.setVisibility(View.VISIBLE);
+                textviewLineVertification.setVisibility(View.VISIBLE);
                 switchLoginOrRegister(R.drawable.shape2, R.drawable.shape, View.VISIBLE,
                         R.string.register, true);
                 break;
