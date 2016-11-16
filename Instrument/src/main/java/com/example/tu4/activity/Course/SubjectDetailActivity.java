@@ -77,12 +77,6 @@ public class SubjectDetailActivity extends AppCompatActivity {
     LinearLayout linearlayoutStudenimageSubjectdetail;
     @BindView(R.id.jiantou)
     ImageView jiantou;
-    //    @BindView(R.id.subject)
-//    TextView subject;
-//    @BindView(R.id.line_subject)
-//    TextView lineSubject;
-//    @BindView(R.id.textview_cintent)
-//    TextView textviewCintent;
     @BindView(R.id.linearlayout_studentback_subjectdetail)
     LinearLayout linearlayoutStudentbackSubjectdetail;
     @BindView(R.id.image_jiantoufankui)
@@ -191,8 +185,6 @@ public class SubjectDetailActivity extends AppCompatActivity {
         tvNumofFeedback.setText(subjectDetails.getFeedback_number() + "条学生反馈");
         addHeadImgToLinearlayout(subjectDetails.getFeedback_number(), MAX_STUDENT_NUMBER_BACK,
                 R.layout.subject_detati_studentback_linearlayout_item, mLinearLayoutFeedback);
-//                            System.out.println(subjectInfos.get(0).getTeacher_telephone());
-        //JSONObject jsonObject = new JSONObject(response);
         for (int i = 0; i < classCouInfos.size(); i++) {
             data.add(classCouInfos);
         }
@@ -215,9 +207,7 @@ public class SubjectDetailActivity extends AppCompatActivity {
                 int date2 = Integer.parseInt(date1);
                 int date5 = Integer.parseInt(date4);
                 if (date2 < date5) {
-//                    Toast.makeText(SubjectDetailActivity.this, date5, Toast.LENGTH_SHORT).show();
                     Toast.makeText(SubjectDetailActivity.this, classCouInfos.get(0).getDate(), Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(SubjectDetailActivity.this, str, Toast.LENGTH_SHORT).show();
                     Toast.makeText(SubjectDetailActivity.this, "未到上课时间，无法反馈", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();

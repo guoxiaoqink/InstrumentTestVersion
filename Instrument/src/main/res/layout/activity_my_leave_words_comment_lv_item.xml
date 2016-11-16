@@ -11,8 +11,8 @@
             android:layout_width="@dimen/dp_22"
             android:layout_height="@dimen/dp_22"
             android:layout_margin="@dimen/dp_10"
-            android:scaleType="fitXY"
-            android:background="@color/color_d1d1d1"/>
+            android:background="@color/color_d1d1d1"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/tv_leave_word_comment_name"
@@ -87,7 +87,6 @@
                 android:visibility="gone">
 
                 <TextView
-                    android:id="@+id/tv_leave_word_comment_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dp_10"
@@ -96,7 +95,6 @@
                     android:textSize="@dimen/sp_13"/>
 
                 <ImageView
-                    android:id="@+id/img_leave_word_comment_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"

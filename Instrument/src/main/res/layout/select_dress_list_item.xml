@@ -5,7 +5,6 @@
     android:descendantFocusability="blocksDescendants">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

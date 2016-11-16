@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--课程订购页面-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_course_subscribe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -111,7 +110,6 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/rl_course_details"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp86"
             android:layout_alignParentStart="true"
@@ -229,13 +227,13 @@
             android:textSize="@dimen/sp14" />
         <!--姓名输入框-->
         <EditText
-            android:inputType="text"
             android:id="@+id/et_account_name"
             android:layout_width="230dp"
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
             android:background="@drawable/true_name_shape"
             android:hint="@string/pleaseInputName"
+            android:inputType="text"
             android:paddingLeft="@dimen/dp5"
             android:textColor="@color/color_333333"
             android:textColorHint="@color/color_999999"
@@ -243,7 +241,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/lin_receiver_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lin_receiver_info"
@@ -265,13 +262,13 @@
             android:textSize="@dimen/sp14" />
         <!--手机号码输入框-->
         <EditText
-            android:inputType="phone"
             android:id="@+id/et_account_tel"
             android:layout_width="@dimen/dp230"
             android:layout_height="@dimen/dp37"
             android:layout_marginStart="@dimen/dp11"
             android:background="@drawable/true_name_shape"
             android:hint="@string/pleaseInputPhonenamber"
+            android:inputType="phone"
             android:paddingLeft="@dimen/dp5"
             android:textColor="@color/color_333333"
             android:textColorHint="@color/color_999999"
@@ -285,7 +282,6 @@
         android:orientation="vertical">
         <!--分割线-->
         <TextView
-            android:id="@+id/tv_bottom_line_long"
             android:layout_width="match_parent"
             android:layout_height="@dimen/px1"
             android:background="@color/color_d1d1d1" />

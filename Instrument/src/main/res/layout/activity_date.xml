@@ -91,7 +91,6 @@
                     android:contentDescription="@null" />
 
                 <LinearLayout
-                    android:id="@+id/date_operator_ll"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

@@ -13,7 +13,6 @@
         android:weightSum="1">
 
         <RelativeLayout
-            android:id="@+id/rl_top"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp44"
             android:background="@color/color_97c8cd">
@@ -37,7 +36,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_payment"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_65"
             android:background="@color/color_97c8cd"
@@ -54,7 +52,6 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_payment_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -67,7 +64,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_express"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp44"
             android:background="@color/color_ffffff"
@@ -91,7 +87,6 @@
                 android:src="@mipmap/right_arrow_gray" />
 
             <TextView
-                android:id="@+id/tv_express"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/dp10"
@@ -111,7 +106,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tv_line_Tel"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_1"
                 android:background="@color/color_d1d1d1" />
@@ -135,7 +129,6 @@
                 android:textSize="@dimen/dp15" />
 
             <TextView
-                android:id="@+id/tv_consignee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"
@@ -146,7 +139,6 @@
                 android:textSize="@dimen/dp15" />
 
             <TextView
-                android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_20"
@@ -172,7 +164,6 @@
                 android:layout_height="wrap_content"></com.example.tu4.view.ResolveConflictsScoolviewListview>
 
             <TextView
-                android:id="@+id/textview_line_4"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp1"
                 android:layout_below="@id/order_details_listview"
@@ -183,14 +174,12 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_freight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.02"
             android:background="@color/color_ffffff">
 
             <TextView
-                android:id="@+id/tv_freight_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -348,7 +337,6 @@
                 android:textSize="@dimen/px24" />
 
             <TextView
-                android:id="@+id/textview_line_10_4"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_10"
                 android:layout_below="@id/tv_return_address"
@@ -363,7 +351,6 @@
             android:background="@color/color_ffffff">
 
             <Button
-                android:id="@+id/btn_cancel_order1"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_marginLeft="@dimen/dp_16"
@@ -374,7 +361,6 @@
                 android:textSize="@dimen/sp17" />
 
             <Button
-                android:id="@+id/btn_cancel_order"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_centerInParent="true"
@@ -386,7 +372,6 @@
                 android:textSize="@dimen/sp17" />
 
             <Button
-                android:id="@+id/btn_return_it"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_marginBottom="@dimen/dp26"
@@ -399,7 +384,6 @@
             />
 
             <Button
-                android:id="@+id/btn_payment"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_alignParentEnd="true"
@@ -411,7 +395,6 @@
                 android:textSize="@dimen/sp17" />
 
             <Button
-                android:id="@+id/btn_recrive"
                 android:layout_width="@dimen/dp_161"
                 android:layout_height="@dimen/dp_37"
                 android:layout_alignParentEnd="true"
@@ -530,7 +513,6 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/rl_pay_or_cencle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp50"
                 android:layout_below="@id/re_payment"
@@ -544,7 +526,6 @@
                     android:background="@color/color_d1d1d1" />
 
                 <TextView
-                    android:id="@+id/tv_cencle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

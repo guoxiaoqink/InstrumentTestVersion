@@ -2,7 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_my_leave_words"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_ffffff"
@@ -33,7 +32,6 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/img_infor"
                 android:layout_width="@dimen/dp_39"
                 android:layout_height="@dimen/dp_39"
                 android:layout_marginLeft="@dimen/dp_10"

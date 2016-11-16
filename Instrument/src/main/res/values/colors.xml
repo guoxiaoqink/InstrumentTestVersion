@@ -3,7 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="listiten_textview_color">#666666</color>
     <color name="listview_diver">#e6e6e6</color>
     <color name="sffffff">#ffffff</color>
     <color name="gray">#dddddd</color>
@@ -29,9 +28,7 @@
     <color name="color_dddddd">#dddddd</color>
     <color name="color_f49c41">#f49c41</color>
     <color name="color_000000">#000000</color>
-    <color name="color_252525">#252525</color>
     <color name="color_ff_ffffff">#ffffffff</color>
     <color name="color_66_666666">#666666</color>
-    <color name="color_97C8CD">#97C8CD</color>
     <color name="color_f5f5f5">#f5f5f5</color>
 </resources>

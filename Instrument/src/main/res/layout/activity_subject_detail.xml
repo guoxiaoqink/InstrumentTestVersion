@@ -50,7 +50,6 @@
         <!--</RelativeLayout>-->
 
         <ImageView
-            android:id="@+id/iv_details"
             android:layout_width="match_parent"
             android:layout_height="211dp"
             android:src="@mipmap/instrument_instrument" />
@@ -298,12 +297,12 @@
         </LinearLayout>
 
         <com.example.tu4.view.ResolveConflictsScoolviewListview
-            android:divider="@color/color_f0f0f0"
-            android:dividerHeight="@dimen/dp11"
             android:id="@+id/class_time_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp11">
+            android:layout_marginTop="@dimen/dp11"
+            android:divider="@color/color_f0f0f0"
+            android:dividerHeight="@dimen/dp11">
 
         </com.example.tu4.view.ResolveConflictsScoolviewListview>
         <!--课时-->
@@ -460,7 +459,6 @@
             android:background="@drawable/subject_detail_shape">
 
             <LinearLayout
-                android:id="@+id/li_num_stu_feedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp10"

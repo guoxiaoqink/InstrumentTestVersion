@@ -13,9 +13,6 @@
     <string name="password">密码</string>
     <string name="验证码">验证码</string>
     <string name="getyanzhengma">获取验证码</string>
-    <string name="title_activity_inatrument_classify_activity">Inatrument_classify_activity</string>
-    <string name="subjectdetail">课程详情</string>
-    <string name="subjectdate">课程日历</string>
     <string name="money">¥</string>
     <string name="teacher">老师</string>
     <string name="choosesubject">选课</string>
@@ -29,13 +26,11 @@
     <string name="afternoon2">14 : 00</string>
     <string name="subjectname">课程XXXXXXXXX（课时3）</string>
     <string name="address">地址 ： XX区XX大厦XX楼</string>
-    <string name="course_order">课程订购</string>
     <string name="account">账户</string>
     <string name="account_hint">学员XXX</string>
     <string name="course_info">课程信息</string>
     <string name="returnback">return</string>
     <string name="true_name">真实姓名</string>
-    <string name="name_user">姓名</string>
     <string name="must_input_sign">*</string>
     <string name="recever_phone_number">手机号码</string>
     <string name="course_order_money">金额</string>
@@ -52,40 +47,26 @@
     <string name="pay_attention">请关注上课时间按时上课</string>
     <string name="show_course_details">查看课程详情</string>
     <string name="return_course">返回课程中心</string>
-    <string name="help_center">帮助中心</string>
-    <string name="student_feedback">学员反馈</string>
-    <string name="complaints_titl">投诉建议</string>
-    <string name="select_suggestion_type">请选择意见类型</string>
     <string name="input_contest">输入内容</string>
     <string name="complaint_phone">投诉电话</string>
-    <string name="complaint_phone_numble">40000000</string>
     <string name="somplaint_push">提交</string>
     <string name="other">其他</string>
     <string name="complaint">投诉</string>
     <string name="operate_suggest">操作建议</string>
     <string name="system_information">系统消息</string>
-    <string name="recorder">录制</string>
     <string name="delete_1">删除</string>
     <string name="delete_2">删   除</string>
-    <string name="my_works">我的作品</string>
     <string name="headPro">头像</string>
     <string name="changeHead">更改头像</string>
-    <string name="allimg">所有图片</string>
-    <string name="selectHead">选择头像</string>
     <string name="personData">个人资料</string>
     <string name="tel">账户（手机号）</string>
     <string name="locate">地区</string>
     <string name="selfcriticism">自我介绍</string>
-    <string name="my_leave_words">我的留言</string>
-    <string name="issiu_feedback">发布反馈</string>
-    <string name="issiu">发布</string>
-    <string name="connectus">联系我们</string>
     <string name="contact_us_str">联系方式</string>
     <string name="teliphone">电话</string>
     <string name="call">拨打</string>
     <string name="serve">客服</string>
     <string name="servePerson">客服一</string>
-    <string name="please_input_suggestion">请输入感想。。。</string>
     <string name="pleaseinputthinks">请输入感想。。。</string>
     <string name="issiufeedback">发布反馈</string>
     <string name="issiu1">发布</string>
@@ -108,19 +89,15 @@
     <string name="return_it">退货</string>
     <string name="payment">付款</string>
     <string name="recrive">确认收货</string>
-    <string name="payment_way">支付方式</string>
     <string name="go_payment">去支付</string>
     <string name="cancle">取  消</string>
     <string name="orders_details">订单详情</string>
     <string name="instrument_details">乐器详情</string>
     <string name="product_parameter">产品参数</string>
-    <string name="presonal_data">个人中心</string>
-    <string name="booking_order">预约订单</string>
     <string name="tv_order_time">订单时间：2016-09-08 14:00</string>
     <string name="student_xxxx">学员XXXX</string>
     <string name="six_minuits_6">6分钟前</string>
     <string name="count_xxxxx">内容XXXXX</string>
-    <string name="edit_dress">编辑地址</string>
     <string name="getman_name">收货人姓名</string>
     <string name="hit_input">点击即可输入</string>
     <string name="xaingxi_dress">详细地址</string>
@@ -130,7 +107,6 @@
     <string name="money_5000">5000</string>
     <string name="money_logis">运费：000</string>
     <string name="shanghai">上海</string>
-    <string name="paybaby">支付宝</string>
     <string name="infstrumentdetail">参数1：xxx</string>
     <string name="commoditydestribe">商品描述</string>
     <string name="sum">总计（含运费）</string>
@@ -142,9 +118,7 @@
     <string name="fool">音质优美 配件齐全 手工实木 哈哈哈 哈哈哈 哈哈哈哈 我已经写不下去啦</string>
     <string name="money_15">￥ 15.00</string>
     <string name="_30_00">30.00</string>
-    <string name="money_30">30.00</string>
     <string name="money_sign">¥</string>
-    <string name="select_address">选择地址</string>
     <string name="add_address">增加新地址</string>
     <string name="money_5000_00">5000.00</string>
     <string name="ensure_order">确认订单</string>
@@ -164,17 +138,11 @@
     <string name="threesubjects">课时3</string>
     <string name="money_10000_00">10000.00</string>
     <string name="class_1">课时1</string>
-    <string name="username">课时1</string>
-    <string name="class_2">课时2</string>
     <string name="pleaseInputName">请输入姓名</string>
     <string name="pleaseInputPhonenamber">请输入手机号码</string>
     <string name="username1">昵称Cdohng</string>
     <string name="please_modify">请改为自己的标题</string>
 
-    <array name="hehe">
-        <item>niu</item>
-        <item>ma</item>
-    </array>
     <string-array name="custom_weekdays">
         <item>S</item>
         <item>M</item>

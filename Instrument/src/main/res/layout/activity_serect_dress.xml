@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_select_dress"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_ffffff"
@@ -16,20 +15,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <com.example.tu4.view.ResolveConflictsScoolviewListview
-            android:clickable="true"
             android:id="@+id/lv_select_dress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:divider="@color/color_d1d1d1"
             android:dividerHeight="@dimen/px1">
         </com.example.tu4.view.ResolveConflictsScoolviewListview>
 
     <Button
-        android:layout_marginTop="@dimen/dp11"
         android:id="@+id/btn_add_dress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +35,7 @@
         android:layout_marginBottom="@dimen/dp_51"
         android:layout_marginLeft="@dimen/dp_22"
         android:layout_marginRight="@dimen/dp_22"
+        android:layout_marginTop="@dimen/dp11"
         android:background="@color/color_97c8cd"
         android:text="@string/add_address"
         android:textColor="@color/color_ffffff"

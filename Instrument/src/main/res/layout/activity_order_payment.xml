@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--订单支付界面-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_order_payment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -50,7 +49,6 @@
         android:orientation="horizontal">
         <!--账户文字-->
         <TextView
-            android:id="@+id/tv_order_account"
             android:layout_width="@dimen/dp60"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp11"
@@ -86,7 +84,6 @@
         android:orientation="horizontal">
         <!--课程信息文字-->
         <TextView
-            android:id="@+id/tv_order_course_info"
             android:layout_width="@dimen/dp60"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp11"
@@ -124,7 +121,6 @@
         android:orientation="horizontal">
         <!--联系人文字-->
         <TextView
-            android:id="@+id/tv_order_course_iperson"
             android:layout_width="@dimen/dp60"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp11"
@@ -161,7 +157,6 @@
         android:orientation="horizontal">
         <!--订单号文字-->
         <TextView
-            android:id="@+id/tv_order_course_num"
             android:layout_width="@dimen/dp60"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp11"
@@ -199,7 +194,6 @@
         android:orientation="horizontal">
         <!--金额文字-->
         <TextView
-            android:id="@+id/tv_order_course_money"
             android:layout_width="@dimen/dp60"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp11"
