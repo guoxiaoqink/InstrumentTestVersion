@@ -1,2 +1,2 @@
-include ':Instrument', ':okhttputils', 'photopicker', ':vitamio', ':Qupaisdk-release', ':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable'
+include ':Instrument', ':okhttputils',  'photopicker', ':vitamio', ':Qupaisdk-release', ':Rong_Cloud_Android_IMKit_SDK_v2_7_3_stable'
 

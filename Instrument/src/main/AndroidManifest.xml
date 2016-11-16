@@ -121,7 +121,8 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.personal.MyWorksActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+        </activity>
         <activity
             android:name=".activity.personal.MyWorksDeleteActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -169,7 +170,6 @@
         <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
