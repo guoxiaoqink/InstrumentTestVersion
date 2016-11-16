@@ -2,6 +2,8 @@ package com.example.tu4.fragment;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tu4.R;
+import com.example.tu4.activity.LoginActivity;
 import com.example.tu4.activity.SearchActivity;
 import com.example.tu4.activity.personal.BookingOrderActivity;
 import com.example.tu4.activity.personal.ComplaintsSuggestionsActivity;
@@ -120,6 +123,8 @@ public class PersonalMessageFragment extends Fragment {
                     Intent intentHelpCenter = new Intent(getContext(),
                             HelpCenterActivity.class);
                     startActivity(intentHelpCenter);
+                }if (position == 7){
+                    dialog();
                 }
 
               /*  Intent intentToLogistics = new Intent(getContext(),
@@ -128,6 +133,49 @@ public class PersonalMessageFragment extends Fragment {
             }
         });
 
+    }
+
+    private void dialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("确认退出吗?");
+        builder.setTitle("提示");
+        builder.setPositiveButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.setNegativeButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                SharedPreferences sharepreferences = getActivity().getSharedPreferences("test",Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharepreferences.edit();
+                editor.clear();
+                editor.commit();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+        builder.create().show();
+//        AlertDialog.Builder builder = new Builder(Main.this);
+//        03　　 builder.setMessage("确认退出吗?");
+//        04　　 builder.setTitle("提示");
+//        05　　 builder.setPositiveButton("确认", new OnClickListener() {
+//            06　　 @Override
+//            07　　 public void onClick(DialogInterface dialog, int which) {
+//                08　　 dialog.dismiss();
+//                09　　 Main.this.finish();
+//                10　　 }
+//            11　　 });
+//        12　　 builder.setNegativeButton("取消", new OnClickListener() {
+//            13　　 @Override
+//            14　　 public void onClick(DialogInterface dialog, int which) {
+//                15　　 dialog.dismiss();
+//                16　　 }
+//            17　　 });
+//        18　　 builder.create().show();
     }
 
     @OnClick({R.id.img_find_personmessage, R.id.rela_person_data})

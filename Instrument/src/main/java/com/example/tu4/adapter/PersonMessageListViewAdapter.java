@@ -17,7 +17,7 @@ import com.example.tu4.R;
 public class PersonMessageListViewAdapter extends BaseAdapter {
 
     int[] ImgArray = {R.mipmap.date_person_message, R.mipmap.notebook_person_message, R.mipmap.remind_person_message, R.mipmap.photo_person_message,
-            R.mipmap.pen_person_message, R.mipmap.message_personmessage, R.mipmap.help};
+            R.mipmap.pen_person_message, R.mipmap.message_personmessage, R.mipmap.help,R.mipmap.help};
 
     String[] stringArray;
     viewHolder viewHolder;
