@@ -117,6 +117,9 @@
             android:name=".activity.instrument.EditDressActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".activity.AdvertisementActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
             android:name=".activity.personal.SystemInformationActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity

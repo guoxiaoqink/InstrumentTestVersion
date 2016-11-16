@@ -81,7 +81,6 @@ public class SubjectFragment extends Fragment {
                                 AdvertisementActivity.class);
                         intent.putExtra("linkPath", adLink);
                         startActivity(intent);
-                        Toast.makeText(getContext(), "ceshi", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -205,7 +204,7 @@ public class SubjectFragment extends Fragment {
         for (int i = 0; i < ImageCricleViewList_image.size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             autoPlayInfo.setImageUrl(ImageCricleViewList_image.get(i));
-            autoPlayInfo.setAdLinks("");//无数据时不跳转
+            autoPlayInfo.setAdLinks("http://www.1hqh.com/");//无数据时不跳转
             autoPlayInfo.setTitle(ImageCricleViewList_name.get(i));
             autoPlayInfoList.add(autoPlayInfo);
         }
