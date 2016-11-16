@@ -5,10 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tu4.R;
 import com.example.tu4.fragment.InstrumentFragment;
@@ -17,6 +19,8 @@ import com.example.tu4.fragment.SubjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.example.tu4.utils.ApplicationStaticConstants.JUMP_MAINACTIVITY;
 import static com.example.tu4.utils.ApplicationStaticConstants.ONE;
@@ -65,6 +69,45 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if(JUMP_MAINACTIVITY != 1){
             viewPager.setCurrentItem(ONE, false);
             bottomMenuBarChange(ONE);
+        }
+
+    }
+
+    /**
+     * 双击返回键退出
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            exitBy2Click(); //调用双击退出函数
+        }
+        return false;
+    }
+
+    /**
+     * 双击退出函数
+     */
+    private static Boolean isExit = false;
+    private void exitBy2Click() {
+        Timer tExit = null;
+        if (isExit == false) {
+            isExit = true; // 准备退出
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+        } else {
+            finish();
+            System.exit(0);
         }
 
     }
