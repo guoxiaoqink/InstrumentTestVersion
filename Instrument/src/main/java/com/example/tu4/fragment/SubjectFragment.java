@@ -204,7 +204,7 @@ public class SubjectFragment extends Fragment {
         for (int i = 0; i < ImageCricleViewList_image.size(); i++) {
             AutoPlayInfo autoPlayInfo = new AutoPlayInfo();
             autoPlayInfo.setImageUrl(ImageCricleViewList_image.get(i));
-            autoPlayInfo.setAdLinks("http://www.1hqh.com/");//无数据时不跳转
+            autoPlayInfo.setAdLinks("http://www.yueqixuexi.com/");//无数据时不跳转
             autoPlayInfo.setTitle(ImageCricleViewList_name.get(i));
             autoPlayInfoList.add(autoPlayInfo);
         }
